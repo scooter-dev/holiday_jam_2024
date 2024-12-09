@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://o6ft7nv8i4k"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_msro6"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5nuec"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_wqoga"]
+
+[sub_resource type="Environment" id="Environment_x4wn1"]
+ambient_light_color = Color(1, 1, 1, 1)
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_msro6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+shape = SubResource("SphereShape3D_5nuec")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("SphereMesh_wqoga")
+
+[node name="CameraBase" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 10, 10)
+
+[node name="Camera3D" type="Camera3D" parent="CameraBase"]
+environment = SubResource("Environment_x4wn1")
+current = true
