@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://cal7qhkesu02s"]
+
+[ext_resource type="Script" path="res://src/Player/GroundRays.gd" id="1_v6gec"]
+[ext_resource type="Script" path="res://src/Player/Movement.gd" id="2_n4f6x"]
+[ext_resource type="Script" path="res://src/Player/PlayerInput.gd" id="3_b7fis"]
+[ext_resource type="Script" path="res://src/Player/CamY.gd" id="3_b40r7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ckfjp"]
+radius = 0.15
+height = 0.49
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_w1jef"]
+radius = 0.15
+height = 0.7
+
+[node name="Player" type="CharacterBody3D"]
+motion_mode = 1
+
+[node name="GroundRays" type="Node3D" parent="."]
+script = ExtResource("1_v6gec")
+
+[node name="RayCast3D" type="RayCast3D" parent="GroundRays"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.358932, 0)
+
+[node name="RayCast3D2" type="RayCast3D" parent="GroundRays"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.121321, 0.358932, 0)
+
+[node name="RayCast3D3" type="RayCast3D" parent="GroundRays"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.121, 0.359, 0)
+
+[node name="RayCast3D4" type="RayCast3D" parent="GroundRays"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.00153726, 0.358932, 0.121149)
+
+[node name="RayCast3D5" type="RayCast3D" parent="GroundRays"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.00185876, 0.359, -0.121149)
+
+[node name="RayCast3D6" type="RayCast3D" parent="GroundRays"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0.0858343, 0.358932, 0.0856736)
+
+[node name="RayCast3D7" type="RayCast3D" parent="GroundRays"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -0.0855128, 0.359, -0.0856736)
+
+[node name="RayCast3D8" type="RayCast3D" parent="GroundRays"]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -0.0867051, 0.358932, 0.0844645)
+
+[node name="RayCast3D9" type="RayCast3D" parent="GroundRays"]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0.0870266, 0.359, -0.0844645)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.455833, 0)
+shape = SubResource("CapsuleShape3D_ckfjp")
+
+[node name="Movement" type="Node" parent="." node_paths=PackedStringArray("groundRays", "camY", "playerInput", "player")]
+script = ExtResource("2_n4f6x")
+groundRays = NodePath("../GroundRays")
+camY = NodePath("../CamY")
+playerInput = NodePath("../PlayerInput")
+player = NodePath("..")
+
+[node name="CamY" type="Node3D" parent="." node_paths=PackedStringArray("playerInput", "camX")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.932136, 0)
+script = ExtResource("3_b40r7")
+playerInput = NodePath("../PlayerInput")
+camX = NodePath("CamX")
+
+[node name="CamX" type="Node3D" parent="CamY"]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CamY/CamX"]
+
+[node name="Camera3D" type="Camera3D" parent="CamY/CamX/SpringArm3D"]
+current = true
+
+[node name="PlayerInput" type="Node" parent="."]
+script = ExtResource("3_b7fis")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+mesh = SubResource("CapsuleMesh_w1jef")
