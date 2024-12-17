@@ -1,0 +1,19 @@
+shader_type spatial;
+render_mode unshaded;
+
+uniform sampler2D tex : filter_nearest;
+uniform vec2 textureScaling = vec2(1);
+
+void vertex() {
+	UV = UV * textureScaling;
+}
+
+void fragment() {
+	ALBEDO = texture(tex, UV).rgb;
+	ALBEDO *= pow(COLOR.r,5.0);
+}
+
+//void light() {
+	// Called for every pixel for every light affecting the material.
+	// Uncomment to replace the default light processing function with this one.
+//}
