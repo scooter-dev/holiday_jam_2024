@@ -1,6 +1,7 @@
-[gd_scene load_steps=31 format=3 uid="uid://cgj71p8cjvgda"]
+[gd_scene load_steps=32 format=3 uid="uid://cgj71p8cjvgda"]
 
 [ext_resource type="Texture2D" uid="uid://c7glm5caj11yn" path="res://Assets/Textures/waterSolo.png" id="1_fpmaa"]
+[ext_resource type="Shader" path="res://src/Shaders/water.gdshader" id="1_qkuxb"]
 [ext_resource type="Shader" path="res://src/Shaders/terrain.gdshader" id="2_a1oqp"]
 [ext_resource type="Texture2D" uid="uid://d3nic1ill63om" path="res://Assets/Meshes/Levels/TutorialLevel/textures/terrainMap.png" id="3_22ilo"]
 [ext_resource type="Texture2D" uid="uid://dww7uvagoim25" path="res://Assets/Textures/dirt.png" id="4_7ms5c"]
@@ -9,16 +10,6 @@
 [ext_resource type="Shader" path="res://src/Shaders/AOUnshaded.gdshader" id="6_yumle"]
 [ext_resource type="Texture2D" uid="uid://0uxj2myxcwga" path="res://Assets/Textures/leaves.png" id="7_yn6mq"]
 [ext_resource type="PackedScene" uid="uid://cal7qhkesu02s" path="res://src/Player/player.tscn" id="9_mevfl"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_net5r"]
-shading_mode = 0
-albedo_color = Color(0.333984, 0.890625, 0.603607, 1)
-albedo_texture = ExtResource("1_fpmaa")
-uv1_scale = Vector3(16, 16, 16)
-texture_filter = 0
-distance_fade_mode = 1
-distance_fade_min_distance = 50.0
-distance_fade_max_distance = 15.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5nug"]
 
@@ -53,6 +44,17 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_3ydr0")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uq1jj"]
+render_priority = 0
+shader = ExtResource("1_qkuxb")
+shader_parameter/color = Color(0.333333, 0.890196, 0.603922, 1)
+shader_parameter/textureScaling = Vector2(16, 16)
+shader_parameter/waves = 4.0
+shader_parameter/distortion = 0.2
+shader_parameter/distance_fade_min = 50.0
+shader_parameter/distance_fade_max = 15.0
+shader_parameter/tex = ExtResource("1_fpmaa")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_84h8s"]
 vertex_color_use_as_albedo = true
@@ -117,6 +119,8 @@ shadow_mesh = SubResource("ArrayMesh_k7ltv")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2u2mo"]
 render_priority = 0
 shader = ExtResource("2_a1oqp")
+shader_parameter/col1 = Color(0.397522, 0.652344, 0.497062, 1)
+shader_parameter/col2 = Color(0.785156, 0.664153, 0.631805, 1)
 shader_parameter/textureScaling = Vector2(16, 16)
 shader_parameter/terrainMap = ExtResource("3_22ilo")
 shader_parameter/tex1 = ExtResource("5_ll5og")
@@ -125,6 +129,7 @@ shader_parameter/tex2 = ExtResource("4_7ms5c")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3ctmt"]
 render_priority = 0
 shader = ExtResource("6_yumle")
+shader_parameter/color = Color(0.691406, 0.591476, 0.591476, 1)
 shader_parameter/textureScaling = Vector2(16.915, 1)
 shader_parameter/tex = ExtResource("6_bh0y4")
 
@@ -222,9 +227,9 @@ size = Vector3(13.3155, 15.5381, 1)
 [node name="TutorialLevel" type="Node3D" parent="."]
 
 [node name="Water" type="MeshInstance3D" parent="TutorialLevel"]
-material_override = SubResource("StandardMaterial3D_net5r")
 mesh = SubResource("ArrayMesh_7lluh")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_uq1jj")
 
 [node name="TutorialAppl" type="MeshInstance3D" parent="TutorialLevel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.671928, 0)
