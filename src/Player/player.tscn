@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cal7qhkesu02s"]
+[gd_scene load_steps=11 format=3 uid="uid://cal7qhkesu02s"]
 
-[ext_resource type="Script" path="res://src/Player/GroundRays.gd" id="1_v6gec"]
-[ext_resource type="Script" path="res://src/Player/Movement.gd" id="2_n4f6x"]
-[ext_resource type="Script" path="res://src/Player/PlayerInput.gd" id="3_b7fis"]
-[ext_resource type="Script" path="res://src/Player/CamY.gd" id="3_b40r7"]
+[ext_resource type="Script" uid="uid://c7vig5riw7kk6" path="res://src/Player/GroundRays.gd" id="1_v6gec"]
+[ext_resource type="Script" uid="uid://b6jsw0wf2wqw" path="res://src/Player/Movement.gd" id="2_n4f6x"]
+[ext_resource type="Script" uid="uid://bd1o4xsmnejv7" path="res://src/Player/PlayerInput.gd" id="3_b7fis"]
+[ext_resource type="Script" uid="uid://deg3kgp6jrooh" path="res://src/Player/CamY.gd" id="3_b40r7"]
+[ext_resource type="PackedScene" uid="uid://bq0p573n8qgrm" path="res://src/Player/PlayerModel/player_model.tscn" id="5_v7f4r"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ckfjp"]
 radius = 0.15
@@ -12,50 +13,70 @@ height = 0.49
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_w1jef"]
 radius = 0.15
 height = 0.7
+radial_segments = 16
+rings = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k8bx2"]
+no_depth_test = true
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qxaio"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 1.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_k8bx2"]
+top_radius = 0.01
+bottom_radius = 0.1
+height = 0.25
 
 [node name="Player" type="CharacterBody3D"]
-motion_mode = 1
+up_direction = Vector3(0, -1, 0)
+wall_min_slide_angle = 0.0
 
 [node name="GroundRays" type="Node3D" parent="."]
+visible = false
 script = ExtResource("1_v6gec")
 
 [node name="RayCast3D" type="RayCast3D" parent="GroundRays"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.358932, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.359, 0)
 
 [node name="RayCast3D2" type="RayCast3D" parent="GroundRays"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.121321, 0.358932, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.359, 0)
 
 [node name="RayCast3D3" type="RayCast3D" parent="GroundRays"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.121, 0.359, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.359, 0)
 
 [node name="RayCast3D4" type="RayCast3D" parent="GroundRays"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.00153726, 0.358932, 0.121149)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.37114e-09, 0.359, -0.1)
 
 [node name="RayCast3D5" type="RayCast3D" parent="GroundRays"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.00185876, 0.359, -0.121149)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.37114e-09, 0.359, 0.1)
 
 [node name="RayCast3D6" type="RayCast3D" parent="GroundRays"]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0.0858343, 0.358932, 0.0856736)
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0.0707107, 0.359, -0.0707107)
 
 [node name="RayCast3D7" type="RayCast3D" parent="GroundRays"]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -0.0855128, 0.359, -0.0856736)
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -0.0707107, 0.359, 0.0707107)
 
 [node name="RayCast3D8" type="RayCast3D" parent="GroundRays"]
-transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -0.0867051, 0.358932, 0.0844645)
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 0.0707107, 0.359, 0.0707107)
 
 [node name="RayCast3D9" type="RayCast3D" parent="GroundRays"]
-transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0.0870266, 0.359, -0.0844645)
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -0.0707107, 0.359, -0.0707107)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.455833, 0)
 shape = SubResource("CapsuleShape3D_ckfjp")
+debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="Movement" type="Node" parent="." node_paths=PackedStringArray("groundRays", "camY", "playerInput", "player")]
+[node name="Movement" type="Node" parent="." node_paths=PackedStringArray("groundRays", "camY", "playerInput", "player", "slideRay")]
 script = ExtResource("2_n4f6x")
 groundRays = NodePath("../GroundRays")
 camY = NodePath("../CamY")
 playerInput = NodePath("../PlayerInput")
 player = NodePath("..")
+slideRay = NodePath("../SlideRay")
 
 [node name="CamY" type="Node3D" parent="." node_paths=PackedStringArray("playerInput", "camX")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.932136, 0)
@@ -66,6 +87,7 @@ camX = NodePath("CamX")
 [node name="CamX" type="Node3D" parent="CamY"]
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CamY/CamX"]
+spring_length = 2.0
 
 [node name="Camera3D" type="Camera3D" parent="CamY/CamX/SpringArm3D"]
 current = true
@@ -75,4 +97,25 @@ script = ExtResource("3_b7fis")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_w1jef")
+
+[node name="LookArrow" type="Node3D" parent="."]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LookArrow"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.5)
+material_override = SubResource("StandardMaterial3D_k8bx2")
+mesh = SubResource("CylinderMesh_qxaio")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="LookArrow"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -1.099)
+material_override = SubResource("StandardMaterial3D_k8bx2")
+mesh = SubResource("CylinderMesh_k8bx2")
+
+[node name="SlideRay" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.223139, 0)
+target_position = Vector3(0, -0.1, 0)
+
+[node name="PlayerModel" parent="." node_paths=PackedStringArray("playerMovement") instance=ExtResource("5_v7f4r")]
+playerMovement = NodePath("../Movement")

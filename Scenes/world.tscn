@@ -23,6 +23,7 @@ physics_material_override = SubResource("PhysicsMaterial_lfmh1")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Platform"]
 transform = Transform3D(1.00671, 0, 0, 0, 1.00671, 0, 0, 0, 1.00671, 0, 0, 0)
 shape = SubResource("BoxShape3D_lmus2")
+debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platform"]
 material_override = ExtResource("2_pjt6p")
@@ -34,6 +35,7 @@ physics_material_override = SubResource("PhysicsMaterial_lfmh1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Platform2"]
 shape = SubResource("BoxShape3D_lmus2")
+debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platform2"]
 material_override = ExtResource("3_nc46p")
