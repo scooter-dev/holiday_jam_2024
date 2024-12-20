@@ -85,8 +85,8 @@ func _physics_process(delta):
 				var orthVec : Vector3 = Vector3()
 				if slideNormal.dot(Vector3.UP) > 0.99:
 					orthVec = Vector3(velocity.x,0,velocity.z).normalized().cross(Vector3.UP)
-					#velocity.x -= velocity.x * delta * 0.1
-					#velocity.z -= velocity.z * delta * 0.1
+					velocity.x -= velocity.x * delta * 0.05
+					velocity.z -= velocity.z * delta * 0.05
 				else:
 					orthVec = slideNormal.cross(Vector3.UP).normalized()
 				var velProj : Vector3 = velocity.project(orthVec)

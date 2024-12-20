@@ -40,7 +40,7 @@ uv1_triplanar = true
 environment = SubResource("Environment_lv6rn")
 
 [node name="Player" parent="." instance=ExtResource("9_mevfl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.42055, 0.43587, 11.7485)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.42055, 0.54291, 11.7485)
 
 [node name="CSG" type="Node3D" parent="."]
 
