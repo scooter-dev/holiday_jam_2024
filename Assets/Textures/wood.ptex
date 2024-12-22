@@ -1,0 +1,122 @@
+{
+	"connections": [
+		{
+			"from": "perlin",
+			"from_port": 0,
+			"to": "colorize",
+			"to_port": 0
+		},
+		{
+			"from": "colorize",
+			"from_port": 0,
+			"to": "pixelize",
+			"to_port": 0
+		}
+	],
+	"label": "Graph",
+	"longdesc": "",
+	"name": "@Node@486",
+	"node_position": {
+		"x": 0,
+		"y": 0
+	},
+	"nodes": [
+		{
+			"export_paths": {
+
+			},
+			"name": "Material",
+			"node_position": {
+				"x": 0,
+				"y": 0
+			},
+			"parameters": {
+				"albedo_color": {
+					"a": 1,
+					"b": 1,
+					"g": 1,
+					"r": 1,
+					"type": "Color"
+				},
+				"ao": 1,
+				"depth_scale": 0.5,
+				"emission_energy": 1,
+				"flags_transparent": true,
+				"metallic": 0,
+				"normal": 1,
+				"roughness": 1,
+				"size": 11,
+				"sss": 1
+			},
+			"seed_int": 0,
+			"type": "material"
+		},
+		{
+			"name": "perlin",
+			"node_position": {
+				"x": -920,
+				"y": -40
+			},
+			"parameters": {
+				"iterations": 9,
+				"persistence": 0.5,
+				"scale_x": 64,
+				"scale_y": 5
+			},
+			"seed_int": 0,
+			"type": "perlin"
+		},
+		{
+			"name": "colorize",
+			"node_position": {
+				"x": -600,
+				"y": 0
+			},
+			"parameters": {
+				"gradient": {
+					"interpolation": 1,
+					"points": [
+						{
+							"a": 1,
+							"b": 0.047149658203125,
+							"g": 0.047149658203125,
+							"pos": 0,
+							"r": 0.1171875
+						},
+						{
+							"a": 1,
+							"b": 0.37109375,
+							"g": 0.412750244140625,
+							"pos": 1,
+							"r": 0.625
+						}
+					],
+					"type": "Gradient"
+				}
+			},
+			"seed_int": 0,
+			"type": "colorize"
+		},
+		{
+			"name": "pixelize",
+			"node_position": {
+				"x": -400,
+				"y": -20
+			},
+			"parameters": {
+				"c": 15,
+				"d": 0,
+				"x": 128,
+				"y": 128
+			},
+			"seed_int": 0,
+			"type": "pixelize"
+		}
+	],
+	"parameters": {
+
+	},
+	"seed_int": 0,
+	"shortdesc": "",
+	"type": "graph"
+}

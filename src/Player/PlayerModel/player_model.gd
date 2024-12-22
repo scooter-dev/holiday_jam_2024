@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 		PlayerMovement.M_GROUNDED:
 			blendSlide = lerpf(blendSlide, 0, delta * 12.0)
 			blendFall = lerpf(blendFall, 0, delta * 12.0)
-			player_anim_tree["parameters/TS_IWR/scale"] = clamp(playerMovement.h_speed / 4.0,0,1) * 2.0
+			player_anim_tree["parameters/TS_IWR/scale"] = clamp(playerMovement.h_speed / 4.0,0,1) * 2.5
 			player_anim_tree["parameters/IdleWalkRun/blend_position"] = clamp(playerMovement.h_speed / 4.0,0,1)
 		PlayerMovement.M_FALLING:
 			blendSlide = lerpf(blendSlide, 0, delta * 12.0)
@@ -31,8 +31,8 @@ func _process(delta: float) -> void:
 		PlayerMovement.M_SLIDING:
 			blendSlide = lerpf(blendSlide, 1, delta * 12.0)
 			blendFall = lerpf(blendFall, 0, delta * 12.0)
-			if playerMovement.slideRay.get_collider():
-				var colNorm : Vector3 = playerMovement.slideRay.get_collision_normal()
+			if playerMovement.groundRays.groundDistance < -0.18:
+				var colNorm : Vector3 = playerMovement.groundRays.groundNormal
 				phrogXRot = acos(colNorm.dot(Vector3.UP)) * (1.0 if global_basis.z.dot(colNorm) > 0.0 else -1.0)
 			else:
 				phrogXRot = clamp(-playerMovement.velocity.y * 0.06,-QPI,QPI)

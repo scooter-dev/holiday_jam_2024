@@ -1,6 +1,7 @@
 extends Node
 
 class_name PlayerMovement
+@onready var debug_label: Label = $"../DebugLabel"
 
 enum {M_FALLING, M_GROUNDED, M_SWIMMING, M_CROUCHING, M_SLIDING}
 var movementMode: int = M_FALLING
@@ -13,11 +14,19 @@ var h_speed: float = 0
 var jump_state: bool = false
 var jump_counter: float = 0
 
+var waterVolumes : Array[WaterVolume] = []
+
+func registerWaterVolume(vol : WaterVolume) -> void:
+	waterVolumes.append(vol)
+
+func removeWaterVolume(vol : WaterVolume) -> void:
+	waterVolumes.erase(vol)
+
 @export var groundRays: GroundRays
 @export var camY: Node3D
 @export var playerInput: PlayerInput
 @export var player: CharacterBody3D
-@export var slideRay : RayCast3D
+#@export var slideRay : RayCast3D
 @export var airControl: float = 0.14
 
 signal jumped
@@ -38,14 +47,15 @@ func _physics_process(delta):
 	velocity = player.get_real_velocity()
 	h_speed = Vector2(velocity.x, velocity.z).length()
 	m_mode()
-	
+	debug_label.text = "Mode: %d\n" % movementMode
+	print(movementMode)
 	var direction: Vector3 = camY.global_basis.x * playerInput.fbrl.x + camY.global_basis.z * playerInput.fbrl.y
 	direction = direction.limit_length()
 	match movementMode:
 		M_FALLING:
 			# velocity -= velocity * damping * delta
-			var sliding = slideRay.get_collider() != null
-			var slideNormal : Vector3 = slideRay.get_collision_normal()
+			var sliding = groundRays.gDistR < -0.18
+			var slideNormal : Vector3 = groundRays.gNormR
 			var gdt : float = slideNormal.dot(Vector3.UP)
 			sliding = sliding and gdt > 0.0 and gdt < 0.95
 			if !(sliding):
@@ -75,12 +85,14 @@ func _physics_process(delta):
 		M_CROUCHING:
 			pass
 		M_SLIDING:
-			var sliding = slideRay.get_collider() != null
-			var slideNormal : Vector3 = slideRay.get_collision_normal()
+			var sliding = groundRays.gDistR < -0.18
+			var slideNormal : Vector3 = groundRays.gNormR
 			var gdt : float = slideNormal.dot(Vector3.UP)
 			sliding = sliding and gdt > 0.0
 			if sliding:
+				debug_label.text += "VY Before: %0.3f\n" % velocity.y
 				velocity.y = clamp(velocity.y - (4.0 if velocity.y > 0.0 else 10.0) * delta, -80, 80)
+				debug_label.text += "VY After: %0.3f\n" % velocity.y
 				var prevSPD : float = velocity.length()
 				var orthVec : Vector3 = Vector3()
 				if slideNormal.dot(Vector3.UP) > 0.99:
@@ -88,6 +100,8 @@ func _physics_process(delta):
 					velocity.x -= velocity.x * delta * 0.05
 					velocity.z -= velocity.z * delta * 0.05
 				else:
+					velocity.x -= velocity.x * delta * 0.01
+					velocity.z -= velocity.z * delta * 0.01
 					orthVec = slideNormal.cross(Vector3.UP).normalized()
 				var velProj : Vector3 = velocity.project(orthVec)
 				var dt : float = velocity.normalized().dot(direction)
@@ -136,7 +150,7 @@ func m_mode():
 		M_CROUCHING:
 			pass
 		M_SLIDING:
-			if h_speed < 3.0:
+			if (h_speed < 3.0 and groundRays.gNormR.dot(Vector3.UP) > groundRays.ANGLE_LIMIT):
 				set_m_mode(M_FALLING)
 
 func set_m_mode(n_mode: int):
