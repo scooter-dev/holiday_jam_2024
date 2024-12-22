@@ -1,7 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://cgj71p8cjvgda"]
+[gd_scene load_steps=16 format=3 uid="uid://cgj71p8cjvgda"]
 
 [ext_resource type="Texture2D" uid="uid://cd35j4mmwnu4" path="res://addons/kenney_prototype_textures/dark/texture_01.png" id="3_e6ewv"]
 [ext_resource type="Texture2D" uid="uid://nomjamvdulkr" path="res://addons/kenney_prototype_textures/orange/texture_01.png" id="4_abcee"]
+[ext_resource type="PackedScene" uid="uid://ca2c5nxi2ktrn" path="res://src/LevelActors/water_area.tscn" id="5_k44xo"]
+[ext_resource type="Texture2D" uid="uid://c7glm5caj11yn" path="res://Assets/Textures/waterSolo.png" id="6_1kfby"]
 [ext_resource type="PackedScene" uid="uid://cal7qhkesu02s" path="res://src/Player/player.tscn" id="9_mevfl"]
 [ext_resource type="Shader" uid="uid://c0aa5ibqmt4v1" path="res://src/Shaders/skyShader.gdshader" id="10_ru6jt"]
 
@@ -41,6 +43,17 @@ texture_filter = 4
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3w2rs"]
 albedo_texture = ExtResource("4_abcee")
 uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1kfby"]
+size = Vector3(10, 6, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fhfly"]
+transparency = 1
+albedo_color = Color(0.73, 0.811, 1, 0.568627)
+albedo_texture = ExtResource("6_1kfby")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+texture_filter = 0
 
 [node name="TutorialLevel" type="Node3D"]
 
@@ -221,10 +234,10 @@ use_collision = true
 size = Vector3(1.0336, 4.86963, 4.45974)
 
 [node name="CSGBox3D47" type="CSGBox3D" parent="CSG"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.3788, -7.26479, 31.9338)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.9715, -6.1914, 31.9338)
 material_override = SubResource("StandardMaterial3D_3w2rs")
 use_collision = true
-size = Vector3(40.6084, 4.86963, 13.7702)
+size = Vector3(12.7795, 4.86963, 13.7702)
 
 [node name="CSGBox3D41" type="CSGBox3D" parent="CSG"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.87662, 0.652289, 34.2992)
@@ -304,17 +317,30 @@ material_override = SubResource("StandardMaterial3D_3w2rs")
 use_collision = true
 
 [node name="CSGBox3D44" type="CSGBox3D" parent="CSG/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58983, 0.563313, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0655289, 0.563313, 0)
 use_collision = true
-size = Vector3(18.8268, 13.5113, 4.45974)
+size = Vector3(22.1375, 13.5113, 4.45974)
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSG/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.355049, 10.3594, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2.2541, 11.2848, 0)
 operation = 2
-radius = 11.5098
+radius = 12.9878
 height = 5.0
 sides = 32
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.924593, 0.325882, -0.197306, 1.75052e-08, 0.517923, 0.855428, 0.380958, 0.790922, -0.478867, 0, 11.9886, 17.4691)
 light_energy = 0.51
+
+[node name="WaterVolume" parent="." instance=ExtResource("5_k44xo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.1877, 2.30803, 31.738)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WaterVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+shape = SubResource("BoxShape3D_1kfby")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="WaterVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+material_override = SubResource("StandardMaterial3D_fhfly")
+size = Vector3(10, 6, 4)

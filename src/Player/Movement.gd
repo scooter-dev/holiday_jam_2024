@@ -8,19 +8,33 @@ var movementMode: int = M_FALLING
 var velocity := Vector3()
 var acceleration: float = 70
 var damping: float = 16.0
+var waterDamping : float = 4.0
 var jump_acceleration: float = 5
 var h_speed: float = 0
 
 var jump_state: bool = false
 var jump_counter: float = 0
 
-var waterVolumes : Array[WaterVolume] = []
+
+
 
 func registerWaterVolume(vol : WaterVolume) -> void:
 	waterVolumes.append(vol)
 
 func removeWaterVolume(vol : WaterVolume) -> void:
 	waterVolumes.erase(vol)
+
+var waterVolumes : Array[WaterVolume] = []
+const swimLevel : float = 0.5
+var waterLevel : float = 0.0
+var submerged : bool = false
+
+func getWaterLevel() -> void:
+	waterLevel = 0.0
+	for volume : WaterVolume in waterVolumes:
+		var lvl : float = volume.global_position.y - player.global_position.y
+		if lvl > waterLevel:
+			waterLevel = lvl
 
 @export var groundRays: GroundRays
 @export var camY: Node3D
@@ -46,9 +60,10 @@ var nwProtect : int = 0
 func _physics_process(delta):
 	velocity = player.get_real_velocity()
 	h_speed = Vector2(velocity.x, velocity.z).length()
+	getWaterLevel()
 	m_mode()
 	debug_label.text = "Mode: %d\n" % movementMode
-	print(movementMode)
+	debug_label.text += "Water Level: %0.2f\n" % waterLevel
 	var direction: Vector3 = camY.global_basis.x * playerInput.fbrl.x + camY.global_basis.z * playerInput.fbrl.y
 	direction = direction.limit_length()
 	match movementMode:
@@ -74,21 +89,35 @@ func _physics_process(delta):
 		M_GROUNDED:
 			velocity -= velocity * damping * delta
 			velocity += direction * delta * acceleration
-
 			velocity.y = clamp(-groundRays.groundDistance * delta * 1200, -6, 6)
 			if jump_state:
 				jumped.emit()
 				set_m_mode(M_FALLING)
 				velocity.y = jump_acceleration
 		M_SWIMMING:
-			pass
+			velocity -= velocity * waterDamping * delta
+			velocity += direction * delta * acceleration * 0.25
+			
+			if submerged:
+				var udAxis : float = float(jump_state) - float(slideState)
+				velocity.y = clamp(velocity.y + acceleration * delta * udAxis * 0.25,-6,6)
+				if waterLevel < swimLevel + 0.25:
+					submerged = false
+			else:
+				velocity.y = clamp(velocity.y + clamp((waterLevel - swimLevel)/8.0,-2,2) * delta * 200.0, -6,6)
+				if jump_state and waterLevel > swimLevel - 0.08 and waterLevel < swimLevel + 0.08:
+					set_m_mode(M_FALLING)
+					velocity.y = jump_acceleration
+				elif slideState:
+					submerged = true
+					velocity.y -= 2.0
 		M_CROUCHING:
 			pass
 		M_SLIDING:
-			var sliding = groundRays.gDistR < -0.18
+			var sliding = groundRays.gDistR < -0.15
 			var slideNormal : Vector3 = groundRays.gNormR
 			var gdt : float = slideNormal.dot(Vector3.UP)
-			sliding = sliding and gdt > 0.0
+			sliding = sliding #and gdt > 0.0
 			if sliding:
 				debug_label.text += "VY Before: %0.3f\n" % velocity.y
 				velocity.y = clamp(velocity.y - (4.0 if velocity.y > 0.0 else 10.0) * delta, -80, 80)
@@ -120,6 +149,7 @@ func _physics_process(delta):
 						set_m_mode(M_FALLING)
 					velocity += jump_acceleration * slideNormal * Vector3(1,0.25,1) * 1.5 + Vector3(0,2,0)
 			else:
+				debug_label.text += "No slide\n"
 				velocity.y = clamp(velocity.y - 9.8 * delta, -80, 80)
 				#look_arrow.visible = false
 				if h_speed < 2:
@@ -137,16 +167,21 @@ func _physics_process(delta):
 func m_mode():
 	match movementMode:
 		M_FALLING:
-			if groundRays.groundDistance < 0 and velocity.y < 0.5:
+			if waterLevel > swimLevel:
+				set_m_mode(M_SWIMMING)
+			elif groundRays.groundDistance < 0 and velocity.y < 0.5:
 				if slideState and h_speed > 3.0:
 					set_m_mode(M_SLIDING)
 				else:
 					set_m_mode(M_GROUNDED)
 		M_GROUNDED:
-			if groundRays.groundDistance > 0.3:
+			if waterLevel > 1.0:
+				set_m_mode(M_SWIMMING)
+			elif groundRays.groundDistance > 0.3:
 				set_m_mode(M_FALLING)
 		M_SWIMMING:
-			pass
+			if waterLevel < swimLevel - 0.05:
+				set_m_mode(M_FALLING)
 		M_CROUCHING:
 			pass
 		M_SLIDING:
@@ -154,4 +189,10 @@ func m_mode():
 				set_m_mode(M_FALLING)
 
 func set_m_mode(n_mode: int):
+	match n_mode:
+		M_SWIMMING:
+			submerged = waterLevel > swimLevel + 0.5
+			if submerged:
+				if velocity.y < 0.5:
+					velocity.y += 2.0
 	movementMode = n_mode

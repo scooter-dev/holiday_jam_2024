@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://dtdidtahb7hw6" path="res://src/LevelActors/water_area.gd" id="1_52p3h"]
 
 [node name="WaterVolume" type="Area3D"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
 script = ExtResource("1_52p3h")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
