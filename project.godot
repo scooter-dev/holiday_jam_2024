@@ -20,10 +20,6 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps=120
 config/icon="res://icon.svg"
 
-[autoload]
-
-LightingManager="*res://src/GlobalScripts/LightingManager.gd"
-
 [display]
 
 window/size/viewport_width=1280

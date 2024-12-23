@@ -8,6 +8,7 @@ var blendSlide : float = 0.0
 var blendFall : float = 0.0
 var blendSwim : float = 0.0
 var phrogXRot : float = 0.0
+var phrogWXRot : float = 0.0
 const HPI : float = PI/2
 const QPI : float = PI/4
 
@@ -45,10 +46,10 @@ func _process(delta: float) -> void:
 			blendSlide = lerpf(blendSlide, 0, delta * 12.0)
 			blendFall = lerpf(blendFall, 0, delta * 12.0)
 			
-			player_anim_tree["parameters/SwimMotion/blend_position"] = clamp(playerMovement.h_speed / 4.0,0,1)
+			player_anim_tree["parameters/SwimMotion/blend_position"] = lerpf(player_anim_tree["parameters/SwimMotion/blend_position"], clamp(playerMovement.h_speed / 4.0 + abs(playerMovement.velocity.y),0,1), delta * 2.0)
 			player_anim_tree["parameters/TS_Swim/scale"] = clamp(playerMovement.h_speed / 4.0,0.4,1) * 2.5
-			phrogXRot = clamp(-(playerMovement.velocity.y * clamp(playerMovement.h_speed * 0.1,0.1,1)) * 0.2,-QPI,QPI)
-	
+			phrogWXRot = lerpf(phrogWXRot, clamp(-playerMovement.velocity.dot(Vector3.UP) * QPI * 0.333, -QPI, QPI),delta * 4.0)
+			phrogXRot = phrogWXRot
 	phrog.rotation.x = lerp_angle(phrog.rotation.x, phrogXRot, delta * 12.0)
 	
 	player_anim_tree["parameters/B2Fall/blend_amount"] = blendFall

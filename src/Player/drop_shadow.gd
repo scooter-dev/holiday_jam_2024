@@ -14,6 +14,6 @@ func _physics_process(delta: float) -> void:
 	var res = dss.intersect_ray(ray)
 	if res.has("collider"):
 		drop_shadow_mesh.visible = true
-		drop_shadow_mesh.global_position.y = res.position.y - 0.99
+		drop_shadow_mesh.global_position.y = res.position.y - 0.95
 	else:
 		drop_shadow_mesh.visible = false

@@ -70,7 +70,7 @@ func _physics_process(delta):
 			var sliding = groundRays.gDistR < -0.15
 			var slideNormal: Vector3 = groundRays.gNormR
 			var gdt: float = slideNormal.dot(Vector3.UP)
-			sliding = sliding and gdt > 0.0 and gdt < 0.95
+			sliding = sliding and gdt < 0.7 and h_speed > 3.7
 			if !(sliding):
 				velocity.y = clamp(velocity.y - 9.8 * delta, -80, 80)
 				#look_arrow.visible = false
@@ -117,35 +117,17 @@ func _physics_process(delta):
 			var gdt: float = slideNormal.dot(Vector3.UP)
 			sliding = sliding # and gdt > 0.0
 			if sliding:
-				debug_label.text += "VY Before: %0.3f\n" % velocity.y
-				velocity.y = clamp(velocity.y - (4.0 if velocity.y > 0.0 else 10.0) * delta, -80, 80)
-				debug_label.text += "VY After: %0.3f\n" % velocity.y
 				var prevSPD: float = velocity.length()
-				var orthVec: Vector3 = Vector3()
-				if slideNormal.dot(Vector3.UP) > 0.99:
-					orthVec = Vector3(velocity.x, 0, velocity.z).normalized().cross(Vector3.UP)
-					velocity.x -= velocity.x * delta * 0.05
-					velocity.z -= velocity.z * delta * 0.05
-				else:
-					velocity.x -= velocity.x * delta * 0.01
-					velocity.z -= velocity.z * delta * 0.01
-					orthVec = slideNormal.cross(Vector3.UP).normalized()
-				var velProj: Vector3 = velocity.project(orthVec)
-				var dt: float = velocity.normalized().dot(direction)
-				var accel: Vector3 = (direction * delta * acceleration * airControl * 2.0).project(orthVec)
-				if dt > -0.7:
-					if accel.dot(velProj) < 0.01:
-						velocity += accel
-					else:
-						velocity += accel * clamp(3.0 - velProj.length(), 0.01, 1)
-				else:
-					velocity += (direction * delta * acceleration * airControl)
+				
+				velocity += acceleration * delta * direction * airControl * 2.0
+				
 				velocity = velocity.limit_length(prevSPD)
 				if jump_state:
 					if h_speed < 7.0:
 						jumped.emit()
 						set_m_mode(M_FALLING)
 					velocity += jump_acceleration * slideNormal * Vector3(1, 0.25, 1) * 1.5 + Vector3(0, 2, 0)
+				velocity.y = clamp(velocity.y - (4.0 if velocity.y > 0.0 else 10.0) * delta, -80, 80)
 			else:
 				debug_label.text += "No slide\n"
 				velocity.y = clamp(velocity.y - 9.8 * delta, -80, 80)
@@ -168,7 +150,7 @@ func m_mode():
 			if waterLevel > swimLevel:
 				set_m_mode(M_SWIMMING)
 			elif groundRays.groundDistance < 0 and velocity.y < 0.5:
-				if slideState and h_speed > 3.0:
+				if slideState and (h_speed > 3.0 or groundRays.gNormR.dot(Vector3.UP) < 0.8):
 					set_m_mode(M_SLIDING)
 				else:
 					set_m_mode(M_GROUNDED)
