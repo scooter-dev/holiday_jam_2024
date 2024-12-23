@@ -4,3 +4,5 @@
 
 [node name="VertexLight" type="OmniLight3D"]
 script = ExtResource("1_o4t6t")
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

@@ -161,5 +161,6 @@ offset_bottom = 23.0
 [node name="VertexLight" parent="." instance=ExtResource("9_0m8bu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41765, 0)
 light_color = Color(1, 0.696655, 0.453125, 1)
+light_energy = 0.1
 omni_range = 8.0
 omni_attenuation = 2.0

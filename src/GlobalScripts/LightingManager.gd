@@ -20,13 +20,15 @@ func unregisterLight(light : VertexLight) -> void:
 		lightImage.set_pixel(colPixelX, colPixelY, Color(0,0,0,0))
 
 func _ready() -> void:
-	lightImage = Image.create(imageResolution,imageResolution,false, Image.FORMAT_RGBAF)
-	lightImage.resize(imageResolution, imageResolution, Image.INTERPOLATE_NEAREST)
-	lightImageTexture = ImageTexture.new()
+	lightImage = Image.create_empty(imageResolution,imageResolution,false, Image.FORMAT_RGBAF)
+	for i : int in range(imageResolution * imageResolution):
+		lightImage.set_pixel(i % imageResolution, i / imageResolution, Color.BLACK)
+	lightImageTexture = ImageTexture.create_from_image(lightImage)
 
 const imageResolution : int = 8
 
 func _process(delta: float) -> void:
+	
 	for i : int in range(registeredLights.size()):
 		if i >= (imageResolution * imageResolution) / 2:
 			break
@@ -36,6 +38,6 @@ func _process(delta: float) -> void:
 		var colPixelX = (i * 2 + 1) % imageResolution
 		var colPixelY = (i * 2 + 1) / imageResolution
 		lightImage.set_pixel(colPixelX, colPixelY, Color(light.light_color, light.light_energy))
-		lightImage.set_pixel(posPixelX, posPixelY, Color(light.global_position.x, light.global_position.y, light.global_position.z, light.omni_range))
-	lightImageTexture.create_from_image(lightImage)
+		lightImage.set_pixel(posPixelX, posPixelY, Color(light.global_position.x + 1000000, light.global_position.y + 1000000, light.global_position.z + 1000000, light.omni_range))
+	lightImageTexture.update(lightImage)
 	RenderingServer.global_shader_parameter_set("light_texture", lightImageTexture)
