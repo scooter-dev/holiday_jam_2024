@@ -1,0 +1,151 @@
+[gd_scene load_steps=14 format=3 uid="uid://d0ch1kt1cx1wh"]
+
+[ext_resource type="Texture2D" uid="uid://cd35j4mmwnu4" path="res://addons/kenney_prototype_textures/dark/texture_01.png" id="1_1kaw0"]
+[ext_resource type="Shader" path="res://src/Shaders/skyShader.gdshader" id="1_sdgis"]
+[ext_resource type="PackedScene" uid="uid://cal7qhkesu02s" path="res://src/Player/player.tscn" id="2_7swwj"]
+[ext_resource type="Material" uid="uid://cqbkqwwpq2hor" path="res://Materials/blue.tres" id="4_cvgdm"]
+[ext_resource type="Script" uid="uid://bji3hop2l5pqr" path="res://Scenes/CrocoLevel/spinnies.gd" id="4_d2vh2"]
+[ext_resource type="Material" uid="uid://bsnbnxeu04pnl" path="res://Materials/spin_leaf.tres" id="5_hp633"]
+
+[sub_resource type="Gradient" id="Gradient_cvgdm"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.396226, 1)
+colors = PackedColorArray(0.27451, 0.741176, 0.501961, 1, 0.149765, 0.424814, 0.589844, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3ow4b"]
+gradient = SubResource("Gradient_cvgdm")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d2vh2"]
+shader = ExtResource("1_sdgis")
+shader_parameter/skyGradient = SubResource("GradientTexture1D_3ow4b")
+
+[sub_resource type="Sky" id="Sky_d7we0"]
+sky_material = SubResource("ShaderMaterial_d2vh2")
+
+[sub_resource type="Environment" id="Environment_hp633"]
+background_mode = 2
+background_color = Color(0.333333, 0.890196, 0.603922, 1)
+sky = SubResource("Sky_d7we0")
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.223529, 0.615686, 0.533333, 1)
+fog_density = 1.0
+fog_aerial_perspective = 1.0
+fog_sky_affect = 0.0
+fog_depth_begin = 5.0
+fog_depth_end = 45.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7swwj"]
+albedo_texture = ExtResource("1_1kaw0")
+uv1_triplanar = true
+texture_filter = 4
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hp633"]
+radial_segments = 7
+
+[node name="CrocoLevel" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hp633")
+
+[node name="Player" parent="." instance=ExtResource("2_7swwj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.543, 0)
+
+[node name="CSG" type="Node3D" parent="."]
+
+[node name="FirstChamber" type="Node3D" parent="CSG"]
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSG/FirstChamber"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0.0299998, -2.52, 12.2977)
+material_override = SubResource("StandardMaterial3D_7swwj")
+use_collision = true
+size = Vector3(9, 9, 8)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSG/FirstChamber/CSGBox3D8"]
+transform = Transform3D(1.91046e-15, 1, 4.37097e-08, 4.37084e-08, -4.3709e-08, 0.99996, 0.99996, 1.1117e-21, -4.37084e-08, 2.87834, -0.0498991, -0.0467233)
+material_override = SubResource("StandardMaterial3D_7swwj")
+operation = 2
+use_collision = true
+size = Vector3(6.54224, 5, 8.00253)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSG/FirstChamber/CSGBox3D8"]
+transform = Transform3D(1.91034e-15, 1, 4.37088e-08, 4.37069e-08, -4.37079e-08, 0.999941, 0.999941, 2.34877e-21, -4.37069e-08, 2.87834, 3.12692, 0.0216525)
+material_override = SubResource("StandardMaterial3D_7swwj")
+operation = 2
+use_collision = true
+size = Vector3(3, 5, 3.54472)
+
+[node name="FirstHallway" type="Node3D" parent="CSG"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSG/FirstHallway"]
+transform = Transform3D(1.00567, 0, 0, 0, 1.00567, 0, 0, 0, 1.00567, 0, 0, 3.34558)
+material_override = SubResource("StandardMaterial3D_7swwj")
+use_collision = true
+size = Vector3(3, 1, 8)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSG/FirstHallway/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.25, 3)
+material_override = SubResource("StandardMaterial3D_7swwj")
+operation = 2
+use_collision = true
+size = Vector3(2, 2.48877, 2)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSG/FirstHallway"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.760315, 0, 7.66202)
+material_override = SubResource("StandardMaterial3D_7swwj")
+use_collision = true
+size = Vector3(1.52063, 1, 1.28119)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSG/FirstHallway"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0.0299998, -1.02, 3.33997)
+material_override = SubResource("StandardMaterial3D_7swwj")
+use_collision = true
+size = Vector3(6, 9, 4)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSG/FirstHallway/CSGBox3D5"]
+transform = Transform3D(1.91069e-15, 1, 4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 1, 0, -4.37114e-08, 1.87834, 0.41713, -0.03)
+material_override = SubResource("StandardMaterial3D_7swwj")
+operation = 2
+use_collision = true
+size = Vector3(3, 3, 9)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSG/FirstHallway"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.732361, -1.84154, 8.09846)
+use_collision = true
+size = Vector3(1.53528, 1, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSG/FirstHallway"]
+transform = Transform3D(1.01137, 0, 0, 0, 1.01137, 0, 0, 0, 1.01137, 0, 0, 4.83042)
+material_override = SubResource("StandardMaterial3D_7swwj")
+use_collision = true
+size = Vector3(3, 1, 5)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSG/FirstHallway/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.25, 2.96719)
+material_override = SubResource("StandardMaterial3D_7swwj")
+operation = 2
+use_collision = true
+size = Vector3(2, 2.48877, 2)
+
+[node name="Spinnies" type="Node3D" parent="CSG"]
+transform = Transform3D(-0.5, 0, 0.866026, 0, 1, 0, -0.866026, 0, -0.5, 0, 0, 12)
+script = ExtResource("4_d2vh2")
+
+[node name="center" type="CSGCylinder3D" parent="CSG/Spinnies"]
+visible = false
+material = ExtResource("4_cvgdm")
+
+[node name="spinny" type="MeshInstance3D" parent="CSG/Spinnies"]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 0.013, 0, 5.96046e-08, 0, 1, 2.20836, 0, 1.27499)
+material_override = ExtResource("5_hp633")
+mesh = SubResource("CylinderMesh_hp633")
+
+[node name="spinny2" type="MeshInstance3D" parent="CSG/Spinnies"]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 0.013, 0, 5.96046e-08, 0, 1, -2.06497, 0, 1.19221)
+material_override = ExtResource("5_hp633")
+mesh = SubResource("CylinderMesh_hp633")
+
+[node name="spinny3" type="MeshInstance3D" parent="CSG/Spinnies"]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 0.013, 0, 5.96046e-08, 0, 1, 0, 0, -2.38442)
+material_override = ExtResource("5_hp633")
+mesh = SubResource("CylinderMesh_hp633")

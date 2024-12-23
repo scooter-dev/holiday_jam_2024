@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bsnbnxeu04pnl"]
+
+[ext_resource type="Texture2D" uid="uid://bopt4p41ffd0f" path="res://Assets/lilpad_paint.png" id="1_0bhpb"]
+
+[resource]
+albedo_texture = ExtResource("1_0bhpb")
+uv1_scale = Vector3(2.025, 2.025, 2.025)
