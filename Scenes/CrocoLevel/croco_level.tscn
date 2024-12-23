@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d0ch1kt1cx1wh"]
+[gd_scene load_steps=15 format=3 uid="uid://d0ch1kt1cx1wh"]
 
 [ext_resource type="Texture2D" uid="uid://cd35j4mmwnu4" path="res://addons/kenney_prototype_textures/dark/texture_01.png" id="1_1kaw0"]
 [ext_resource type="Shader" path="res://src/Shaders/skyShader.gdshader" id="1_sdgis"]
@@ -42,6 +42,9 @@ texture_filter = 4
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_hp633"]
 radial_segments = 7
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hp633"]
+points = PackedVector3Array(-0.487464, -1, -0.111265, -0.217011, -1, -0.450484, -0.390983, -1, 0.311689, -0.487464, 1, -0.111265, 0.216916, -1, -0.450484, -0.217011, 1, -0.450484, -5.96046e-08, -1, 0.5, -0.390983, 1, 0.311689, 0.487464, -1, -0.111265, 0.216916, 1, -0.450484, 0.390887, -1, 0.311689, -5.96046e-08, 1, 0.5, 0.487464, 1, -0.111265, 0.390887, 1, 0.311689)
 
 [node name="CrocoLevel" type="Node3D"]
 
@@ -140,12 +143,30 @@ transform = Transform3D(1, 0, -5.96046e-08, 0, 0.013, 0, 5.96046e-08, 0, 1, 2.20
 material_override = ExtResource("5_hp633")
 mesh = SubResource("CylinderMesh_hp633")
 
+[node name="CharacterBody3D" type="CharacterBody3D" parent="CSG/Spinnies/spinny"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSG/Spinnies/spinny/CharacterBody3D"]
+shape = SubResource("ConvexPolygonShape3D_hp633")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
 [node name="spinny2" type="MeshInstance3D" parent="CSG/Spinnies"]
 transform = Transform3D(1, 0, -5.96046e-08, 0, 0.013, 0, 5.96046e-08, 0, 1, -2.06497, 0, 1.19221)
 material_override = ExtResource("5_hp633")
 mesh = SubResource("CylinderMesh_hp633")
 
+[node name="CharacterBody3D" type="CharacterBody3D" parent="CSG/Spinnies/spinny2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSG/Spinnies/spinny2/CharacterBody3D"]
+shape = SubResource("ConvexPolygonShape3D_hp633")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
 [node name="spinny3" type="MeshInstance3D" parent="CSG/Spinnies"]
 transform = Transform3D(1, 0, -5.96046e-08, 0, 0.013, 0, 5.96046e-08, 0, 1, 0, 0, -2.38442)
 material_override = ExtResource("5_hp633")
 mesh = SubResource("CylinderMesh_hp633")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="CSG/Spinnies/spinny3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSG/Spinnies/spinny3/CharacterBody3D"]
+shape = SubResource("ConvexPolygonShape3D_hp633")
+debug_color = Color(0, 0.6, 0.7, 0.42)

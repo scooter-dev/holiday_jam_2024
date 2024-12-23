@@ -8,7 +8,7 @@ var movementMode: int = M_FALLING
 var velocity := Vector3()
 var acceleration: float = 70
 var damping: float = 16.0
-var waterDamping : float = 4.0
+var waterDamping: float = 4.0
 var jump_acceleration: float = 5
 var h_speed: float = 0
 
@@ -16,23 +16,21 @@ var jump_state: bool = false
 var jump_counter: float = 0
 
 
-
-
-func registerWaterVolume(vol : WaterVolume) -> void:
+func registerWaterVolume(vol: WaterVolume) -> void:
 	waterVolumes.append(vol)
 
-func removeWaterVolume(vol : WaterVolume) -> void:
+func removeWaterVolume(vol: WaterVolume) -> void:
 	waterVolumes.erase(vol)
 
-var waterVolumes : Array[WaterVolume] = []
-const swimLevel : float = 0.5
-var waterLevel : float = 0.0
-var submerged : bool = false
+var waterVolumes: Array[WaterVolume] = []
+const swimLevel: float = 0.5
+var waterLevel: float = 0.0
+var submerged: bool = false
 
 func getWaterLevel() -> void:
 	waterLevel = 0.0
-	for volume : WaterVolume in waterVolumes:
-		var lvl : float = volume.global_position.y - player.global_position.y
+	for volume: WaterVolume in waterVolumes:
+		var lvl: float = volume.global_position.y - player.global_position.y
 		if lvl > waterLevel:
 			waterLevel = lvl
 
@@ -48,15 +46,15 @@ signal jumped
 func set_jump(state: bool):
 	jump_state = state
 
-var slideState : bool = false
-func set_slide(state : bool):
+var slideState: bool = false
+func set_slide(state: bool):
 	slideState = state
 
 func _ready():
 	playerInput.jump.connect(set_jump)
 	playerInput.slide.connect(set_slide)
 
-var nwProtect : int = 0
+var nwProtect: int = 0
 func _physics_process(delta):
 	velocity = player.get_real_velocity()
 	h_speed = Vector2(velocity.x, velocity.z).length()
@@ -70,8 +68,8 @@ func _physics_process(delta):
 		M_FALLING:
 			# velocity -= velocity * damping * delta
 			var sliding = groundRays.gDistR < -0.15
-			var slideNormal : Vector3 = groundRays.gNormR
-			var gdt : float = slideNormal.dot(Vector3.UP)
+			var slideNormal: Vector3 = groundRays.gNormR
+			var gdt: float = slideNormal.dot(Vector3.UP)
 			sliding = sliding and gdt > 0.0 and gdt < 0.95
 			if !(sliding):
 				velocity.y = clamp(velocity.y - 9.8 * delta, -80, 80)
@@ -99,12 +97,12 @@ func _physics_process(delta):
 			velocity += direction * delta * acceleration * 0.25
 			
 			if submerged:
-				var udAxis : float = float(jump_state) - float(slideState)
-				velocity.y = clamp(velocity.y + acceleration * delta * udAxis * 0.25,-6,6)
+				var udAxis: float = float(jump_state) - float(slideState)
+				velocity.y = clamp(velocity.y + acceleration * delta * udAxis * 0.25, -6, 6)
 				if waterLevel < swimLevel + 0.25:
 					submerged = false
 			else:
-				velocity.y = clamp(velocity.y + clamp((waterLevel - swimLevel)/8.0,-2,2) * delta * 200.0, -6,6)
+				velocity.y = clamp(velocity.y + clamp((waterLevel - swimLevel) / 8.0, -2, 2) * delta * 200.0, -6, 6)
 				if jump_state and waterLevel > swimLevel - 0.08 and waterLevel < swimLevel + 0.08:
 					set_m_mode(M_FALLING)
 					velocity.y = jump_acceleration
@@ -115,31 +113,31 @@ func _physics_process(delta):
 			pass
 		M_SLIDING:
 			var sliding = groundRays.gDistR < -0.15
-			var slideNormal : Vector3 = groundRays.gNormR
-			var gdt : float = slideNormal.dot(Vector3.UP)
-			sliding = sliding #and gdt > 0.0
+			var slideNormal: Vector3 = groundRays.gNormR
+			var gdt: float = slideNormal.dot(Vector3.UP)
+			sliding = sliding # and gdt > 0.0
 			if sliding:
 				debug_label.text += "VY Before: %0.3f\n" % velocity.y
 				velocity.y = clamp(velocity.y - (4.0 if velocity.y > 0.0 else 10.0) * delta, -80, 80)
 				debug_label.text += "VY After: %0.3f\n" % velocity.y
-				var prevSPD : float = velocity.length()
-				var orthVec : Vector3 = Vector3()
+				var prevSPD: float = velocity.length()
+				var orthVec: Vector3 = Vector3()
 				if slideNormal.dot(Vector3.UP) > 0.99:
-					orthVec = Vector3(velocity.x,0,velocity.z).normalized().cross(Vector3.UP)
+					orthVec = Vector3(velocity.x, 0, velocity.z).normalized().cross(Vector3.UP)
 					velocity.x -= velocity.x * delta * 0.05
 					velocity.z -= velocity.z * delta * 0.05
 				else:
 					velocity.x -= velocity.x * delta * 0.01
 					velocity.z -= velocity.z * delta * 0.01
 					orthVec = slideNormal.cross(Vector3.UP).normalized()
-				var velProj : Vector3 = velocity.project(orthVec)
-				var dt : float = velocity.normalized().dot(direction)
-				var accel : Vector3 = (direction * delta * acceleration * airControl * 2.0).project(orthVec)
+				var velProj: Vector3 = velocity.project(orthVec)
+				var dt: float = velocity.normalized().dot(direction)
+				var accel: Vector3 = (direction * delta * acceleration * airControl * 2.0).project(orthVec)
 				if dt > -0.7:
 					if accel.dot(velProj) < 0.01:
 						velocity += accel
 					else:
-						velocity += accel * clamp(3.0 - velProj.length(),0.01,1)
+						velocity += accel * clamp(3.0 - velProj.length(), 0.01, 1)
 				else:
 					velocity += (direction * delta * acceleration * airControl)
 				velocity = velocity.limit_length(prevSPD)
@@ -147,7 +145,7 @@ func _physics_process(delta):
 					if h_speed < 7.0:
 						jumped.emit()
 						set_m_mode(M_FALLING)
-					velocity += jump_acceleration * slideNormal * Vector3(1,0.25,1) * 1.5 + Vector3(0,2,0)
+					velocity += jump_acceleration * slideNormal * Vector3(1, 0.25, 1) * 1.5 + Vector3(0, 2, 0)
 			else:
 				debug_label.text += "No slide\n"
 				velocity.y = clamp(velocity.y - 9.8 * delta, -80, 80)
@@ -190,8 +188,19 @@ func m_mode():
 			elif (h_speed < 3.0 and groundRays.gNormR.dot(Vector3.UP) > groundRays.ANGLE_LIMIT):
 				set_m_mode(M_FALLING)
 
+@onready var world: Node3D = player.get_parent();
+
 func set_m_mode(n_mode: int):
 	match n_mode:
+		M_GROUNDED:
+			match movementMode:
+				M_FALLING:
+					if (groundRays.ground and groundRays.ground != player.get_parent()):
+						player.reparent(groundRays.ground, true)
+		M_FALLING:
+			match movementMode:
+				M_GROUNDED:
+					player.reparent(world, true)
 		M_SWIMMING:
 			submerged = waterLevel > swimLevel + 0.5
 			if submerged:
