@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cgj71p8cjvgda"]
+[gd_scene load_steps=16 format=3 uid="uid://cgj71p8cjvgda"]
 
 [ext_resource type="PackedScene" uid="uid://d86risej383s" path="res://Assets/Meshes/Levels/TutorialLevel/TutorialLevelNew.glb" id="5_1kfby"]
 [ext_resource type="PackedScene" uid="uid://ca2c5nxi2ktrn" path="res://src/LevelActors/water_area.tscn" id="5_k44xo"]
@@ -56,15 +56,6 @@ func _ready() -> void:
 	texture = LightingManager.lightImageTexture
 "
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1kfby"]
-
-[sub_resource type="GDScript" id="GDScript_fhfly"]
-script/source = "extends CSGBox3D
-
-func _ready() -> void:
-	pass
-"
-
 [node name="TutorialLevel" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -111,10 +102,5 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 script = SubResource("GDScript_1kfby")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.19863, 1.15288, 19.798)
-material = SubResource("StandardMaterial3D_1kfby")
-script = SubResource("GDScript_fhfly")
 
 [editable path="TutorialLevelNew"]
