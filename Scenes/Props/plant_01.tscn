@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://dysnc5u6kkc2s"]
+
+[ext_resource type="Shader" uid="uid://cwojebnd1u6jt" path="res://src/Shaders/shaded_ambient_scissors.gdshader" id="1_xhydc"]
+[ext_resource type="Texture2D" uid="uid://c6e8v2shibrk6" path="res://Assets/Textures/plant01.png" id="2_g5gh6"]
+[ext_resource type="ArrayMesh" uid="uid://5j8rpm06qonp" path="res://Assets/Meshes/Props/xBilboard.obj" id="3_cr74o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_icbvi"]
+render_priority = 0
+shader = ExtResource("1_xhydc")
+shader_parameter/albedo_texture = ExtResource("2_g5gh6")
+shader_parameter/UVScaling = Vector2(1, 1)
+shader_parameter/distance_fade_min = 50.0
+shader_parameter/distance_fade_max = 35.0
+
+[node name="Plant01" type="MeshInstance3D"]
+material_override = SubResource("ShaderMaterial_icbvi")
+instance_shader_parameters/albedo_color = Color(0.396078, 1, 0.203922, 1)
+instance_shader_parameters/ambientAffect = 0.5
+mesh = ExtResource("3_cr74o")

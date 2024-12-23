@@ -51,7 +51,7 @@ void fragment() {
 	ALBEDO = albedo;
 	//vec3 lighting = pow(tMap.r,AOPower) + vLight;
 	EMISSION = ALBEDO * pow(tMap.r,AOPower);
-	
+
 	{
 		// Distance Fade: Pixel Dither
 		float fade_distance = length(VERTEX);
@@ -66,7 +66,9 @@ void fragment() {
 	}
 }
 
-//void light() {
-	// Called for every pixel for every light affecting the material.
-	// Uncomment to replace the default light processing function with this one.
-//}
+/*void light() {
+	if (LIGHT_IS_DIRECTIONAL)
+	{
+		DIFFUSE_LIGHT += vec3(1);//dot(NORMAL,LIGHT) * 0.5 + 0.5 * LIGHT_COLOR;
+	}
+}*/

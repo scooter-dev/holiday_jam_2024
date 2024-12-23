@@ -28,7 +28,7 @@ window/vsync/vsync_mode=0
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/IVX_VertexColorImportSwapper/plugin.cfg", "res://addons/QuickPluginManager/plugin.cfg")
+enabled=PackedStringArray("res://addons/IVX_VertexColorImportSwapper/plugin.cfg", "res://addons/QuickPluginManager/plugin.cfg", "res://addons/quick_place/plugin.cfg")
 
 [file_customization]
 
@@ -121,5 +121,13 @@ shading/overrides/force_vertex_shading=true
 
 light_texture={
 "type": "sampler2D",
-"value": ""
+"value": "res://Assets/Gradients/tutorialAmbient.tres"
+}
+light_direction={
+"type": "vec3",
+"value": Vector3(0, 1, 0)
+}
+ambient_tint={
+"type": "color",
+"value": Color(1, 1, 1, 1)
 }

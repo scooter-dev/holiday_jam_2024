@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://cf5pswe780ibv"]
+
+[ext_resource type="Shader" uid="uid://c8xacxnh6a4dg" path="res://src/Shaders/shaded_ambient_scissors_rgb.gdshader" id="1_jynby"]
+[ext_resource type="Texture2D" uid="uid://cjwvlqfl2ln6m" path="res://Assets/Textures/plant02.png" id="2_xjrwh"]
+[ext_resource type="ArrayMesh" uid="uid://5j8rpm06qonp" path="res://Assets/Meshes/Props/xBilboard.obj" id="3_kb1rp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kb1rp"]
+render_priority = 0
+shader = ExtResource("1_jynby")
+shader_parameter/albedo_texture = ExtResource("2_xjrwh")
+shader_parameter/UVScaling = Vector2(1, 1)
+shader_parameter/distance_fade_min = 50.0
+shader_parameter/distance_fade_max = 35.0
+
+[node name="MeshInstance3D" type="MeshInstance3D"]
+material_override = SubResource("ShaderMaterial_kb1rp")
+instance_shader_parameters/albedo_color_b = Color(1, 1, 1, 1)
+instance_shader_parameters/albedo_color_g = Color(0.396078, 1, 0.203922, 1)
+instance_shader_parameters/albedo_color_r = Color(1, 0.328125, 0, 1)
+instance_shader_parameters/ambientAffect = 0.5
+mesh = ExtResource("3_kb1rp")

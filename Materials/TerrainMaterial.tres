@@ -8,12 +8,12 @@
 render_priority = 3
 shader = ExtResource("1_xiku2")
 shader_parameter/tex1 = ExtResource("2_xiku2")
-shader_parameter/col1 = Color(0.597656, 0.597656, 0.597656, 1)
+shader_parameter/col1 = Color(0.949219, 0.734161, 0.734161, 1)
 shader_parameter/tex2 = ExtResource("3_8qjps")
-shader_parameter/col2 = Color(0.46875, 0.46875, 0.46875, 1)
+shader_parameter/col2 = Color(0.606608, 0.859375, 0.449829, 1)
 shader_parameter/AOPower = 1.0
-shader_parameter/terrainBlendPower = 1.0
-shader_parameter/terrainBlendMul = 1.0
-shader_parameter/textureScaling = Vector2(16, 16)
+shader_parameter/terrainBlendPower = 3.595
+shader_parameter/terrainBlendMul = 1.845
+shader_parameter/textureScaling = Vector2(32, 32)
 shader_parameter/distance_fade_min = 50.0
 shader_parameter/distance_fade_max = 35.0

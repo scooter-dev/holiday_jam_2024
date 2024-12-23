@@ -87,7 +87,7 @@ func _physics_process(delta):
 		M_GROUNDED:
 			velocity -= velocity * damping * delta
 			velocity += direction * delta * acceleration
-			velocity.y = clamp(-groundRays.groundDistance * delta * 1200, -6, 6)
+			velocity.y = clamp(-groundRays.groundDistance * delta * 2500, -6, 6)
 			if jump_state:
 				jumped.emit()
 				set_m_mode(M_FALLING)
@@ -149,7 +149,7 @@ func m_mode():
 		M_FALLING:
 			if waterLevel > swimLevel:
 				set_m_mode(M_SWIMMING)
-			elif groundRays.groundDistance < 0 and velocity.y < 0.5:
+			elif groundRays.groundDistance < 0 and velocity.y < 2.0:
 				if slideState and (h_speed > 3.0 or groundRays.gNormR.dot(Vector3.UP) < 0.8):
 					set_m_mode(M_SLIDING)
 				else:
