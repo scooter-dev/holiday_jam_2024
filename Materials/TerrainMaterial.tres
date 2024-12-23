@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dn3d2mmrgyvnc"]
+
+[ext_resource type="Shader" uid="uid://b1i8h3r1t4giq" path="res://src/Shaders/terrain.gdshader" id="1_xiku2"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_xiku2")
+shader_parameter/col1 = Color(1, 1, 1, 1)
+shader_parameter/col2 = Color(1, 1, 1, 1)
+shader_parameter/AOPower = 3.0
+shader_parameter/terrainBlendPower = 1.0
+shader_parameter/terrainBlendMul = 1.0
+shader_parameter/textureScaling = Vector2(16, 16)

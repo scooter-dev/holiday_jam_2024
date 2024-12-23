@@ -69,7 +69,7 @@ func _physics_process(delta):
 	match movementMode:
 		M_FALLING:
 			# velocity -= velocity * damping * delta
-			var sliding = groundRays.gDistR < -0.18
+			var sliding = groundRays.gDistR < -0.15
 			var slideNormal : Vector3 = groundRays.gNormR
 			var gdt : float = slideNormal.dot(Vector3.UP)
 			sliding = sliding and gdt > 0.0 and gdt < 0.95
@@ -110,7 +110,7 @@ func _physics_process(delta):
 					velocity.y = jump_acceleration
 				elif slideState:
 					submerged = true
-					velocity.y -= 2.0
+					velocity.y -= 1.0
 		M_CROUCHING:
 			pass
 		M_SLIDING:
@@ -185,7 +185,9 @@ func m_mode():
 		M_CROUCHING:
 			pass
 		M_SLIDING:
-			if (h_speed < 3.0 and groundRays.gNormR.dot(Vector3.UP) > groundRays.ANGLE_LIMIT):
+			if waterLevel > swimLevel:
+				set_m_mode(M_SWIMMING)
+			elif (h_speed < 3.0 and groundRays.gNormR.dot(Vector3.UP) > groundRays.ANGLE_LIMIT):
 				set_m_mode(M_FALLING)
 
 func set_m_mode(n_mode: int):

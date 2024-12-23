@@ -8,6 +8,10 @@
 
 config_version=5
 
+[VertexColorSwapper]
+
+"GLTF/Primary Vertex Color Sourcing/from_attribute_name_defined_in_this_extras_attribute"="col"
+
 [application]
 
 config/name="gameJam2024"
@@ -16,11 +20,19 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps=120
 config/icon="res://icon.svg"
 
+[autoload]
+
+LightingManager="*res://src/GlobalScripts/LightingManager.gd"
+
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/vsync/vsync_mode=0
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/IVX_VertexColorImportSwapper/plugin.cfg", "res://addons/QuickPluginManager/plugin.cfg")
 
 [file_customization]
 
@@ -108,3 +120,10 @@ slide={
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 shading/overrides/force_vertex_shading=true
+
+[shader_globals]
+
+light_texture={
+"type": "sampler2D",
+"value": ""
+}

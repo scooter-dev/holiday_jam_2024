@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cal7qhkesu02s"]
+[gd_scene load_steps=19 format=3 uid="uid://cal7qhkesu02s"]
 
 [ext_resource type="Script" uid="uid://c7vig5riw7kk6" path="res://src/Player/GroundRays.gd" id="1_v6gec"]
 [ext_resource type="Script" uid="uid://bbac2cpms0612" path="res://src/Player/player.gd" id="1_vtbm7"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bq0p573n8qgrm" path="res://src/Player/PlayerModel/player_model.tscn" id="5_v7f4r"]
 [ext_resource type="Script" uid="uid://2a5crfu7asaj" path="res://src/Player/drop_shadow.gd" id="6_52h17"]
 [ext_resource type="Shader" uid="uid://ve26mwltwjeu" path="res://src/Shaders/dropShadow.gdshader" id="6_vgmdf"]
+[ext_resource type="PackedScene" uid="uid://ny2ompxihdy" path="res://src/LevelActors/Lighting/vertex_light.tscn" id="9_0m8bu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ckfjp"]
 radius = 0.15
@@ -156,3 +157,9 @@ skeleton = NodePath("../..")
 [node name="DebugLabel" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="VertexLight" parent="." instance=ExtResource("9_0m8bu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41765, 0)
+light_color = Color(1, 0.696655, 0.453125, 1)
+omni_range = 8.0
+omni_attenuation = 2.0
