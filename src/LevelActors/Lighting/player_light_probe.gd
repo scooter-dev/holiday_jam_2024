@@ -9,6 +9,7 @@ enum e_mode {MIX, OVERRIDE}
 @export var lightTexture : Texture
 
 @export var shape : CollisionShape3D
+@export var directionNode : Node3D
 
 func _on_body_entered(body: Node3D) -> void:
 	if body is Player:

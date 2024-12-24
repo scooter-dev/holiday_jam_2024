@@ -70,30 +70,34 @@ func _process(delta: float) -> void:
 		var probe : LightProbe = lightProbes[0]
 		body.material_override.set_shader_parameter("probe1", probe.lightTexture)
 		body.material_override.set_shader_parameter("probe1Blend", getProbeBlend(probe))
+		body.material_override.set_shader_parameter("probe1Direction", probe.directionNode.global_basis.y if probe.directionNode else Vector3(0,1,0))
 		body.material_override.set_shader_parameter("probe2Blend", 0.0)
 	elif lpSize > 1:
 		var probe : LightProbe = lightProbes[0]
 		body.material_override.set_shader_parameter("probe1", probe.lightTexture)
 		body.material_override.set_shader_parameter("probe1Blend", getProbeBlend(probe))
+		body.material_override.set_shader_parameter("probe1Direction", probe.directionNode.global_basis.y if probe.directionNode else Vector3(0,1,0))
 		if probe.mode == LightProbe.e_mode.OVERRIDE:
 			body.material_override.set_shader_parameter("probe2Blend", 0.0)
 		else:
 			probe = lightProbes[1]
 			body.material_override.set_shader_parameter("probe2", probe.lightTexture)
 			body.material_override.set_shader_parameter("probe2Blend", getProbeBlend(probe))
+			body.material_override.set_shader_parameter("probe2Direction", probe.directionNode.global_basis.y if probe.directionNode else Vector3(0,1,0))
 			if probe.mode == LightProbe.e_mode.OVERRIDE:
 				body.material_override.set_shader_parameter("probe1Blend", 0.0)
-	print(body.material_override.get_shader_parameter("probe1"), " || ", body.material_override.get_shader_parameter("probe2"))
+	#print(body.material_override.get_shader_parameter("probe1"), " || ", body.material_override.get_shader_parameter("probe2"))
 
 func getProbeBlend(probe : LightProbe) -> float:
 	var colShape : CollisionShape3D = probe.shape
 	var shapeSize : Vector3 = colShape.shape.size
 	var blend : float = -sdBox((colShape.global_transform.inverse() * body.global_position), shapeSize, probe.falloff)
-	blend = clampf(blend,0,1)
+	print(max(probe.falloff, 0.001))
+	blend = clampf(blend / max(probe.falloff, 0.001),0,1)
 	return blend
 
 func sdBox(pos : Vector3, box : Vector3, falloff : float) -> float:
-	var q : Vector3 = abs(pos) - ((box / Vector3(2,2,2)) - Vector3(falloff,falloff,falloff))
+	var q : Vector3 = abs(pos) - (box / Vector3(2,2,2))
 	return Vector3(maxf(0,q.x),maxf(0,q.y),maxf(0,q.z)).length() + minf(maxf(q.x, maxf(q.y,q.z)),0.0);
 
 var lightProbes : Array[LightProbe] = []

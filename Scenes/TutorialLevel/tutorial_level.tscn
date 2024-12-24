@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cgj71p8cjvgda"]
+[gd_scene load_steps=50 format=3 uid="uid://cgj71p8cjvgda"]
 
 [ext_resource type="Texture2D" uid="uid://b0ay0uj00aj86" path="res://Assets/Textures/panoramaDayProcessed.png" id="1_fhfly"]
 [ext_resource type="Shader" uid="uid://ct8skqad1sgsq" path="res://src/Shaders/water.gdshader" id="4_fhfly"]
@@ -146,10 +146,25 @@ width = 64
 size = Vector3(25.4869, 11.1457, 9.70264)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a5o3l"]
-size = Vector3(29.1491, 15.4708, 18.4409)
+size = Vector3(18.1449, 15.4708, 18.4409)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rw4e8"]
-size = Vector3(13.1199, 8.95288, 15.6008)
+size = Vector3(13.0827, 8.95288, 10.3021)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xu06p"]
+size = Vector3(10.7408, 8.95288, 10.3021)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wsmye"]
+size = Vector3(8.43381, 8.95288, 8.85832)
+
+[sub_resource type="Gradient" id="Gradient_u4vw4"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 0.825439, 0.65625, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mjt3c"]
+gradient = SubResource("Gradient_u4vw4")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6p7ed"]
+size = Vector3(6.55135, 8.95288, 5.33073)
 
 [node name="TutorialLevel" type="Node3D"]
 
@@ -157,7 +172,7 @@ size = Vector3(13.1199, 8.95288, 15.6008)
 environment = SubResource("Environment_lv6rn")
 
 [node name="Player" parent="." instance=ExtResource("9_mevfl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.51059, 0.54291, 17.7341)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.8769, 0.54291, 35.7436)
 
 [node name="WaterVolume" parent="." instance=ExtResource("5_k44xo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.35599, -7.83494, 50.8911)
@@ -523,6 +538,19 @@ instance_shader_parameters/albedo_color = Color(0, 0.902344, 0.310181, 1)
 transform = Transform3D(-0.615173, 0.191014, -0.764902, 0.402885, 0.910124, -0.0967406, 0.677677, -0.367679, -0.636841, -33.9504, -5.99321, 53.8309)
 instance_shader_parameters/albedo_color = Color(0, 0.902344, 0.310181, 1)
 
+[node name="CaveFlower" parent="Decoration" instance=ExtResource("8_tdc7f")]
+transform = Transform3D(0.947003, -0.315489, 0.0604338, -0.0119165, 0.153502, 0.988076, -0.321003, -0.936432, 0.141608, 10.2247, -6.15856, 54.0823)
+instance_shader_parameters/albedo_color_g = Color(0.281863, 0.901961, 0, 1)
+instance_shader_parameters/albedo_color_r = Color(0.9, 1, 0, 1)
+instance_shader_parameters/ambientAffect = 0.0
+skeleton = NodePath("../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Decoration/CaveFlower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.776613, 0)
+light_color = Color(0.992188, 1, 0, 1)
+light_energy = 0.1
+omni_attenuation = 0.5
+
 [node name="InvisibleWalls" type="Node3D" parent="."]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="InvisibleWalls"]
@@ -572,49 +600,79 @@ transform = Transform3D(-0.991255, 0, -0.131962, 0, 1, 0, 0.131962, 0, -0.991255
 shape = SubResource("BoxShape3D_f7rph")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="MeshInstance3D" parent="." instance=ExtResource("8_tdc7f")]
-transform = Transform3D(0.947003, -0.315489, 0.0604338, -0.0119165, 0.153502, 0.988076, -0.321003, -0.936432, 0.141608, 10.2247, -6.15856, 54.0823)
-instance_shader_parameters/albedo_color_g = Color(0.281863, 0.901961, 0, 1)
-instance_shader_parameters/albedo_color_r = Color(0.9, 1, 0, 1)
-instance_shader_parameters/ambientAffect = 0.0
+[node name="LightProbes" type="Node3D" parent="."]
 
-[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.776613, 0)
-light_color = Color(0.992188, 1, 0, 1)
-light_energy = 0.1
-omni_attenuation = 0.5
-
-[node name="UnderwaterLightProbe" parent="." node_paths=PackedStringArray("shape") instance=ExtResource("17_02vn6")]
+[node name="UnderwaterLightProbe" parent="LightProbes" node_paths=PackedStringArray("shape") instance=ExtResource("17_02vn6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.57479, -12.1695, 51.9222)
 falloff = 0.0
 lightTexture = SubResource("GradientTexture1D_u4vw4")
 shape = NodePath("CollisionShape3D")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="UnderwaterLightProbe"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LightProbes/UnderwaterLightProbe"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.36304, -3.28749, -1.36997)
 shape = SubResource("BoxShape3D_e8qkl")
 debug_color = Color(0.83, 0, 0, 1)
 
-[node name="CaveLightProbe" parent="." node_paths=PackedStringArray("shape") instance=ExtResource("17_02vn6")]
+[node name="CaveLightProbe" parent="LightProbes" node_paths=PackedStringArray("shape") instance=ExtResource("17_02vn6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09435, -5.5649, 51.9222)
 falloff = 0.0
 lightTexture = SubResource("GradientTexture1D_u4vw4")
 shape = NodePath("CollisionShape3D")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CaveLightProbe"]
-transform = Transform3D(0.989321, 0.003825, 0.145703, -0.00370071, 0.999993, -0.00112412, -0.145707, 0.000572887, 0.989328, 4.17809, -2.78038, -1.98915)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LightProbes/CaveLightProbe"]
+transform = Transform3D(0.989321, 0.003825, 0.145703, -0.00370071, 0.999993, -0.00112412, -0.145707, 0.000572887, 0.989328, -1.26528, -2.76002, -1.18745)
 shape = SubResource("BoxShape3D_a5o3l")
 debug_color = Color(0.83, 0, 0, 1)
 
-[node name="CaveLightProbe2" parent="." node_paths=PackedStringArray("shape") instance=ExtResource("17_02vn6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.9035, -1.12884, 40.6246)
-falloff = 1.0
+[node name="CaveLightProbe2" parent="LightProbes" node_paths=PackedStringArray("shape") instance=ExtResource("17_02vn6")]
+transform = Transform3D(1, 7.27596e-12, 0, 1.05501e-10, 1, 2.91038e-11, 3.72529e-09, 2.91038e-11, 1, 10.7719, -2.73314, 49.8761)
+priority = -1
+falloff = 0.0
 lightTexture = SubResource("GradientTexture1D_u4vw4")
 shape = NodePath("CollisionShape3D")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CaveLightProbe2"]
-transform = Transform3D(0.999113, 0.003825, -0.0419263, -0.00384566, 0.999993, -0.000412038, 0.0419244, 0.000572887, 0.99912, -0.861455, -1.63551, 1.8323)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LightProbes/CaveLightProbe2"]
+transform = Transform3D(0.999113, 0.003825, -0.0419263, -0.00384566, 0.999993, -0.000412038, 0.0419244, 0.000572887, 0.99912, 1.69237, -0.00651407, 0.0710144)
 shape = SubResource("BoxShape3D_rw4e8")
 debug_color = Color(0.83, 0, 0, 1)
+
+[node name="CaveLightProbe3" parent="LightProbes" node_paths=PackedStringArray("shape") instance=ExtResource("17_02vn6")]
+transform = Transform3D(0.438653, 7.27596e-12, 0.898656, 1.3574e-10, 1, 3.89026e-11, -0.898656, 2.91038e-11, 0.438654, 18.0421, -2.73314, 48.2624)
+priority = -1
+falloff = 2.0
+lightTexture = SubResource("GradientTexture1D_u4vw4")
+shape = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LightProbes/CaveLightProbe3"]
+transform = Transform3D(0.999113, 0.003825, -0.0419263, -0.00384561, 0.999993, -0.000412038, 0.0419243, 0.000572887, 0.99912, 0.522484, -0.0020113, 0.0219193)
+shape = SubResource("BoxShape3D_xu06p")
+debug_color = Color(0.83, 0, 0, 1)
+
+[node name="CaveLightProbe5" parent="LightProbes" node_paths=PackedStringArray("shape") instance=ExtResource("17_02vn6")]
+transform = Transform3D(0.625992, 7.27596e-12, 0.77983, 1.30919e-10, 1, 3.43149e-11, -0.77983, 2.91038e-11, 0.625992, 21.3445, -2.73314, 41.0817)
+priority = -1
+falloff = 2.0
+lightTexture = SubResource("GradientTexture1D_u4vw4")
+shape = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LightProbes/CaveLightProbe5"]
+transform = Transform3D(0.888235, 0.003825, -0.459374, -0.00366062, 0.999993, 0.00124823, 0.459374, 0.000572887, 0.888242, -1.23314, 0.00460386, 0.196144)
+shape = SubResource("BoxShape3D_wsmye")
+debug_color = Color(0.83, 0, 0, 1)
+
+[node name="CaveLightProbe4" parent="LightProbes" node_paths=PackedStringArray("shape", "directionNode") instance=ExtResource("17_02vn6")]
+transform = Transform3D(-0.261566, 7.27596e-12, 0.965186, 1.42771e-10, 1, 5.87976e-11, -0.965186, 2.91038e-11, -0.261566, 22.0799, -2.73314, 39.6586)
+falloff = 4.0
+lightTexture = SubResource("GradientTexture1D_mjt3c")
+shape = NodePath("CollisionShape3D")
+directionNode = NodePath("Node3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LightProbes/CaveLightProbe4"]
+transform = Transform3D(0.999113, 0.003825, -0.0419263, -0.00384566, 0.999993, -0.000412038, 0.0419244, 0.000572887, 0.99912, 0.308361, -0.00261211, 2.5008)
+shape = SubResource("BoxShape3D_6p7ed")
+debug_color = Color(0.83, 0, 0, 1)
+
+[node name="Node3D" type="Node3D" parent="LightProbes/CaveLightProbe4"]
+transform = Transform3D(1, 0, 0, 0, 0.481035, -0.876702, 0, 0.876702, 0.481035, 0.39363, 0.933536, 3.29919)
 
 [editable path="TutorialLevelNew"]
