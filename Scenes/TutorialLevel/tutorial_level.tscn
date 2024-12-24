@@ -57,8 +57,8 @@ shader_parameter/color = Color(0.367218, 0.746094, 0.569285, 0.282353)
 shader_parameter/textureScaling = Vector2(4, 4)
 shader_parameter/waves = 0.5
 shader_parameter/distortion = 0.06
-shader_parameter/distance_fade_min = 0.0
-shader_parameter/distance_fade_max = 0.0
+shader_parameter/distance_fade_min = 50.0
+shader_parameter/distance_fade_max = 35.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_eov1n"]
 size = Vector2(16, 16)
@@ -554,5 +554,17 @@ debug_color = Color(0, 0.6, 0.7, 0.42)
 transform = Transform3D(-0.991255, 0, -0.131962, 0, 1, 0, 0.131962, 0, -0.991255, 3.91744, 2.63663, 15.6518)
 shape = SubResource("BoxShape3D_f7rph")
 debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="MeshInstance3D" parent="." instance=ExtResource("8_tdc7f")]
+transform = Transform3D(0.947003, -0.315489, 0.0604338, -0.0119165, 0.153502, 0.988076, -0.321003, -0.936432, 0.141608, 10.2247, -6.15856, 54.0823)
+instance_shader_parameters/albedo_color_g = Color(0.281863, 0.901961, 0, 1)
+instance_shader_parameters/albedo_color_r = Color(0.9, 1, 0, 1)
+instance_shader_parameters/ambientAffect = 0.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.776613, 0)
+light_color = Color(0.992188, 1, 0, 1)
+light_energy = 0.1
+omni_attenuation = 0.5
 
 [editable path="TutorialLevelNew"]

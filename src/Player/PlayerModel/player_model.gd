@@ -1,5 +1,7 @@
 extends Node3D
 
+class_name PlayerModel
+
 @export var player_anim_tree: AnimationTree
 @export var playerMovement : PlayerMovement
 @export var phrog : Node3D
@@ -57,3 +59,23 @@ func _process(delta: float) -> void:
 	player_anim_tree["parameters/B2_Swim/blend_amount"] = blendSwim
 	if playerMovement.h_speed > 0.01:
 		global_rotation.y = lerp_angle(global_rotation.y, -Vector2(playerMovement.velocity.x,playerMovement.velocity.z).angle() + HPI, delta * 8.0)
+	
+	match lightProbes.size():
+		1:
+			pass
+		2:
+			pass
+	
+
+var lightProbes : Array[LightProbe] = []
+
+func registerLightProbe(probe : LightProbe) -> void:
+	lightProbes.append(probe)
+	lightProbes.sort_custom(sortLightProbes)
+
+func sortLightProbes(a : LightProbe, b : LightProbe) -> bool:
+	return a.priority > b.priority
+
+func unregisterLightProbe(probe : LightProbe) -> void:
+	lightProbes.erase(probe)
+	lightProbes.sort_custom(sortLightProbes)

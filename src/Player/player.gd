@@ -4,3 +4,4 @@ class_name Player
 
 @export var movement: PlayerMovement
 @export var firefly: PlayerFirefly
+@export var player_model: PlayerModel

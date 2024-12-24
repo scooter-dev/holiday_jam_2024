@@ -33,6 +33,7 @@ enabled=PackedStringArray("res://addons/IVX_VertexColorImportSwapper/plugin.cfg"
 [file_customization]
 
 folder_colors={
+"res://Scenes/": "orange",
 "res://src/": "green"
 }
 

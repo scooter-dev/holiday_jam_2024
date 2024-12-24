@@ -1,11 +1,11 @@
 [gd_scene load_steps=15 format=3 uid="uid://d0ch1kt1cx1wh"]
 
 [ext_resource type="Texture2D" uid="uid://cd35j4mmwnu4" path="res://addons/kenney_prototype_textures/dark/texture_01.png" id="1_1kaw0"]
-[ext_resource type="Shader" path="res://src/Shaders/skyShader.gdshader" id="1_sdgis"]
+[ext_resource type="Shader" uid="uid://c0aa5ibqmt4v1" path="res://src/Shaders/skyShader.gdshader" id="1_sdgis"]
 [ext_resource type="PackedScene" uid="uid://cal7qhkesu02s" path="res://src/Player/player.tscn" id="2_7swwj"]
 [ext_resource type="Material" uid="uid://cqbkqwwpq2hor" path="res://Materials/blue.tres" id="4_cvgdm"]
 [ext_resource type="Script" uid="uid://bji3hop2l5pqr" path="res://Scenes/CrocoLevel/spinnies.gd" id="4_d2vh2"]
-[ext_resource type="Material" uid="uid://bsnbnxeu04pnl" path="res://Materials/spin_leaf.tres" id="5_hp633"]
+[ext_resource type="Material" path="res://Materials/spin_leaf.tres" id="5_hp633"]
 
 [sub_resource type="Gradient" id="Gradient_cvgdm"]
 interpolation_mode = 2

@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode ambient_light_disabled, fog_disabled;
+render_mode ambient_light_disabled, fog_disabled, cull_disabled;
 
 uniform sampler2D tex : filter_nearest;
 uniform vec4 color : source_color = vec4(1);
