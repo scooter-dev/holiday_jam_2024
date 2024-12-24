@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cgj71p8cjvgda"]
+[gd_scene load_steps=51 format=3 uid="uid://cgj71p8cjvgda"]
 
 [ext_resource type="Texture2D" uid="uid://b0ay0uj00aj86" path="res://Assets/Textures/panoramaDayProcessed.png" id="1_fhfly"]
 [ext_resource type="Shader" uid="uid://ct8skqad1sgsq" path="res://src/Shaders/water.gdshader" id="4_fhfly"]
@@ -143,7 +143,10 @@ gradient = SubResource("Gradient_02vn6")
 width = 64
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e8qkl"]
-size = Vector3(25.4869, 11.1457, 9.70264)
+size = Vector3(18.7143, 11.1457, 12.7356)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mow6p"]
+size = Vector3(12.642, 11.1457, 11.1113)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a5o3l"]
 size = Vector3(18.1449, 15.4708, 18.4409)
@@ -609,8 +612,19 @@ lightTexture = SubResource("GradientTexture1D_u4vw4")
 shape = NodePath("CollisionShape3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LightProbes/UnderwaterLightProbe"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.36304, -3.28749, -1.36997)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0233, -3.28749, 0.146507)
 shape = SubResource("BoxShape3D_e8qkl")
+debug_color = Color(0.83, 0, 0, 1)
+
+[node name="UnderwaterLightProbe2" parent="LightProbes" node_paths=PackedStringArray("shape") instance=ExtResource("17_02vn6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9857, -12.1695, 51.9222)
+falloff = 4.0
+lightTexture = SubResource("GradientTexture1D_u4vw4")
+shape = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LightProbes/UnderwaterLightProbe2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.60389, -3.28749, -0.665627)
+shape = SubResource("BoxShape3D_mow6p")
 debug_color = Color(0.83, 0, 0, 1)
 
 [node name="CaveLightProbe" parent="LightProbes" node_paths=PackedStringArray("shape") instance=ExtResource("17_02vn6")]
