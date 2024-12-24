@@ -2,6 +2,7 @@ extends Area3D
 
 class_name WaterVolume
 
+@export var saltWater : bool = false
 
 func _on_body_entered(body: Node3D) -> void:
 	if body is Player:
