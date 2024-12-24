@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cal7qhkesu02s"]
+[gd_scene load_steps=19 format=3 uid="uid://cal7qhkesu02s"]
 
 [ext_resource type="Script" uid="uid://c7vig5riw7kk6" path="res://src/Player/GroundRays.gd" id="1_v6gec"]
 [ext_resource type="Script" uid="uid://bbac2cpms0612" path="res://src/Player/player.gd" id="1_vtbm7"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bq0p573n8qgrm" path="res://src/Player/PlayerModel/player_model.tscn" id="5_v7f4r"]
 [ext_resource type="Script" uid="uid://2a5crfu7asaj" path="res://src/Player/drop_shadow.gd" id="6_52h17"]
 [ext_resource type="Shader" uid="uid://ve26mwltwjeu" path="res://src/Shaders/dropShadow.gdshader" id="6_vgmdf"]
+[ext_resource type="Script" uid="uid://cr3c3yir7qgp1" path="res://src/Player/lightning_bug.gd" id="9_0m8bu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ckfjp"]
 radius = 0.15
@@ -54,12 +55,13 @@ shader_parameter/cube_half_size = 0.5
 
 [sub_resource type="BoxMesh" id="BoxMesh_vgmdf"]
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("movement")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("movement", "firefly")]
 collision_layer = 2
 up_direction = Vector3(0, -1, 0)
 wall_min_slide_angle = 0.0
 script = ExtResource("1_vtbm7")
 movement = NodePath("Movement")
+firefly = NodePath("Firefly")
 
 [node name="GroundRays" type="Node3D" parent="."]
 script = ExtResource("1_v6gec")
@@ -156,3 +158,12 @@ skeleton = NodePath("../..")
 [node name="DebugLabel" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="Firefly" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.662773, 0)
+light_color = Color(0.790039, 1, 0.328125, 1)
+light_energy = 0.25
+light_specular = 0.0
+omni_range = 6.0
+omni_attenuation = 0.5
+script = ExtResource("9_0m8bu")

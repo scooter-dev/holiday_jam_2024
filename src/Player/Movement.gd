@@ -67,16 +67,16 @@ func _physics_process(delta):
 	match movementMode:
 		M_FALLING:
 			# velocity -= velocity * damping * delta
-			var sliding = groundRays.gDistR < -0.15
+			var sliding = groundRays.gDistR < -0.15 #if the ground is more than 15cm inside the raycasts, player can slide
 			var slideNormal: Vector3 = groundRays.gNormR
-			var gdt: float = slideNormal.dot(Vector3.UP)
-			sliding = sliding and gdt < 0.7 and h_speed > 3.7
-			if !(sliding):
-				velocity.y = clamp(velocity.y - 9.8 * delta, -80, 80)
+			var gdt: float = slideNormal.dot(Vector3.UP) #cos of angle between ground and up vector
+			sliding = sliding and gdt < 0.7 and h_speed > 3.7#if player can silde, the ground is at ~45 degrees and horizontal speed is greater than 3.7 m/s, player is sliding
+			if !(sliding):#if player isn't sliding, move in
+				velocity.y = clamp(velocity.y - 9.8 * delta, -80, 80)#clamp the vertical velocity so player won't clip into the ground when falling too fast
 				#look_arrow.visible = false
-				if h_speed < 2:
+				if h_speed < 2:#if horizontal speed is less than 2 m/s, player can freely use air control
 					velocity += direction * delta * acceleration * airControl
-				else:
+				else:#if horizontal speed is greater than 2 m/s, player can only change direction or counteract velocity, not add speed
 					var dt: float = velocity.dot(direction)
 					if dt < 0.0:
 						velocity += direction * delta * acceleration * airControl

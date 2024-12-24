@@ -3,3 +3,4 @@ extends CharacterBody3D
 class_name Player
 
 @export var movement: PlayerMovement
+@export var firefly: PlayerFirefly

@@ -23,6 +23,6 @@ func _physics_process(delta):
 				groundDistance = dist
 				groundNormal = normal
 				ground = ray.get_collider()
-			if dist < gDistR:
+			if dist < gDistR:#get the ground distance and normal even if no walkable ground is found
 				gDistR = dist
 				gNormR = normal

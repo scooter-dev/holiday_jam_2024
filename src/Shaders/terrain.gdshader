@@ -6,6 +6,8 @@ uniform sampler2D tex1 : filter_nearest;
 uniform vec4 col1 : source_color = vec4(1);
 uniform sampler2D tex2 : filter_nearest;
 uniform vec4 col2 : source_color = vec4(1);
+uniform sampler2D tex3 : filter_nearest;
+uniform vec4 col3 : source_color = vec4(1);
 uniform float AOPower = 3.0;
 uniform float terrainBlendPower = 1.0;
 uniform float terrainBlendMul = 1.0;
@@ -21,7 +23,7 @@ uniform float distance_fade_max : hint_range(0.0, 4096.0, 0.01);
 
 varying vec2 tUV;
 varying vec3 norm;
-varying vec3 vLight;
+//varying vec3 vLight;
 
 #define lightRes 8
 #define maxLights 32
@@ -29,8 +31,8 @@ varying vec3 vLight;
 void vertex() {
 	tUV = UV * textureScaling;
 	norm = NORMAL;
-	vLight = vec3(0);
-	vec2 singleStep = vec2(1.0 / float(lightRes), 0);
+	//vLight = vec3(0);
+	//vec2 singleStep = vec2(1.0 / float(lightRes), 0);
 	/*vec3 col = textureLod(terrainMap, vec2(float(i % lightRes), float(i / lightRes)) / vec2(lightRes),0).rgb;
 	vLight = col.rgb;*/
 	/*for(int i = 0; i < maxLights; i++)
@@ -46,8 +48,9 @@ void fragment() {
 	vec4 tMap = COLOR;
 	vec3 t1 = texture(tex1, tUV).rgb * col1.rgb;
 	vec3 t2 = texture(tex2, tUV).rgb * col2.rgb;
+	vec3 t3 = texture(tex3, tUV).rgb * col3.rgb;
 	float dt = pow(clamp(dot(norm, vec3(0,1,0)) * terrainBlendMul,0,1),terrainBlendPower);
-	vec3 albedo = mix(t1,t2,(1.0 - tMap.g) * dt);
+	vec3 albedo = mix(mix(t1,t2,(1.0 - tMap.g) * dt), t3, COLOR.b);
 	ALBEDO = albedo;
 	//vec3 lighting = pow(tMap.r,AOPower) + vLight;
 	EMISSION = ALBEDO * pow(tMap.r,AOPower);

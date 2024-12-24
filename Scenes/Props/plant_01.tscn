@@ -14,6 +14,6 @@ shader_parameter/distance_fade_max = 35.0
 
 [node name="Plant01" type="MeshInstance3D"]
 material_override = SubResource("ShaderMaterial_icbvi")
-instance_shader_parameters/albedo_color = Color(0.396078, 1, 0.203922, 1)
+instance_shader_parameters/albedo_color = Color(0.206492, 0.855469, 0, 1)
 instance_shader_parameters/ambientAffect = 0.5
 mesh = ExtResource("3_cr74o")
