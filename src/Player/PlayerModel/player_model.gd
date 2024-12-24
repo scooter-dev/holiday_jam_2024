@@ -5,6 +5,8 @@ class_name PlayerModel
 @export var player_anim_tree: AnimationTree
 @export var playerMovement : PlayerMovement
 @export var phrog : Node3D
+@export var body: MeshInstance3D
+
 
 var blendSlide : float = 0.0
 var blendFall : float = 0.0
@@ -60,12 +62,39 @@ func _process(delta: float) -> void:
 	if playerMovement.h_speed > 0.01:
 		global_rotation.y = lerp_angle(global_rotation.y, -Vector2(playerMovement.velocity.x,playerMovement.velocity.z).angle() + HPI, delta * 8.0)
 	
-	match lightProbes.size():
-		1:
-			pass
-		2:
-			pass
-	
+	var lpSize : int = lightProbes.size()
+	if lpSize == 0:
+		body.material_override.set_shader_parameter("probe1Blend", 0.0)
+		body.material_override.set_shader_parameter("probe2Blend", 0.0)
+	elif lpSize == 1:
+		var probe : LightProbe = lightProbes[0]
+		body.material_override.set_shader_parameter("probe1", probe.lightTexture)
+		body.material_override.set_shader_parameter("probe1Blend", getProbeBlend(probe))
+		body.material_override.set_shader_parameter("probe2Blend", 0.0)
+	elif lpSize > 1:
+		var probe : LightProbe = lightProbes[0]
+		body.material_override.set_shader_parameter("probe1", probe.lightTexture)
+		body.material_override.set_shader_parameter("probe1Blend", getProbeBlend(probe))
+		if probe.mode == LightProbe.e_mode.OVERRIDE:
+			body.material_override.set_shader_parameter("probe2Blend", 0.0)
+		else:
+			probe = lightProbes[1]
+			body.material_override.set_shader_parameter("probe2", probe.lightTexture)
+			body.material_override.set_shader_parameter("probe2Blend", getProbeBlend(probe))
+			if probe.mode == LightProbe.e_mode.OVERRIDE:
+				body.material_override.set_shader_parameter("probe1Blend", 0.0)
+	print(body.material_override.get_shader_parameter("probe1"), " || ", body.material_override.get_shader_parameter("probe2"))
+
+func getProbeBlend(probe : LightProbe) -> float:
+	var colShape : CollisionShape3D = probe.shape
+	var shapeSize : Vector3 = colShape.shape.size
+	var blend : float = -sdBox((colShape.global_transform.inverse() * body.global_position), shapeSize, probe.falloff)
+	blend = clampf(blend,0,1)
+	return blend
+
+func sdBox(pos : Vector3, box : Vector3, falloff : float) -> float:
+	var q : Vector3 = abs(pos) - ((box / Vector3(2,2,2)) - Vector3(falloff,falloff,falloff))
+	return Vector3(maxf(0,q.x),maxf(0,q.y),maxf(0,q.z)).length() + minf(maxf(q.x, maxf(q.y,q.z)),0.0);
 
 var lightProbes : Array[LightProbe] = []
 

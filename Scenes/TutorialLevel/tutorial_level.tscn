@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cgj71p8cjvgda"]
+[gd_scene load_steps=45 format=3 uid="uid://cgj71p8cjvgda"]
 
 [ext_resource type="Texture2D" uid="uid://b0ay0uj00aj86" path="res://Assets/Textures/panoramaDayProcessed.png" id="1_fhfly"]
 [ext_resource type="Shader" uid="uid://ct8skqad1sgsq" path="res://src/Shaders/water.gdshader" id="4_fhfly"]
@@ -16,6 +16,7 @@
 [ext_resource type="Shader" uid="uid://bbcgq3vqepex3" path="res://src/Shaders/underwaterDecal.tres" id="11_1ria3"]
 [ext_resource type="Texture2D" uid="uid://d4nxxq6wg23rp" path="res://Assets/Textures/grass.png" id="11_u4vw4"]
 [ext_resource type="Texture2D" uid="uid://dfg3rbtuomrrk" path="res://Assets/Textures/sand.png" id="12_mjt3c"]
+[ext_resource type="PackedScene" uid="uid://cwitkfs7afd62" path="res://src/LevelActors/Lighting/player_light_probe.tscn" id="17_02vn6"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_c14f2"]
 panorama = ExtResource("1_fhfly")
@@ -102,7 +103,7 @@ shader_parameter/col1 = Color(0.949219, 0.734161, 0.734161, 1)
 shader_parameter/tex2 = ExtResource("11_u4vw4")
 shader_parameter/col2 = Color(0.606608, 0.859375, 0.449829, 1)
 shader_parameter/tex3 = ExtResource("12_mjt3c")
-shader_parameter/col3 = Color(0.84375, 0.721441, 0.53064, 1)
+shader_parameter/col3 = Color(1, 0.754333, 0.371094, 1)
 shader_parameter/AOPower = 1.0
 shader_parameter/terrainBlendPower = 3.595
 shader_parameter/terrainBlendMul = 1.845
@@ -133,6 +134,22 @@ size = Vector3(1.70694, 5.34283, 15.6697)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f7rph"]
 size = Vector3(1.70694, 5.34283, 6.99877)
+
+[sub_resource type="Gradient" id="Gradient_02vn6"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_u4vw4"]
+gradient = SubResource("Gradient_02vn6")
+width = 64
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e8qkl"]
+size = Vector3(25.4869, 11.1457, 9.70264)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a5o3l"]
+size = Vector3(29.1491, 15.4708, 18.4409)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rw4e8"]
+size = Vector3(13.1199, 8.95288, 15.6008)
 
 [node name="TutorialLevel" type="Node3D"]
 
@@ -566,5 +583,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.776613, 0)
 light_color = Color(0.992188, 1, 0, 1)
 light_energy = 0.1
 omni_attenuation = 0.5
+
+[node name="UnderwaterLightProbe" parent="." node_paths=PackedStringArray("shape") instance=ExtResource("17_02vn6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.57479, -12.1695, 51.9222)
+falloff = 0.0
+lightTexture = SubResource("GradientTexture1D_u4vw4")
+shape = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="UnderwaterLightProbe"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.36304, -3.28749, -1.36997)
+shape = SubResource("BoxShape3D_e8qkl")
+debug_color = Color(0.83, 0, 0, 1)
+
+[node name="CaveLightProbe" parent="." node_paths=PackedStringArray("shape") instance=ExtResource("17_02vn6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09435, -5.5649, 51.9222)
+falloff = 0.0
+lightTexture = SubResource("GradientTexture1D_u4vw4")
+shape = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CaveLightProbe"]
+transform = Transform3D(0.989321, 0.003825, 0.145703, -0.00370071, 0.999993, -0.00112412, -0.145707, 0.000572887, 0.989328, 4.17809, -2.78038, -1.98915)
+shape = SubResource("BoxShape3D_a5o3l")
+debug_color = Color(0.83, 0, 0, 1)
+
+[node name="CaveLightProbe2" parent="." node_paths=PackedStringArray("shape") instance=ExtResource("17_02vn6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.9035, -1.12884, 40.6246)
+falloff = 1.0
+lightTexture = SubResource("GradientTexture1D_u4vw4")
+shape = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CaveLightProbe2"]
+transform = Transform3D(0.999113, 0.003825, -0.0419263, -0.00384566, 0.999993, -0.000412038, 0.0419244, 0.000572887, 0.99912, -0.861455, -1.63551, 1.8323)
+shape = SubResource("BoxShape3D_rw4e8")
+debug_color = Color(0.83, 0, 0, 1)
 
 [editable path="TutorialLevelNew"]

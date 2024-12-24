@@ -14,6 +14,7 @@ var h_speed: float = 0
 
 var jump_state: bool = false
 var jump_counter: float = 0
+var coyote_time : float = 0.0
 
 
 func registerWaterVolume(vol: WaterVolume) -> void:
@@ -82,6 +83,10 @@ func _physics_process(delta):
 						velocity += direction * delta * acceleration * airControl
 					else:
 						velocity += (direction * delta * acceleration * airControl).project(camY.global_basis.y.normalized().cross(Vector3(velocity.x, 0, velocity.z).normalized()))
+				if jump_state and coyote_time > 0.001:
+					jumped.emit()
+					velocity.y = jump_acceleration
+					coyote_time = 0.0
 			else:
 				set_m_mode(M_SLIDING)
 		M_GROUNDED:
@@ -141,6 +146,7 @@ func _physics_process(delta):
 					else:
 						velocity += (direction * delta * acceleration * airControl).project(camY.global_basis.y.normalized().cross(Vector3(velocity.x, 0, velocity.z).normalized()))
 	
+	coyote_time = max(0.0, coyote_time - delta)
 	player.velocity = velocity
 	player.move_and_slide()
 
@@ -182,6 +188,7 @@ func set_m_mode(n_mode: int):
 		M_FALLING:
 			match movementMode:
 				M_GROUNDED:
+					coyote_time = 0.15
 					player.reparent(world, true)
 		M_SWIMMING:
 			submerged = waterLevel > swimLevel + 0.5

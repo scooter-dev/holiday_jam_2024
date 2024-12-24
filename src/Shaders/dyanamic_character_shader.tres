@@ -15,14 +15,26 @@ global uniform sampler2D light_texture : repeat_disable;
 global uniform vec3 light_direction;
 global uniform vec4 ambient_tint;
 
+uniform sampler2D probe1 : hint_default_black;
+uniform sampler2D probe2 : hint_default_black;
+uniform vec3 probe1Direction = vec3(0,1,0);
+uniform vec3 probe2Direction = vec3(0,1,0);
+
+uniform float probe1Blend : hint_range(0.0, 1.0, 0.1) = 0.0;
+uniform float probe2Blend : hint_range(0.0, 1.0, 0.1) = 0.0;
+
 varying vec3 ambientLight;
 
-void vertex() {
+void vertex() 
+{
 	UV *= UVScaling;
 	ambientLight = textureLod(light_texture, vec2(dot(NORMAL, light_direction) * 0.5 + 0.5,0.5),0).rgb;
+	vec3 probeBlend = mix(textureLod(probe1,vec2(dot(NORMAL, probe1Direction) * 0.5 + 0.5,0.5),0).rgb,textureLod(probe2,vec2(dot(NORMAL, probe2Direction) * 0.5 + 0.5,0.5),0).rgb, max(0,probe2Blend - probe1Blend * 0.5)).rgb;
+	ambientLight = mix(ambientLight, probeBlend, min(probe1Blend + probe2Blend,1.0));
 }
 
-void fragment() {
+void fragment() 
+{
 	ALBEDO = texture(albedo_texture, UV).rgb * albedo_color.rgb;
 	EMISSION = ALBEDO * ambientLight * ambient_tint.rgb;
 	{
