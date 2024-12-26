@@ -85,6 +85,7 @@ func _ready() -> void:
 func update() -> void:
 	iMesh.clear_surfaces()
 	iMesh.surface_begin(Mesh.PRIMITIVE_LINES, material)
+	
 	var vertices : Array[Vector3] = getVertices(size * Vector3(0.5,0.5,0.5))
 	for v : Vector3 in vertices:
 		iMesh.surface_add_vertex(v)

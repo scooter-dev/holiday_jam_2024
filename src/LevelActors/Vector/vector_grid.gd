@@ -25,11 +25,11 @@ func update() -> void:
 	iMesh.surface_begin(Mesh.PRIMITIVE_LINES, material)
 	var vertices : Array[Vector3]
 	
-	for i : int in range(gridSize.x):
+	for i : int in range(gridSize.x + 1):
 		var xCoord : float = (float(i) / float(gridSize.x)) * 2 - 1
 		vertices.append(Vector3(-1,0,xCoord))
 		vertices.append(Vector3( 1,0,xCoord))
-	for i : int in range(gridSize.y):
+	for i : int in range(gridSize.y + 1):
 		var yCoord : float = (float(i) / float(gridSize.y)) * 2 - 1
 		vertices.append(Vector3(yCoord,0, 1))
 		vertices.append(Vector3(yCoord,0,-1))

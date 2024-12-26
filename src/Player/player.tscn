@@ -1,9 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://cal7qhkesu02s"]
+[gd_scene load_steps=19 format=3 uid="uid://cal7qhkesu02s"]
 
 [ext_resource type="Script" uid="uid://c7vig5riw7kk6" path="res://src/Player/GroundRays.gd" id="1_v6gec"]
 [ext_resource type="Script" uid="uid://bbac2cpms0612" path="res://src/Player/player.gd" id="1_vtbm7"]
 [ext_resource type="Script" uid="uid://b6jsw0wf2wqw" path="res://src/Player/Movement.gd" id="2_n4f6x"]
-[ext_resource type="Script" uid="uid://bd1o4xsmnejv7" path="res://src/Player/PlayerInput.gd" id="3_b7fis"]
 [ext_resource type="Script" uid="uid://deg3kgp6jrooh" path="res://src/Player/CamY.gd" id="3_b40r7"]
 [ext_resource type="PackedScene" uid="uid://bq0p573n8qgrm" path="res://src/Player/PlayerModel/player_model.tscn" id="5_v7f4r"]
 [ext_resource type="Script" uid="uid://2a5crfu7asaj" path="res://src/Player/drop_shadow.gd" id="6_52h17"]
@@ -107,17 +106,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.455833, 0)
 shape = SubResource("CapsuleShape3D_ckfjp")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="Movement" type="Node" parent="." node_paths=PackedStringArray("groundRays", "camY", "playerInput", "player")]
+[node name="Movement" type="Node" parent="." node_paths=PackedStringArray("groundRays", "camY", "player")]
 script = ExtResource("2_n4f6x")
 groundRays = NodePath("../GroundRays")
 camY = NodePath("../CamY")
-playerInput = NodePath("../PlayerInput")
 player = NodePath("..")
 
-[node name="CamY" type="Node3D" parent="." node_paths=PackedStringArray("playerInput", "camX")]
+[node name="CamY" type="Node3D" parent="." node_paths=PackedStringArray("camX")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.932136, 0)
 script = ExtResource("3_b40r7")
-playerInput = NodePath("../PlayerInput")
 camX = NodePath("VSpring/CamX")
 
 [node name="VSpring" type="SpringArm3D" parent="CamY"]
@@ -137,9 +134,6 @@ spring_length = 2.0
 [node name="Camera3D" type="Camera3D" parent="CamY/VSpring/CamX/RotationNormalizer/SpringArm3D"]
 current = true
 far = 50.0
-
-[node name="PlayerInput" type="Node" parent="."]
-script = ExtResource("3_b7fis")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)

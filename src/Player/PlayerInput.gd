@@ -1,7 +1,5 @@
 extends Node
 
-class_name PlayerInput
-
 var fbrl: Vector2
 var ludrl: Vector2
 signal jump(state: bool)

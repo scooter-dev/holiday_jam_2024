@@ -37,7 +37,6 @@ func getWaterLevel() -> void:
 
 @export var groundRays: GroundRays
 @export var camY: Node3D
-@export var playerInput: PlayerInput
 @export var player: CharacterBody3D
 #@export var slideRay : RayCast3D
 @export var airControl: float = 0.14
@@ -52,8 +51,8 @@ func set_slide(state: bool):
 	slideState = state
 
 func _ready():
-	playerInput.jump.connect(set_jump)
-	playerInput.slide.connect(set_slide)
+	PlayerInput.jump.connect(set_jump)
+	PlayerInput.slide.connect(set_slide)
 
 var nwProtect: int = 0
 func _physics_process(delta):
@@ -63,7 +62,7 @@ func _physics_process(delta):
 	m_mode()
 	debug_label.text = "Mode: %d\n" % movementMode
 	debug_label.text += "Water Level: %0.2f\n" % waterLevel
-	var direction: Vector3 = camY.global_basis.x * playerInput.fbrl.x + camY.global_basis.z * playerInput.fbrl.y
+	var direction: Vector3 = camY.global_basis.x * PlayerInput.fbrl.x + camY.global_basis.z * PlayerInput.fbrl.y
 	direction = direction.limit_length()
 	match movementMode:
 		M_FALLING:
