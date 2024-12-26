@@ -1,0 +1,246 @@
+[gd_scene load_steps=25 format=3 uid="uid://dwawhfn488n7"]
+
+[ext_resource type="PackedScene" uid="uid://cal7qhkesu02s" path="res://src/Player/player.tscn" id="1_2o4o2"]
+[ext_resource type="PackedScene" uid="uid://dfa3j83d5ujpo" path="res://src/LevelActors/Vector/vector_cube.tscn" id="2_4a75m"]
+[ext_resource type="PackedScene" uid="uid://bjvp6ko1q2rvh" path="res://src/LevelActors/Vector/vector_grid.tscn" id="3_ylqbj"]
+
+[sub_resource type="Environment" id="Environment_4a75m"]
+background_mode = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ylqbj"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5aleu"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gcl46"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rdhk8"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q2pdi"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_usrlf"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1foa0"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5pbhv"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5nc5"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jir76"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6hvsp"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_koib8"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vo2e6"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pbxki"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6puyw"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3quok"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ylqbj"]
+size = Vector3(60, 1, 60)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dyc4v"]
+render_priority = -1
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ylqbj"]
+size = Vector2(60, 60)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_js0bg"]
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+distance_fade_min_distance = 50.0
+distance_fade_max_distance = 30.0
+
+[node name="VectorLevel1" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_2o4o2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4a75m")
+
+[node name="Platforms" type="Node3D" parent="."]
+
+[node name="VectorCube2" parent="Platforms" instance=ExtResource("2_4a75m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -10.5)
+size = Vector3(2, 2, 2)
+color = Color(0, 1, 0, 1)
+material = SubResource("StandardMaterial3D_ylqbj")
+collision = true
+
+[node name="VectorCube4" parent="Platforms" instance=ExtResource("2_4a75m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, -13)
+size = Vector3(2, 1, 2)
+color = Color(0, 1, 0, 1)
+material = SubResource("StandardMaterial3D_5aleu")
+collision = true
+
+[node name="VectorCube3" parent="Platforms" instance=ExtResource("2_4a75m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -13)
+size = Vector3(2, 3, 2)
+color = Color(0, 1, 0, 1)
+material = SubResource("StandardMaterial3D_gcl46")
+collision = true
+
+[node name="VectorCube5" parent="Platforms" instance=ExtResource("2_4a75m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, -13)
+size = Vector3(2, 4, 2)
+color = Color(0, 1, 0, 1)
+material = SubResource("StandardMaterial3D_rdhk8")
+collision = true
+
+[node name="VectorCube6" parent="Platforms" instance=ExtResource("2_4a75m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 3, -8.5)
+size = Vector3(2, 5, 2)
+color = Color(0, 1, 0, 1)
+material = SubResource("StandardMaterial3D_q2pdi")
+collision = true
+
+[node name="VectorCube7" parent="Platforms" instance=ExtResource("2_4a75m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 5, -8.5)
+size = Vector3(8, 1, 2)
+color = Color(0, 1, 0, 1)
+material = SubResource("StandardMaterial3D_usrlf")
+collision = true
+
+[node name="VectorCube8" parent="Platforms" instance=ExtResource("2_4a75m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 5, -8.5)
+size = Vector3(8, 1, 2)
+color = Color(0, 1, 0, 1)
+material = SubResource("StandardMaterial3D_1foa0")
+collision = true
+
+[node name="VectorCube9" parent="Platforms" instance=ExtResource("2_4a75m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 5, -8.5)
+size = Vector3(8, 1, 2)
+color = Color(0, 1, 0, 1)
+material = SubResource("StandardMaterial3D_5pbhv")
+collision = true
+
+[node name="Mountains" type="Node3D" parent="Platforms"]
+
+[node name="VectorCube" parent="Platforms/Mountains" instance=ExtResource("2_4a75m")]
+transform = Transform3D(0.591506, -0.774519, -0.224144, 0.612372, 0.612372, -0.5, 0.524519, 0.158494, 0.836516, -20, -10.5, -22.5)
+size = Vector3(30, 30, 30)
+color = Color(0, 1, 0, 1)
+material = SubResource("StandardMaterial3D_i5nc5")
+collision = true
+
+[node name="VectorCube2" parent="Platforms/Mountains" instance=ExtResource("2_4a75m")]
+transform = Transform3D(0.0473672, -0.65974, -0.75, 0.612372, 0.612372, -0.5, 0.789149, -0.435596, 0.433013, 0, -10.5, -32.5)
+size = Vector3(30, 30, 30)
+color = Color(0, 1, 0, 1)
+material = SubResource("StandardMaterial3D_jir76")
+collision = true
+
+[node name="VectorCube3" parent="Platforms/Mountains" instance=ExtResource("2_4a75m")]
+transform = Transform3D(0.0473673, -0.65974, -0.75, 0.612372, 0.612372, -0.5, 0.789149, -0.435596, 0.433013, 24, -10.5, -29)
+size = Vector3(30, 30, 30)
+color = Color(0, 1, 0, 1)
+material = SubResource("StandardMaterial3D_6hvsp")
+collision = true
+
+[node name="VectorCube4" parent="Platforms/Mountains" instance=ExtResource("2_4a75m")]
+transform = Transform3D(0.0473673, -0.65974, -0.75, 0.612372, 0.612372, -0.5, 0.789149, -0.435596, 0.433013, -27.5, -10.5, -3.5)
+size = Vector3(30, 30, 30)
+color = Color(0, 1, 0, 1)
+material = SubResource("StandardMaterial3D_koib8")
+collision = true
+
+[node name="VectorCube5" parent="Platforms/Mountains" instance=ExtResource("2_4a75m")]
+transform = Transform3D(0.0473672, -0.65974, -0.75, 0.612372, 0.612372, -0.5, 0.789149, -0.435596, 0.433013, -27.5, -10.5, 15)
+size = Vector3(40, 40, 40)
+color = Color(0, 1, 0, 1)
+material = SubResource("StandardMaterial3D_vo2e6")
+collision = true
+
+[node name="VectorCube6" parent="Platforms/Mountains" instance=ExtResource("2_4a75m")]
+transform = Transform3D(0.0473672, -0.65974, -0.75, 0.612372, 0.612372, -0.5, 0.789149, -0.435596, 0.433013, -9.5, -10.5, 27.5)
+size = Vector3(30, 30, 30)
+color = Color(0, 1, 0, 1)
+material = SubResource("StandardMaterial3D_pbxki")
+collision = true
+
+[node name="VectorCube7" parent="Platforms/Mountains" instance=ExtResource("2_4a75m")]
+transform = Transform3D(-0.524519, -0.158494, -0.836516, 0.612373, 0.612373, -0.5, 0.591507, -0.774519, -0.224144, 16, -10.5, 34)
+size = Vector3(30, 30, 30)
+color = Color(0, 1, 0, 1)
+material = SubResource("StandardMaterial3D_6puyw")
+collision = true
+
+[node name="VectorCube8" parent="Platforms/Mountains" instance=ExtResource("2_4a75m")]
+transform = Transform3D(-0.353553, -0.353554, -0.866025, 0.612373, 0.612373, -0.5, 0.707107, -0.707107, -2.68221e-07, 29, -10.5, 18.5)
+size = Vector3(30, 30, 30)
+color = Color(0, 1, 0, 1)
+material = SubResource("StandardMaterial3D_3quok")
+collision = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platforms"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/StaticBody3D"]
+shape = SubResource("BoxShape3D_ylqbj")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48, 0)
+material_override = SubResource("StandardMaterial3D_dyc4v")
+mesh = SubResource("PlaneMesh_ylqbj")
+
+[node name="VectorGrid" parent="." instance=ExtResource("3_ylqbj")]
+transform = Transform3D(60, 0, 0, 0, 60, 0, 0, 0, 60, 0, 0.5, 0)
+material = SubResource("StandardMaterial3D_js0bg")
+gridSize = Vector2i(60, 60)

@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://dfa3j83d5ujpo"]
+
+[ext_resource type="Script" uid="uid://iyb8kfkw7wmj" path="res://src/LevelActors/Vector/vector_cube.gd" id="1_0xy3c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xy3c"]
+resource_local_to_scene = true
+shading_mode = 0
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_0xy3c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0xy3c"]
+resource_local_to_scene = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jioxm"]
+render_priority = -2
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0xy3c"]
+size = Vector3(0.99, 0.99, 0.99)
+
+[node name="VectorCube" type="Node3D" node_paths=PackedStringArray("mesh_instance", "collisionBody", "collisionShape", "fill_mesh")]
+script = ExtResource("1_0xy3c")
+color = null
+material = SubResource("StandardMaterial3D_0xy3c")
+mesh_instance = NodePath("MeshInstance")
+collisionBody = NodePath("StaticBody3D")
+collisionShape = NodePath("StaticBody3D/CollisionShape3D")
+fill_mesh = NodePath("FillMesh")
+
+[node name="MeshInstance" type="MeshInstance3D" parent="."]
+mesh = SubResource("ImmediateMesh_0xy3c")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+visible = false
+shape = SubResource("BoxShape3D_0xy3c")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="FillMesh" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_jioxm")
+mesh = SubResource("BoxMesh_0xy3c")

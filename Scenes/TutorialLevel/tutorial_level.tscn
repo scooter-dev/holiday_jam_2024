@@ -172,7 +172,7 @@ size = Vector3(6.55135, 8.95288, 5.33073)
 environment = SubResource("Environment_lv6rn")
 
 [node name="Player" parent="." instance=ExtResource("9_mevfl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.8769, 0.54291, 35.7436)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.73356, 0.556645, 16.3176)
 
 [node name="WaterVolume" parent="." instance=ExtResource("5_k44xo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.35599, -7.83494, 50.8911)

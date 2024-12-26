@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjvp6ko1q2rvh"]
+
+[ext_resource type="Script" uid="uid://2g5m4milhaox" path="res://src/LevelActors/Vector/vector_grid.gd" id="1_nt0v1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nt0v1"]
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_nt0v1"]
+
+[node name="VectorGrid" type="Node3D" node_paths=PackedStringArray("grid_mesh_instance")]
+script = ExtResource("1_nt0v1")
+material = SubResource("StandardMaterial3D_nt0v1")
+grid_mesh_instance = NodePath("GridMeshInstance")
+
+[node name="GridMeshInstance" type="MeshInstance3D" parent="."]
+mesh = SubResource("ImmediateMesh_nt0v1")
