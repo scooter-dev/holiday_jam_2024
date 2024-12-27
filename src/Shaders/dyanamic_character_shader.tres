@@ -25,7 +25,7 @@ uniform float probe2Blend : hint_range(0.0, 1.0, 0.1) = 0.0;
 
 varying vec3 ambientLight;
 
-void vertex() 
+void vertex()
 {
 	UV *= UVScaling;
 	ambientLight = textureLod(light_texture, vec2(dot(NORMAL, light_direction) * 0.5 + 0.5,0.5),0).rgb;
@@ -33,7 +33,7 @@ void vertex()
 	ambientLight = mix(ambientLight, probeBlend, min(probe1Blend + probe2Blend,1.0));
 }
 
-void fragment() 
+void fragment()
 {
 	ALBEDO = texture(albedo_texture, UV).rgb * albedo_color.rgb;
 	EMISSION = ALBEDO * ambientLight * ambient_tint.rgb;

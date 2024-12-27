@@ -92,7 +92,6 @@ func getProbeBlend(probe : LightProbe) -> float:
 	var colShape : CollisionShape3D = probe.shape
 	var shapeSize : Vector3 = colShape.shape.size
 	var blend : float = -sdBox((colShape.global_transform.inverse() * body.global_position), shapeSize, probe.falloff)
-	print(max(probe.falloff, 0.001))
 	blend = clampf(blend / max(probe.falloff, 0.001),0,1)
 	return blend
 

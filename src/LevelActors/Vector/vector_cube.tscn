@@ -22,7 +22,6 @@ size = Vector3(0.99, 0.99, 0.99)
 
 [node name="VectorCube" type="Node3D" node_paths=PackedStringArray("mesh_instance", "collisionBody", "collisionShape", "fill_mesh")]
 script = ExtResource("1_0xy3c")
-color = null
 material = SubResource("StandardMaterial3D_0xy3c")
 mesh_instance = NodePath("MeshInstance")
 collisionBody = NodePath("StaticBody3D")

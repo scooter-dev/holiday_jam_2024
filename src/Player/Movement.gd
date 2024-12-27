@@ -155,12 +155,12 @@ func m_mode():
 			if waterLevel > swimLevel:
 				set_m_mode(M_SWIMMING)
 			elif groundRays.groundDistance < 0 and velocity.y < 2.0:
-				if slideState and (h_speed > 3.0 or groundRays.gNormR.dot(Vector3.UP) < 0.8):
+				if slideState and (h_speed > 3.0 or groundRays.gNormR.dot(Vector3.UP) < 0.9):
 					set_m_mode(M_SLIDING)
 				else:
 					set_m_mode(M_GROUNDED)
 		M_GROUNDED:
-			if waterLevel > 1.0:
+			if waterLevel > swimLevel:
 				set_m_mode(M_SWIMMING)
 			elif groundRays.groundDistance > 0.3:
 				set_m_mode(M_FALLING)

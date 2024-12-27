@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://njayenympnk4"]
 
 [ext_resource type="Shader" uid="uid://dbjnrv32j8sod" path="res://src/Shaders/ditherShader.gdshader" id="1_kt1ww"]
-[ext_resource type="PackedScene" uid="uid://cgj71p8cjvgda" path="res://Scenes/TutorialLevel/tutorial_level.tscn" id="2_kt1ww"]
 [ext_resource type="Shader" uid="uid://cyeoh06wwr71u" path="res://src/Shaders/CRTShader.gdshader" id="2_rk37s"]
+[ext_resource type="PackedScene" uid="uid://uc6g1pryp6u8" path="res://Scenes/VectorLevels/vector_level_2.tscn" id="3_rk37s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rk37s"]
 bg_color = Color(0, 0, 0, 1)
@@ -19,8 +19,8 @@ viewport_path = NodePath("SubViewport")
 shader = ExtResource("2_rk37s")
 shader_parameter/crt_curve = 0.0
 shader_parameter/crt_scan_line_color = 0.0
-shader_parameter/aperture_grille_rate = 0.372
-shader_parameter/rf_switch_esque_blur = 0.737
+shader_parameter/aperture_grille_rate = 0.297
+shader_parameter/rf_switch_esque_blur = 1.0
 shader_parameter/white_noise_rate = 0.0
 shader_parameter/h = 1.0
 shader_parameter/s = 1.0
@@ -67,7 +67,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="SubViewport" type="SubViewport" parent="."]
-size = Vector2i(256, 224)
+size = Vector2i(480, 270)
 render_target_update_mode = 4
 
-[node name="TutorialLevel" parent="SubViewport" instance=ExtResource("2_kt1ww")]
+[node name="VectorLevel2" parent="SubViewport" instance=ExtResource("3_rk37s")]
