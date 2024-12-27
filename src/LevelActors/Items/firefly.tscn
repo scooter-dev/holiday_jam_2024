@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2y41258vqa11"]
+
+[ext_resource type="Script" uid="uid://bjvrk1h8rwanq" path="res://src/LevelActors/Items/firefly.gd" id="1_qgbpi"]
+[ext_resource type="Texture2D" uid="uid://cqk2mnga5qs2f" path="res://Assets/Textures/Sprites/firefly.png" id="2_ewlxq"]
+[ext_resource type="PackedScene" uid="uid://baceyyuakavy4" path="res://src/Interaction/Interactable.tscn" id="3_ewlxq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3waq4"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("2_ewlxq")
+texture_filter = 0
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_i2g03"]
+
+[node name="Firefly" type="Node3D" node_paths=PackedStringArray("firefly_mesh")]
+script = ExtResource("1_qgbpi")
+firefly_mesh = NodePath("FireflyMesh")
+
+[node name="FireflyMesh" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_3waq4")
+extra_cull_margin = 2.0
+mesh = SubResource("QuadMesh_i2g03")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="FireflyMesh"]
+light_color = Color(1, 0.796875, 0, 1)
+
+[node name="Interactable" parent="." instance=ExtResource("3_ewlxq")]
+monitoring = false
+
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
+
+[editable path="Interactable"]

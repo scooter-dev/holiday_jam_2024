@@ -145,9 +145,10 @@ spring_length = 2.0
 current = true
 far = 50.0
 
-[node name="Interactor" parent="CamY/VSpring/CamX" instance=ExtResource("10_pl8oh")]
+[node name="Interactor" parent="CamY/VSpring/CamX" node_paths=PackedStringArray("player") instance=ExtResource("10_pl8oh")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 4.0745e-08, -0.932136)
 script = ExtResource("11_jjf0q")
+player = NodePath("../../../..")
 
 [node name="CollisionShape3D" parent="CamY/VSpring/CamX/Interactor" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0387573, 0.5, -1)

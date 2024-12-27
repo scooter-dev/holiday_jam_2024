@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cgj71p8cjvgda"]
+[gd_scene load_steps=51 format=3 uid="uid://cgj71p8cjvgda"]
 
 [ext_resource type="Texture2D" uid="uid://b0ay0uj00aj86" path="res://Assets/Textures/panoramaDayProcessed.png" id="1_fhfly"]
 [ext_resource type="Shader" uid="uid://ct8skqad1sgsq" path="res://src/Shaders/water.gdshader" id="4_fhfly"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://d4nxxq6wg23rp" path="res://Assets/Textures/grass.png" id="11_u4vw4"]
 [ext_resource type="Texture2D" uid="uid://dfg3rbtuomrrk" path="res://Assets/Textures/sand.png" id="12_mjt3c"]
 [ext_resource type="PackedScene" uid="uid://cwitkfs7afd62" path="res://src/LevelActors/Lighting/player_light_probe.tscn" id="17_02vn6"]
+[ext_resource type="PackedScene" uid="uid://d2y41258vqa11" path="res://src/LevelActors/Items/firefly.tscn" id="18_u4vw4"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_c14f2"]
 panorama = ExtResource("1_fhfly")
@@ -671,5 +672,8 @@ debug_color = Color(0.125, 1, 0, 1)
 
 [node name="Node3D" type="Node3D" parent="LightProbes/CaveLightProbe4"]
 transform = Transform3D(1, 0, 0, 0, 0.481035, -0.876702, 0, 0.876702, 0.481035, 0.39363, 0.933536, 3.29919)
+
+[node name="Firefly" parent="." instance=ExtResource("18_u4vw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.9088, -5.38369, 50.3045)
 
 [editable path="TutorialLevelNew"]

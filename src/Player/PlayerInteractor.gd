@@ -1,6 +1,6 @@
 extends Interactor
 
-@export var player: CharacterBody3D
+@export var player: Player
 
 var current_closest: Interactable
 
