@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cal7qhkesu02s" path="res://src/Player/player.tscn" id="2_7swwj"]
 [ext_resource type="Material" uid="uid://cqbkqwwpq2hor" path="res://Materials/blue.tres" id="4_cvgdm"]
 [ext_resource type="Script" uid="uid://bji3hop2l5pqr" path="res://Scenes/CrocoLevel/spinnies.gd" id="4_d2vh2"]
-[ext_resource type="Material" uid="uid://bsnbnxeu04pnl" path="res://Materials/spin_leaf.tres" id="5_hp633"]
+[ext_resource type="Material" path="res://Materials/spin_leaf.tres" id="5_hp633"]
 [ext_resource type="PackedScene" uid="uid://dtq4u7dl5ckca" path="res://src/Interaction/button.tscn" id="7_rdkqk"]
 
 [sub_resource type="Gradient" id="Gradient_cvgdm"]
