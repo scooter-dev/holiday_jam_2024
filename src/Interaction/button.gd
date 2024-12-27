@@ -2,24 +2,24 @@ extends Interactable
 
 # onready animation
 
-var is_open: bool = false
+var is_pressed: bool = false
 
-func open():
-	is_open = true
+func pressed():
+	is_pressed = true
 func add_hightlights():
 	pass
 func remove_highlights():
 	pass
 
 func _on_focused(_interactor: Interactor):
-	if not is_open:
+	if not is_pressed:
 		add_hightlights()
 
 func _on_interacted(_interactor: Interactor):
-	if not is_open:
+	if not is_pressed:
 		remove_highlights()
-		queue_free()
-		open()
+		# queue_free()
+		pressed()
 
 
 func _on_unfocused(_interactor: Interactor):
