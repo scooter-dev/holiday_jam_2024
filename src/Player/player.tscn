@@ -1,15 +1,14 @@
-[gd_scene load_steps=21 format=3 uid="uid://cal7qhkesu02s"]
+[gd_scene load_steps=20 format=3 uid="uid://cal7qhkesu02s"]
 
 [ext_resource type="Script" uid="uid://c7vig5riw7kk6" path="res://src/Player/GroundRays.gd" id="1_v6gec"]
-[ext_resource type="Script" path="res://src/Player/player.gd" id="1_vtbm7"]
+[ext_resource type="Script" uid="uid://bbac2cpms0612" path="res://src/Player/player.gd" id="1_vtbm7"]
 [ext_resource type="Script" path="res://src/Player/Movement.gd" id="2_n4f6x"]
 [ext_resource type="Script" uid="uid://bd1o4xsmnejv7" path="res://src/Player/PlayerInput.gd" id="3_b7fis"]
 [ext_resource type="Script" path="res://src/Player/CamY.gd" id="3_b40r7"]
-[ext_resource type="PackedScene" uid="uid://cn8ap2gf3047n" path="res://src/Player/PlayerInteractor.tscn" id="5_pl8oh"]
 [ext_resource type="PackedScene" uid="uid://bq0p573n8qgrm" path="res://src/Player/PlayerModel/player_model.tscn" id="5_v7f4r"]
-[ext_resource type="Script" uid="uid://2a5crfu7asaj" path="res://src/Player/drop_shadow.gd" id="6_52h17"]
+[ext_resource type="Script" path="res://src/Player/drop_shadow.gd" id="6_52h17"]
 [ext_resource type="Shader" uid="uid://ve26mwltwjeu" path="res://src/Shaders/dropShadow.gdshader" id="6_vgmdf"]
-[ext_resource type="Script" uid="uid://cr3c3yir7qgp1" path="res://src/Player/lightning_bug.gd" id="9_0m8bu"]
+[ext_resource type="Script" path="res://src/Player/lightning_bug.gd" id="9_0m8bu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ckfjp"]
 radius = 0.15
@@ -137,13 +136,6 @@ spring_length = 2.0
 current = true
 far = 50.0
 
-[node name="PlayerInteractor" parent="CamY/CamX" node_paths=PackedStringArray("player") instance=ExtResource("5_pl8oh")]
-player = NodePath("../../..")
-
-[node name="CollisionShape3D" parent="CamY/CamX/PlayerInteractor" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0152588, -0.168747, -1.00881)
-shape = SubResource("BoxShape3D_pl8oh")
-
 [node name="PlayerInput" type="Node" parent="."]
 script = ExtResource("3_b7fis")
 
@@ -191,5 +183,3 @@ light_specular = 0.0
 omni_range = 6.0
 omni_attenuation = 0.5
 script = ExtResource("9_0m8bu")
-
-[editable path="CamY/CamX/PlayerInteractor"]
