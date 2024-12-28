@@ -17,10 +17,10 @@ radius = 0.15
 height = 0.49
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jjf0q"]
-radius = 0.4
+radius = 0.2
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0m8bu"]
-radius = 0.2
+radius = 0.15
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jjf0q"]
 size = Vector3(1, 1, 3)

@@ -12,7 +12,7 @@ shading_mode = 0
 resource_local_to_scene = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jioxm"]
-render_priority = -2
+render_priority = -1
 transparency = 1
 shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)

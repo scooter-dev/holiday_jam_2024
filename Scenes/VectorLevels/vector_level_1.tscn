@@ -1,8 +1,9 @@
-[gd_scene load_steps=43 format=3 uid="uid://dwawhfn488n7"]
+[gd_scene load_steps=46 format=3 uid="uid://dwawhfn488n7"]
 
 [ext_resource type="PackedScene" uid="uid://cal7qhkesu02s" path="res://src/Player/player.tscn" id="1_2o4o2"]
 [ext_resource type="PackedScene" uid="uid://dfa3j83d5ujpo" path="res://src/LevelActors/Vector/vector_cube.tscn" id="2_4a75m"]
 [ext_resource type="PackedScene" uid="uid://ca2c5nxi2ktrn" path="res://src/LevelActors/water_area.tscn" id="3_5aleu"]
+[ext_resource type="Shader" uid="uid://38i7c40ma7np" path="res://src/Shaders/noiseGlitch.gdshader" id="3_gcl46"]
 [ext_resource type="PackedScene" uid="uid://bjvp6ko1q2rvh" path="res://src/LevelActors/Vector/vector_grid.tscn" id="3_ylqbj"]
 
 [sub_resource type="Environment" id="Environment_4a75m"]
@@ -62,6 +63,13 @@ albedo_color = Color(0, 1, 0, 1)
 resource_local_to_scene = true
 shading_mode = 0
 albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rdhk8"]
+render_priority = -1
+shader = ExtResource("3_gcl46")
+
+[sub_resource type="BoxMesh" id="BoxMesh_q2pdi"]
+size = Vector3(1.1, 1.1, 1.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_elrui"]
 resource_local_to_scene = true
@@ -272,23 +280,38 @@ color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_0er3g")
 collision = true
 
-[node name="VectorCube15" parent="Platforms" instance=ExtResource("2_4a75m")]
+[node name="Glitch01" type="MeshInstance3D" parent="Platforms"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, -1)
+material_override = SubResource("ShaderMaterial_rdhk8")
+mesh = SubResource("BoxMesh_q2pdi")
+skeleton = NodePath("VectorCube15")
+
+[node name="VectorCube15" parent="Platforms/Glitch01" instance=ExtResource("2_4a75m")]
+visible = false
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_elrui")
-collision = true
 
-[node name="VectorCube16" parent="Platforms" instance=ExtResource("2_4a75m")]
+[node name="Glitch02" type="MeshInstance3D" parent="Platforms"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 14, -1)
+material_override = SubResource("ShaderMaterial_rdhk8")
+mesh = SubResource("BoxMesh_q2pdi")
+skeleton = NodePath("VectorCube16")
+
+[node name="VectorCube16" parent="Platforms/Glitch02" instance=ExtResource("2_4a75m")]
+visible = false
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_da6pt")
-collision = true
 
-[node name="VectorCube17" parent="Platforms" instance=ExtResource("2_4a75m")]
+[node name="Glitch03" type="MeshInstance3D" parent="Platforms"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 14.5, -4.5)
+material_override = SubResource("ShaderMaterial_rdhk8")
+mesh = SubResource("BoxMesh_q2pdi")
+skeleton = NodePath("VectorCube17")
+
+[node name="VectorCube17" parent="Platforms/Glitch03" instance=ExtResource("2_4a75m")]
+visible = false
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_a25dc")
-collision = true
 
 [node name="VectorCube10" parent="Platforms" instance=ExtResource("2_4a75m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 10, -8)
