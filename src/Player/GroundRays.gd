@@ -4,7 +4,7 @@ class_name GroundRays
 
 var groundDistance: float = 50
 var groundNormal: Vector3 = Vector3.UP
-const ANGLE_LIMIT: float = cos(deg_to_rad(35))
+const ANGLE_LIMIT: float = cos(deg_to_rad(42))
 var gDistR: float = 50
 var gNormR: Vector3 = Vector3.UP
 var ground: Node3D

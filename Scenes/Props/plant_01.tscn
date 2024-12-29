@@ -11,6 +11,7 @@ shader_parameter/albedo_texture = ExtResource("2_g5gh6")
 shader_parameter/UVScaling = Vector2(1, 1)
 shader_parameter/distance_fade_min = 50.0
 shader_parameter/distance_fade_max = 35.0
+shader_parameter/viewDistanceOverride = 0.0
 
 [node name="Plant01" type="MeshInstance3D"]
 material_override = SubResource("ShaderMaterial_icbvi")

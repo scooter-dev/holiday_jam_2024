@@ -14,7 +14,7 @@ shader_parameter/albedo_color = Color(1, 1, 1, 1)
 shader_parameter/UVScaling = Vector2(1, 1)
 shader_parameter/distance_fade_min = 50.0
 shader_parameter/distance_fade_max = 35.0
-shader_parameter/viewDistanceOverride = null
+shader_parameter/viewDistanceOverride = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_by1ax"]
 resource_name = "wood"
@@ -65,7 +65,7 @@ shader_parameter/albedo_color = Color(0.170135, 0.871094, 0, 1)
 shader_parameter/UVScaling = Vector2(8, 8)
 shader_parameter/distance_fade_min = 50.0
 shader_parameter/distance_fade_max = 35.0
-shader_parameter/viewDistanceOverride = null
+shader_parameter/viewDistanceOverride = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sjkwb"]
 resource_name = "Leaves"
