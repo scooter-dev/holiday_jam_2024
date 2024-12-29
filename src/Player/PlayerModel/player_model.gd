@@ -11,6 +11,7 @@ class_name PlayerModel
 var blendSlide : float = 0.0
 var blendFall : float = 0.0
 var blendSwim : float = 0.0
+var blendAttack : float = 0.0
 var phrogXRot : float = 0.0
 var phrogWXRot : float = 0.0
 const HPI : float = PI/2
@@ -18,11 +19,16 @@ const QPI : float = PI/4
 
 func _ready() -> void:
 	playerMovement.jumped.connect(jumped)
+	PlayerInput.interact.connect(attacking)
 
 func jumped() -> void:
 	player_anim_tree["parameters/TSJumpFall/seek_request"] = 1.0
+func attacking():
+	player_anim_tree["parameters/TSAttack/seek_request"] = 1.0
+	blendAttack = 1
 
 func _process(delta: float) -> void:
+	blendAttack = lerpf(blendAttack, 0, delta * 12.0)
 	phrogXRot = 0.0
 	match playerMovement.movementMode:
 		PlayerMovement.M_GROUNDED:
@@ -59,6 +65,7 @@ func _process(delta: float) -> void:
 	player_anim_tree["parameters/B2Fall/blend_amount"] = blendFall
 	player_anim_tree["parameters/B2_Slide/blend_amount"] = blendSlide
 	player_anim_tree["parameters/B2_Swim/blend_amount"] = blendSwim
+	player_anim_tree["parameters/B2_Attack/blend_amount"] = blendAttack
 	if playerMovement.h_speed > 0.01:
 		global_rotation.y = lerp_angle(global_rotation.y, -Vector2(playerMovement.velocity.x,playerMovement.velocity.z).angle() + HPI, delta * 8.0)
 	
