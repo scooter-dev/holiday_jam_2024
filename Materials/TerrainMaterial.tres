@@ -20,3 +20,4 @@ shader_parameter/terrainBlendMul = 1.7
 shader_parameter/textureScaling = Vector2(32, 32)
 shader_parameter/distance_fade_min = 50.0
 shader_parameter/distance_fade_max = 35.0
+shader_parameter/viewDistanceOverride = 0.0

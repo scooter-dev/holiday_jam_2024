@@ -6,3 +6,4 @@ extends WorldEnvironment
 
 func _ready() -> void:
 	player.camera.far = farPlane
+	RenderingServer.global_shader_parameter_set("view_distance", farPlane)

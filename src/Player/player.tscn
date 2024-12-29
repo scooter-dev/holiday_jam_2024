@@ -4,11 +4,11 @@
 [ext_resource type="Script" uid="uid://bbac2cpms0612" path="res://src/Player/player.gd" id="1_vtbm7"]
 [ext_resource type="Script" uid="uid://b6jsw0wf2wqw" path="res://src/Player/Movement.gd" id="2_n4f6x"]
 [ext_resource type="Script" uid="uid://bd1o4xsmnejv7" path="res://src/Player/PlayerInput.gd" id="3_b7fis"]
-[ext_resource type="Script" path="res://src/Player/CamY.gd" id="3_b40r7"]
+[ext_resource type="Script" uid="uid://deg3kgp6jrooh" path="res://src/Player/CamY.gd" id="3_b40r7"]
 [ext_resource type="PackedScene" uid="uid://bq0p573n8qgrm" path="res://src/Player/PlayerModel/player_model.tscn" id="5_v7f4r"]
-[ext_resource type="Script" path="res://src/Player/drop_shadow.gd" id="6_52h17"]
+[ext_resource type="Script" uid="uid://2a5crfu7asaj" path="res://src/Player/drop_shadow.gd" id="6_52h17"]
 [ext_resource type="Shader" uid="uid://ve26mwltwjeu" path="res://src/Shaders/dropShadow.gdshader" id="6_vgmdf"]
-[ext_resource type="Script" path="res://src/Player/lightning_bug.gd" id="9_0m8bu"]
+[ext_resource type="Script" uid="uid://cr3c3yir7qgp1" path="res://src/Player/lightning_bug.gd" id="9_0m8bu"]
 [ext_resource type="PackedScene" uid="uid://burg2sj3ub6yj" path="res://src/Interaction/Interactor.tscn" id="10_pl8oh"]
 [ext_resource type="Script" uid="uid://cigvu1yud4mep" path="res://src/Player/PlayerInteractor.gd" id="11_jjf0q"]
 
@@ -86,30 +86,39 @@ script = ExtResource("1_v6gec")
 
 [node name="RayCast3D" type="RayCast3D" parent="GroundRays"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.359, 0)
+target_position = Vector3(0, -1.5, 0)
 
 [node name="RayCast3D2" type="RayCast3D" parent="GroundRays"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.359, 0)
+target_position = Vector3(0, -1.5, 0)
 
 [node name="RayCast3D3" type="RayCast3D" parent="GroundRays"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.359, 0)
+target_position = Vector3(0, -1.5, 0)
 
 [node name="RayCast3D4" type="RayCast3D" parent="GroundRays"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.37114e-09, 0.359, -0.1)
+target_position = Vector3(0, -1.5, 0)
 
 [node name="RayCast3D5" type="RayCast3D" parent="GroundRays"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.37114e-09, 0.359, 0.1)
+target_position = Vector3(0, -1.5, 0)
 
 [node name="RayCast3D6" type="RayCast3D" parent="GroundRays"]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0.0707107, 0.359, -0.0707107)
+target_position = Vector3(0, -1.5, 0)
 
 [node name="RayCast3D7" type="RayCast3D" parent="GroundRays"]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -0.0707107, 0.359, 0.0707107)
+target_position = Vector3(0, -1.5, 0)
 
 [node name="RayCast3D8" type="RayCast3D" parent="GroundRays"]
 transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 0.0707107, 0.359, 0.0707107)
+target_position = Vector3(0, -1.5, 0)
 
 [node name="RayCast3D9" type="RayCast3D" parent="GroundRays"]
 transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -0.0707107, 0.359, -0.0707107)
+target_position = Vector3(0, -1.5, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.455833, 0)

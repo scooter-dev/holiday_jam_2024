@@ -1,13 +1,11 @@
-[gd_scene load_steps=46 format=3 uid="uid://dwawhfn488n7"]
+[gd_scene load_steps=47 format=3 uid="uid://dwawhfn488n7"]
 
 [ext_resource type="PackedScene" uid="uid://cal7qhkesu02s" path="res://src/Player/player.tscn" id="1_2o4o2"]
 [ext_resource type="PackedScene" uid="uid://dfa3j83d5ujpo" path="res://src/LevelActors/Vector/vector_cube.tscn" id="2_4a75m"]
 [ext_resource type="PackedScene" uid="uid://ca2c5nxi2ktrn" path="res://src/LevelActors/water_area.tscn" id="3_5aleu"]
 [ext_resource type="Shader" uid="uid://38i7c40ma7np" path="res://src/Shaders/noiseGlitch.gdshader" id="3_gcl46"]
 [ext_resource type="PackedScene" uid="uid://bjvp6ko1q2rvh" path="res://src/LevelActors/Vector/vector_grid.tscn" id="3_ylqbj"]
-
-[sub_resource type="Environment" id="Environment_4a75m"]
-background_mode = 1
+[ext_resource type="Script" uid="uid://cii7vrif2njyw" path="res://src/LevelActors/Lighting/evnAdjust.gd" id="6_rdhk8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ylqbj"]
 resource_local_to_scene = true
@@ -193,13 +191,13 @@ shading_mode = 0
 [sub_resource type="BoxMesh" id="BoxMesh_0er3g"]
 size = Vector3(1, 16, 1)
 
+[sub_resource type="Environment" id="Environment_q2pdi"]
+background_mode = 1
+
 [node name="VectorLevel1" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_2o4o2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, 8.5)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_4a75m")
 
 [node name="Platforms" type="Node3D" parent="."]
 
@@ -456,3 +454,8 @@ gridSize = Vector2i(120, 120)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 22, -11.5)
 material_override = SubResource("StandardMaterial3D_l1ncc")
 mesh = SubResource("BoxMesh_0er3g")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_q2pdi")
+script = ExtResource("6_rdhk8")
+farPlane = 500.0

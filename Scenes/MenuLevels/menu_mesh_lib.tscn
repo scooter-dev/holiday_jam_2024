@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=4 uid="uid://dygjvvxktg5vq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_56wii"]
+resource_name = "MatTop"
+cull_mode = 2
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+roughness = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gowxx"]
+resource_name = "MatBase"
+cull_mode = 2
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5m2a0"]
+_surfaces = [{
+"aabb": AABB(-0.8, 0.2, -0.8, 1.6, 1e-05, 1.6),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "MatTop",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("//8AAAAAAAAAAAAA//8AAAAAAAAAAAAA//8AAP//AAA=")
+}, {
+"aabb": AABB(-1, -1.49012e-08, -1, 2, 0.2, 2),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIAAwAFAAEABAACAAYAAwAHAAUABwAEAAYABwAGAAUA"),
+"name": "MatBase",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("mRn//2XmAAD//wAA//8AAAAAAAD//wAAZeb//2XmAACZGf//mRkAAP//AAAAAAAAAAAAAAAAAABl5v//mRkAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_e2drj"]
+resource_name = "MenuTile_Cube_001"
+_surfaces = [{
+"aabb": AABB(-0.8, 0.2, -0.8, 1.6, 1e-05, 1.6),
+"attribute_data": PackedByteArray("xnEAAAAAxnHGccZxAAAAAA=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_56wii"),
+"name": "MatTop",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("//8AAAAAqioAAAAA//+qKgAAAAAAAKoq//8AAP//qipU1aoqVNWqKlTVqipU1aoq")
+}, {
+"aabb": AABB(-1, -1.49012e-08, -1, 2, 0.2, 2),
+"attribute_data": PackedByteArray("OA7G8QAAxnEAAP//OA7/fzgO/384jsZxAADGcf9//3//f8bxAAD//ziO/v84Dsbx/3//fziO/v84jsZx/3/G8Q=="),
+"format": 34896613399,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0A"),
+"material": SubResource("StandardMaterial3D_gowxx"),
+"name": "MatBase",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("mRn//2XmAjr//wAA//8COgAAAAD//wI6Zeb//2XmAjpl5v//ZeYCOv//AAAAAAI6//8AAP//Ajpl5v//mRkCOpkZ//+ZGVQWAAAAAP//VBYAAAAAAABUFpkZ//9l5lQWZeb//5kZVBYAAAAAAABUFv//AAAAAFQWmRn//5kZVBb/4v8c/+L/HP/i/xz/4v8c/bn/HP25/xz9uf8c/bn/HAjqBDUI6gQ1COoENQjqBDX6ygQ1+soENfrKBDX6ygQ1")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_5m2a0")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e2drj"]
+size = Vector3(2, 0.2, 2)
+
+[node name="MenuMeshLib" type="Node3D"]
+
+[node name="Tile" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_e2drj")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Tile"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tile/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.1, -1)
+shape = SubResource("BoxShape3D_e2drj")
+debug_color = Color(0, 0.6, 0.7, 0.42)

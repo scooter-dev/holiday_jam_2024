@@ -12,6 +12,7 @@ shader_parameter/albedo_color = Color(1, 1, 1, 1)
 shader_parameter/UVScaling = Vector2(3, 3)
 shader_parameter/distance_fade_min = 50.0
 shader_parameter/distance_fade_max = 35.0
+shader_parameter/viewDistanceOverride = null
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vrt85"]
 resource_name = "Rock"

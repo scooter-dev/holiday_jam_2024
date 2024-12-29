@@ -43,6 +43,8 @@ func getWaterLevel() -> void:
 
 signal jumped
 
+const slideHover : float = -0.1
+
 func set_jump(state: bool):
 	jump_state = state
 
@@ -54,11 +56,13 @@ func _ready():
 	PlayerInput.jump.connect(set_jump)
 	PlayerInput.slide.connect(set_slide)
 
+var slideJumpCooldown : int = 0
 var nwProtect: int = 0
 func _physics_process(delta):
 	velocity = player.get_real_velocity()
 	h_speed = Vector2(velocity.x, velocity.z).length()
 	getWaterLevel()
+	slideJumpCooldown = maxi(0, slideJumpCooldown - 1)
 	m_mode()
 	debug_label.text = "Mode: %d\n" % movementMode
 	debug_label.text += "Water Level: %0.2f\n" % waterLevel
@@ -67,7 +71,7 @@ func _physics_process(delta):
 	match movementMode:
 		M_FALLING:
 			# velocity -= velocity * damping * delta
-			var sliding = groundRays.gDistR < -0.15 #if the ground is more than 15cm inside the raycasts, player can slide
+			var sliding = groundRays.gDistR < slideHover #if the ground is more than 15cm inside the raycasts, player can slide
 			var slideNormal: Vector3 = groundRays.gNormR
 			var gdt: float = slideNormal.dot(Vector3.UP) #cos of angle between ground and up vector
 			sliding = sliding and gdt < 0.7 and h_speed > 3.7#if player can silde, the ground is at ~45 degrees and horizontal speed is greater than 3.7 m/s, player is sliding
@@ -116,7 +120,7 @@ func _physics_process(delta):
 		M_CROUCHING:
 			pass
 		M_SLIDING:
-			var sliding = groundRays.gDistR < -0.15
+			var sliding = groundRays.gDistR < slideHover
 			var slideNormal: Vector3 = groundRays.gNormR
 			var gdt: float = slideNormal.dot(Vector3.UP)
 			sliding = sliding # and gdt > 0.0
@@ -126,11 +130,11 @@ func _physics_process(delta):
 				velocity += acceleration * delta * direction * airControl * 2.0
 				
 				velocity = velocity.limit_length(prevSPD)
-				if jump_state:
-					if h_speed < 7.0:
-						jumped.emit()
-						set_m_mode(M_FALLING)
-					velocity += jump_acceleration * slideNormal * Vector3(1, 0.25, 1) * 1.5 + Vector3(0, 2, 0)
+				if jump_state and slideJumpCooldown == 0 and h_speed < 7.0:
+					jumped.emit()
+					set_m_mode(M_FALLING)
+					velocity.y += jump_acceleration
+					slideJumpCooldown = 5
 				velocity.y = clamp(velocity.y - (4.0 if velocity.y > 0.0 else 10.0) * delta, -80, 80)
 			else:
 				debug_label.text += "No slide\n"
@@ -154,6 +158,8 @@ func m_mode():
 		M_FALLING:
 			if waterLevel > swimLevel:
 				set_m_mode(M_SWIMMING)
+			elif groundRays.gDistR < 0.0 and slideState and (h_speed > 3.0) and slideJumpCooldown == 0:
+				set_m_mode(M_SLIDING)
 			elif groundRays.groundDistance < 0 and velocity.y < 2.0:
 				if slideState and (h_speed > 3.0 or groundRays.gNormR.dot(Vector3.UP) < 0.9):
 					set_m_mode(M_SLIDING)
@@ -180,18 +186,23 @@ func m_mode():
 func set_m_mode(n_mode: int):
 	match n_mode:
 		M_GROUNDED:
+			player.motion_mode = CharacterBody3D.MOTION_MODE_GROUNDED
 			match movementMode:
 				M_FALLING:
 					if (groundRays.ground and groundRays.ground != player.get_parent()):
 						player.reparent(groundRays.ground, true)
 		M_FALLING:
+			player.motion_mode = CharacterBody3D.MOTION_MODE_GROUNDED
 			match movementMode:
 				M_GROUNDED:
 					coyote_time = 0.15
 					player.reparent(world, true)
 		M_SWIMMING:
+			player.motion_mode = CharacterBody3D.MOTION_MODE_FLOATING
 			submerged = waterLevel > swimLevel + 0.5
 			if submerged:
 				if velocity.y < 0.5:
 					velocity.y += 2.0
+		M_SLIDING:
+			player.motion_mode = CharacterBody3D.MOTION_MODE_FLOATING
 	movementMode = n_mode
