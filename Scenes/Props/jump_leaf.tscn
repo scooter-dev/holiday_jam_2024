@@ -88,6 +88,8 @@ shader_parameter/UVScaling = Vector2(2, 2)
 shader_parameter/distance_fade_min = null
 shader_parameter/distance_fade_max = null
 shader_parameter/viewDistanceOverride = 0.0
+shader_parameter/AOMix = 0.0
+shader_parameter/ambientMix = 1.0
 
 [sub_resource type="Animation" id="Animation_ep6ei"]
 resource_name = "JumpEnd"
@@ -232,7 +234,6 @@ size = Vector3(0.0866699, 1.66266, 1)
 
 [node name="JumpLeaf" type="Node3D" node_paths=PackedStringArray("detection_area", "leaf_pos", "animation_player", "height_marker", "leafCollision")]
 script = ExtResource("1_h3dor")
-addHeight = null
 detection_area = NodePath("DetectionArea")
 leaf_pos = NodePath("BigLeaf/Armature/Skeleton3D/LeafPos")
 animation_player = NodePath("BigLeaf/AnimationPlayer")
@@ -344,7 +345,7 @@ debug_color = Color(0, 0.6, 0.7, 0.42)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.737386, 0.403404, -1.19209e-07)
 
 [node name="HeightMarker" type="MeshInstance3D" parent="HMH"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 45.9184, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.9592, 0)
 material_override = SubResource("StandardMaterial3D_h3dor")
 mesh = SubResource("SphereMesh_h3dor")
 skeleton = NodePath("../..")

@@ -62,7 +62,11 @@ func launchPlayer(launchVel) -> void:
 
 var slideJumpCooldown : int = 0
 var nwProtect: int = 0
+func resetRotation(delta : float) -> void:
+	player.global_basis = player.global_basis.orthonormalized()
+
 func _physics_process(delta):
+	resetRotation(delta)
 	velocity = player.get_real_velocity()
 	h_speed = Vector2(velocity.x, velocity.z).length()
 	getWaterLevel()

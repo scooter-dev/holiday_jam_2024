@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdqkr6kknrcwi"]
+
+[ext_resource type="Shader" uid="uid://cwojebnd1u6jt" path="res://src/Shaders/shaded_ambient_scissors.gdshader" id="1_cvqsu"]
+[ext_resource type="Texture2D" uid="uid://btjtmcni5d31o" path="res://Assets/Textures/mushroom.png" id="2_ybgii"]
+[ext_resource type="ArrayMesh" uid="uid://5j8rpm06qonp" path="res://Assets/Meshes/Props/xBilboard.obj" id="3_bflr3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_schn7"]
+render_priority = 0
+shader = ExtResource("1_cvqsu")
+shader_parameter/albedo_texture = ExtResource("2_ybgii")
+shader_parameter/UVScaling = Vector2(1, 1)
+shader_parameter/distance_fade_min = 50.0
+shader_parameter/distance_fade_max = 35.0
+shader_parameter/viewDistanceOverride = 0.0
+
+[node name="GlowMushroom" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_schn7")
+instance_shader_parameters/ambientAffect = 0.0
+mesh = ExtResource("3_bflr3")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52919, 0)
+light_color = Color(0, 0.53125, 1, 1)
+light_specular = 0.0
+omni_range = 12.0
+omni_attenuation = 0.1

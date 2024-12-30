@@ -45,6 +45,12 @@
 		{
 			"from": "blend2",
 			"from_port": 0,
+			"to": "colorize_4",
+			"to_port": 0
+		},
+		{
+			"from": "colorize_4",
+			"from_port": 0,
 			"to": "pixelize",
 			"to_port": 0
 		}
@@ -307,6 +313,37 @@
 			},
 			"seed_int": 0,
 			"type": "pixelize"
+		},
+		{
+			"name": "colorize_4",
+			"node_position": {
+				"x": -640,
+				"y": 20
+			},
+			"parameters": {
+				"gradient": {
+					"interpolation": 1,
+					"points": [
+						{
+							"a": 1,
+							"b": 0.58984375,
+							"g": 0.58984375,
+							"pos": 0.0117647058823529,
+							"r": 0.58984375
+						},
+						{
+							"a": 1,
+							"b": 1,
+							"g": 1,
+							"pos": 1,
+							"r": 1
+						}
+					],
+					"type": "Gradient"
+				}
+			},
+			"seed_int": 0,
+			"type": "colorize"
 		}
 	],
 	"parameters": {

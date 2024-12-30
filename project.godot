@@ -42,6 +42,7 @@ folder_colors={
 "res://Assets/Meshes/": "green",
 "res://Assets/Textures/": "orange",
 "res://Scenes/": "orange",
+"res://Scenes/Props/": "pink",
 "res://src/": "green"
 }
 
@@ -132,6 +133,7 @@ interact={
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 shading/overrides/force_vertex_shading=true
+limits/opengl/max_lights_per_object=16
 
 [shader_globals]
 
@@ -149,5 +151,5 @@ ambient_tint={
 }
 view_distance={
 "type": "float",
-"value": 50.0
+"value": 200.0
 }

@@ -15,16 +15,21 @@ global uniform sampler2D light_texture : repeat_disable;
 global uniform vec3 light_direction;
 global uniform vec4 ambient_tint;
 
+uniform float AOMix = 0.0;
+uniform float ambientMix = 1.0;
+
 varying vec3 ambientLight;
 
 void vertex() {
 	UV *= UVScaling;
 	ambientLight = textureLod(light_texture, vec2(dot(NORMAL, light_direction) * 0.5 + 0.5,0.5),0).rgb;
+	ambientLight = mix(vec3(0),ambientLight,ambientMix);
 }
 
 void fragment() {
 	ALBEDO = texture(albedo_texture, UV).rgb * albedo_color.rgb;
-	EMISSION = ALBEDO * ambientLight * ambient_tint.rgb;
+	EMISSION = ALBEDO * ambientLight * ambient_tint.rgb * mix(1.0, COLOR.r, AOMix);
+	//EMISSION = COLOR.rgb;
 	{
 		// Distance Fade: Pixel Dither
 		float fade_distance = length(VERTEX);
