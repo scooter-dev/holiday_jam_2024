@@ -74,6 +74,7 @@ bind/7/pose = Transform3D(-0.540758, -0.841179, -2.32784e-07, 0.841179, -0.54075
 render_priority = 0
 shader = ExtResource("1_5ql68")
 shader_parameter/albedo_texture = ExtResource("2_h3dor")
+shader_parameter/ambientMix = 1.0
 shader_parameter/UVScaling = Vector2(1, 1)
 shader_parameter/distance_fade_min = null
 shader_parameter/distance_fade_max = null
@@ -303,7 +304,7 @@ bones/7/rotation = Quaternion(-4.35834e-10, 6.87659e-08, -0.142311, 0.989822)
 bones/7/scale = Vector3(1, 1, 1)
 
 [node name="Cube" type="MeshInstance3D" parent="BigLeaf/Armature/Skeleton3D"]
-instance_shader_parameters/albedo_color = Color(1, 0.805423, 0.141176, 1)
+instance_shader_parameters/albedo_color = Color(1, 1, 1, 1)
 mesh = SubResource("ArrayMesh_7v7g6")
 skin = SubResource("Skin_orvb5")
 surface_material_override/0 = SubResource("ShaderMaterial_2qfna")

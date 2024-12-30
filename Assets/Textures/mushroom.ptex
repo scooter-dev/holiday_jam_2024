@@ -149,6 +149,54 @@
 			"from_port": 0,
 			"to": "pixelize",
 			"to_port": 0
+		},
+		{
+			"from": "colorize_5",
+			"from_port": 0,
+			"to": "pixelize_2",
+			"to_port": 0
+		},
+		{
+			"from": "pixelize",
+			"from_port": 0,
+			"to": "decompose",
+			"to_port": 0
+		},
+		{
+			"from": "decompose",
+			"from_port": 0,
+			"to": "combine",
+			"to_port": 0
+		},
+		{
+			"from": "decompose",
+			"from_port": 1,
+			"to": "combine",
+			"to_port": 1
+		},
+		{
+			"from": "decompose",
+			"from_port": 2,
+			"to": "combine",
+			"to_port": 2
+		},
+		{
+			"from": "pixelize_2",
+			"from_port": 0,
+			"to": "decompose_2",
+			"to_port": 0
+		},
+		{
+			"from": "decompose_2",
+			"from_port": 0,
+			"to": "combine",
+			"to_port": 3
+		},
+		{
+			"from": "blend2_4",
+			"from_port": 0,
+			"to": "colorize_5",
+			"to_port": 0
 		}
 	],
 	"label": "Graph",
@@ -645,6 +693,95 @@
 			},
 			"seed_int": 0,
 			"type": "blend2"
+		},
+		{
+			"name": "colorize_5",
+			"node_position": {
+				"x": 640,
+				"y": 180
+			},
+			"parameters": {
+				"gradient": {
+					"interpolation": 0,
+					"points": [
+						{
+							"a": 1,
+							"b": 0,
+							"g": 0,
+							"pos": 0,
+							"r": 0
+						},
+						{
+							"a": 1,
+							"b": 0,
+							"g": 0,
+							"pos": 0.202813369643267,
+							"r": 0
+						},
+						{
+							"a": 1,
+							"b": 1,
+							"g": 1,
+							"pos": 0.202833369643267,
+							"r": 1
+						}
+					],
+					"type": "Gradient"
+				}
+			},
+			"seed_int": 0,
+			"type": "colorize"
+		},
+		{
+			"name": "pixelize_2",
+			"node_position": {
+				"x": 820,
+				"y": 100
+			},
+			"parameters": {
+				"c": 32,
+				"d": 0,
+				"x": 64,
+				"y": 64
+			},
+			"seed_int": 0,
+			"type": "pixelize"
+		},
+		{
+			"name": "decompose",
+			"node_position": {
+				"x": 1060,
+				"y": -100
+			},
+			"parameters": {
+
+			},
+			"seed_int": 0,
+			"type": "decompose"
+		},
+		{
+			"name": "combine",
+			"node_position": {
+				"x": 1341.7900390625,
+				"y": -96.8800277709961
+			},
+			"parameters": {
+
+			},
+			"seed_int": 0,
+			"type": "combine"
+		},
+		{
+			"name": "decompose_2",
+			"node_position": {
+				"x": 1098.580078125,
+				"y": 84.6199798583984
+			},
+			"parameters": {
+
+			},
+			"seed_int": 0,
+			"type": "decompose"
 		}
 	],
 	"parameters": {

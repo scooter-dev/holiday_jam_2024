@@ -1,0 +1,358 @@
+[gd_scene load_steps=24 format=4 uid="uid://de248a8pb63x"]
+
+[ext_resource type="Texture2D" uid="uid://c2tj7qnynb1f" path="res://Assets/Meshes/Props/Platforms_woodBoards.png" id="1_i8l14"]
+[ext_resource type="Script" uid="uid://cptolwfcijn4o" path="res://Scenes/Props/wood_platform.gd" id="1_miv47"]
+[ext_resource type="Shader" uid="uid://css7vswfp42e3" path="res://src/Shaders/shaded_ambient.gdshader" id="1_x4gyd"]
+[ext_resource type="Texture2D" uid="uid://d268jy0il8qc4" path="res://Assets/Meshes/Props/Platforms_chains.png" id="2_x4gyd"]
+[ext_resource type="Texture2D" uid="uid://qn3at2a0i6n5" path="res://Assets/Textures/woodBoards.png" id="2_y2orn"]
+[ext_resource type="Shader" uid="uid://coxv02bx2xfpl" path="res://src/Shaders/shaded_ambient_y_bilboard.gdshader" id="3_y2orn"]
+[ext_resource type="Texture2D" uid="uid://bg7f5qpit2m8w" path="res://Assets/Textures/chains.png" id="4_miv47"]
+[ext_resource type="Texture2D" uid="uid://be5durja6dngy" path="res://Assets/Textures/splinters.png" id="8_nkrfa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y2orn"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_x4gyd")
+shader_parameter/albedo_texture = ExtResource("2_y2orn")
+shader_parameter/albedo_color = Color(0.488281, 0.42586, 0.375748, 1)
+shader_parameter/UVScaling = Vector2(1, 1)
+shader_parameter/distance_fade_min = null
+shader_parameter/distance_fade_max = null
+shader_parameter/viewDistanceOverride = 0.0
+shader_parameter/AOMix = 0.0
+shader_parameter/ambientMix = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ajwpw"]
+resource_name = "Material"
+cull_mode = 2
+albedo_color = Color(0.735138, 0.533439, 0.466614, 1)
+albedo_texture = ExtResource("1_i8l14")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_wxou5"]
+_surfaces = [{
+"aabb": AABB(-1, -0.1, -1, 2, 0.2, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAAAEAAEAAwAFAAIABQAAAAIABgAEAAAABQAGAAAABwABAAQABwADAAEABgAHAAQABQADAAcABQAHAAYA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/////wAAAAAAAP////8AAAAA//8AAAAAAAAAAP//AAD///////8AAAAAAAAAAAAA//8AAAAAAAD//wAA//8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rjbsn"]
+resource_name = "Platforms_Cube"
+_surfaces = [{
+"aabb": AABB(-1, -0.1, -1, 2, 0.2, 2),
+"attribute_data": PackedByteArray("////f/9/////f/9//////8yM/3//f////3//f8yM///MjP9//3////9//3/MjP//////f/9/////f/9//////8yM/3//f////3//f8yM///MjP9//3////9//3/MjP//"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_ajwpw"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(2, 2, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/////wAA/78AAP//////vwAA//8AAP+//////////7///wAA////vwAA//////+//////////78AAAAA////vwAAAAD//1TVAAD//wAAVNUAAP////9U1QAAAAAAAFTVAAAAAAAA/////wAA////////AAAAAP//AAAAAP///////wAAAABU1f///////1TV/////wAAVNX//wAA//9U1QAAAAAAAP///////wAA//8AAP//AAD/////AAAAAP//////f////3////9/////f/9//3//f/9//3//f/9//39UVaqqVFWqqlRVqqpUVaqq/3//P/9//z//f/8//3//P6qqVFWqqlRVqqpUVaqqVFX/P/+//z//v/8//7//P/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_wxou5")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_miv47"]
+size = Vector3(2, 0.2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n86px"]
+resource_name = "Chains"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("2_x4gyd")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_mktxl"]
+_surfaces = [{
+"aabb": AABB(-0.1296, 5.96046e-08, 0, 0.2592, 2, 1e-05),
+"format": 34359742465,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "Chains",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("5rUEvgAAAEAAAACA5LUEPgAAADQAAACA0rUEvgAAgDMAAACA1LUEPgAAAEAAAACA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ev57w"]
+resource_name = "Platforms_Plane"
+_surfaces = [{
+"aabb": AABB(-0.1296, 5.96046e-08, 0, 0.2592, 2, 1e-05),
+"attribute_data": PackedByteArray("ZjvfPsBuZj0qyxA/djOHP2U73z52M4c/K8sQP8BuZj0="),
+"format": 34359742487,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_n86px"),
+"name": "Chains",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("5rUEvgAAAEAAAACA5LUEPgAAADQAAACA0rUEvgAAgDMAAACA1LUEPgAAAEAAAACA/3//f////7//f/9//v//v/9//3/+//+//3//f////78=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_mktxl")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nkrfa"]
+render_priority = 0
+shader = ExtResource("3_y2orn")
+shader_parameter/albedo_texture = ExtResource("4_miv47")
+shader_parameter/albedo_color = Color(0.378906, 0.378906, 0.378906, 1)
+shader_parameter/UVScaling = Vector2(1, 1)
+shader_parameter/distance_fade_min = null
+shader_parameter/distance_fade_max = null
+shader_parameter/viewDistanceOverride = 0.0
+shader_parameter/AOMix = 0.0
+shader_parameter/ambientMix = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pqddn"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+disable_ambient_light = true
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("8_nkrfa")
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
+texture_filter = 0
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_mrvbr"]
+material = SubResource("StandardMaterial3D_pqddn")
+
+[sub_resource type="Curve" id="Curve_nkrfa"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.612648, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Animation" id="Animation_nkrfa"]
+resource_name = "Grow"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlatformBody/Platform:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.1, 0, 0.1, 0, 1.2, -0.1, 0, 0.1, 0, 1, -0.1, 0, 0.1, 0),
+"times": PackedFloat32Array(0, 0.7, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlatformBody/Platform:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.1, 0, 0.1, 0, 1.2, -0.1, 0, 0.1, 0, 1, -0.1, 0, 0.1, 0),
+"times": PackedFloat32Array(0, 0.7, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlatformBody/Platform:scale:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.1, 0, 0.1, 0, 1.2, -0.1, 0, 0.1, 0, 1, -0.1, 0, 0.1, 0),
+"times": PackedFloat32Array(0, 0.7, 1)
+}
+
+[sub_resource type="Animation" id="Animation_pqddn"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlatformBody/Platform:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlatformBody/Platform:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlatformBody/Platform:scale:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mrvbr"]
+_data = {
+&"Grow": SubResource("Animation_nkrfa"),
+&"RESET": SubResource("Animation_pqddn")
+}
+
+[node name="WoodPlatform" type="Node3D" node_paths=PackedStringArray("platform_body", "particles", "platformMesh", "animation_player")]
+script = ExtResource("1_miv47")
+platform_body = NodePath("PlatformBody")
+particles = NodePath("CPUParticles3D")
+platformMesh = NodePath("PlatformBody/Platform")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="PlatformBody" type="CharacterBody3D" parent="."]
+collision_mask = 0
+
+[node name="Platform" type="MeshInstance3D" parent="PlatformBody"]
+material_override = SubResource("ShaderMaterial_y2orn")
+mesh = SubResource("ArrayMesh_rjbsn")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformBody"]
+shape = SubResource("BoxShape3D_miv47")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="Chains" type="Node3D" parent="."]
+
+[node name="Chain" type="MeshInstance3D" parent="Chains"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0.1, -0.75)
+mesh = SubResource("ArrayMesh_ev57w")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_nkrfa")
+
+[node name="Chain2" type="MeshInstance3D" parent="Chains"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0.1, -0.75)
+mesh = SubResource("ArrayMesh_ev57w")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_nkrfa")
+
+[node name="Chain3" type="MeshInstance3D" parent="Chains"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0.1, 0.75)
+mesh = SubResource("ArrayMesh_ev57w")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_nkrfa")
+
+[node name="Chain4" type="MeshInstance3D" parent="Chains"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0.1, 0.75)
+mesh = SubResource("ArrayMesh_ev57w")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_nkrfa")
+
+[node name="Chain5" type="MeshInstance3D" parent="Chains"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 2.1, -0.75)
+mesh = SubResource("ArrayMesh_ev57w")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_nkrfa")
+
+[node name="Chain6" type="MeshInstance3D" parent="Chains"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 2.1, -0.75)
+mesh = SubResource("ArrayMesh_ev57w")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_nkrfa")
+
+[node name="Chain7" type="MeshInstance3D" parent="Chains"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 2.1, 0.75)
+mesh = SubResource("ArrayMesh_ev57w")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_nkrfa")
+
+[node name="Chain8" type="MeshInstance3D" parent="Chains"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 2.1, 0.75)
+mesh = SubResource("ArrayMesh_ev57w")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_nkrfa")
+
+[node name="Chain9" type="MeshInstance3D" parent="Chains"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 4.1, -0.75)
+mesh = SubResource("ArrayMesh_ev57w")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_nkrfa")
+
+[node name="Chain10" type="MeshInstance3D" parent="Chains"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 4.1, -0.75)
+mesh = SubResource("ArrayMesh_ev57w")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_nkrfa")
+
+[node name="Chain11" type="MeshInstance3D" parent="Chains"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 4.1, 0.75)
+mesh = SubResource("ArrayMesh_ev57w")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_nkrfa")
+
+[node name="Chain12" type="MeshInstance3D" parent="Chains"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 4.1, 0.75)
+mesh = SubResource("ArrayMesh_ev57w")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_nkrfa")
+
+[node name="Chain13" type="MeshInstance3D" parent="Chains"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 6.1, -0.75)
+mesh = SubResource("ArrayMesh_ev57w")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_nkrfa")
+
+[node name="Chain14" type="MeshInstance3D" parent="Chains"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 6.1, -0.75)
+mesh = SubResource("ArrayMesh_ev57w")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_nkrfa")
+
+[node name="Chain15" type="MeshInstance3D" parent="Chains"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 6.1, 0.75)
+mesh = SubResource("ArrayMesh_ev57w")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_nkrfa")
+
+[node name="Chain16" type="MeshInstance3D" parent="Chains"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 6.1, 0.75)
+mesh = SubResource("ArrayMesh_ev57w")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_nkrfa")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+emitting = false
+amount = 64
+one_shot = true
+explosiveness = 1.0
+mesh = SubResource("QuadMesh_mrvbr")
+emission_shape = 3
+emission_box_extents = Vector3(1, 0.2, 1)
+direction = Vector3(0, 1, 0)
+initial_velocity_max = 2.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.3
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_nkrfa")
+color = Color(0.8125, 0.610813, 0.501465, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_mrvbr")
+}
+
+[connection signal="child_entered_tree" from="PlatformBody" to="." method="_on_platform_body_child_entered_tree"]

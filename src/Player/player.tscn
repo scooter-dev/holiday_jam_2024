@@ -214,7 +214,7 @@ light_color = Color(0.790039, 1, 0.328125, 1)
 light_energy = 0.25
 light_specular = 0.0
 omni_range = 6.0
-omni_attenuation = 0.5
+omni_attenuation = 0.15
 script = ExtResource("9_0m8bu")
 
 [node name="HUD" type="Control" parent="." node_paths=PackedStringArray("info_panel", "info_panel_label")]

@@ -26,6 +26,8 @@ mesh = SubResource("QuadMesh_i2g03")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="FireflyMesh"]
 light_color = Color(1, 0.796875, 0, 1)
+omni_range = 8.0
+omni_attenuation = 0.15
 
 [node name="Interactable" parent="." instance=ExtResource("3_ewlxq")]
 monitoring = false

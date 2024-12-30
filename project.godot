@@ -151,5 +151,5 @@ ambient_tint={
 }
 view_distance={
 "type": "float",
-"value": 200.0
+"value": 100.0
 }
