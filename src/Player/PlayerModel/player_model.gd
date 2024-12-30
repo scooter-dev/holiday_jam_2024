@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 	blendAttack = lerpf(blendAttack, 0, delta * 12.0)
 	phrogXRot = 0.0
 	match playerMovement.movementMode:
-		PlayerMovement.M_GROUNDED:
+		PlayerMovement.M_GROUNDED, PlayerMovement.M_SUSPENDED:
 			blendSlide = lerpf(blendSlide, 0, delta * 12.0)
 			blendFall = lerpf(blendFall, 0, delta * 12.0)
 			blendSwim = lerpf(blendSwim, 0, delta * 12.0)

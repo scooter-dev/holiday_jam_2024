@@ -11,11 +11,10 @@ class_name Player
 
 
 func suspend(camLock : bool = false) -> void:
-	movement.set_m_mode(PlayerMovement.M_SUSPENDED)
+	#movement.set_m_mode(PlayerMovement.M_FALLING)
+	movement.set_m_mode(PlayerMovement.M_SUSPENDED, 3)
 	cam_y.camLocked = camLock
 
 func unsuspend() -> void:
 	movement.set_m_mode(PlayerMovement.M_FALLING)
 	cam_y.camLocked = false
-
-var camLocked : bool = false

@@ -57,8 +57,13 @@ func _ready():
 	PlayerInput.slide.connect(set_slide)
 
 var launchVelocity : Vector3 = Vector3()
-func launchPlayer(launchVel) -> void:
-	launchVelocity += launchVel
+var launchOverride : bool = false
+func launchPlayer(launchVel : Vector3, override : bool = false) -> void:
+	launchOverride = override
+	if override:
+		launchVelocity = launchVel
+	else:
+		launchVelocity += launchVel
 
 var slideJumpCooldown : int = 0
 var nwProtect: int = 0
@@ -66,12 +71,17 @@ func resetRotation(delta : float) -> void:
 	player.global_basis = player.global_basis.orthonormalized()
 
 func _physics_process(delta):
+	set_deferred("mLock",maxi(mLock - 1,0))
+	if movementMode == M_SUSPENDED:
+		velocity = Vector3()
+		return
 	resetRotation(delta)
 	velocity = player.get_real_velocity()
 	h_speed = Vector2(velocity.x, velocity.z).length()
 	getWaterLevel()
 	slideJumpCooldown = maxi(0, slideJumpCooldown - 1)
 	m_mode()
+	launch()
 	debug_label.text = "Mode: %d\n" % movementMode
 	debug_label.text += "Water Level: %0.2f\n" % waterLevel
 	var direction: Vector3 = camY.global_basis.x * PlayerInput.fbrl.x + camY.global_basis.z * PlayerInput.fbrl.y
@@ -157,17 +167,21 @@ func _physics_process(delta):
 						velocity += direction * delta * acceleration * airControl
 					else:
 						velocity += (direction * delta * acceleration * airControl).project(camY.global_basis.y.normalized().cross(Vector3(velocity.x, 0, velocity.z).normalized()))
-		M_SUSPENDED:
-			velocity = Vector3()
 	
 	coyote_time = max(0.0, coyote_time - delta)
-	velocity += launchVelocity
+	player.velocity = velocity
+	player.move_and_slide()
+
+func launch() -> void:
 	if movementMode != M_SUSPENDED and launchVelocity.length_squared() > 0.01:
+		if launchOverride:
+			velocity = launchVelocity
+			launchOverride = false
+		else:
+			velocity += launchVelocity
 		if movementMode == M_GROUNDED:
 			set_m_mode(M_FALLING)
 		launchVelocity = Vector3()
-	player.velocity = velocity
-	player.move_and_slide()
 
 func m_mode():
 	match movementMode:
@@ -199,7 +213,12 @@ func m_mode():
 
 @onready var world: Node3D = player.get_parent();
 
-func set_m_mode(n_mode: int):
+var mLock : int = 0
+func set_m_mode(n_mode: int, lock : int = 0):
+	if mLock > 0:
+		return
+	mLock += lock
+	print(lock)
 	match n_mode:
 		M_GROUNDED:
 			player.motion_mode = CharacterBody3D.MOTION_MODE_GROUNDED
