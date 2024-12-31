@@ -69,8 +69,9 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_5m2a0")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5neob"]
+resource_local_to_scene = true
 shading_mode = 0
-albedo_color = Color(0.662745, 0.662745, 0.662745, 1)
+albedo_color = Color(0, 1, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ophyn"]
 albedo_color = Color(1, 0.848083, 0.488281, 1)
@@ -102,7 +103,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_5neob")
 surface_material_override/1 = SubResource("StandardMaterial3D_ophyn")
 
 [node name="HeightDebug" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.2041, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20.4082, 0)
 material_override = SubResource("StandardMaterial3D_wsd80")
 mesh = SubResource("SphereMesh_ophyn")
 

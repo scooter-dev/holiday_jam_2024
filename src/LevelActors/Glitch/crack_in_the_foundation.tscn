@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://cobuvk0i3sos"]
+
+[ext_resource type="Script" uid="uid://bkjibnqlxv8b4" path="res://src/LevelActors/Glitch/crack_in_the_foundation.gd" id="1_3o4dj"]
+[ext_resource type="Texture2D" uid="uid://ydqnj0x1hm2g" path="res://Assets/Textures/lightning01.png" id="1_ynmhh"]
+[ext_resource type="Texture2D" uid="uid://dowqonkngrp5o" path="res://Assets/Textures/lightning02.png" id="2_3o4dj"]
+[ext_resource type="Texture2D" uid="uid://c7csobriujc5f" path="res://Assets/Textures/lightning03.png" id="3_gi6qp"]
+[ext_resource type="Texture2D" uid="uid://dq5p2n5ym1tnl" path="res://Assets/Textures/lightning04.png" id="4_dfl4o"]
+[ext_resource type="Texture2D" uid="uid://dil3gc0ac4u8o" path="res://Assets/Textures/lightning05.png" id="5_t5dxt"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_p46lh"]
+resource_local_to_scene = true
+
+[sub_resource type="Shader" id="Shader_nq6jq"]
+code = "shader_type spatial;
+
+render_mode unshaded;
+
+uniform sampler2D tex;
+
+void vertex() {
+	MODELVIEW_MATRIX = VIEW_MATRIX * mat4(
+			MAIN_CAM_INV_VIEW_MATRIX[0],
+			MAIN_CAM_INV_VIEW_MATRIX[1],
+			MAIN_CAM_INV_VIEW_MATRIX[2],
+			MODEL_MATRIX[3]);
+	MODELVIEW_NORMAL_MATRIX = mat3(MODELVIEW_MATRIX);
+}
+float random( vec2 pos )
+{
+	return fract(sin(dot(pos, vec2(12.9898,78.233))) * 43758.5453);
+}
+
+void fragment() {
+	float white_noise = random(SCREEN_UV * vec2( sin( TIME * 0.543254 ), cos( TIME * 0.254323563 ) ) );
+	ALBEDO = vec3(white_noise);
+	vec4 text = texture(tex, UV);
+	ALPHA = text.r;
+	//ALPHA = 1.0;
+}
+
+//void light() {
+//	// Called for every pixel for every light affecting the material.
+//	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_hr30e"]
+frames = 5
+speed_scale = 15.0
+frame_0/texture = ExtResource("1_ynmhh")
+frame_1/texture = ExtResource("2_3o4dj")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_gi6qp")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_dfl4o")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("5_t5dxt")
+frame_4/duration = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_824qp"]
+render_priority = 0
+shader = SubResource("Shader_nq6jq")
+shader_parameter/tex = SubResource("AnimatedTexture_hr30e")
+
+[node name="CrackInTheFoundation" type="Node3D" node_paths=PackedStringArray("mesh")]
+script = ExtResource("1_3o4dj")
+mesh = NodePath("MeshInstance3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+extra_cull_margin = 12.0
+mesh = SubResource("QuadMesh_p46lh")
+surface_material_override/0 = SubResource("ShaderMaterial_824qp")

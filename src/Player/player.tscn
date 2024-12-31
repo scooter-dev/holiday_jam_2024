@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://cal7qhkesu02s"]
+[gd_scene load_steps=36 format=4 uid="uid://cal7qhkesu02s"]
 
 [ext_resource type="Script" uid="uid://c7vig5riw7kk6" path="res://src/Player/GroundRays.gd" id="1_v6gec"]
 [ext_resource type="Script" uid="uid://bbac2cpms0612" path="res://src/Player/player.gd" id="1_vtbm7"]
@@ -97,7 +97,159 @@ shader_parameter/cube_half_size = 0.5
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cql7s"]
 bg_color = Color(0, 0, 0, 0.588235)
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("movement", "firefly", "player_model", "camera", "cam_y", "hud")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ph3q4"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_ph3q4"]
+resource_name = "FadeOut"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fade:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fade:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Fade:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_06do3"]
+resource_name = "FadeIn"
+step = 0.025
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fade:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fade:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Fade:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_pvhe8"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fade:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fade:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Fade:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pvhe8"]
+_data = {
+&"FadeIn": SubResource("Animation_06do3"),
+&"FadeOut": SubResource("Animation_ph3q4"),
+&"RESET": SubResource("Animation_pvhe8")
+}
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("movement", "firefly", "player_model", "camera", "cam_y", "hud", "interactor")]
 collision_layer = 2
 up_direction = Vector3(0, -1, 0)
 slide_on_ceiling = false
@@ -113,6 +265,7 @@ player_model = NodePath("PlayerModel")
 camera = NodePath("CamY/VSpring/CamX/RotationNormalizer/SpringArm3D/Camera3D")
 cam_y = NodePath("CamY")
 hud = NodePath("HUD")
+interactor = NodePath("CamY/VSpring/CamX/Interactor")
 
 [node name="InteractionMarker" type="MeshInstance3D" parent="." node_paths=PackedStringArray("interactor")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.474785, 0)
@@ -256,7 +409,7 @@ omni_range = 6.0
 omni_attenuation = 0.15
 script = ExtResource("9_0m8bu")
 
-[node name="HUD" type="Control" parent="." node_paths=PackedStringArray("info_panel", "info_panel_label")]
+[node name="HUD" type="Control" parent="." node_paths=PackedStringArray("info_panel", "info_panel_label", "hud_anims")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -266,6 +419,7 @@ grow_vertical = 2
 script = ExtResource("12_cql7s")
 info_panel = NodePath("InfoPanel")
 info_panel_label = NodePath("InfoPanel/InfoPanelLabel")
+hud_anims = NodePath("HUDAnims")
 
 [node name="InfoPanel" type="Panel" parent="HUD"]
 visible = false
@@ -295,5 +449,22 @@ text = "aagasdsdasdas"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="Fade" type="Panel" parent="HUD"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ph3q4")
+
+[node name="HUDAnims" type="AnimationPlayer" parent="HUD"]
+libraries = {
+&"": SubResource("AnimationLibrary_pvhe8")
+}
+
+[connection signal="animation_finished" from="HUD/HUDAnims" to="HUD" method="_on_hud_anims_animation_finished"]
 
 [editable path="CamY/VSpring/CamX/Interactor"]

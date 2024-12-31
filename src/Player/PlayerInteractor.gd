@@ -4,11 +4,15 @@ extends Interactor
 
 var current_closest: Interactable
 
+var enabled : bool = true
+
 func _ready():
 	PlayerInput.interact.connect(onInteract)
 	controller = player
 
 func onInteract() -> void:
+	if !enabled:
+		return
 	if current_closest:
 			interact(current_closest)
 

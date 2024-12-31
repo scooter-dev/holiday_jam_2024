@@ -2,10 +2,13 @@ extends AnimationPlayer
 
 @export var player : Player
 @export var player_pos: Node3D
+@export var jumpPad : JumpPad
 
 func _ready() -> void:
 	if !LevelManager.initialCutscene:
 		play("Intro")
+	else:
+		jumpPad.enabled = true
 
 func freezePlayer() -> void:
 	player.suspend(true)

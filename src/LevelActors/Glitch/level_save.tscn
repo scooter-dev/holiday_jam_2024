@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bat7t5uw5he4l"]
+[gd_scene load_steps=5 format=3 uid="uid://bat7t5uw5he4l"]
 
 [ext_resource type="Script" uid="uid://0eskbecnk4ad" path="res://src/LevelActors/Glitch/level_save.gd" id="1_jmxfi"]
+[ext_resource type="PackedScene" uid="uid://baceyyuakavy4" path="res://src/Interaction/Interactable.tscn" id="2_e5mnn"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_4x88v"]
 height = 0.5
@@ -10,8 +11,9 @@ rings = 2
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4x88v"]
 points = PackedVector3Array(0, -0.25, -0.5, -0.353563, -0.25, -0.353563, 0, 0.25, -0.5, 0.353465, -0.25, -0.353563, -0.5, -0.25, 0, -0.353563, 0.25, -0.353563, 0.353465, 0.25, -0.353563, 0.5, -0.25, 0, -0.5, 0.25, 0, -0.353563, -0.25, 0.353465, 0.5, 0.25, 0, 0.353465, -0.25, 0.353465, -0.353563, 0.25, 0.353465, 0, -0.25, 0.5, 0.353465, 0.25, 0.353465, 0, 0.25, 0.5)
 
-[node name="LevelSave" type="Node3D"]
+[node name="LevelSave" type="Node3D" node_paths=PackedStringArray("rotate")]
 script = ExtResource("1_jmxfi")
+rotate = NodePath("Rotate")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
@@ -25,3 +27,13 @@ shape = SubResource("ConvexPolygonShape3D_4x88v")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Rotate" type="Node3D" parent="."]
+
+[node name="Interactable" parent="." instance=ExtResource("2_e5mnn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
+
+[node name="CollisionShape3D" parent="Interactable" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
+
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
+
+[editable path="Interactable"]

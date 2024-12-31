@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://by34s3fbwj2yh"]
+
+[ext_resource type="Script" uid="uid://ba87ryhwniohu" path="res://src/LevelActors/level_changer.gd" id="1_wc5up"]
+
+[node name="LevelChanger" type="Area3D"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_wc5up")
+level = "res://Scenes/MenuLevels/menu_level.tscn"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

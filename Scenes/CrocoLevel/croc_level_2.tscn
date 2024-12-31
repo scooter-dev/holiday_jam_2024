@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=4 uid="uid://stler5swh4qj"]
+[gd_scene load_steps=91 format=4 uid="uid://stler5swh4qj"]
 
 [ext_resource type="PackedScene" uid="uid://bcprhd5itxa12" path="res://Assets/Meshes/Levels/CrocLevels/CrocLevel2.glb" id="1_bum2b"]
 [ext_resource type="Shader" uid="uid://b1i8h3r1t4giq" path="res://src/Shaders/terrain.gdshader" id="2_8uiwt"]
@@ -32,10 +32,14 @@
 [ext_resource type="PackedScene" uid="uid://bdhw72ph7fxt5" path="res://Scenes/Props/jump_leaf.tscn" id="24_h5p7t"]
 [ext_resource type="Shader" uid="uid://cah3imlxqvtes" path="res://Scenes/Props/AOShaded.tres" id="24_laak6"]
 [ext_resource type="PackedScene" uid="uid://2anm63go2fgn" path="res://Scenes/Props/sign.tscn" id="24_phrbr"]
+[ext_resource type="PackedScene" uid="uid://cobuvk0i3sos" path="res://src/LevelActors/Glitch/crack_in_the_foundation.tscn" id="24_t4y5u"]
 [ext_resource type="Texture2D" uid="uid://caxfll36e1i5w" path="res://Assets/Textures/wood02.png" id="25_gvycu"]
 [ext_resource type="Texture2D" uid="uid://bojugpu86eu5q" path="res://Assets/Textures/bigLeaf.png" id="26_vym4b"]
 [ext_resource type="Texture2D" uid="uid://v20y38jcdlh0" path="res://Assets/Meshes/Props/Stones_rock.png" id="28_4kxj7"]
 [ext_resource type="PackedScene" uid="uid://d2y41258vqa11" path="res://src/LevelActors/Items/firefly.tscn" id="30_8dhsp"]
+[ext_resource type="PackedScene" uid="uid://d1ovsgwn64xet" path="res://src/LevelActors/height_kill_volume.tscn" id="37_tsqk6"]
+[ext_resource type="PackedScene" uid="uid://cxq2yko4u2kt5" path="res://src/LevelActors/checkpoint.tscn" id="38_b3jwq"]
+[ext_resource type="PackedScene" uid="uid://by34s3fbwj2yh" path="res://src/LevelActors/level_changer.tscn" id="39_vtqk8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4kxj7"]
 render_priority = 3
@@ -347,6 +351,45 @@ shader_parameter/distance_fade_max = 85.0
 [sub_resource type="PlaneMesh" id="PlaneMesh_hr6jg"]
 size = Vector2(200, 200)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_vtqk8"]
+size = Vector3(56.8824, 5.84668, 51.7347)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_awp2y"]
+size = Vector3(18.0054, 10.6288, 19.2109)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t4y5u"]
+size = Vector3(4.04272, 2.11023, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3ebui"]
+size = Vector3(8.71191, 10.1737, 53.695)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mjmmq"]
+size = Vector3(2.22485, 1.38525, 2.05457)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q87qe"]
+size = Vector3(6.97601, 2.48035, 7.01215)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q2pt5"]
+size = Vector3(6.51672, 10.0048, 40.5256)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b3jwq"]
+size = Vector3(123.098, 11.2582, 63.3121)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4y5u"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.192157)
+proximity_fade_distance = 0.01
+
+[sub_resource type="QuadMesh" id="QuadMesh_3ebui"]
+size = Vector2(8, 8)
+subdivide_width = 20
+subdivide_depth = 20
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7g8pd"]
+size = Vector3(2.01611, 7.21088, 5.36139)
+
 [node name="CrocLevel2" type="Node3D"]
 
 [node name="CrocLevel2" parent="." instance=ExtResource("1_bum2b")]
@@ -541,19 +584,25 @@ transform = Transform3D(-0.194558, 0.0566553, -0.548516, 0.0316734, -0.493383, -
 [node name="Branch17" parent="CrocLevel2/BigTree/Platforms" instance=ExtResource("21_gybja")]
 transform = Transform3D(0.215707, 0.0283276, -0.197054, 0.0389035, -0.246691, 0.0182343, -0.120238, -0.0289984, -0.347616, 3.25885, 17.9545, -6.4624)
 
-[node name="Branch01" parent="CrocLevel2/BigTree" index="2" instance=ExtResource("21_gybja")]
+[node name="CrackInTheFoundation" parent="CrocLevel2/BigTree" index="2" node_paths=PackedStringArray("nodeToBreak") instance=ExtResource("24_t4y5u")]
+transform = Transform3D(-0.507332, 0.117808, 1.19512, 0.226192, 0.974083, 9.43748e-09, -0.831535, 0.193091, -0.729163, -6.77148, 22.5919, -5.52365)
+variable = "glitch_C_l1"
+nodeToBreak = NodePath("../Branch01")
+size = 8.0
+
+[node name="Branch01" parent="CrocLevel2/BigTree" index="3" instance=ExtResource("21_gybja")]
 transform = Transform3D(-0.507332, 0.117808, 1.19512, 0.226192, 0.974083, 9.43748e-09, -0.831535, 0.193091, -0.729163, -4.89176, 22.5919, -2.96713)
 
-[node name="Branch02" parent="CrocLevel2/BigTree" index="3" instance=ExtResource("21_gybja")]
+[node name="Branch02" parent="CrocLevel2/BigTree" index="4" instance=ExtResource("21_gybja")]
 transform = Transform3D(-0.79711, -0.0819953, -0.837538, 0.17428, -0.979815, -0.137089, -0.578137, -0.182315, 1.11343, 0.571909, 27.1275, -4.69319)
 
-[node name="Branch03" parent="CrocLevel2/BigTree" index="4" instance=ExtResource("23_ys0f4")]
+[node name="Branch03" parent="CrocLevel2/BigTree" index="5" instance=ExtResource("23_ys0f4")]
 transform = Transform3D(0.530357, 0, 0.748667, 0, 0.8, 0, -0.598933, 0, 0.662947, 4.21426, 30.8789, -4.56015)
 
-[node name="Branch04" parent="CrocLevel2/BigTree" index="5" instance=ExtResource("23_ys0f4")]
+[node name="Branch04" parent="CrocLevel2/BigTree" index="6" instance=ExtResource("23_ys0f4")]
 transform = Transform3D(-0.691734, -0.0177714, 0.501854, 0.00270107, -0.799405, -0.0384141, 0.401867, -0.0252168, 0.864099, 27.3578, 28.1439, -20.7162)
 
-[node name="Branch05" parent="CrocLevel2/BigTree" index="6" instance=ExtResource("23_ys0f4")]
+[node name="Branch05" parent="CrocLevel2/BigTree" index="7" instance=ExtResource("23_ys0f4")]
 transform = Transform3D(-0.990133, -0.0617218, -0.176134, -0.072434, 0.993961, 0.115397, 0.119963, 0.0907263, -1.38407, 28.367, 21.8331, -25.2288)
 
 [node name="Cave" parent="CrocLevel2" index="5"]
@@ -702,6 +751,12 @@ breaks = true
 breakTime = 1.0
 respawnTime = 2.0
 
+[node name="CrackInTheFoundation" parent="CrocLevel2/Cave/Platforms" node_paths=PackedStringArray("nodeToBreak") instance=ExtResource("24_t4y5u")]
+transform = Transform3D(0.303218, 0, 0.952921, 0, 1, 0, -0.952921, 0, 0.303218, 49.5385, 1.02117, -17.7383)
+variable = "glitch_C_l2"
+nodeToBreak = NodePath("../WoodPlatform8")
+size = 8.0
+
 [node name="WoodPlatform8" parent="CrocLevel2/Cave/Platforms" instance=ExtResource("23_5v7ar")]
 transform = Transform3D(0.303218, 0, 0.952921, 0, 1, 0, -0.952921, 0, 0.303218, 49.5385, 1.02117, -17.7383)
 breaks = true
@@ -743,6 +798,12 @@ transform = Transform3D(0.760145, 0, 0.649753, 0, 1, 0, -0.649753, 0, 0.760145, 
 breaks = true
 breakTime = 1.0
 respawnTime = 2.0
+
+[node name="CrackInTheFoundation2" parent="CrocLevel2/Cave/Platforms" node_paths=PackedStringArray("nodeToBreak") instance=ExtResource("24_t4y5u")]
+transform = Transform3D(0.898158, 0, 0.439673, 0, 1, 0, -0.439673, 0, 0.898158, 80.9208, -0.38427, -51.1747)
+variable = "glitch_C_l3"
+nodeToBreak = NodePath("../WoodPlatform18")
+size = 8.0
 
 [node name="WoodPlatform18" parent="CrocLevel2/Cave/Platforms" instance=ExtResource("23_5v7ar")]
 transform = Transform3D(0.898158, 0, 0.439673, 0, 1, 0, -0.439673, 0, 0.898158, 80.9208, -0.38427, -51.1747)
@@ -2035,7 +2096,7 @@ transform = Transform3D(0.733251, -0.518862, -0.43946, -0.152115, 0.504751, -0.8
 transform = Transform3D(-0.424038, 0, -0.317925, 0, 0.5, 0, 0.264937, 0, -0.508846, 500.837, -159.23, -333.451)
 
 [node name="Player" parent="." instance=ExtResource("6_v37pc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 669.48, -116.999, -443.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.7974, 19.4255)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." node_paths=PackedStringArray("player")]
 environment = SubResource("Environment_laak6")
@@ -2057,6 +2118,123 @@ material_override = SubResource("ShaderMaterial_gs7r6")
 instance_shader_parameters/ambientInfluence = 0.0
 instance_shader_parameters/nonAmbient = 1.0
 mesh = SubResource("PlaneMesh_hr6jg")
+
+[node name="Checkpoints" type="Node3D" parent="."]
+
+[node name="Checkpoint" parent="Checkpoints" instance=ExtResource("38_b3jwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 315.412, -158.734, -209.543)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.9701, -3.27611, -1.23468)
+shape = SubResource("BoxShape3D_vtqk8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="Checkpoint7" parent="Checkpoints" instance=ExtResource("38_b3jwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 519.166, -171.774, -355.543)
+checkpointSeqNumber = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05396, 4.81439, 9.10547)
+shape = SubResource("BoxShape3D_awp2y")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("38_b3jwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 515.573, -139.719, -344.365)
+checkpointSeqNumber = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint2"]
+transform = Transform3D(0.779436, 0, 0.626481, 0, 1, 0, -0.626481, 0, 0.779436, 0.111572, 0.555115, -0.0896912)
+shape = SubResource("BoxShape3D_t4y5u")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="Checkpoint3" parent="Checkpoints" instance=ExtResource("38_b3jwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 608.134, -118.389, -401.203)
+checkpointSeqNumber = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint3"]
+transform = Transform3D(0.926863, 0, 0.375399, 0, 1, 0, -0.375399, 0, 0.926863, -1.29352, 4.58685, -1.754)
+shape = SubResource("BoxShape3D_3ebui")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="Checkpoint4" parent="Checkpoints" instance=ExtResource("38_b3jwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 634.097, -115.689, -414.43)
+checkpointSeqNumber = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.203491, 0.590088, -0.015686)
+shape = SubResource("BoxShape3D_mjmmq")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="Checkpoint5" parent="Checkpoints" instance=ExtResource("38_b3jwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 649.89, -118.073, -438.064)
+checkpointSeqNumber = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint5"]
+transform = Transform3D(0.82103, 0, 0.570886, 0, 1, 0, -0.570886, 0, 0.82103, -0.290527, 0.740173, -0.0463562)
+shape = SubResource("BoxShape3D_q87qe")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="Checkpoint6" parent="Checkpoints" instance=ExtResource("38_b3jwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 700.18, -117.776, -451.666)
+checkpointSeqNumber = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint6"]
+transform = Transform3D(0.918232, 0, 0.396042, 0, 1, 0, -0.396042, 0, 0.918232, 3.74353, 4.03067, 4.76556)
+shape = SubResource("BoxShape3D_q2pt5")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="HeightKillVolumes" type="Node3D" parent="."]
+
+[node name="HeightKillVolume" parent="HeightKillVolumes" instance=ExtResource("37_tsqk6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8147e-06, -55.6693, -105.363)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HeightKillVolumes/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71509, 1.16763, 2.57127)
+shape = SubResource("BoxShape3D_b3jwq")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0417012, 0, -0.99913, 0, 1, 0, 0.99913, 0, 0.0417012, 746.267, -113.375, -431.327)
+material_override = SubResource("StandardMaterial3D_t4y5u")
+mesh = SubResource("QuadMesh_3ebui")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
+material_override = SubResource("StandardMaterial3D_t4y5u")
+mesh = SubResource("QuadMesh_3ebui")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4)
+material_override = SubResource("StandardMaterial3D_t4y5u")
+mesh = SubResource("QuadMesh_3ebui")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6)
+material_override = SubResource("StandardMaterial3D_t4y5u")
+mesh = SubResource("QuadMesh_3ebui")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.8)
+material_override = SubResource("StandardMaterial3D_t4y5u")
+mesh = SubResource("QuadMesh_3ebui")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+material_override = SubResource("StandardMaterial3D_t4y5u")
+mesh = SubResource("QuadMesh_3ebui")
+skeleton = NodePath("../..")
+
+[node name="LevelChanger" parent="MeshInstance3D" instance=ExtResource("39_vtqk8")]
+transform = Transform3D(0.0417012, 0, 0.99913, 0, 1, 0, -0.99913, 0, 0.0417012, -0.0579834, 0, 1.38922)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/LevelChanger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.508057, 0.179596, 0.107513)
+shape = SubResource("BoxShape3D_7g8pd")
+debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [editable path="CrocLevel2"]
 [editable path="CrocLevel2/Cave/Platforms/WoodPlatform15/Sign"]

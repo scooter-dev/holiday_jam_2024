@@ -34,6 +34,8 @@ func getWaterLevel() -> void:
 		var lvl: float = volume.global_position.y - player.global_position.y
 		if lvl > waterLevel:
 			waterLevel = lvl
+			if waterLevel > swimLevel and volume.saltWater:
+				player.die()
 
 @export var groundRays: GroundRays
 @export var camY: Node3D
@@ -73,18 +75,17 @@ func resetRotation(delta : float) -> void:
 		player.global_rotation.x = 0
 		player.global_rotation.z = 0
 
+var prevVelocity : Vector3 = Vector3()
 func _physics_process(delta):
+	prevVelocity = velocity
 	set_deferred("mLock",maxi(mLock - 1,0))
-	if movementMode == M_SUSPENDED:
-		velocity = Vector3()
-		return
-	resetRotation(delta)
+	if movementMode != M_SUSPENDED:
+		resetRotation(delta)
 	velocity = player.get_real_velocity()
 	h_speed = Vector2(velocity.x, velocity.z).length()
 	getWaterLevel()
 	slideJumpCooldown = maxi(0, slideJumpCooldown - 1)
 	m_mode()
-	launch()
 	debug_label.text = "Mode: %d\n" % movementMode
 	debug_label.text += "Water Level: %0.2f\n" % waterLevel
 	var direction: Vector3 = camY.global_basis.x * PlayerInput.fbrl.x + camY.global_basis.z * PlayerInput.fbrl.y
@@ -149,8 +150,8 @@ func _physics_process(delta):
 				var prevSPD: float = velocity.length()
 				
 				velocity += acceleration * delta * direction * airControl * 2.0
-				velocity.x -= velocity.x * 1.0 * delta
-				velocity.z -= velocity.z * 1.0 * delta
+				velocity.x -= velocity.x * 0.25 * delta
+				velocity.z -= velocity.z * 0.25 * delta
 				velocity = velocity.limit_length(prevSPD)
 				if jump_state and slideJumpCooldown == 0 and h_speed < 7.0:
 					jumped.emit()
@@ -170,7 +171,9 @@ func _physics_process(delta):
 						velocity += direction * delta * acceleration * airControl
 					else:
 						velocity += (direction * delta * acceleration * airControl).project(camY.global_basis.y.normalized().cross(Vector3(velocity.x, 0, velocity.z).normalized()))
-	
+		M_SUSPENDED:
+			velocity = Vector3()
+	launch()
 	coyote_time = max(0.0, coyote_time - delta)
 	player.velocity = velocity
 	player.move_and_slide()
@@ -227,6 +230,8 @@ func set_m_mode(n_mode: int, lock : int = 0):
 			player.motion_mode = CharacterBody3D.MOTION_MODE_GROUNDED
 			match movementMode:
 				M_FALLING:
+					if prevVelocity.y < -16.0:
+						player.die()
 					if (groundRays.ground and groundRays.ground != player.get_parent()):
 						player.reparent(groundRays.ground, true)
 		M_FALLING:

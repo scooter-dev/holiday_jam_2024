@@ -1,12 +1,17 @@
-[gd_scene load_steps=57 format=3 uid="uid://bcf0411aq8xos"]
+[gd_scene load_steps=69 format=4 uid="uid://bcf0411aq8xos"]
 
 [ext_resource type="PackedScene" uid="uid://b71m35e4nhw7h" path="res://Assets/Meshes/MenuLevel/MenuLevel.blend" id="1_ueebt"]
+[ext_resource type="PackedScene" uid="uid://bat7t5uw5he4l" path="res://src/LevelActors/Glitch/level_save.tscn" id="2_o1j72"]
 [ext_resource type="PackedScene" uid="uid://cal7qhkesu02s" path="res://src/Player/player.tscn" id="2_s7esc"]
 [ext_resource type="Texture2D" uid="uid://daqkyupnba5ww" path="res://Assets/Meshes/MenuLevel/background.png" id="3_bumdm"]
+[ext_resource type="PackedScene" uid="uid://dfa3j83d5ujpo" path="res://src/LevelActors/Vector/vector_cube.tscn" id="3_q6dfh"]
 [ext_resource type="Script" uid="uid://cii7vrif2njyw" path="res://src/LevelActors/Lighting/evnAdjust.gd" id="3_s7esc"]
+[ext_resource type="Shader" uid="uid://38i7c40ma7np" path="res://src/Shaders/noiseGlitch.gdshader" id="4_q6dfh"]
 [ext_resource type="PackedScene" uid="uid://btjcstm65hjaa" path="res://Assets/Meshes/Props/OS.glb" id="5_mxiu3"]
+[ext_resource type="PackedScene" uid="uid://balk0fu5d233v" path="res://Scenes/Props/tree_01.tscn" id="5_unave"]
 [ext_resource type="Script" uid="uid://cykbx1jatlf53" path="res://Scenes/MenuLevels/cutscene_player.gd" id="6_jpii8"]
 [ext_resource type="PackedScene" uid="uid://deh6ojfecagpx" path="res://Scenes/Props/jump_pad.tscn" id="7_ub1iy"]
+[ext_resource type="PackedScene" uid="uid://cxq2yko4u2kt5" path="res://src/LevelActors/checkpoint.tscn" id="12_57if5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mxiu3"]
 albedo_color = Color(0.761719, 0.761719, 0.761719, 1)
@@ -100,6 +105,49 @@ data = PackedVector3Array(-2, -3.2147, -1.174, -2, -6.0011, -3.9376, -2, -3.1023
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_uc0s5"]
 points = PackedVector3Array(-2, 2.23517e-08, -7, -2, 0.19998, -7, 18, 2.23517e-08, -7, -2, 2.23517e-08, 1, -2, 0.19998, 1, 18, 0.19998, -7, 18, 2.23517e-08, 1, 18, 0.19998, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_unave"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_unave"]
+render_priority = 0
+shader = ExtResource("4_q6dfh")
+
+[sub_resource type="BoxMesh" id="BoxMesh_57if5"]
+size = Vector3(0.26, 0.26, 0.26)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ldvjd"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_unave"]
+_surfaces = [{
+"aabb": AABB(-2.10116, -0.801547, -2.10556, 4.01591, 5.60992, 3.87275),
+"attribute_data": PackedByteArray("4bRgPoAAADjRfNE+gAAAOJZPFj+AAAA4AAAAAAAAgD8AAAAAgAAAOOG0YD4AAIA/0XzRPgAAgD+WTxY/AACAP8lvST8AAIA/yW9JP4AAADj/f38/gAAAOP9/fz8AAIA/4bRgPt0A3T7RfNE+3QDdPgAAAACxgzA/lk8WP90A3T7Jb0k/3QDdPv9/fz+xgzA/AAAAAN0A3T7htGA+sYMwP9F80T6xgzA/lk8WP7GDMD//f38/3QDdPslvST+xgzA/"),
+"format": 34359742487,
+"index_count": 90,
+"index_data": PackedByteArray("DAANAAEADQACAAEADAABAAAAEgAMAAAAEgAAAAQADgAMABIADgATAAwAEwANAAwAAwATAA4AAwAFABMABQAUABMAEwAUAA0ABQAGABQADQAPAAIAFAAPAA0ADwAJAAIABgAVABQAFAAVAA8ABgAHABUADwAQAAkAFQAQAA8AEAAKAAkAEAAWAAoAFQAXABAABwAXABUAFwAWABAABwAIABcAFwARABYACAARABcACAALABEA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("6jQrPxirlkD6aEQ/EPR3PxBtmEBBsrO+hcvuPSfemUA9yYm/iu+Zv9evTL9yM+I/CotDv6F0lkAiykg/9N+rPzUyTb/Zpcs/whb1PwrRQ7+7pj2/h+rXPRkpPL91wQbAVnkGwFs9Pr9ufmS/Ug+Mv5UFmUCiGhC/CotDv6F0lkAiykg/iu+Zv9evTL9yM+I/GEolP3b0C0BkUNE+cb53PxeaDUBsejy/pLZRv35pUj/X4Jk/BWDkPbfZD0CE8rq/0kyLv4OXDkDnT3S/pLZRv35pUj/X4Jk/88M+v32/C0AHwtU+61lBPzGQUT+DBJY/Ye2UP7pjOD9A3nO+wrrUPVmKOj+60Ym/88M+v32/C0AHwtU+kTqmv8TPKz9K9di+DLG8dfP/UaWd+6ihEgDY8NTwnPQKAHjG+1e/naHFv8pPTfJ1fsVkvG2u3Z4Y//feg9gnwg8BouwkzqH8zADhwsAomcLXWU+/bAWvqSxa6r9PTfJ1ncMZxPxXv52Cub+1YbaYjXD/daH1/pipBwBwlGhZ8Z5wx/vJz/peChIAb8VNAPGvPVD/v2lZ8J4CuIu0u0gTjdm9qMXbqHWf0f8q24Dl9LBDANTx7Ovn9woAz8S7SBONAr21u9YahLIBYo+/")
+}]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_57if5"]
+_surfaces = [{
+"aabb": AABB(-6.56778, 2.17932, -6.79924, 12.5699, 10.8727, 13.3351),
+"attribute_data": PackedByteArray("WAsAP1gLAD+sBSA/WAsAP6wFID+sBSA/WAsAP6wFID+sBSA/AABAPwAAQD+sBSA/WAsAPwAAQD8IIsA+rAUgP6wFID+o9H8/WAsAP6j0fz+wFgA+AACAPrAWAD6wFgA+AACAPrAWAD7PfzU5sBYAPrAWAD4AgDU5AACAPgCANTkAAIA+AACAPqj0vz6wFgA+sBYAPlDp/z4AAIA+UOn/PlgLAD8AgDU5rAUgPwCANTmsBSA/sBYAPlgLAD+wFgA+rAUgPwAAgD4AAEA/sBYAPlgLAD8AAIA+CCLAPrAWAD6sBSA/UOn/PlgLAD9Q6f8+gggQP9YCMD9cHOA+AABAP1gLAD8q/U8/gggQP4IIED8AAEA/1gIwP4IIED9U+l8/rAUgP373bz8QRIA9AACAPrAWAD5U+p8+WAtAPqj0vz6CCBA/WAtAPlwc4D4AAIA+WAsAP1T6nz6CCBA/EESAPQAAQD9YC0A+gggQP6j0vz6sBSA//O7fPoIIED9+928/gggQPyr9Tz+CCBA/AABAP6wFID/WAjA/WAsAP9YCMD9cHOA+1gIwP9YCMD/WAjA/gggQP6wFID9YC0A+/O7fPgAAgD787t8+WAtAPlT6nz5YC0A+WAtAPgAAgD5YC0A+VPqfPlgLQD6o9L8+WAtAPlgLQD4QRIA9EESAPVgLQD6CCBA//O7fPoIIED9U+p8+gggQPwAAgD6sBSA/WAtAPlgLAD9YC0A+XBzgPlgLQD7WAjA/WAtAPoIIED+wFgA+rAUgP1T6Xz+CCBA/qPR/P1gLAD9+928/rAUgPyr9Tz9YCwA/VPpfPwgiwD4AAEA/CCLAPtYCMD9cHOA+rAUgP6wFID+CCBA/1gIwP6wFID9YCwA/gggQP4IIED9YCwA/1gIwPwAAQD8AAEA/AABAPwAAgD6o9L8+WAtAPlDp/z6wFgA+/O7fPgAAgD5U+p8+sBYAPqj0vz5YC0A+AACAPrAWAD5YC0A+z381OQAAgD7PfzU5WAtAPhBEgD2wFgA+WAtAPrAWAD4AAIA+EESAPVT6nz6wFgA+sBYAPhBEgD1YC0A+AIA1OVT6nz4AAIA+qPS/PgAAgD6sBSA/qPS/PoIIED9Q6f8+WAsAP/zu3z6sBSA/VPqfPlgLAD+o9L8+CCLAPgAAgD4IIsA+WAtAPlwc4D6wFgA+rAUgPxBEgD3WAjA/sBYAPlgLAD8QRIA9gggQPwCANTnWAjA/AACAPgAAQD8AAIA+"),
+"format": 34359742487,
+"index_count": 432,
+"index_data": PackedByteArray("LwAkAEgASQAIACQASQAkAC8ACQBJAC8ACQAvAEoALwBIACMASgAvACMAIwBIAEsASgAjAEwAIwBLADAATAAjADAATAAwACAAMABLAAQAIAAwADEAMAAEADEAIAAxAAYAMQAEADIABgAxAB4AMQAyAB4ABgAeADMAHwAGADMAHgAyAAIAHwAzADQATQAfADQATQA0AE4ATgA0AE8ATgBPAAcANAADAE8ANAAzAAMAMwAeADYAMwA2AAMAHgACADYANgACAFAAMgBRAAIAAwA2ACEANgBQACEAIQBQAAEAAwAhAFIAIQABAFMAUgAhAFMAUgBTAAAAMgA1AFEANQAFAFEABAA1ADIANQAiAAUABABUADUAVAAiADUAVABVACIANwA4AFYAVwATADgAVwA4ADcAEgBXADcAEgA3AFgANwBWACcAWAA3ACcAJwBWAFkAWAAnAFoAJwBZADkAWgAnADkAWgA5ACYAOQBZABAAJgA5AFsAOQAQAFsAJgBbAAoAWwAQADsACgBbADoAWwA7ADoACgA6AFwAJQAKAFwAOgA7AAwAJQBcAD8AXQAlAD8AXQA/AF4AXgA/AF8AXgBfAA0APwALAF8APwBcAAsAXAA6AGAAXABgAAsAOgAMAGAAYAAMAGEAOwBiAAwACwBgAD4AYABhAD4APgBhAA8ACwA+AGMAPgAPAGQAYwA+AGQAYwBkAA4AOwA8AGIAPAARAGIAEAA8ADsAPAA9ABEAEABlADwAZQA9ADwAZQBmAD0AQAAuAGcAaAAcAC4AaAAuAEAAHQBoAEAAHQBAAGkAQABnAC0AaQBAAC0ALQBnAGoAaQAtAGsALQBqAEEAawAtAEEAawBBACoAQQBqABgAKgBBAEIAQQAYAEIAKgBCABoAQgAYAEMAGgBCACgAQgBDACgAGgAoAEQAKQAaAEQAKABDABYAKQBEAEUAbAApAEUAbABFAG0AbQBFAG4AbQBuABsARQAXAG4ARQBEABcARAAoAEcARABHABcAKAAWAEcARwAWAG8AQwBwABYAFwBHACsARwBvACsAKwBvABUAFwArAHEAKwAVAHIAcQArAHIAcQByABQAQwBGAHAARgAZAHAAGABGAEMARgAsABkAGABzAEYAcwAsAEYAcwB0ACwA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 117,
+"vertex_data": PackedByteArray("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")
+}]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_mxiu3"]
 panorama = ExtResource("3_bumdm")
@@ -758,6 +806,9 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_57if5"]
 size = Vector3(21, 8.4, 8.5)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ldvjd"]
+size = Vector3(20, 4.75, 7.75)
+
 [node name="MenuLevel" type="Node3D"]
 
 [node name="MenuLevel" parent="." instance=ExtResource("1_ueebt")]
@@ -1149,6 +1200,72 @@ layers = 0
 shape = SubResource("ConvexPolygonShape3D_uc0s5")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
+[node name="LevelSave" parent="MenuLevel" node_paths=PackedStringArray("corruption") instance=ExtResource("2_o1j72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43, 20.2, -106.9)
+level = "res://Scenes/VectorLevels/vector_level_1.tscn"
+levelVars = Array[String](["glitch_V_l1"])
+corruption = NodePath("Rotate/VectorCube/MeshInstance3D")
+metadata/_edit_group_ = true
+
+[node name="VectorCube" parent="MenuLevel/LevelSave/Rotate" index="0" instance=ExtResource("3_q6dfh")]
+transform = Transform3D(0.707107, 0.5, -0.5, -0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0, 1.1, 0)
+size = Vector3(0.25, 0.25, 0.25)
+color = Color(0, 1, 0, 1)
+material = SubResource("StandardMaterial3D_unave")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MenuLevel/LevelSave/Rotate/VectorCube"]
+material_override = SubResource("ShaderMaterial_unave")
+mesh = SubResource("BoxMesh_57if5")
+skeleton = NodePath("../..")
+
+[node name="Interactable" parent="MenuLevel/LevelSave" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65, 0)
+
+[node name="LevelSave2" parent="MenuLevel" node_paths=PackedStringArray("corruption") instance=ExtResource("2_o1j72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43, 20.2, -104.9)
+level = "res://Scenes/VectorLevels/vector_level_2.tscn"
+levelVars = Array[String](["glitch_V_l2"])
+corruption = NodePath("Rotate/VectorCube/MeshInstance3D")
+metadata/_edit_group_ = true
+
+[node name="VectorCube" parent="MenuLevel/LevelSave2/Rotate" index="0" instance=ExtResource("3_q6dfh")]
+transform = Transform3D(0.707107, 0.5, -0.5, -0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0, 1.1, 0)
+size = Vector3(0.25, 0.25, 0.25)
+color = Color(0, 1, 0, 1)
+material = SubResource("StandardMaterial3D_ldvjd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MenuLevel/LevelSave2/Rotate/VectorCube"]
+material_override = SubResource("ShaderMaterial_unave")
+mesh = SubResource("BoxMesh_57if5")
+skeleton = NodePath("../..")
+
+[node name="Interactable" parent="MenuLevel/LevelSave2" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65, 0)
+
+[node name="LevelSave3" parent="MenuLevel" node_paths=PackedStringArray("corruption") instance=ExtResource("2_o1j72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43, 20.2, -103)
+level = "res://Scenes/CrocoLevel/croc_level_2.tscn"
+levelVars = Array[String](["glitch_C_l1", "glitch_C_l2", "glitch_C_l3"])
+corruption = NodePath("Rotate/Tree01/MeshInstance3D")
+metadata/_edit_group_ = true
+
+[node name="Tree01" parent="MenuLevel/LevelSave3/Rotate" index="0" instance=ExtResource("5_unave")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0.65, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MenuLevel/LevelSave3/Rotate/Tree01"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0827026, 0, -0.341309)
+material_override = SubResource("ShaderMaterial_unave")
+mesh = SubResource("ArrayMesh_unave")
+skeleton = NodePath("../Trunk01")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MenuLevel/LevelSave3/Rotate/Tree01/MeshInstance3D"]
+material_override = SubResource("ShaderMaterial_unave")
+mesh = SubResource("ArrayMesh_57if5")
+skeleton = NodePath("../../Leaves01")
+
+[node name="Interactable" parent="MenuLevel/LevelSave3" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65, 0)
+
 [node name="Player" parent="." instance=ExtResource("2_s7esc")]
 transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 5.92957, 0.2286, -5.06201)
 metadata/_edit_group_ = true
@@ -1220,9 +1337,37 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -10.5, -104)
 impulse = 27.4
 directionalImpulse = Vector2(3, 0)
 
+[node name="JumpPad2" parent="." instance=ExtResource("7_ub1iy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.5, -102)
+enabled = true
+directionalImpulse = Vector2(0, 20)
+
+[node name="Checkpoint" parent="." instance=ExtResource("12_57if5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.19998, -32.2)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.875, -0.875)
+shape = SubResource("BoxShape3D_ldvjd")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="Checkpoint2" parent="." instance=ExtResource("12_57if5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -10.55, -104.95)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.875, 0.125)
+shape = SubResource("BoxShape3D_ldvjd")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
 [connection signal="body_entered" from="CutsceneTrigger" to="CutscenePlayer" method="_on_cutscene_trigger_body_entered"]
 
 [editable path="MenuLevel"]
+[editable path="MenuLevel/LevelSave"]
+[editable path="MenuLevel/LevelSave/Interactable"]
+[editable path="MenuLevel/LevelSave2"]
+[editable path="MenuLevel/LevelSave2/Interactable"]
+[editable path="MenuLevel/LevelSave3"]
+[editable path="MenuLevel/LevelSave3/Rotate/Tree01"]
+[editable path="MenuLevel/LevelSave3/Interactable"]
 [editable path="Player"]
 [editable path="Player/CamY/VSpring/CamX/Interactor"]
 [editable path="OS"]

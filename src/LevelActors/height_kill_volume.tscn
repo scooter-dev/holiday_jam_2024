@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1ovsgwn64xet"]
+
+[ext_resource type="Script" uid="uid://pap7j28xojl0" path="res://src/LevelActors/height_kill_volume.gd" id="1_rkwpe"]
+
+[node name="HeightKillVolume" type="Area3D"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_rkwpe")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

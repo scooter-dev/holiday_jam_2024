@@ -2,6 +2,8 @@
 
 extends Node3D
 
+class_name JumpPad
+
 @export var enabled : bool = false:
 	set(en):
 		enabled = en

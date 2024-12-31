@@ -32,7 +32,6 @@ omni_attenuation = 0.15
 
 [node name="Interactable" parent="FireflyMesh" instance=ExtResource("3_ewlxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.381699, 0)
-monitoring = false
 
 [node name="CollisionShape3D" parent="FireflyMesh/Interactable" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.368052, 0)
