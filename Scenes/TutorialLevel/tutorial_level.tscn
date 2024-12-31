@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://cgj71p8cjvgda"]
+[gd_scene load_steps=99 format=3 uid="uid://cgj71p8cjvgda"]
 
 [ext_resource type="Texture2D" uid="uid://b0ay0uj00aj86" path="res://Assets/Textures/panoramaDayProcessed.png" id="1_fhfly"]
 [ext_resource type="Script" uid="uid://cii7vrif2njyw" path="res://src/LevelActors/Lighting/evnAdjust.gd" id="2_mjt3c"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://c65rngrgmg2fl" path="res://Assets/Textures/glass.png" id="19_xkpoo"]
 [ext_resource type="PackedScene" uid="uid://2anm63go2fgn" path="res://Scenes/Props/sign.tscn" id="20_qf5wd"]
 [ext_resource type="PackedScene" uid="uid://baceyyuakavy4" path="res://src/Interaction/Interactable.tscn" id="20_xu06p"]
+[ext_resource type="Shader" uid="uid://b6xu1qfy83ebc" path="res://src/Shaders/noiseGlitchMix.gdshader" id="31_g34n4"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_c14f2"]
 panorama = ExtResource("1_fhfly")
@@ -206,12 +207,12 @@ shader_parameter/ambientMix = 1.0
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_a5o3l"]
 data = PackedVector3Array(-1.2164, 1.1522, -0.7568, -4.049, 1.1522, 0.6859, -4.049, 1.1522, -0.7568, -1.2164, 1.1522, -0.7568, -1.2164, 1.1522, 0.6859, -4.049, 1.1522, 0.6859, 1.6163, 1.1522, -0.7568, -1.2164, 1.1522, 0.6859, -1.2164, 1.1522, -0.7568, 1.6163, 1.1522, -0.7568, 1.6163, 1.1522, 0.6859, -1.2164, 1.1522, 0.6859, -1.2164, 1.0821, -0.7568, -4.049, 1.0821, 0.6859, -4.049, 1.0821, -0.7568, -1.2164, 1.0821, -0.7568, -1.2164, 1.0821, 0.6859, -4.049, 1.0821, 0.6859, 1.6163, 1.0821, -0.7568, -1.2164, 1.0821, 0.6859, -1.2164, 1.0821, -0.7568, 1.6163, 1.0821, -0.7568, 1.6163, 1.0821, 0.6859, -1.2164, 1.0821, 0.6859, -3.8077, -1.2815, 0.5976, -3.8077, 1.1145, 0.3764, -3.8077, 1.1145, 0.5976, -3.8077, -1.2815, 0.5976, -3.8077, -1.2815, 0.3764, -3.8077, 1.1145, 0.3764, -3.8077, -1.2815, 0.3764, -3.5865, 1.1145, 0.3764, -3.8077, 1.1145, 0.3764, -3.8077, -1.2815, 0.3764, -3.5865, -1.2815, 0.3764, -3.5865, 1.1145, 0.3764, -3.5865, -1.2815, 0.3764, -3.5865, 1.1145, 0.5976, -3.5865, 1.1145, 0.3764, -3.5865, -1.2815, 0.3764, -3.5865, -1.2815, 0.5976, -3.5865, 1.1145, 0.5976, -3.5865, -1.2815, 0.5976, -3.8077, 1.1145, 0.5976, -3.5865, 1.1145, 0.5976, -3.5865, -1.2815, 0.5976, -3.8077, -1.2815, 0.5976, -3.8077, 1.1145, 0.5976, -3.8077, -1.2815, 0.3764, -3.5865, -1.2815, 0.5976, -3.5865, -1.2815, 0.3764, -3.8077, -1.2815, 0.3764, -3.8077, -1.2815, 0.5976, -3.5865, -1.2815, 0.5976, -3.5865, 1.1145, 0.3764, -3.8077, 1.1145, 0.5976, -3.8077, 1.1145, 0.3764, -3.5865, 1.1145, 0.3764, -3.5865, 1.1145, 0.5976, -3.8077, 1.1145, 0.5976, -3.5865, -1.2815, -0.6587, -3.5865, 1.1145, -0.4376, -3.5865, 1.1145, -0.6587, -3.5865, -1.2815, -0.6587, -3.5865, -1.2815, -0.4376, -3.5865, 1.1145, -0.4376, -3.5865, -1.2815, -0.4376, -3.8077, 1.1145, -0.4376, -3.5865, 1.1145, -0.4376, -3.5865, -1.2815, -0.4376, -3.8077, -1.2815, -0.4376, -3.8077, 1.1145, -0.4376, -3.8077, -1.2815, -0.4376, -3.8077, 1.1145, -0.6587, -3.8077, 1.1145, -0.4376, -3.8077, -1.2815, -0.4376, -3.8077, -1.2815, -0.6587, -3.8077, 1.1145, -0.6587, -3.8077, -1.2815, -0.6587, -3.5865, 1.1145, -0.6587, -3.8077, 1.1145, -0.6587, -3.8077, -1.2815, -0.6587, -3.5865, -1.2815, -0.6587, -3.5865, 1.1145, -0.6587, -3.5865, -1.2815, -0.4376, -3.8077, -1.2815, -0.6587, -3.8077, -1.2815, -0.4376, -3.5865, -1.2815, -0.4376, -3.5865, -1.2815, -0.6587, -3.8077, -1.2815, -0.6587, -3.8077, 1.1145, -0.4376, -3.5865, 1.1145, -0.6587, -3.5865, 1.1145, -0.4376, -3.8077, 1.1145, -0.4376, -3.8077, 1.1145, -0.6587, -3.5865, 1.1145, -0.6587, 1.1497, -1.2815, 0.5976, 1.1497, 1.1145, 0.3764, 1.1497, 1.1145, 0.5976, 1.1497, -1.2815, 0.5976, 1.1497, -1.2815, 0.3764, 1.1497, 1.1145, 0.3764, 1.1497, -1.2815, 0.3764, 1.3709, 1.1145, 0.3764, 1.1497, 1.1145, 0.3764, 1.1497, -1.2815, 0.3764, 1.3709, -1.2815, 0.3764, 1.3709, 1.1145, 0.3764, 1.3709, -1.2815, 0.3764, 1.3709, 1.1145, 0.5976, 1.3709, 1.1145, 0.3764, 1.3709, -1.2815, 0.3764, 1.3709, -1.2815, 0.5976, 1.3709, 1.1145, 0.5976, 1.3709, -1.2815, 0.5976, 1.1497, 1.1145, 0.5976, 1.3709, 1.1145, 0.5976, 1.3709, -1.2815, 0.5976, 1.1497, -1.2815, 0.5976, 1.1497, 1.1145, 0.5976, 1.1497, -1.2815, 0.3764, 1.3709, -1.2815, 0.5976, 1.3709, -1.2815, 0.3764, 1.1497, -1.2815, 0.3764, 1.1497, -1.2815, 0.5976, 1.3709, -1.2815, 0.5976, 1.3709, 1.1145, 0.3764, 1.1497, 1.1145, 0.5976, 1.1497, 1.1145, 0.3764, 1.3709, 1.1145, 0.3764, 1.3709, 1.1145, 0.5976, 1.1497, 1.1145, 0.5976, 1.3709, -1.2815, -0.6587, 1.3709, 1.1145, -0.4376, 1.3709, 1.1145, -0.6587, 1.3709, -1.2815, -0.6587, 1.3709, -1.2815, -0.4376, 1.3709, 1.1145, -0.4376, 1.3709, -1.2815, -0.4376, 1.1497, 1.1145, -0.4376, 1.3709, 1.1145, -0.4376, 1.3709, -1.2815, -0.4376, 1.1497, -1.2815, -0.4376, 1.1497, 1.1145, -0.4376, 1.1497, -1.2815, -0.4376, 1.1497, 1.1145, -0.6587, 1.1497, 1.1145, -0.4376, 1.1497, -1.2815, -0.4376, 1.1497, -1.2815, -0.6587, 1.1497, 1.1145, -0.6587, 1.1497, -1.2815, -0.6587, 1.3709, 1.1145, -0.6587, 1.1497, 1.1145, -0.6587, 1.1497, -1.2815, -0.6587, 1.3709, -1.2815, -0.6587, 1.3709, 1.1145, -0.6587, 1.3709, -1.2815, -0.4376, 1.1497, -1.2815, -0.6587, 1.1497, -1.2815, -0.4376, 1.3709, -1.2815, -0.4376, 1.3709, -1.2815, -0.6587, 1.1497, -1.2815, -0.6587, 1.1497, 1.1145, -0.4376, 1.3709, 1.1145, -0.6587, 1.3709, 1.1145, -0.4376, 1.1497, 1.1145, -0.4376, 1.1497, 1.1145, -0.6587, 1.3709, 1.1145, -0.6587, -1.3405, -1.2815, 0.3764, -1.1193, 1.1145, 0.3764, -1.3405, 1.1145, 0.3764, -1.3405, -1.2815, 0.3764, -1.1193, -1.2815, 0.3764, -1.1193, 1.1145, 0.3764, -1.1193, -1.2815, 0.3764, -1.1193, 1.1145, 0.5976, -1.1193, 1.1145, 0.3764, -1.1193, -1.2815, 0.3764, -1.1193, -1.2815, 0.5976, -1.1193, 1.1145, 0.5976, -1.1193, -1.2815, 0.5976, -1.3405, 1.1145, 0.5976, -1.1193, 1.1145, 0.5976, -1.1193, -1.2815, 0.5976, -1.3405, -1.2815, 0.5976, -1.3405, 1.1145, 0.5976, -1.3405, -1.2815, 0.5976, -1.3405, 1.1145, 0.3764, -1.3405, 1.1145, 0.5976, -1.3405, -1.2815, 0.5976, -1.3405, -1.2815, 0.3764, -1.3405, 1.1145, 0.3764, -1.1193, -1.2815, 0.3764, -1.3405, -1.2815, 0.5976, -1.1193, -1.2815, 0.5976, -1.1193, -1.2815, 0.3764, -1.3405, -1.2815, 0.3764, -1.3405, -1.2815, 0.5976, -1.1193, 1.1145, 0.5976, -1.3405, 1.1145, 0.3764, -1.1193, 1.1145, 0.3764, -1.1193, 1.1145, 0.5976, -1.3405, 1.1145, 0.5976, -1.3405, 1.1145, 0.3764, -1.3405, -1.2815, -0.4376, -1.3405, 1.1145, -0.6587, -1.3405, 1.1145, -0.4376, -1.3405, -1.2815, -0.4376, -1.3405, -1.2815, -0.6587, -1.3405, 1.1145, -0.6587, -1.3405, -1.2815, -0.6587, -1.1193, 1.1145, -0.6587, -1.3405, 1.1145, -0.6587, -1.3405, -1.2815, -0.6587, -1.1193, -1.2815, -0.6587, -1.1193, 1.1145, -0.6587, -1.1193, -1.2815, -0.6587, -1.1193, 1.1145, -0.4376, -1.1193, 1.1145, -0.6587, -1.1193, -1.2815, -0.6587, -1.1193, -1.2815, -0.4376, -1.1193, 1.1145, -0.4376, -1.1193, -1.2815, -0.4376, -1.3405, 1.1145, -0.4376, -1.1193, 1.1145, -0.4376, -1.1193, -1.2815, -0.4376, -1.3405, -1.2815, -0.4376, -1.3405, 1.1145, -0.4376, -1.3405, -1.2815, -0.6587, -1.1193, -1.2815, -0.4376, -1.1193, -1.2815, -0.6587, -1.3405, -1.2815, -0.6587, -1.3405, -1.2815, -0.4376, -1.1193, -1.2815, -0.4376, -1.1193, 1.1145, -0.6587, -1.3405, 1.1145, -0.4376, -1.3405, 1.1145, -0.6587, -1.1193, 1.1145, -0.6587, -1.1193, 1.1145, -0.4376, -1.3405, 1.1145, -0.4376)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xkpoo"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sl72w"]
 render_priority = 0
 shader = ExtResource("17_xu06p")
 shader_parameter/albedo_texture = ExtResource("18_6p7ed")
 shader_parameter/albedo_color = Color(1, 0.59726, 0.378906, 1)
-shader_parameter/UVScaling = Vector2(1, 1)
+shader_parameter/UVScaling = Vector2(4, 4)
 shader_parameter/distance_fade_min = null
 shader_parameter/distance_fade_max = null
 shader_parameter/viewDistanceOverride = 0.0
@@ -307,9 +308,11 @@ shader_parameter/ambientMix = 1.0
 script/source = "extends MeshInstance3D
 
 @export var animPlayer : AnimationPlayer
+@export var interactable: Interactable
 
 func _on_interactable_interacted(interactor: Interactor) -> void:
 	animPlayer.play(\"Fall\")
+	interactable.disable()
 "
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wsmye"]
@@ -513,6 +516,309 @@ gradient = SubResource("Gradient_u4vw4")
 [sub_resource type="BoxShape3D" id="BoxShape3D_6p7ed"]
 size = Vector3(6.55135, 8.95288, 5.33073)
 
+[sub_resource type="Animation" id="Animation_xkpoo"]
+resource_name = "ExitCutscene"
+length = 11.0
+step = 0.1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TutorialLevelNew/Boat:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(51.6026, -0.25, 0, 0.25, 0, 78.7332, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 9.06667)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TutorialLevelNew/Boat:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-4.11967, -0.25, 0, 0.25, 0, -4.11967, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 9.06667)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TutorialLevelNew/Boat:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(39.6197, -0.25, 0, 0.25, 0, 39.6197, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 9.06667)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CutscenePlayer/GlitchBall:scale:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 20, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 7.73333, 8.83333)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CutscenePlayer/GlitchBall:scale:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 20, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 7.73333, 8.83333)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CutscenePlayer/GlitchBall:scale:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 20, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 7.73333, 8.83333)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CutscenePlayer/CanvasLayer/Panel:modulate:r")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 8.76667, 11)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CutscenePlayer/CanvasLayer/Panel:modulate:g")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 8.76667, 11)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CutscenePlayer/CanvasLayer/Panel:modulate:b")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 8.76667, 11)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CutscenePlayer/CanvasLayer/Panel:modulate:a")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 8.76667, 11)
+}
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CutscenePlayer")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(11),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"loadNextLevel"
+}]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CutscenePlayer/CutsceneCamera:current")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_hby8t"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TutorialLevelNew/Boat:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(51.6026, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TutorialLevelNew/Boat:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-4.11967, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TutorialLevelNew/Boat:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(39.6197, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CutscenePlayer/GlitchBall:scale:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CutscenePlayer/GlitchBall:scale:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CutscenePlayer/GlitchBall:scale:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CutscenePlayer/CanvasLayer/Panel:modulate:r")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CutscenePlayer/CanvasLayer/Panel:modulate:g")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CutscenePlayer/CanvasLayer/Panel:modulate:b")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CutscenePlayer/CanvasLayer/Panel:modulate:a")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CutscenePlayer/CutsceneCamera:current")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g34n4"]
+_data = {
+&"ExitCutscene": SubResource("Animation_xkpoo"),
+&"RESET": SubResource("Animation_hby8t")
+}
+
+[sub_resource type="GDScript" id="GDScript_hby8t"]
+script/source = "extends AnimationPlayer
+
+@export var player : Player
+@export var playerPos : Node3D
+
+func startCutscene() -> void:
+	player.suspend()
+	player.reparent(playerPos)
+	player.position = Vector3()
+	player.rotation = Vector3()
+	play(\"ExitCutscene\")
+
+func loadNextLevel() -> void:
+	LevelManager.levelToLoad = \"res://Scenes/MenuLevels/menu_level.tscn\"
+	get_tree().change_scene_to_file(\"res://src/UI/Renderer/game_renderer.tscn\")
+
+
+func _on_interactable_interacted(interactor: Interactor) -> void:
+	startCutscene()
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lghv2"]
+render_priority = 0
+shader = ExtResource("31_g34n4")
+
+[sub_resource type="SphereMesh" id="SphereMesh_sl72w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g34n4"]
+bg_color = Color(0, 0, 0, 1)
+
 [node name="TutorialLevel" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." node_paths=PackedStringArray("player")]
@@ -655,7 +961,7 @@ debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Boat" parent="TutorialLevelNew" index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.6026, -4.11967, 39.6197)
-surface_material_override/0 = SubResource("ShaderMaterial_xkpoo")
+surface_material_override/0 = SubResource("ShaderMaterial_sl72w")
 surface_material_override/1 = SubResource("ShaderMaterial_g34n4")
 script = SubResource("GDScript_a5o3l")
 
@@ -664,6 +970,15 @@ script = SubResource("GDScript_a5o3l")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TutorialLevelNew/Boat/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_rw4e8")
 debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="PlayerPos" type="Node3D" parent="TutorialLevelNew/Boat" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.773094, 0.705486, 0)
+
+[node name="Interactable" parent="TutorialLevelNew/Boat" index="2" instance=ExtResource("20_xu06p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.544468, 1.53999, 0)
+
+[node name="CollisionShape3D" parent="TutorialLevelNew/Boat/Interactable" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.319508, 0)
 
 [node name="Pier_001" parent="TutorialLevelNew" index="8"]
 transform = Transform3D(0.182082, -1.16847, 0, 1.16847, 0.182082, 0, 0, 0, 1.18257, 45.2409, -3.34444, 41.7778)
@@ -686,11 +1001,12 @@ surface_material_override/1 = SubResource("ShaderMaterial_gowy4")
 shape = SubResource("ConcavePolygonShape3D_6p7ed")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="RopePole" parent="TutorialLevelNew" index="10" node_paths=PackedStringArray("animPlayer")]
+[node name="RopePole" parent="TutorialLevelNew" index="10" node_paths=PackedStringArray("animPlayer", "interactable")]
 surface_material_override/0 = SubResource("ShaderMaterial_a5o3l")
 surface_material_override/1 = SubResource("ShaderMaterial_xu06p")
 script = SubResource("GDScript_xu06p")
 animPlayer = NodePath("AnimationPlayer")
+interactable = NodePath("Interactable")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="TutorialLevelNew/RopePole" index="0"]
 
@@ -1113,7 +1429,40 @@ text = "This is saltwater, you cannot swim in it."
 transform = Transform3D(-0.861452, 0, -0.507839, 0, 1, 0, 0.507839, 0, -0.861452, 43.3001, -3.30953, 42.3639)
 text = "You can interact with highlighted objects using the action button."
 
+[node name="CutscenePlayer" type="AnimationPlayer" parent="." node_paths=PackedStringArray("player", "playerPos")]
+libraries = {
+&"": SubResource("AnimationLibrary_g34n4")
+}
+script = SubResource("GDScript_hby8t")
+player = NodePath("../Player")
+playerPos = NodePath("../TutorialLevelNew/Boat/PlayerPos")
+
+[node name="CutsceneCamera" type="Camera3D" parent="CutscenePlayer"]
+transform = Transform3D(0.365056, 0.384165, -0.848028, 0, 0.910893, 0.412643, 0.930986, -0.150638, 0.332526, 47.4029, 2.53618, 41.8307)
+
+[node name="GlitchBall" type="MeshInstance3D" parent="CutscenePlayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.0118, -4.02721, 39.1496)
+material_override = SubResource("ShaderMaterial_lghv2")
+mesh = SubResource("SphereMesh_sl72w")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CutscenePlayer"]
+layer = 2
+
+[node name="Panel" type="Panel" parent="CutscenePlayer/CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g34n4")
+
+[node name="Interactable" parent="CutscenePlayer" instance=ExtResource("20_xu06p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.7193, 1.90735e-06, 40.0819)
+
+[connection signal="interacted" from="TutorialLevelNew/Boat/Interactable" to="CutscenePlayer" method="_on_interactable_interacted"]
 [connection signal="interacted" from="TutorialLevelNew/RopePole/Interactable" to="TutorialLevelNew/RopePole" method="_on_interactable_interacted"]
 
 [editable path="TutorialLevelNew"]
+[editable path="TutorialLevelNew/Boat/Interactable"]
 [editable path="TutorialLevelNew/RopePole/Interactable"]

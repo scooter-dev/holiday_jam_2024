@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://njayenympnk4"]
 
+[ext_resource type="Script" uid="uid://gru3fl27ooeq" path="res://src/UI/Renderer/game_renderer.gd" id="1_fcua6"]
 [ext_resource type="Shader" uid="uid://dbjnrv32j8sod" path="res://src/Shaders/ditherShader.gdshader" id="1_kt1ww"]
 [ext_resource type="Shader" uid="uid://cyeoh06wwr71u" path="res://src/Shaders/CRTShader.gdshader" id="2_rk37s"]
-[ext_resource type="PackedScene" uid="uid://bcf0411aq8xos" path="res://Scenes/MenuLevels/menu_level.tscn" id="3_rk37s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rk37s"]
 bg_color = Color(0, 0, 0, 1)
@@ -26,13 +26,15 @@ shader_parameter/h = 1.0
 shader_parameter/s = 1.0
 shader_parameter/v = 2.0
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" node_paths=PackedStringArray("sub_viewport")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_fcua6")
+sub_viewport = NodePath("SubViewport")
 
 [node name="Background" type="Panel" parent="."]
 layout_mode = 1
@@ -69,5 +71,3 @@ grow_vertical = 2
 [node name="SubViewport" type="SubViewport" parent="."]
 size = Vector2i(480, 270)
 render_target_update_mode = 4
-
-[node name="MenuLevel" parent="SubViewport" instance=ExtResource("3_rk37s")]

@@ -2,6 +2,8 @@ extends Node3D
 
 @export var firefly_mesh: MeshInstance3D
 @export var fireflyTime : float = 60.0
+@export var interactable: Interactable
+
 
 var eaten : bool = false
 var timer : float = 0.0
@@ -16,6 +18,7 @@ func _process(delta: float) -> void:
 		respawnTimer = max(0.0, respawnTimer - delta)
 		if respawnTimer < 0.001:
 			eaten = false
+			interactable.enable()
 			firefly_mesh.visible = true
 	
 
@@ -28,5 +31,6 @@ func _on_interactable_interacted(interactor: Interactor) -> void:
 	if player != null:
 		player.firefly.activate(fireflyTime)
 		eaten = true
+		interactable.disable()
 		respawnTimer = fireflyTime * 0.5
 		firefly_mesh.visible = false

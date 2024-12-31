@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bat7t5uw5he4l"]
+
+[ext_resource type="Script" uid="uid://0eskbecnk4ad" path="res://src/LevelActors/Glitch/level_save.gd" id="1_jmxfi"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4x88v"]
+height = 0.5
+radial_segments = 8
+rings = 2
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4x88v"]
+points = PackedVector3Array(0, -0.25, -0.5, -0.353563, -0.25, -0.353563, 0, 0.25, -0.5, 0.353465, -0.25, -0.353563, -0.5, -0.25, 0, -0.353563, 0.25, -0.353563, 0.353465, 0.25, -0.353563, 0.5, -0.25, 0, -0.5, 0.25, 0, -0.353563, -0.25, 0.353465, 0.5, 0.25, 0, 0.353465, -0.25, 0.353465, -0.353563, 0.25, 0.353465, 0, -0.25, 0.5, 0.353465, 0.25, 0.353465, 0, 0.25, 0.5)
+
+[node name="LevelSave" type="Node3D"]
+script = ExtResource("1_jmxfi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+mesh = SubResource("CylinderMesh_4x88v")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("ConvexPolygonShape3D_4x88v")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="Rotate" type="Node3D" parent="."]

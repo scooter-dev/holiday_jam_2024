@@ -69,6 +69,9 @@ var slideJumpCooldown : int = 0
 var nwProtect: int = 0
 func resetRotation(delta : float) -> void:
 	player.global_basis = player.global_basis.orthonormalized()
+	if movementMode == M_GROUNDED:
+		player.global_rotation.x = 0
+		player.global_rotation.z = 0
 
 func _physics_process(delta):
 	set_deferred("mLock",maxi(mLock - 1,0))

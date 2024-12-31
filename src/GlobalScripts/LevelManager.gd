@@ -13,3 +13,5 @@ var glitch_R_l2 : bool = false
 var glitch_R_l3 : bool = false
 
 var initialCutscene : bool = false
+
+var levelToLoad : String = "res://Scenes/TutorialLevel/tutorial_level.tscn"
