@@ -503,7 +503,7 @@ material = SubResource("StandardMaterial3D_teqkh")
 [node name="CrackInTheFoundation2" parent="Platforms" node_paths=PackedStringArray("nodeToBreak") instance=ExtResource("4_iv11x")]
 transform = Transform3D(0.819769, 0.0273723, -0.572039, -0.314705, 0.856059, -0.41003, 0.478476, 0.516153, 0.710385, 129.576, -66.1958, 32.8767)
 variable = "glitch_V_l2"
-nodeToBreak = NodePath("../VectorCube6")
+nodeToBreak = NodePath("../VectorCube8")
 size = 64.0
 
 [node name="VectorCube8" parent="Platforms" instance=ExtResource("1_h62ug")]
@@ -511,6 +511,7 @@ transform = Transform3D(0.666783, -0.275197, -0.69258, -0.228034, 0.809411, -0.5
 size = Vector3(30, 1, 8)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_tjjb4")
+collision = true
 
 [node name="VectorCube9" parent="Platforms" instance=ExtResource("1_h62ug")]
 transform = Transform3D(0.355677, -0.528076, -0.771122, -0.260516, 0.736355, -0.62443, 0.897566, 0.422986, 0.124332, 146.086, -73.7419, 56.5587)

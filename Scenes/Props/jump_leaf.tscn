@@ -304,14 +304,14 @@ bones/7/rotation = Quaternion(-4.35834e-10, 6.87659e-08, -0.142311, 0.989822)
 bones/7/scale = Vector3(1, 1, 1)
 
 [node name="Cube" type="MeshInstance3D" parent="BigLeaf/Armature/Skeleton3D"]
-instance_shader_parameters/albedo_color = Color(1, 1, 1, 1)
+instance_shader_parameters/albedo_color = Color(1, 0.803922, 0.141176, 1)
 mesh = SubResource("ArrayMesh_7v7g6")
 skin = SubResource("Skin_orvb5")
 surface_material_override/0 = SubResource("ShaderMaterial_2qfna")
 surface_material_override/1 = SubResource("ShaderMaterial_nnmb1")
 
 [node name="LeafPos" type="BoneAttachment3D" parent="BigLeaf/Armature/Skeleton3D"]
-transform = Transform3D(-0.281873, 0.959452, 2.67798e-08, -0.959452, -0.281873, -9.91615e-08, -8.75922e-08, -5.3645e-08, 1, 0.836874, 1.34707, 2.57365e-07)
+transform = Transform3D(-0.281873, 0.959452, 2.67798e-08, -0.959452, -0.281873, -9.91616e-08, -8.75923e-08, -5.36448e-08, 1, 0.836874, 1.34708, 2.57365e-07)
 bone_name = "leaf03"
 bone_idx = 6
 

@@ -1,0 +1,323 @@
+{
+	"connections": [
+		{
+			"from": "shape",
+			"from_port": 0,
+			"to": "gaussian_blur",
+			"to_port": 0
+		},
+		{
+			"from": "gaussian_blur",
+			"from_port": 0,
+			"to": "curve",
+			"to_port": 0
+		},
+		{
+			"from": "fbm2",
+			"from_port": 0,
+			"to": "colorize",
+			"to_port": 0
+		},
+		{
+			"from": "gaussian_blur",
+			"from_port": 0,
+			"to": "curve_2",
+			"to_port": 0
+		},
+		{
+			"from": "curve",
+			"from_port": 0,
+			"to": "blend2_2",
+			"to_port": 0
+		},
+		{
+			"from": "curve_2",
+			"from_port": 0,
+			"to": "blend2_2",
+			"to_port": 1
+		},
+		{
+			"from": "blend2_2",
+			"from_port": 0,
+			"to": "warp",
+			"to_port": 0
+		},
+		{
+			"from": "fbm2_2",
+			"from_port": 0,
+			"to": "warp",
+			"to_port": 1
+		},
+		{
+			"from": "warp",
+			"from_port": 0,
+			"to": "blend2",
+			"to_port": 0
+		},
+		{
+			"from": "colorize",
+			"from_port": 0,
+			"to": "blend2",
+			"to_port": 1
+		},
+		{
+			"from": "blend2",
+			"from_port": 0,
+			"to": "colorize_2",
+			"to_port": 0
+		}
+	],
+	"label": "Graph",
+	"longdesc": "",
+	"name": "@Node@466",
+	"node_position": {
+		"x": 0,
+		"y": 0
+	},
+	"nodes": [
+		{
+			"export_paths": {
+
+			},
+			"name": "Material",
+			"node_position": {
+				"x": 300,
+				"y": 0
+			},
+			"parameters": {
+				"albedo_color": {
+					"a": 1,
+					"b": 1,
+					"g": 1,
+					"r": 1,
+					"type": "Color"
+				},
+				"ao": 1,
+				"depth_scale": 0.5,
+				"emission_energy": 1,
+				"flags_transparent": true,
+				"metallic": 0,
+				"normal": 1,
+				"roughness": 1,
+				"size": 9,
+				"sss": 1
+			},
+			"seed_int": 0,
+			"type": "material"
+		},
+		{
+			"name": "shape",
+			"node_position": {
+				"x": -1600,
+				"y": -160
+			},
+			"parameters": {
+				"edge": 0.64,
+				"radius": 0.85,
+				"shape": 1,
+				"sides": 13
+			},
+			"seed_int": 0,
+			"type": "shape"
+		},
+		{
+			"name": "curve",
+			"node_position": {
+				"x": -1040,
+				"y": -340
+			},
+			"parameters": {
+				"ax": 0.350629448890686,
+				"ay": -0.31071791052818,
+				"bx": -0.19251301884651,
+				"by": -0.05982467532158,
+				"cx": -0.30003869533539,
+				"cy": 0.389577507972717,
+				"repeat": 1,
+				"width": 0.11
+			},
+			"seed_int": 0,
+			"type": "curve"
+		},
+		{
+			"name": "gaussian_blur",
+			"node_position": {
+				"x": -1380,
+				"y": -120
+			},
+			"parameters": {
+				"param0": 9,
+				"param1": 50,
+				"param2": 0,
+				"param3": false
+			},
+			"seed_int": 0,
+			"type": "gaussian_blur"
+		},
+		{
+			"generic_size": 1,
+			"name": "blend2",
+			"node_position": {
+				"x": -360,
+				"y": 0
+			},
+			"parameters": {
+				"amount1": 1,
+				"blend_type1": 11
+			},
+			"seed_int": 0,
+			"type": "blend2"
+		},
+		{
+			"name": "fbm2",
+			"node_position": {
+				"x": -1160,
+				"y": 180
+			},
+			"parameters": {
+				"folds": 0,
+				"iterations": 6,
+				"noise": 6,
+				"offset": 0,
+				"persistence": 0.69,
+				"scale_x": 12,
+				"scale_y": 12
+			},
+			"seed_int": 2424004096,
+			"type": "fbm2"
+		},
+		{
+			"name": "colorize",
+			"node_position": {
+				"x": -840,
+				"y": 180
+			},
+			"parameters": {
+				"gradient": {
+					"interpolation": 1,
+					"points": [
+						{
+							"a": 1,
+							"b": 0,
+							"g": 0,
+							"pos": 0,
+							"r": 0
+						},
+						{
+							"a": 1,
+							"b": 0.73828125,
+							"g": 0.73828125,
+							"pos": 0.576470588235294,
+							"r": 0.73828125
+						}
+					],
+					"type": "Gradient"
+				}
+			},
+			"seed_int": 0,
+			"type": "colorize"
+		},
+		{
+			"name": "warp",
+			"node_position": {
+				"x": -440,
+				"y": -180
+			},
+			"parameters": {
+				"amount": 0.185,
+				"eps": 0.1,
+				"mode": 0
+			},
+			"seed_int": 0,
+			"type": "warp"
+		},
+		{
+			"name": "curve_2",
+			"node_position": {
+				"x": -1040,
+				"y": -80
+			},
+			"parameters": {
+				"ax": -0.33588060736656,
+				"ay": -0.36310219764709,
+				"bx": 0.138335227966309,
+				"by": -0.18664982914925,
+				"cx": 0.23207551240921,
+				"cy": 0.276537656784058,
+				"repeat": 1,
+				"width": 0.06
+			},
+			"seed_int": 0,
+			"type": "curve"
+		},
+		{
+			"generic_size": 1,
+			"name": "blend2_2",
+			"node_position": {
+				"x": -820,
+				"y": -140
+			},
+			"parameters": {
+				"amount1": 1,
+				"blend_type1": 3
+			},
+			"seed_int": 0,
+			"type": "blend2"
+		},
+		{
+			"name": "fbm2_2",
+			"node_position": {
+				"x": -740,
+				"y": -400
+			},
+			"parameters": {
+				"folds": 0,
+				"iterations": 5,
+				"noise": 0,
+				"offset": 0,
+				"persistence": 0.5,
+				"scale_x": 8,
+				"scale_y": 8
+			},
+			"seed_int": 3279151360,
+			"type": "fbm2"
+		},
+		{
+			"name": "colorize_2",
+			"node_position": {
+				"x": -80,
+				"y": 0
+			},
+			"parameters": {
+				"gradient": {
+					"interpolation": 1,
+					"points": [
+						{
+							"a": 1,
+							"b": 0,
+							"g": 0,
+							"pos": 0.235294117647059,
+							"r": 0
+						},
+						{
+							"a": 1,
+							"b": 1,
+							"g": 1,
+							"pos": 0.282352941176471,
+							"r": 1
+						}
+					],
+					"type": "Gradient"
+				}
+			},
+			"seed_int": 0,
+			"type": "colorize"
+		}
+	],
+	"parameters": {
+
+	},
+	"seed_int": 0,
+	"shortdesc": "",
+	"type": "graph"
+}
