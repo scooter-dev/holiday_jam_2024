@@ -79,12 +79,6 @@
 			"to_port": 1
 		},
 		{
-			"from": "blend2_3",
-			"from_port": 0,
-			"to": "blend2",
-			"to_port": 0
-		},
-		{
 			"from": "blend2_2",
 			"from_port": 0,
 			"to": "warp",
@@ -197,11 +191,23 @@
 			"from_port": 0,
 			"to": "colorize_5",
 			"to_port": 0
+		},
+		{
+			"from": "blend2_3",
+			"from_port": 0,
+			"to": "colorize_6",
+			"to_port": 0
+		},
+		{
+			"from": "colorize_6",
+			"from_port": 0,
+			"to": "blend2",
+			"to_port": 0
 		}
 	],
 	"label": "Graph",
 	"longdesc": "",
-	"name": "@Node@348017",
+	"name": "_Node_348017",
 	"node_position": {
 		"x": 0,
 		"y": 0
@@ -339,14 +345,14 @@
 							"a": 1,
 							"b": 0,
 							"g": 0,
-							"pos": 0.231860229007634,
+							"pos": 0.266638056927849,
 							"r": 0
 						},
 						{
 							"a": 1,
 							"b": 1,
 							"g": 1,
-							"pos": 0.231880229007634,
+							"pos": 0.266658056927849,
 							"r": 1
 						}
 					],
@@ -497,17 +503,17 @@
 					"points": [
 						{
 							"a": 1,
-							"b": 1,
-							"g": 0.765625,
-							"pos": 0,
-							"r": 0
+							"b": 0,
+							"g": 0,
+							"pos": 0.0112362132352941,
+							"r": 1
 						},
 						{
 							"a": 1,
-							"b": 1,
+							"b": 0,
 							"g": 1,
-							"pos": 1,
-							"r": 1
+							"pos": 0.0558823529411765,
+							"r": 0
 						}
 					],
 					"type": "Gradient"
@@ -715,14 +721,14 @@
 							"a": 1,
 							"b": 0,
 							"g": 0,
-							"pos": 0.202813369643267,
+							"pos": 0.112874117575253,
 							"r": 0
 						},
 						{
 							"a": 1,
 							"b": 1,
 							"g": 1,
-							"pos": 0.202833369643267,
+							"pos": 0.112894117575253,
 							"r": 1
 						}
 					],
@@ -782,6 +788,37 @@
 			},
 			"seed_int": 0,
 			"type": "decompose"
+		},
+		{
+			"name": "colorize_6",
+			"node_position": {
+				"x": 80,
+				"y": -120
+			},
+			"parameters": {
+				"gradient": {
+					"interpolation": 1,
+					"points": [
+						{
+							"a": 1,
+							"b": 0,
+							"g": 0,
+							"pos": 0,
+							"r": 0
+						},
+						{
+							"a": 1,
+							"b": 0,
+							"g": 1,
+							"pos": 1,
+							"r": 0
+						}
+					],
+					"type": "Gradient"
+				}
+			},
+			"seed_int": 0,
+			"type": "colorize"
 		}
 	],
 	"parameters": {
