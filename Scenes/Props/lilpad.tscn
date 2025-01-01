@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1lrq8q6mqu8j"]
+
+[ext_resource type="Texture2D" uid="uid://b2kh6b8vcytbs" path="res://Assets/Meshes/Props/BigLeaf_bigLeaf.png" id="1_867lk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7hou1"]
+albedo_color = Color(2.18995e-06, 0.268078, 0.0399893, 1)
+albedo_texture = ExtResource("1_867lk")
+uv1_offset = Vector3(0.25, -0.215, 0)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hp633"]
+radial_segments = 7
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hp633"]
+points = PackedVector3Array(-0.487464, -1, -0.111265, -0.217011, -1, -0.450484, -0.390983, -1, 0.311689, -0.487464, 1, -0.111265, 0.216916, -1, -0.450484, -0.217011, 1, -0.450484, -5.96046e-08, -1, 0.5, -0.390983, 1, 0.311689, 0.487464, -1, -0.111265, 0.216916, 1, -0.450484, 0.390887, -1, 0.311689, -5.96046e-08, 1, 0.5, 0.487464, 1, -0.111265, 0.390887, 1, 0.311689)
+
+[node name="spinny" type="MeshInstance3D"]
+transform = Transform3D(1.855, 0, -1.10567e-07, 0, 0.024, 0, 1.10567e-07, 0, 1.855, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_7hou1")
+mesh = SubResource("CylinderMesh_hp633")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("ConvexPolygonShape3D_hp633")

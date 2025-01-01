@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvioctktlwg4c"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hp633"]
+points = PackedVector3Array(-0.487464, -1, -0.111265, -0.217011, -1, -0.450484, -0.390983, -1, 0.311689, -0.487464, 1, -0.111265, 0.216916, -1, -0.450484, -0.217011, 1, -0.450484, -5.96046e-08, -1, 0.5, -0.390983, 1, 0.311689, 0.487464, -1, -0.111265, 0.216916, 1, -0.450484, 0.390887, -1, 0.311689, -5.96046e-08, 1, 0.5, 0.487464, 1, -0.111265, 0.390887, 1, 0.311689)
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_hp633")
