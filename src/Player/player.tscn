@@ -6,9 +6,9 @@
 [ext_resource type="Script" uid="uid://bq8yqiaysp34q" path="res://src/Player/interaction_marker.gd" id="2_ph3q4"]
 [ext_resource type="Script" uid="uid://deg3kgp6jrooh" path="res://src/Player/CamY.gd" id="3_b40r7"]
 [ext_resource type="PackedScene" uid="uid://bq0p573n8qgrm" path="res://src/Player/PlayerModel/player_model.tscn" id="5_v7f4r"]
-[ext_resource type="Script" path="res://src/Player/drop_shadow.gd" id="6_52h17"]
+[ext_resource type="Script" uid="uid://2a5crfu7asaj" path="res://src/Player/drop_shadow.gd" id="6_52h17"]
 [ext_resource type="Shader" uid="uid://ve26mwltwjeu" path="res://src/Shaders/dropShadow.gdshader" id="6_vgmdf"]
-[ext_resource type="Script" path="res://src/Player/lightning_bug.gd" id="9_0m8bu"]
+[ext_resource type="Script" uid="uid://cr3c3yir7qgp1" path="res://src/Player/lightning_bug.gd" id="9_0m8bu"]
 [ext_resource type="PackedScene" uid="uid://burg2sj3ub6yj" path="res://src/Interaction/Interactor.tscn" id="10_pl8oh"]
 [ext_resource type="Script" uid="uid://cigvu1yud4mep" path="res://src/Player/PlayerInteractor.gd" id="11_jjf0q"]
 [ext_resource type="Script" uid="uid://dufduq84o1wio" path="res://src/Player/player_hud.gd" id="12_cql7s"]
@@ -322,6 +322,7 @@ target_position = Vector3(0, -1.5, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.455833, 0)
 shape = SubResource("CapsuleShape3D_ckfjp")
+debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Movement" type="Node" parent="." node_paths=PackedStringArray("groundRays", "camY", "player")]
 script = ExtResource("2_n4f6x")

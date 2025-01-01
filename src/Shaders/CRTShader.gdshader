@@ -23,7 +23,7 @@ float random( vec2 pos )
 }
 
 uniform float h: hint_range(0,1) = 1;
-uniform float s: hint_range(0,1) = 1;
+uniform float s: hint_range(0,2) = 1;
 uniform float v: hint_range(0,2) = 1;
 
 vec3 rgb2hsv(vec3 c) {

@@ -1275,6 +1275,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65, 0)
 transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 5.92957, 0.2286, -5.06201)
 metadata/_edit_group_ = true
 
+[node name="CollisionShape3D" parent="Player" index="2"]
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." node_paths=PackedStringArray("player")]
 environment = SubResource("Environment_mxiu3")
 script = ExtResource("3_s7esc")

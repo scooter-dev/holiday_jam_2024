@@ -415,11 +415,7 @@ bones/1/name = "hips"
 bones/1/parent = -1
 bones/1/rest = Transform3D(1, 5.68434e-14, 4.76836e-07, 3.71098e-07, -0.627955, -0.778249, 2.99432e-07, 0.778249, -0.627955, 6.24262e-17, 0.382506, -0.0469891)
 bones/1/enabled = true
-<<<<<<< Updated upstream
-bones/1/position = Vector3(3.3588e-10, 0.381447, -0.0469891)
-=======
 bones/1/position = Vector3(3.07442e-09, 0.374067, -0.0469891)
->>>>>>> Stashed changes
 bones/1/rotation = Quaternion(0.902207, 1.02831e-07, 2.15103e-07, 0.431303)
 bones/1/scale = Vector3(1, 1, 0.999999)
 bones/2/name = "hip.l"
@@ -434,22 +430,14 @@ bones/3/parent = 2
 bones/3/rest = Transform3D(0.328182, -0.159474, -0.931056, 0.918854, 0.282508, 0.275493, 0.219096, -0.945916, 0.239248, -5.58794e-09, 0.0982975, 1.11759e-08)
 bones/3/enabled = true
 bones/3/position = Vector3(-5.58794e-09, 0.0982975, 1.11759e-08)
-<<<<<<< Updated upstream
-bones/3/rotation = Quaternion(-0.452659, -0.424938, 0.394127, 0.677636)
-=======
 bones/3/rotation = Quaternion(-0.486593, -0.444465, 0.371967, 0.653696)
->>>>>>> Stashed changes
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "leg02.l"
 bones/4/parent = 3
 bones/4/rest = Transform3D(1, 1.99039e-08, 1.70855e-07, 1.49012e-08, 0.979524, -0.201326, -1.71363e-07, 0.201326, 0.979524, 4.75376e-09, 0.162518, -1.82843e-09)
 bones/4/enabled = true
 bones/4/position = Vector3(4.75376e-09, 0.162518, -1.82843e-09)
-<<<<<<< Updated upstream
-bones/4/rotation = Quaternion(0.111316, 8.59458e-08, -1.81805e-09, 0.993785)
-=======
 bones/4/rotation = Quaternion(0.229136, 8.50392e-08, -1.20712e-08, 0.973394)
->>>>>>> Stashed changes
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "spine01"
 bones/5/parent = 1
@@ -498,11 +486,7 @@ bones/11/parent = 10
 bones/11/rest = Transform3D(0.971201, -0.191007, -0.142422, 0.198912, 0.979057, 0.0433649, 0.131156, -0.0704455, 0.988856, -2.79397e-09, 0.0647057, -1.02445e-08)
 bones/11/enabled = true
 bones/11/position = Vector3(-2.79397e-09, 0.0647057, -1.02445e-08)
-<<<<<<< Updated upstream
-bones/11/rotation = Quaternion(-0.204354, -0.0456148, 0.204672, 0.956174)
-=======
 bones/11/rotation = Quaternion(-0.205628, -0.0443213, 0.202451, 0.956434)
->>>>>>> Stashed changes
 bones/11/scale = Vector3(1, 1, 1)
 bones/12/name = "arm02.l"
 bones/12/parent = 11
@@ -523,11 +507,7 @@ bones/14/parent = 13
 bones/14/rest = Transform3D(0.971201, 0.191007, 0.142422, -0.198912, 0.979057, 0.0433649, -0.131156, -0.0704455, 0.988856, 2.79397e-09, 0.0647057, -1.02445e-08)
 bones/14/enabled = true
 bones/14/position = Vector3(2.79397e-09, 0.0647057, -1.02445e-08)
-<<<<<<< Updated upstream
-bones/14/rotation = Quaternion(-0.227226, 0.0418058, -0.213871, 0.949147)
-=======
 bones/14/rotation = Quaternion(-0.225956, 0.043032, -0.216132, 0.948883)
->>>>>>> Stashed changes
 bones/14/scale = Vector3(1, 1, 1)
 bones/15/name = "arm02.r"
 bones/15/parent = 14
@@ -548,22 +528,14 @@ bones/17/parent = 16
 bones/17/rest = Transform3D(0.328182, 0.159474, 0.931055, -0.918854, 0.282507, 0.275493, -0.219096, -0.945916, 0.239248, 9.31323e-10, 0.0982975, -1.02445e-08)
 bones/17/enabled = true
 bones/17/position = Vector3(9.31323e-10, 0.0982975, -1.02445e-08)
-<<<<<<< Updated upstream
-bones/17/rotation = Quaternion(-0.451548, 0.424292, -0.394824, 0.678377)
-=======
 bones/17/rotation = Quaternion(-0.48752, 0.444992, -0.371337, 0.653005)
->>>>>>> Stashed changes
 bones/17/scale = Vector3(1, 1, 1)
 bones/18/name = "leg02.r"
 bones/18/parent = 17
 bones/18/rest = Transform3D(1, -2.76921e-08, 1.3298e-08, 2.98023e-08, 0.979524, -0.201326, -7.45058e-09, 0.201326, 0.979524, 3.94003e-09, 0.162518, 3.85704e-10)
 bones/18/enabled = true
 bones/18/position = Vector3(3.94003e-09, 0.162518, 3.85704e-10)
-<<<<<<< Updated upstream
-bones/18/rotation = Quaternion(0.112169, 5.39864e-09, 1.47262e-08, 0.993689)
-=======
 bones/18/rotation = Quaternion(0.230166, 7.04086e-09, 1.39819e-08, 0.973151)
->>>>>>> Stashed changes
 bones/18/scale = Vector3(1, 1, 1)
 
 [node name="Arms" type="MeshInstance3D" parent="Phrog/Armature/Skeleton3D"]
@@ -597,11 +569,7 @@ mesh = SubResource("ArrayMesh_mnbra")
 skin = SubResource("Skin_of143")
 
 [node name="TongueAttachment" type="BoneAttachment3D" parent="Phrog/Armature/Skeleton3D"]
-<<<<<<< Updated upstream
-transform = Transform3D(1, 6.55329e-14, 2.10414e-13, 7.08639e-13, 0.99955, 0.0299676, 5.84754e-13, -0.0299686, 0.99955, 3.35906e-10, 0.553298, 0.0097368)
-=======
 transform = Transform3D(1, 6.55329e-14, 2.10414e-13, 7.08639e-13, 0.99955, 0.0299676, 5.84754e-13, -0.0299686, 0.99955, 3.07445e-09, 0.545919, 0.0097368)
->>>>>>> Stashed changes
 bone_name = "head"
 bone_idx = 7
 
