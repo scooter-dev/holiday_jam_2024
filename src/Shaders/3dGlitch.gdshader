@@ -1,4 +1,5 @@
 shader_type spatial;
+render_mode unshaded;
 
 // Glitch intensity
 uniform float shake_power = 0.5;
@@ -14,6 +15,7 @@ uniform float shake_block_size = 30.5;
 uniform float shake_color_rate : hint_range(0.0, 1.0) = 0.5;
 
 uniform sampler2D main_tex : filter_nearest, source_color;
+uniform vec4 color : source_color = vec4(1);
 
 varying float enable_shift;
 

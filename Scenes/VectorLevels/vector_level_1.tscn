@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://dwawhfn488n7"]
+[gd_scene load_steps=50 format=3 uid="uid://dwawhfn488n7"]
 
 [ext_resource type="PackedScene" uid="uid://cal7qhkesu02s" path="res://src/Player/player.tscn" id="1_2o4o2"]
 [ext_resource type="PackedScene" uid="uid://dfa3j83d5ujpo" path="res://src/LevelActors/Vector/vector_cube.tscn" id="2_4a75m"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bjvp6ko1q2rvh" path="res://src/LevelActors/Vector/vector_grid.tscn" id="3_ylqbj"]
 [ext_resource type="PackedScene" uid="uid://by34s3fbwj2yh" path="res://src/LevelActors/level_changer.tscn" id="6_q2pdi"]
 [ext_resource type="Script" uid="uid://cii7vrif2njyw" path="res://src/LevelActors/Lighting/evnAdjust.gd" id="6_rdhk8"]
+[ext_resource type="PackedScene" uid="uid://d1ovsgwn64xet" path="res://src/LevelActors/height_kill_volume.tscn" id="8_usrlf"]
+[ext_resource type="PackedScene" uid="uid://dcg7514vbu8f1" path="res://src/LevelActors/Glitch/glitch.tscn" id="9_1foa0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ylqbj"]
 resource_local_to_scene = true
@@ -191,6 +193,9 @@ size = Vector3(1, 16, 1)
 [sub_resource type="Environment" id="Environment_q2pdi"]
 background_mode = 1
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_1foa0"]
+size = Vector3(2000, 30, 2000)
+
 [node name="VectorLevel1" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_2o4o2")]
@@ -277,19 +282,19 @@ collision = true
 
 [node name="CrackInTheFoundation" parent="Platforms" node_paths=PackedStringArray("nodeToBreak") instance=ExtResource("3_rdhk8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, -1)
-variable = "glitch_V_l1"
+glitchName = "vector1-1"
 nodeToBreak = NodePath("../VectorCube15")
 size = 12.0
 
 [node name="CrackInTheFoundation2" parent="Platforms" node_paths=PackedStringArray("nodeToBreak") instance=ExtResource("3_rdhk8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 14, -1)
-variable = "glitch_V_l1"
+glitchName = "vector1-1"
 nodeToBreak = NodePath("../VectorCube16")
 size = 12.0
 
 [node name="CrackInTheFoundation3" parent="Platforms" node_paths=PackedStringArray("nodeToBreak") instance=ExtResource("3_rdhk8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 14.5, -4.5)
-variable = "glitch_V_l1"
+glitchName = "vector1-1"
 nodeToBreak = NodePath("../VectorCube17")
 size = 12.0
 
@@ -468,3 +473,14 @@ environment = SubResource("Environment_q2pdi")
 script = ExtResource("6_rdhk8")
 player = NodePath("../Player")
 farPlane = 500.0
+
+[node name="HeightKillVolume" parent="." instance=ExtResource("8_usrlf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -86, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HeightKillVolume"]
+shape = SubResource("BoxShape3D_1foa0")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="Glitch" parent="." instance=ExtResource("9_1foa0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 14.5, -9.5)
+glitchName = "croc2-1"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=4 uid="uid://bcf0411aq8xos"]
+[gd_scene load_steps=72 format=4 uid="uid://bcf0411aq8xos"]
 
 [ext_resource type="PackedScene" uid="uid://b71m35e4nhw7h" path="res://Assets/Meshes/MenuLevel/MenuLevel.blend" id="1_ueebt"]
 [ext_resource type="PackedScene" uid="uid://bat7t5uw5he4l" path="res://src/LevelActors/Glitch/level_save.tscn" id="2_o1j72"]
@@ -12,6 +12,8 @@
 [ext_resource type="Script" uid="uid://cykbx1jatlf53" path="res://Scenes/MenuLevels/cutscene_player.gd" id="6_jpii8"]
 [ext_resource type="PackedScene" uid="uid://deh6ojfecagpx" path="res://Scenes/Props/jump_pad.tscn" id="7_ub1iy"]
 [ext_resource type="PackedScene" uid="uid://cxq2yko4u2kt5" path="res://src/LevelActors/checkpoint.tscn" id="12_57if5"]
+[ext_resource type="PackedScene" uid="uid://dcg7514vbu8f1" path="res://src/LevelActors/Glitch/glitch.tscn" id="13_ldvjd"]
+[ext_resource type="PackedScene" uid="uid://d1ovsgwn64xet" path="res://src/LevelActors/height_kill_volume.tscn" id="14_rex1h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mxiu3"]
 albedo_color = Color(0.761719, 0.761719, 0.761719, 1)
@@ -809,6 +811,9 @@ size = Vector3(21, 8.4, 8.5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ldvjd"]
 size = Vector3(20, 4.75, 7.75)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_4pm6c"]
+size = Vector3(400, 20, 400)
+
 [node name="MenuLevel" type="Node3D"]
 
 [node name="MenuLevel" parent="." instance=ExtResource("1_ueebt")]
@@ -1306,7 +1311,7 @@ material_override = SubResource("StandardMaterial3D_57if5")
 extra_cull_margin = 2.0
 mesh = SubResource("QuadMesh_ldvjd")
 
-[node name="CutscenePlayer" type="AnimationPlayer" parent="." node_paths=PackedStringArray("player", "player_pos")]
+[node name="CutscenePlayer" type="AnimationPlayer" parent="." node_paths=PackedStringArray("player", "player_pos", "jumpPad")]
 callback_mode_process = 0
 libraries = {
 &"": SubResource("AnimationLibrary_jpii8")
@@ -1314,6 +1319,7 @@ libraries = {
 script = ExtResource("6_jpii8")
 player = NodePath("../Player")
 player_pos = NodePath("PlayerPos")
+jumpPad = NodePath("../JumpPad")
 
 [node name="PlayerPos" type="Node3D" parent="CutscenePlayer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.2, -10.3)
@@ -1356,6 +1362,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -10.55, -104.95)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.875, 0.125)
 shape = SubResource("BoxShape3D_ldvjd")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="Glitch" parent="." instance=ExtResource("13_ldvjd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.25, 20.5, -103)
+glitchName = "vector1-1"
+
+[node name="Glitch2" parent="." instance=ExtResource("13_ldvjd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.25, 20.5, -101.75)
+glitchName = "vector2-1"
+
+[node name="HeightKillVolume" parent="." instance=ExtResource("14_rex1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -54, -73)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HeightKillVolume"]
+shape = SubResource("BoxShape3D_4pm6c")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [connection signal="body_entered" from="CutsceneTrigger" to="CutscenePlayer" method="_on_cutscene_trigger_body_entered"]

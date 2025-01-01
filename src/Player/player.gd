@@ -29,7 +29,11 @@ func unsuspend() -> void:#Returns control to the player
 var lastCheckpoint : Node3D
 var lastCheckpointSeq : int = -1
 
+var dieLock : bool = false
 func die() -> void:
+	if dieLock:
+		return
+	dieLock = true
 	suspend(true)
 	hud.fadeOut.connect(onFadeOut)
 	hud.fadeIn.connect(onFadeIn)
@@ -39,6 +43,7 @@ func onFadeOut() -> void:
 	global_position = lastCheckpoint.global_position
 
 func onFadeIn() -> void:
+	dieLock = false
 	unsuspend()
 	hud.fadeOut.disconnect(onFadeOut)
 	hud.fadeIn.disconnect(onFadeIn)
@@ -47,3 +52,7 @@ func setCheckpoint(chk : Checkpoint) -> void:
 	if chk.checkpointSeqNumber >= lastCheckpointSeq:
 		lastCheckpoint = chk
 		lastCheckpointSeq = chk.checkpointSeqNumber
+
+
+func _on_pause_menu_reset() -> void:
+	die()

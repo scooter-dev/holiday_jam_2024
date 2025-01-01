@@ -16,6 +16,7 @@ shader_parameter/shake_speed = 5.0
 shader_parameter/shake_block_size = 13.545
 shader_parameter/shake_color_rate = 0.135
 shader_parameter/main_tex = ExtResource("2_keu87")
+shader_parameter/color = Color(1, 1, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_30h6p"]
 resource_name = "BakedCard"
@@ -198,6 +199,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="Glitch" type="Node3D" node_paths=PackedStringArray("rotator", "animation_player", "interactable")]
 script = ExtResource("1_j73kk")
+textBox = "Glitch Collected"
 rotator = NodePath("Rotator")
 animation_player = NodePath("AnimationPlayer")
 interactable = NodePath("Interactable")

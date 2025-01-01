@@ -5,8 +5,10 @@ var ludrl: Vector2
 signal jump(state: bool)
 signal slide(state : bool)
 signal interact
+signal pause
 
 func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _input(event):
@@ -29,3 +31,6 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("interact"):
 		interact.emit()
+	
+	if Input.is_action_just_pressed("pause"):
+		pause.emit()

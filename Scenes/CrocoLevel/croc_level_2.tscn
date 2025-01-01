@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=4 uid="uid://stler5swh4qj"]
+[gd_scene load_steps=92 format=4 uid="uid://stler5swh4qj"]
 
 [ext_resource type="PackedScene" uid="uid://bcprhd5itxa12" path="res://Assets/Meshes/Levels/CrocLevels/CrocLevel2.glb" id="1_bum2b"]
 [ext_resource type="Shader" uid="uid://b1i8h3r1t4giq" path="res://src/Shaders/terrain.gdshader" id="2_8uiwt"]
@@ -35,6 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://cobuvk0i3sos" path="res://src/LevelActors/Glitch/crack_in_the_foundation.tscn" id="24_t4y5u"]
 [ext_resource type="Texture2D" uid="uid://caxfll36e1i5w" path="res://Assets/Textures/wood02.png" id="25_gvycu"]
 [ext_resource type="Texture2D" uid="uid://bojugpu86eu5q" path="res://Assets/Textures/bigLeaf.png" id="26_vym4b"]
+[ext_resource type="PackedScene" uid="uid://dcg7514vbu8f1" path="res://src/LevelActors/Glitch/glitch.tscn" id="27_3ebui"]
 [ext_resource type="Texture2D" uid="uid://v20y38jcdlh0" path="res://Assets/Meshes/Props/Stones_rock.png" id="28_4kxj7"]
 [ext_resource type="PackedScene" uid="uid://d2y41258vqa11" path="res://src/LevelActors/Items/firefly.tscn" id="30_8dhsp"]
 [ext_resource type="PackedScene" uid="uid://d1ovsgwn64xet" path="res://src/LevelActors/height_kill_volume.tscn" id="37_tsqk6"]
@@ -282,7 +283,7 @@ data = PackedVector3Array(-1.6605, 0.2158, -1.8211, -1.1873, 2.152, -1.3569, -1.
 render_priority = 0
 shader = ExtResource("13_ys0f4")
 shader_parameter/albedo_texture = ExtResource("26_vym4b")
-shader_parameter/ambientMix = 1.0
+shader_parameter/ambientMix = 0.0
 shader_parameter/UVScaling = Vector2(1, 1)
 shader_parameter/distance_fade_min = null
 shader_parameter/distance_fade_max = null
@@ -580,9 +581,9 @@ transform = Transform3D(0.215707, 0.0283276, -0.197054, 0.0389035, -0.246691, 0.
 
 [node name="CrackInTheFoundation" parent="CrocLevel2/BigTree" index="2" node_paths=PackedStringArray("nodeToBreak") instance=ExtResource("24_t4y5u")]
 transform = Transform3D(-0.507332, 0.117808, 1.19512, 0.226192, 0.974083, 9.43748e-09, -0.831535, 0.193091, -0.729163, -6.77148, 22.5919, -5.52365)
-variable = "glitch_C_l1"
+glitchName = "croc2-1"
 nodeToBreak = NodePath("../Branch01")
-size = 8.0
+size = 12.0
 
 [node name="Branch01" parent="CrocLevel2/BigTree" index="3" instance=ExtResource("21_gybja")]
 transform = Transform3D(-0.507332, 0.117808, 1.19512, 0.226192, 0.974083, 9.43748e-09, -0.831535, 0.193091, -0.729163, -4.89176, 22.5919, -2.96713)
@@ -745,7 +746,7 @@ respawnTime = 2.0
 
 [node name="CrackInTheFoundation" parent="CrocLevel2/Cave/Platforms" node_paths=PackedStringArray("nodeToBreak") instance=ExtResource("24_t4y5u")]
 transform = Transform3D(0.303218, 0, 0.952921, 0, 1, 0, -0.952921, 0, 0.303218, 49.5385, 1.02117, -17.7383)
-variable = "glitch_C_l2"
+glitchName = "croc2-2"
 nodeToBreak = NodePath("../WoodPlatform8")
 size = 8.0
 
@@ -790,12 +791,6 @@ transform = Transform3D(0.760145, 0, 0.649753, 0, 1, 0, -0.649753, 0, 0.760145, 
 breaks = true
 breakTime = 1.0
 respawnTime = 2.0
-
-[node name="CrackInTheFoundation2" parent="CrocLevel2/Cave/Platforms" node_paths=PackedStringArray("nodeToBreak") instance=ExtResource("24_t4y5u")]
-transform = Transform3D(0.898158, 0, 0.439673, 0, 1, 0, -0.439673, 0, 0.898158, 80.9208, -0.38427, -51.1747)
-variable = "glitch_C_l3"
-nodeToBreak = NodePath("../WoodPlatform18")
-size = 8.0
 
 [node name="WoodPlatform18" parent="CrocLevel2/Cave/Platforms" instance=ExtResource("23_5v7ar")]
 transform = Transform3D(0.898158, 0, 0.439673, 0, 1, 0, -0.439673, 0, 0.898158, 80.9208, -0.38427, -51.1747)
@@ -922,7 +917,7 @@ bones/6/rotation = Quaternion(-3.18575e-10, -6.14734e-08, -0.0288642, 0.999583)
 bones/7/rotation = Quaternion(-4.35841e-10, 6.87659e-08, -0.142311, 0.989822)
 
 [node name="Cube" parent="CrocLevel2/Cave/JumpLeaf/BigLeaf/Armature/Skeleton3D" index="0"]
-instance_shader_parameters/ambientAffect = 0.0
+instance_shader_parameters/ambientAffect = 1.0
 surface_material_override/0 = SubResource("ShaderMaterial_t4y5u")
 surface_material_override/1 = SubResource("ShaderMaterial_3ebui")
 
@@ -2215,6 +2210,14 @@ transform = Transform3D(0.0417012, 0, 0.99913, 0, 1, 0, -0.99913, 0, 0.0417012, 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/LevelChanger"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.508057, 0.179596, 0.107513)
 shape = SubResource("BoxShape3D_7g8pd")
+
+[node name="Glitch" parent="." instance=ExtResource("27_3ebui")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 608.266, -117.99, -404.551)
+glitchName = "croc1-1"
+
+[node name="Glitch2" parent="." instance=ExtResource("27_3ebui")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 707.502, -117.693, -464.599)
+glitchName = "FINAL"
 
 [editable path="CrocLevel2"]
 [editable path="CrocLevel2/Cave/Platforms/WoodPlatform15/Sign"]

@@ -1,6 +1,7 @@
 extends Node3D
 
-@export var varChange : String
+@export var glitchName : String
+@export var textBox : String
 @export_category("Components")
 @export var rotator: Node3D
 @export var animation_player: AnimationPlayer
@@ -15,9 +16,10 @@ func _on_interactable_interacted(interactor: Interactor) -> void:
 	player = interactor.controller if interactor.controller is Player else null
 	if player:
 		interactable.disable()
-		LevelManager.set_deferred(varChange, true)
+		LevelManager.glitches[glitchName] = 1
 		animation_player.play("PickUp")
-		player.hud.display_info_box("Glitch Collected")
+		player.hud.display_info_box(textBox)
 
 func hideInfoBox() -> void:
 	player.hud.close_info_box()
+	queue_free()

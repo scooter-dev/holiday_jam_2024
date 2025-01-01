@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://bbac2cpms0612" path="res://src/Player/player.gd" id="1_vtbm7"]
 [ext_resource type="Script" uid="uid://b6jsw0wf2wqw" path="res://src/Player/Movement.gd" id="2_n4f6x"]
 [ext_resource type="Script" uid="uid://bq8yqiaysp34q" path="res://src/Player/interaction_marker.gd" id="2_ph3q4"]
-[ext_resource type="Script" uid="uid://bd1o4xsmnejv7" path="res://src/Player/PlayerInput.gd" id="3_b7fis"]
 [ext_resource type="Script" uid="uid://deg3kgp6jrooh" path="res://src/Player/CamY.gd" id="3_b40r7"]
 [ext_resource type="PackedScene" uid="uid://bq0p573n8qgrm" path="res://src/Player/PlayerModel/player_model.tscn" id="5_v7f4r"]
 [ext_resource type="Script" path="res://src/Player/drop_shadow.gd" id="6_52h17"]
@@ -13,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://burg2sj3ub6yj" path="res://src/Interaction/Interactor.tscn" id="10_pl8oh"]
 [ext_resource type="Script" uid="uid://cigvu1yud4mep" path="res://src/Player/PlayerInteractor.gd" id="11_jjf0q"]
 [ext_resource type="Script" uid="uid://dufduq84o1wio" path="res://src/Player/player_hud.gd" id="12_cql7s"]
+[ext_resource type="PackedScene" uid="uid://cnvi8q4vux245" path="res://src/UI/Menus/pause_menu.tscn" id="13_ph3q4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cql7s"]
 shading_mode = 0
@@ -269,6 +269,7 @@ interactor = NodePath("CamY/VSpring/CamX/Interactor")
 
 [node name="InteractionMarker" type="MeshInstance3D" parent="." node_paths=PackedStringArray("interactor")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.474785, 0)
+visible = false
 material_override = SubResource("StandardMaterial3D_cql7s")
 mesh = SubResource("CylinderMesh_ph3q4")
 skeleton = NodePath("../CamY")
@@ -360,9 +361,6 @@ player = NodePath("../../../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0387573, 0.5, -1)
 shape = SubResource("BoxShape3D_jjf0q")
 
-[node name="PlayerInput" type="Node" parent="."]
-script = ExtResource("3_b7fis")
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
 visible = false
@@ -396,6 +394,7 @@ mesh = SubResource("BoxMesh_vgmdf")
 skeleton = NodePath("../..")
 
 [node name="DebugLabel" type="Label" parent="."]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 
@@ -464,6 +463,11 @@ libraries = {
 &"": SubResource("AnimationLibrary_pvhe8")
 }
 
+[node name="PauseMenu" parent="." instance=ExtResource("13_ph3q4")]
+visible = false
+
+[connection signal="interacted" from="CamY/VSpring/CamX/Interactor" to="PlayerModel" method="_on_interactor_interacted"]
 [connection signal="animation_finished" from="HUD/HUDAnims" to="HUD" method="_on_hud_anims_animation_finished"]
+[connection signal="reset" from="PauseMenu" to="." method="_on_pause_menu_reset"]
 
 [editable path="CamY/VSpring/CamX/Interactor"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://bq0p573n8qgrm"]
+[gd_scene load_steps=50 format=4 uid="uid://bq0p573n8qgrm"]
 
 [ext_resource type="Texture2D" uid="uid://x36jmlr4yl28" path="res://Assets/Meshes/Characters/Frog/Phrog.png" id="1_a86jc"]
 [ext_resource type="Script" uid="uid://6ha8dtu30rcq" path="res://src/Player/PlayerModel/player_model.gd" id="1_e537n"]
@@ -184,6 +184,18 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dgqb3"]
+render_priority = 0
+shader = ExtResource("2_dgqb3")
+shader_parameter/albedo_color = Color(0.0955505, 0.480233, 0.789063, 1)
+shader_parameter/UVScaling = Vector2(1, 1)
+shader_parameter/distance_fade_min = 0.2
+shader_parameter/distance_fade_max = 1.0
+shader_parameter/probe1Direction = Vector3(0, 1, 0)
+shader_parameter/probe2Direction = Vector3(0, 1, 0)
+shader_parameter/probe1Blend = 0.0
+shader_parameter/probe2Blend = 0.0
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2bmc7"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_1p5ry"]
@@ -320,6 +332,10 @@ blend_point_0/pos = -1.0
 blend_point_1/node = SubResource("AnimationNodeAnimation_s2p5b")
 blend_point_1/pos = 1.0
 
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_dgqb3"]
+filter_enabled = true
+filters = ["Armature/Skeleton3D/TongueAttachment/Tongue:rotation", "Armature/Skeleton3D/TongueAttachment/Tongue:scale", "Armature/Skeleton3D:head", "Armature/Skeleton3D:jaw"]
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5qt4q"]
 animation = &"playerAnims/Sliding"
 
@@ -336,16 +352,16 @@ blend_point_1/node = SubResource("AnimationNodeAnimation_1jw48")
 blend_point_1/pos = 1.0
 min_space = 0.0
 
-[sub_resource type="AnimationNodeTimeSeek" id="AnimationNodeTimeSeek_dgqb3"]
-
 [sub_resource type="AnimationNodeTimeSeek" id="AnimationNodeTimeSeek_bsi04"]
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_dgqb3"]
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_f2d62"]
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_woilv"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_e537n"]
-graph_offset = Vector2(-4.32861, 117.016)
+graph_offset = Vector2(434.817, 141.759)
 nodes/Attack/node = SubResource("AnimationNodeStateMachine_pollm")
 nodes/Attack/position = Vector2(800, 660)
 nodes/B2Fall/node = SubResource("AnimationNodeBlend2_bsi04")
@@ -360,20 +376,22 @@ nodes/IdleWalkRun/node = SubResource("AnimationNodeBlendSpace1D_s2p5b")
 nodes/IdleWalkRun/position = Vector2(-160, 660)
 nodes/JumpFall/node = SubResource("AnimationNodeBlendSpace1D_5qt4q")
 nodes/JumpFall/position = Vector2(360, 660)
+nodes/OS_Attack/node = SubResource("AnimationNodeOneShot_dgqb3")
+nodes/OS_Attack/position = Vector2(1240, 440)
 nodes/Slide/node = SubResource("AnimationNodeAnimation_5qt4q")
 nodes/Slide/position = Vector2(80, 660)
 nodes/SwimMotion/node = SubResource("AnimationNodeBlendSpace1D_bxycc")
 nodes/SwimMotion/position = Vector2(600, 660)
-nodes/TSAttack/node = SubResource("AnimationNodeTimeSeek_dgqb3")
-nodes/TSAttack/position = Vector2(1060, 460)
 nodes/TSJumpFall/node = SubResource("AnimationNodeTimeSeek_bsi04")
 nodes/TSJumpFall/position = Vector2(560, 460)
+nodes/TS_Attack/node = SubResource("AnimationNodeTimeScale_dgqb3")
+nodes/TS_Attack/position = Vector2(1060, 560)
 nodes/TS_IWR/node = SubResource("AnimationNodeTimeScale_f2d62")
 nodes/TS_IWR/position = Vector2(160, 460)
 nodes/TS_Swim/node = SubResource("AnimationNodeTimeScale_woilv")
 nodes/TS_Swim/position = Vector2(800, 460)
 nodes/output/position = Vector2(1480, 240)
-node_connections = [&"B2Fall", 0, &"B2_Slide", &"B2Fall", 1, &"TSJumpFall", &"B2_Attack", 0, &"B2_Swim", &"B2_Attack", 1, &"TSAttack", &"B2_Slide", 0, &"TS_IWR", &"B2_Slide", 1, &"Slide", &"B2_Swim", 0, &"B2Fall", &"B2_Swim", 1, &"TS_Swim", &"TSAttack", 0, &"Attack", &"TSJumpFall", 0, &"JumpFall", &"TS_IWR", 0, &"IdleWalkRun", &"TS_Swim", 0, &"SwimMotion", &"output", 0, &"B2_Attack"]
+node_connections = [&"B2Fall", 0, &"B2_Slide", &"B2Fall", 1, &"TSJumpFall", &"B2_Slide", 0, &"TS_IWR", &"B2_Slide", 1, &"Slide", &"B2_Swim", 0, &"B2Fall", &"B2_Swim", 1, &"TS_Swim", &"OS_Attack", 0, &"B2_Swim", &"OS_Attack", 1, &"TS_Attack", &"TSJumpFall", 0, &"JumpFall", &"TS_Attack", 0, &"Attack", &"TS_IWR", 0, &"IdleWalkRun", &"TS_Swim", 0, &"SwimMotion", &"output", 0, &"OS_Attack"]
 
 [node name="PlayerModel" type="Node3D" node_paths=PackedStringArray("player_anim_tree", "phrog", "body")]
 script = ExtResource("1_e537n")
@@ -397,7 +415,11 @@ bones/1/name = "hips"
 bones/1/parent = -1
 bones/1/rest = Transform3D(1, 5.68434e-14, 4.76836e-07, 3.71098e-07, -0.627955, -0.778249, 2.99432e-07, 0.778249, -0.627955, 6.24262e-17, 0.382506, -0.0469891)
 bones/1/enabled = true
+<<<<<<< Updated upstream
 bones/1/position = Vector3(3.3588e-10, 0.381447, -0.0469891)
+=======
+bones/1/position = Vector3(3.07442e-09, 0.374067, -0.0469891)
+>>>>>>> Stashed changes
 bones/1/rotation = Quaternion(0.902207, 1.02831e-07, 2.15103e-07, 0.431303)
 bones/1/scale = Vector3(1, 1, 0.999999)
 bones/2/name = "hip.l"
@@ -412,14 +434,22 @@ bones/3/parent = 2
 bones/3/rest = Transform3D(0.328182, -0.159474, -0.931056, 0.918854, 0.282508, 0.275493, 0.219096, -0.945916, 0.239248, -5.58794e-09, 0.0982975, 1.11759e-08)
 bones/3/enabled = true
 bones/3/position = Vector3(-5.58794e-09, 0.0982975, 1.11759e-08)
+<<<<<<< Updated upstream
 bones/3/rotation = Quaternion(-0.452659, -0.424938, 0.394127, 0.677636)
+=======
+bones/3/rotation = Quaternion(-0.486593, -0.444465, 0.371967, 0.653696)
+>>>>>>> Stashed changes
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "leg02.l"
 bones/4/parent = 3
 bones/4/rest = Transform3D(1, 1.99039e-08, 1.70855e-07, 1.49012e-08, 0.979524, -0.201326, -1.71363e-07, 0.201326, 0.979524, 4.75376e-09, 0.162518, -1.82843e-09)
 bones/4/enabled = true
 bones/4/position = Vector3(4.75376e-09, 0.162518, -1.82843e-09)
+<<<<<<< Updated upstream
 bones/4/rotation = Quaternion(0.111316, 8.59458e-08, -1.81805e-09, 0.993785)
+=======
+bones/4/rotation = Quaternion(0.229136, 8.50392e-08, -1.20712e-08, 0.973394)
+>>>>>>> Stashed changes
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "spine01"
 bones/5/parent = 1
@@ -468,7 +498,11 @@ bones/11/parent = 10
 bones/11/rest = Transform3D(0.971201, -0.191007, -0.142422, 0.198912, 0.979057, 0.0433649, 0.131156, -0.0704455, 0.988856, -2.79397e-09, 0.0647057, -1.02445e-08)
 bones/11/enabled = true
 bones/11/position = Vector3(-2.79397e-09, 0.0647057, -1.02445e-08)
+<<<<<<< Updated upstream
 bones/11/rotation = Quaternion(-0.204354, -0.0456148, 0.204672, 0.956174)
+=======
+bones/11/rotation = Quaternion(-0.205628, -0.0443213, 0.202451, 0.956434)
+>>>>>>> Stashed changes
 bones/11/scale = Vector3(1, 1, 1)
 bones/12/name = "arm02.l"
 bones/12/parent = 11
@@ -489,7 +523,11 @@ bones/14/parent = 13
 bones/14/rest = Transform3D(0.971201, 0.191007, 0.142422, -0.198912, 0.979057, 0.0433649, -0.131156, -0.0704455, 0.988856, 2.79397e-09, 0.0647057, -1.02445e-08)
 bones/14/enabled = true
 bones/14/position = Vector3(2.79397e-09, 0.0647057, -1.02445e-08)
+<<<<<<< Updated upstream
 bones/14/rotation = Quaternion(-0.227226, 0.0418058, -0.213871, 0.949147)
+=======
+bones/14/rotation = Quaternion(-0.225956, 0.043032, -0.216132, 0.948883)
+>>>>>>> Stashed changes
 bones/14/scale = Vector3(1, 1, 1)
 bones/15/name = "arm02.r"
 bones/15/parent = 14
@@ -510,14 +548,22 @@ bones/17/parent = 16
 bones/17/rest = Transform3D(0.328182, 0.159474, 0.931055, -0.918854, 0.282507, 0.275493, -0.219096, -0.945916, 0.239248, 9.31323e-10, 0.0982975, -1.02445e-08)
 bones/17/enabled = true
 bones/17/position = Vector3(9.31323e-10, 0.0982975, -1.02445e-08)
+<<<<<<< Updated upstream
 bones/17/rotation = Quaternion(-0.451548, 0.424292, -0.394824, 0.678377)
+=======
+bones/17/rotation = Quaternion(-0.48752, 0.444992, -0.371337, 0.653005)
+>>>>>>> Stashed changes
 bones/17/scale = Vector3(1, 1, 1)
 bones/18/name = "leg02.r"
 bones/18/parent = 17
 bones/18/rest = Transform3D(1, -2.76921e-08, 1.3298e-08, 2.98023e-08, 0.979524, -0.201326, -7.45058e-09, 0.201326, 0.979524, 3.94003e-09, 0.162518, 3.85704e-10)
 bones/18/enabled = true
 bones/18/position = Vector3(3.94003e-09, 0.162518, 3.85704e-10)
+<<<<<<< Updated upstream
 bones/18/rotation = Quaternion(0.112169, 5.39864e-09, 1.47262e-08, 0.993689)
+=======
+bones/18/rotation = Quaternion(0.230166, 7.04086e-09, 1.39819e-08, 0.973151)
+>>>>>>> Stashed changes
 bones/18/scale = Vector3(1, 1, 1)
 
 [node name="Arms" type="MeshInstance3D" parent="Phrog/Armature/Skeleton3D"]
@@ -551,12 +597,17 @@ mesh = SubResource("ArrayMesh_mnbra")
 skin = SubResource("Skin_of143")
 
 [node name="TongueAttachment" type="BoneAttachment3D" parent="Phrog/Armature/Skeleton3D"]
+<<<<<<< Updated upstream
 transform = Transform3D(1, 6.55329e-14, 2.10414e-13, 7.08639e-13, 0.99955, 0.0299676, 5.84754e-13, -0.0299686, 0.99955, 3.35906e-10, 0.553298, 0.0097368)
+=======
+transform = Transform3D(1, 6.55329e-14, 2.10414e-13, 7.08639e-13, 0.99955, 0.0299676, 5.84754e-13, -0.0299686, 0.99955, 3.07445e-09, 0.545919, 0.0097368)
+>>>>>>> Stashed changes
 bone_name = "head"
 bone_idx = 7
 
 [node name="Tongue" type="MeshInstance3D" parent="Phrog/Armature/Skeleton3D/TongueAttachment"]
 transform = Transform3D(1, 0, 0, 0, 0.995227, 0.0248836, 0, -0.0975829, 0.253783, 0, 0.047788, -0.0225594)
+material_override = SubResource("ShaderMaterial_dgqb3")
 mesh = SubResource("ArrayMesh_g4th0")
 skeleton = NodePath("../..")
 
@@ -571,13 +622,16 @@ root_node = NodePath("../Phrog")
 tree_root = SubResource("AnimationNodeBlendTree_e537n")
 anim_player = NodePath("../Phrog/AnimationPlayer")
 parameters/B2Fall/blend_amount = 0.0333333
-parameters/B2_Attack/blend_amount = 0
+parameters/B2_Attack/blend_amount = 1.0
 parameters/B2_Slide/blend_amount = 0.0
 parameters/B2_Swim/blend_amount = 0.0
 parameters/IdleWalkRun/blend_position = 0.00223881
 parameters/JumpFall/blend_position = 2.0
+parameters/OS_Attack/active = false
+parameters/OS_Attack/internal_active = false
+parameters/OS_Attack/request = 0
 parameters/SwimMotion/blend_position = 0.0
-parameters/TSAttack/seek_request = -1.0
 parameters/TSJumpFall/seek_request = -1.0
+parameters/TS_Attack/scale = 8.0
 parameters/TS_IWR/scale = 0.596822
 parameters/TS_Swim/scale = 1.0

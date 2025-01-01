@@ -1,17 +1,11 @@
 extends Node
 
-var glitch_C_l1 : bool = false
-var glitch_C_l2 : bool = false
-var glitch_C_l3 : bool = false
-
-var glitch_V_l1 : bool = false
-var glitch_V_l2 : bool = false
-var glitch_V_l3 : bool = false
-
-var glitch_R_l1 : bool = false
-var glitch_R_l2 : bool = false
-var glitch_R_l3 : bool = false
+var glitches : Dictionary = {}
 
 var initialCutscene : bool = false
 
 var levelToLoad : String = "res://Scenes/TutorialLevel/tutorial_level.tscn"
+
+func changeLevel(level : String) -> void:
+	levelToLoad = level
+	get_tree().change_scene_to_file("res://src/UI/Renderer/game_renderer.tscn")

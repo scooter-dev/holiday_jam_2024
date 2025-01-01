@@ -24,11 +24,12 @@ func _ready() -> void:
 func jumped() -> void:
 	player_anim_tree["parameters/TSJumpFall/seek_request"] = 1.0
 func attacking():
-	player_anim_tree["parameters/TSAttack/seek_request"] = 1.0
+	#player_anim_tree["parameters/TSAttack/seek_request"] = 1.0
+	player_anim_tree["parameters/OS_Attack/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 	blendAttack = 1
 
 func _process(delta: float) -> void:
-	blendAttack = lerpf(blendAttack, 0, delta * 12.0)
+	#blendAttack = lerpf(blendAttack, 0, delta * 12.0)
 	phrogXRot = 0.0
 	match playerMovement.movementMode:
 		PlayerMovement.M_GROUNDED, PlayerMovement.M_SUSPENDED:
@@ -65,8 +66,8 @@ func _process(delta: float) -> void:
 	player_anim_tree["parameters/B2Fall/blend_amount"] = blendFall
 	player_anim_tree["parameters/B2_Slide/blend_amount"] = blendSlide
 	player_anim_tree["parameters/B2_Swim/blend_amount"] = blendSwim
-	player_anim_tree["parameters/B2_Attack/blend_amount"] = blendAttack
-	if playerMovement.h_speed > 0.01:
+	#player_anim_tree["parameters/B2_Attack/blend_amount"] = blendAttack
+	if playerMovement.h_speed > 0.3:
 		global_rotation.y = lerp_angle(global_rotation.y, -Vector2(playerMovement.velocity.x,playerMovement.velocity.z).angle() + HPI, delta * 8.0)
 	
 	var lpSize : int = lightProbes.size()
@@ -118,3 +119,7 @@ func sortLightProbes(a : LightProbe, b : LightProbe) -> bool:
 func unregisterLightProbe(probe : LightProbe) -> void:
 	lightProbes.erase(probe)
 	lightProbes.sort_custom(sortLightProbes)
+
+
+func _on_interactor_interacted(obj: Interactable) -> void:
+	global_rotation.y = -Vector2(obj.global_position.x - global_position.x, obj.global_position.z - global_position.z).angle() + PI/2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://uc6g1pryp6u8"]
+[gd_scene load_steps=102 format=3 uid="uid://uc6g1pryp6u8"]
 
 [ext_resource type="PackedScene" uid="uid://dfa3j83d5ujpo" path="res://src/LevelActors/Vector/vector_cube.tscn" id="1_h62ug"]
 [ext_resource type="Script" uid="uid://cii7vrif2njyw" path="res://src/LevelActors/Lighting/evnAdjust.gd" id="1_y5nty"]
@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://bjvp6ko1q2rvh" path="res://src/LevelActors/Vector/vector_grid.tscn" id="3_5q822"]
 [ext_resource type="PackedScene" uid="uid://ca2c5nxi2ktrn" path="res://src/LevelActors/water_area.tscn" id="4_fk3l5"]
 [ext_resource type="PackedScene" uid="uid://cobuvk0i3sos" path="res://src/LevelActors/Glitch/crack_in_the_foundation.tscn" id="4_iv11x"]
+[ext_resource type="PackedScene" uid="uid://by34s3fbwj2yh" path="res://src/LevelActors/level_changer.tscn" id="6_teqkh"]
+[ext_resource type="PackedScene" uid="uid://d1ovsgwn64xet" path="res://src/LevelActors/height_kill_volume.tscn" id="7_tjjb4"]
+[ext_resource type="PackedScene" uid="uid://dcg7514vbu8f1" path="res://src/LevelActors/Glitch/glitch.tscn" id="8_ad45f"]
+[ext_resource type="PackedScene" uid="uid://cxq2yko4u2kt5" path="res://src/LevelActors/checkpoint.tscn" id="9_gosb8"]
 
 [sub_resource type="Environment" id="Environment_c1irn"]
 background_mode = 1
@@ -125,10 +129,159 @@ resource_local_to_scene = true
 shading_mode = 0
 albedo_color = Color(0, 1, 0, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vq833"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hpoqr"]
+shading_mode = 0
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iv11x"]
+size = Vector3(18, 9, 18)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ht05"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8i0k0"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bwian"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bggn5"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xg7qu"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_edwxp"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pvc0c"]
+shading_mode = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_fk3l5"]
+size = Vector3(2, 16, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tjjb4"]
+size = Vector3(2, 16, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b0v44"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cc8uv"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3s0ng"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3foun"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nse1j"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2tlq1"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4pucs"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1fcf4"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6gsxk"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a6dm8"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5fn22"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_373y5"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wy7la"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3tgj1"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4rd3r"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6v1ih"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qwamv"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lgcnx"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t2njo"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_plsal"]
 resource_local_to_scene = true
 shading_mode = 0
 albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gosb8"]
+size = Vector3(2.5, 4, 4)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v26s8"]
 resource_local_to_scene = true
@@ -290,148 +443,11 @@ resource_local_to_scene = true
 shading_mode = 0
 albedo_color = Color(1, 0, 0, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vq833"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_color = Color(0, 0, 1, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_ad45f"]
+size = Vector3(2000, 30, 2000)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hpoqr"]
-shading_mode = 0
-albedo_color = Color(0, 0, 1, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_iv11x"]
-size = Vector3(18, 9, 18)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ht05"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_color = Color(0, 0, 1, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8i0k0"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bwian"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bggn5"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xg7qu"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_edwxp"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pvc0c"]
-shading_mode = 0
-
-[sub_resource type="BoxMesh" id="BoxMesh_fk3l5"]
-size = Vector3(2, 16, 2)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b0v44"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cc8uv"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3s0ng"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3foun"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nse1j"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2tlq1"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4pucs"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1fcf4"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6gsxk"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a6dm8"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5fn22"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_373y5"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wy7la"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3tgj1"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4rd3r"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6v1ih"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qwamv"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lgcnx"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t2njo"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_color = Color(0, 1, 0, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_7rn8d"]
+size = Vector3(18, 8, 61.5)
 
 [node name="VectorLevel2" type="Node3D"]
 
@@ -450,7 +466,7 @@ material = SubResource("StandardMaterial3D_y5nty")
 collision = true
 
 [node name="VectorCube13" parent="Platforms" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 154.5, -61, 294.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 154.5, -61, 324)
 size = Vector3(18, 1, 60)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_fru17")
@@ -490,7 +506,7 @@ collision = true
 
 [node name="CrackInTheFoundation" parent="Platforms" node_paths=PackedStringArray("nodeToBreak") instance=ExtResource("4_iv11x")]
 transform = Transform3D(0.819769, 0.0273723, -0.572039, -0.314705, 0.856059, -0.41003, 0.478476, 0.516153, 0.710385, 105.398, -56.2479, 14.656)
-variable = "glitch_V_l2"
+glitchName = "vector2-1"
 nodeToBreak = NodePath("../VectorCube6")
 size = 64.0
 
@@ -499,10 +515,11 @@ transform = Transform3D(0.819769, 0.0273723, -0.572039, -0.314705, 0.856059, -0.
 size = Vector3(30, 1, 8)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_teqkh")
+collision = true
 
 [node name="CrackInTheFoundation2" parent="Platforms" node_paths=PackedStringArray("nodeToBreak") instance=ExtResource("4_iv11x")]
 transform = Transform3D(0.819769, 0.0273723, -0.572039, -0.314705, 0.856059, -0.41003, 0.478476, 0.516153, 0.710385, 129.576, -66.1958, 32.8767)
-variable = "glitch_V_l2"
+glitchName = "vector2-1"
 nodeToBreak = NodePath("../VectorCube8")
 size = 64.0
 
@@ -518,6 +535,7 @@ transform = Transform3D(0.355677, -0.528076, -0.771122, -0.260516, 0.736355, -0.
 size = Vector3(30, 1, 8)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_gosb8")
+collision = true
 
 [node name="VectorCube10" parent="Platforms" instance=ExtResource("1_h62ug")]
 transform = Transform3D(0.0530967, -0.510233, -0.858396, -0.104105, 0.852096, -0.512927, 0.993148, 0.116598, -0.00787419, 153.268, -80.3279, 86.3101)
@@ -541,14 +559,14 @@ material = SubResource("StandardMaterial3D_0poxx")
 collision = true
 
 [node name="VectorCube18" parent="Platforms" instance=ExtResource("1_h62ug")]
-transform = Transform3D(-1, 8.74228e-08, -2.98023e-08, 2.98023e-08, -5.96046e-08, -1, -8.74228e-08, -1, 0, 151.55, -140.471, 263.955)
+transform = Transform3D(-1, 8.74228e-08, -2.98023e-08, 2.98023e-08, -5.96046e-08, -1, -8.74228e-08, -1, 0, 151.55, -140.471, 293.455)
 size = Vector3(60, 1, 160)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_do3i4")
 collision = true
 
 [node name="VectorCube19" parent="Platforms" instance=ExtResource("1_h62ug")]
-transform = Transform3D(-4.37114e-08, -0.707107, -0.707107, 3.55271e-15, 0.707107, -0.707107, 1, -3.09086e-08, -3.09086e-08, 117.569, -89.8039, 294.955)
+transform = Transform3D(-4.37114e-08, -0.707107, -0.707107, 3.55271e-15, 0.707107, -0.707107, 1, -3.09086e-08, -3.09086e-08, 117.569, -89.8039, 324.455)
 size = Vector3(60, 1, 80)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_wfxrq")
@@ -593,7 +611,7 @@ collision = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 172.5, -110.5, 289.5)
 
 [node name="VectorCube18" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 29.5)
 size = Vector3(18, 1, 120)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_l1c3f")
@@ -604,7 +622,7 @@ transform = Transform3D(9, 0, 0, 0, 1, 0, 0, 0, 60, 0, 0.5, 0)
 gridSize = Vector2i(50, 9)
 
 [node name="VectorCube19" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 3.55271e-15, -1, 1, -4.37114e-08, -4.37114e-08, 9.5, 0, 9.5)
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 3.55271e-15, -1, 1, -4.37114e-08, -4.37114e-08, 9.5, 0, 39)
 size = Vector3(18, 1, 120)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_pqato")
@@ -615,7 +633,7 @@ transform = Transform3D(9, 0, 0, 0, 1, 0, 0, 0, 60, 0, 0.5, 0)
 gridSize = Vector2i(50, 9)
 
 [node name="VectorCube20" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(-1, 8.74228e-08, 0, 0, 4.37114e-08, -1, -8.74228e-08, -1, -4.37114e-08, 0, 0, 19)
+transform = Transform3D(-1, 8.74228e-08, 0, 0, 4.37114e-08, -1, -8.74228e-08, -1, -4.37114e-08, 0, 0, 48.5)
 size = Vector3(18, 1, 120)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_d0uq4")
@@ -626,7 +644,7 @@ transform = Transform3D(9, 0, 0, 0, 1, 0, 0, 0, 60, 0, 0.5, 0)
 gridSize = Vector2i(50, 9)
 
 [node name="VectorCube21" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1.31134e-07, 1, 0, 4.37114e-08, 0, -1, -1, 1.31134e-07, -4.37114e-08, -9.5, -1, 9.5)
+transform = Transform3D(1.31134e-07, 1, 0, 4.37114e-08, 0, -1, -1, 1.31134e-07, -4.37114e-08, -9.5, -1, 39)
 size = Vector3(18, 1, 100)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_ewcqq")
@@ -636,206 +654,8 @@ collision = true
 transform = Transform3D(9, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0.5, 0)
 gridSize = Vector2i(50, 9)
 
-[node name="VectorCube" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.5, 16.5)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_plsal")
-
-[node name="VectorCube4" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.5, 11)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_v26s8")
-
-[node name="VectorCube23" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -7, 16.5)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_g47bk")
-
-[node name="VectorCube24" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, -7, 12)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_022ii")
-
-[node name="VectorCube28" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -15.5, 12)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_vs1nd")
-
-[node name="VectorCube29" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -15.5, 2.5)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_no33p")
-
-[node name="VectorCube30" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -17.5, 10.5)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_xtpdk")
-
-[node name="VectorCube31" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -20.5, 16.5)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_j8cm4")
-
-[node name="VectorCube32" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -25, 2.5)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_ju2xv")
-
-[node name="VectorCube33" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, -25, 2.5)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_x1goj")
-
-[node name="VectorCube34" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, -25, 10)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_n7kcv")
-
-[node name="VectorCube35" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -25, 11.5)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_nn6qp")
-
-[node name="VectorCube25" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -7, 2.5)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_myy64")
-
-[node name="VectorCube26" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -7, 8.5)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_wk15o")
-
-[node name="VectorCube36" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -7, 7)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_6eeq1")
-
-[node name="VectorCube27" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -7, 14.5)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_1k2g8")
-
-[node name="VectorCube37" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -37, 14)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_paghc")
-
-[node name="VectorCube7" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 13.5, 2.5)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_l2dkm")
-
-[node name="VectorCube8" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 13.5, 9)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_ulwt5")
-
-[node name="VectorCube9" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 13.5, 16.5)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_jeehh")
-
-[node name="VectorCube10" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.5, 7)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_jbo7p")
-
-[node name="VectorCube22" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 13.5, 11)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_3qvil")
-
-[node name="VectorCube11" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 13.5, 2.5)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_n8nyy")
-
-[node name="VectorCube12" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 26, 9)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_i4mwy")
-
-[node name="VectorCube13" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 26, 16.5)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_17e60")
-
-[node name="VectorCube16" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 26, 16.5)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_whvkv")
-
-[node name="VectorCube17" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 26, 2.5)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_xk62r")
-
-[node name="VectorCube15" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 26, 16.5)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_kof3e")
-
-[node name="VectorCube14" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 26, 9)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_ha86j")
-
-[node name="VectorCube5" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.5, 16.5)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_nenwj")
-
-[node name="VectorCube6" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.5, 5.5)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_xf6f8")
-
-[node name="VectorCube2" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.5, 10)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_fuo2s")
-
-[node name="VectorCube3" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 2.5)
-size = Vector3(4, 4, 4)
-color = Color(1, 0, 0, 1)
-material = SubResource("StandardMaterial3D_ljhp5")
-
 [node name="VectorCube38" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -55.5, 9.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -55.5, 39)
 size = Vector3(17.9, 8.9, 17.9)
 color = Color(0, 0, 1, 1)
 material = SubResource("StandardMaterial3D_vq833")
@@ -854,7 +674,7 @@ shape = SubResource("BoxShape3D_iv11x")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="VectorCube45" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, -64.5, 9.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, -64.5, 39)
 size = Vector3(17.9, 8.9, 17.9)
 color = Color(0, 0, 1, 1)
 material = SubResource("StandardMaterial3D_2ht05")
@@ -873,7 +693,7 @@ shape = SubResource("BoxShape3D_iv11x")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="VectorCube39" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -60.5, 9.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -60.5, 39)
 size = Vector3(18, 1, 18)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_8i0k0")
@@ -883,28 +703,28 @@ collision = true
 transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 0, 0.5, 0)
 
 [node name="VectorCube40" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, -60.5, 9.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, -60.5, 39)
 size = Vector3(18, 1, 18)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_bwian")
 collision = true
 
 [node name="VectorCube41" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, -50, 9.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, -50, 39)
 size = Vector3(8, 12, 8)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_bggn5")
 collision = true
 
 [node name="VectorCube58" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, -42, 9.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, -42, 39)
 size = Vector3(2, 4, 2)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_xg7qu")
 collision = true
 
 [node name="VectorCube57" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, -50, 35)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, -50, 64.5)
 size = Vector3(8, 12, 8)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_edwxp")
@@ -915,138 +735,594 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14, 0)
 material_override = SubResource("StandardMaterial3D_pvc0c")
 mesh = SubResource("BoxMesh_fk3l5")
 
+[node name="LevelChanger" parent="Platforms/Dropper/VectorCube57/LevelExit" instance=ExtResource("6_teqkh")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/VectorCube57/LevelExit/LevelChanger"]
+shape = SubResource("BoxShape3D_tjjb4")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
 [node name="VectorCube42" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, -59.5, 9.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, -59.5, 39)
 size = Vector3(2, 1, 2)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_b0v44")
 collision = true
 
 [node name="VectorCube43" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, -58.5, 9.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, -58.5, 39)
 size = Vector3(2, 1, 2)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_cc8uv")
 collision = true
 
 [node name="VectorCube44" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, -57.5, 9.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, -57.5, 39)
 size = Vector3(2, 1, 2)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_3s0ng")
 collision = true
 
 [node name="VectorCube46" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, -56.5, 9.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, -56.5, 39)
 size = Vector3(2, 1, 2)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_3foun")
 collision = true
 
 [node name="VectorCube47" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, -55.5, 9.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, -55.5, 39)
 size = Vector3(2, 1, 2)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_nse1j")
 collision = true
 
 [node name="VectorCube48" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, -54.5, 6.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, -54.5, 36)
 size = Vector3(2, 1, 2)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_2tlq1")
 collision = true
 
 [node name="VectorCube49" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, -53.5, 4.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, -53.5, 34)
 size = Vector3(2, 1, 2)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_4pucs")
 collision = true
 
 [node name="VectorCube50" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, -52.5, 4.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, -52.5, 34)
 size = Vector3(2, 1, 2)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_1fcf4")
 collision = true
 
 [node name="VectorCube51" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, -51.5, 8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, -51.5, 37.5)
 size = Vector3(2, 1, 2)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_6gsxk")
 collision = true
 
 [node name="VectorCube52" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, -50.5, 11)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, -50.5, 40.5)
 size = Vector3(2, 1, 2)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_a6dm8")
 collision = true
 
 [node name="VectorCube53" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.5, -49.5, 14.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.5, -49.5, 44)
 size = Vector3(2, 1, 2)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_5fn22")
 collision = true
 
 [node name="VectorCube54" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5, -48.5, 14.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5, -48.5, 44)
 size = Vector3(2, 1, 2)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_373y5")
 collision = true
 
 [node name="VectorCube55" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, -47, 12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, -47, 41.5)
 size = Vector3(2, 1, 2)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_wy7la")
 collision = true
 
 [node name="VectorCube59" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, -43.5, 7.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, -43.5, 37)
 size = Vector3(2, 1, 2)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_3tgj1")
 collision = true
 
 [node name="VectorCube60" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, -42, 9.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, -42, 39)
 size = Vector3(2, 1, 2)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_4rd3r")
 collision = true
 
 [node name="VectorCube61" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, -40.5, 14)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, -40.5, 43.5)
 size = Vector3(2, 1, 2)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_6v1ih")
 collision = true
 
 [node name="VectorCube63" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, -44, 22.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, -44, 52)
 size = Vector3(2, 1, 2)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_qwamv")
 collision = true
 
 [node name="VectorCube64" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, -44, 27)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, -44, 56.5)
 size = Vector3(2, 1, 2)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_lgcnx")
 collision = true
 
 [node name="VectorCube56" parent="Platforms/Dropper" instance=ExtResource("1_h62ug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, -45.5, 8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, -45.5, 37.5)
 size = Vector3(2, 1, 2)
 color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_t2njo")
 collision = true
 
+[node name="Damagers" type="Node3D" parent="Platforms/Dropper"]
+
+[node name="VectorCube" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.5, 46)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_plsal")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="VectorCube4" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.5, 40.5)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_v26s8")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube4" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube4/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="VectorCube23" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -7, 46)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_g47bk")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube23" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube23/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="VectorCube24" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, -7, 41.5)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_022ii")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube24" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube24/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="VectorCube28" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -15.5, 41.5)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_vs1nd")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube28" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube28/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="VectorCube29" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -15.5, 32)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_no33p")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube29" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube29/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="VectorCube30" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -17.5, 40)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_xtpdk")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube30" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube30/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="VectorCube31" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -20.5, 46)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_j8cm4")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube31" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube31/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="VectorCube32" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -25, 32)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_ju2xv")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube32" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube32/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="VectorCube33" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, -25, 32)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_x1goj")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube33" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube33/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="VectorCube34" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, -25, 39.5)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_n7kcv")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube34" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube34/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="VectorCube35" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -25, 41)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_nn6qp")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube35" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube35/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="VectorCube25" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -7, 32)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_myy64")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube25" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube25/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="VectorCube26" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -7, 38)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_wk15o")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube26" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube26/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="VectorCube36" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -7, 36.5)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_6eeq1")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube36" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube36/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="VectorCube27" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -7, 44)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_1k2g8")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube27" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube27/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="VectorCube37" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -37, 43.5)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_paghc")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube37" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube37/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="VectorCube7" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 13.5, 32)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_l2dkm")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube7" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube7/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="VectorCube8" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 13.5, 38.5)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_ulwt5")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube8" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube8/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="VectorCube9" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 13.5, 46)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_jeehh")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube9" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube9/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="VectorCube10" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.5, 36.5)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_jbo7p")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube10" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube10/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="VectorCube22" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 13.5, 40.5)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_3qvil")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube22" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube22/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="VectorCube11" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 13.5, 32)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_n8nyy")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube11" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube11/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="VectorCube12" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 26, 38.5)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_i4mwy")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube12" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube12/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="VectorCube13" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 26, 46)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_17e60")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube13" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube13/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="VectorCube16" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 26, 46)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_whvkv")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube16" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube16/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="VectorCube17" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 26, 32)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_xk62r")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube17" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube17/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="VectorCube15" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 26, 46)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_kof3e")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube15" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube15/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="VectorCube14" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 26, 38.5)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_ha86j")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube14" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube14/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="VectorCube5" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.5, 46)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_nenwj")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube5" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube5/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="VectorCube6" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.5, 35)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_xf6f8")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube6" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube6/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="VectorCube2" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.5, 39.5)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_fuo2s")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube2" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube2/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="VectorCube3" parent="Platforms/Dropper/Damagers" instance=ExtResource("1_h62ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 32)
+size = Vector3(4, 4, 4)
+color = Color(1, 0, 0, 1)
+material = SubResource("StandardMaterial3D_ljhp5")
+
+[node name="HeightKillVolume" parent="Platforms/Dropper/Damagers/VectorCube3" instance=ExtResource("7_tjjb4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Dropper/Damagers/VectorCube3/HeightKillVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+shape = SubResource("BoxShape3D_gosb8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="Glitch" parent="Platforms" instance=ExtResource("8_ad45f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 134.5, -154, 351.5)
+glitchName = "croc2-2"
+
 [node name="Player" parent="." instance=ExtResource("2_c1irn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 1)
+
+[node name="HeightKillVolume" parent="." instance=ExtResource("7_tjjb4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.5, -268, 165)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HeightKillVolume"]
+shape = SubResource("BoxShape3D_ad45f")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="Checkpoint" parent="." instance=ExtResource("9_gosb8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 156.5, -60.5, 298.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 4.5, 25.25)
+shape = SubResource("BoxShape3D_7rn8d")
+debug_color = Color(0, 0.6, 0.7, 0.42)

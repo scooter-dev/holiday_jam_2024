@@ -5,7 +5,7 @@ extends Interactor
 var current_closest: Interactable
 
 var enabled : bool = true
-
+signal interacted(obj : Interactable)
 func _ready():
 	PlayerInput.interact.connect(onInteract)
 	controller = player
@@ -15,6 +15,7 @@ func onInteract() -> void:
 		return
 	if current_closest:
 			interact(current_closest)
+			interacted.emit(current_closest)
 
 func _physics_process(_delta):
 	var new_closest: Interactable = get_closest_interactable()

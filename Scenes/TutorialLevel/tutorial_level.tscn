@@ -836,6 +836,9 @@ player = NodePath("../Player")
 [node name="Player" parent="." instance=ExtResource("9_mevfl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.48355, 0.538852, 15.6397)
 
+[node name="Return" parent="Player/PauseMenu/MarginContainer/Panel/MarginContainer/VBoxContainer" index="3"]
+disabled = true
+
 [node name="WaterVolume" parent="." instance=ExtResource("5_k44xo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.35599, -7.83494, 50.8911)
 
@@ -1617,6 +1620,9 @@ debug_color = Color(0, 0.6, 0.7, 0.42)
 [connection signal="interacted" from="TutorialLevelNew/Boat/Interactable" to="CutscenePlayer" method="_on_interactable_interacted"]
 [connection signal="interacted" from="TutorialLevelNew/RopePole/Interactable" to="TutorialLevelNew/RopePole" method="_on_interactable_interacted"]
 
+[editable path="Player"]
+[editable path="Player/CamY/VSpring/CamX/Interactor"]
+[editable path="Player/PauseMenu"]
 [editable path="TutorialLevelNew"]
 [editable path="TutorialLevelNew/Boat/Interactable"]
 [editable path="TutorialLevelNew/RopePole/Interactable"]
