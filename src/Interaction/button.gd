@@ -1,26 +1,14 @@
-extends Interactable
+extends StaticBody3D
 
-# onready animation
+@export var interactable: Interactable
 
-var is_pressed: bool = false
+var isPressed: bool = false
 
-func pressed():
-	is_pressed = true
-func add_hightlights():
-	pass
-func remove_highlights():
-	pass
+signal activateStepsMotion
 
-func _on_focused(_interactor: Interactor):
-	if not is_pressed:
-		add_hightlights()
+func _ready():
+	interactable.raiseStairs.connect(activation)
 
-func _on_interacted(_interactor: Interactor):
-	if not is_pressed:
-		remove_highlights()
-		# queue_free()
-		pressed()
-
-
-func _on_unfocused(_interactor: Interactor):
-	remove_highlights()
+func activation():
+	isPressed = true
+	activateStepsMotion.emit()

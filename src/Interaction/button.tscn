@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtq4u7dl5ckca"]
+[gd_scene load_steps=11 format=3 uid="uid://dtq4u7dl5ckca"]
 
 [ext_resource type="Material" uid="uid://cqbkqwwpq2hor" path="res://Materials/blue.tres" id="1_q75lq"]
 [ext_resource type="Material" uid="uid://0ue5o2ybx63g" path="res://Materials/green.tres" id="2_lwjyl"]
 [ext_resource type="PackedScene" uid="uid://baceyyuakavy4" path="res://src/Interaction/Interactable.tscn" id="3_lwjyl"]
-[ext_resource type="Script" uid="uid://wxxi8dcv7u34" path="res://src/Interaction/button.gd" id="4_42epa"]
+[ext_resource type="Script" uid="uid://cao814sswpfnv" path="res://src/Interaction/button.gd" id="4_42epa"]
+[ext_resource type="Script" uid="uid://wxxi8dcv7u34" path="res://src/Interaction/puzzleButtonInteractable.gd" id="5_7fwh3"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_42epa"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_adf3a"]
 height = 0.5
@@ -14,8 +17,11 @@ height = 0.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_en55m"]
 
-[node name="Button" type="StaticBody3D"]
+[node name="Button" type="StaticBody3D" node_paths=PackedStringArray("interactable")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.134074, 0)
+physics_material_override = SubResource("PhysicsMaterial_42epa")
+script = ExtResource("4_42epa")
+interactable = NodePath("Interactable")
 
 [node name="ButtonOuter" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_q75lq")
@@ -30,10 +36,9 @@ skeleton = NodePath("../../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00103664, -0.00790608, 9.07108e-05)
 shape = SubResource("BoxShape3D_q75lq")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Interactable" parent="." instance=ExtResource("3_lwjyl")]
-script = ExtResource("4_42epa")
+script = ExtResource("5_7fwh3")
 
 [node name="CollisionShape3D" parent="Interactable" index="0"]
 shape = SubResource("BoxShape3D_en55m")

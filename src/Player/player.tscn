@@ -322,7 +322,6 @@ target_position = Vector3(0, -1.5, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.455833, 0)
 shape = SubResource("CapsuleShape3D_ckfjp")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Movement" type="Node" parent="." node_paths=PackedStringArray("groundRays", "camY", "player")]
 script = ExtResource("2_n4f6x")

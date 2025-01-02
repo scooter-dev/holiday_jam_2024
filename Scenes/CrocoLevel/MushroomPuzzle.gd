@@ -2,9 +2,9 @@ extends Node3D
 
 class_name MushroomPuzzle
 
-@export var stepOne : Node3D
-@export var stepTwo : Node3D
-@export var stepThree : Node3D
+# @export var stepOne : Node3D
+# @export var stepTwo : Node3D
+# @export var stepThree : Node3D
 
 var firstHeight: float = 1.0
 var secondHeight: float = 2.5

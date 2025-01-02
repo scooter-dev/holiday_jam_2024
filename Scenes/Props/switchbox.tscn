@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bytla3i8ookww"]
+
+[ext_resource type="PackedScene" uid="uid://baceyyuakavy4" path="res://src/Interaction/Interactable.tscn" id="1_lqc52"]
+[ext_resource type="Script" uid="uid://c3wmdojg3fuub" path="res://src/Interaction/SwitchInteractable.gd" id="2_b2rfd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lqc52"]
+resource_local_to_scene = true
+
+[node name="SwitchBox" type="CSGBox3D"]
+use_collision = true
+
+[node name="Interactable" parent="." instance=ExtResource("1_lqc52")]
+script = ExtResource("2_b2rfd")
+
+[node name="CollisionShape3D" parent="Interactable" index="0"]
+shape = SubResource("BoxShape3D_lqc52")
+
+[editable path="Interactable"]
