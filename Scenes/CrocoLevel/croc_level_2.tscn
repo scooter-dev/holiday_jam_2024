@@ -2241,6 +2241,10 @@ glitchName = "croc1-1"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 707.502, -117.388, -464.599)
 glitchName = "FINAL"
 
+[node name="Glitch3" parent="." instance=ExtResource("27_3ebui")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 612.75, -117.9, -398.466)
+glitchName = "croc1-1"
+
 [editable path="CrocLevel2"]
 [editable path="CrocLevel2/Cave/Platforms/WoodPlatform15/Sign"]
 [editable path="CrocLevel2/Cave/Rocks/rock01"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://cal7qhkesu02s"]
+[gd_scene load_steps=37 format=4 uid="uid://cal7qhkesu02s"]
 
 [ext_resource type="Script" uid="uid://c7vig5riw7kk6" path="res://src/Player/GroundRays.gd" id="1_v6gec"]
 [ext_resource type="Script" uid="uid://bbac2cpms0612" path="res://src/Player/player.gd" id="1_vtbm7"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://burg2sj3ub6yj" path="res://src/Interaction/Interactor.tscn" id="10_pl8oh"]
 [ext_resource type="Script" uid="uid://cigvu1yud4mep" path="res://src/Player/PlayerInteractor.gd" id="11_jjf0q"]
 [ext_resource type="Script" uid="uid://dufduq84o1wio" path="res://src/Player/player_hud.gd" id="12_cql7s"]
+[ext_resource type="Script" uid="uid://gosx87re60le" path="res://src/UI/Menus/TextScaler.gd" id="13_06do3"]
 [ext_resource type="PackedScene" uid="uid://cnvi8q4vux245" path="res://src/UI/Menus/pause_menu.tscn" id="13_ph3q4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cql7s"]
@@ -322,6 +323,7 @@ target_position = Vector3(0, -1.5, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.455833, 0)
 shape = SubResource("CapsuleShape3D_ckfjp")
+debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Movement" type="Node" parent="." node_paths=PackedStringArray("groundRays", "camY", "player")]
 script = ExtResource("2_n4f6x")
@@ -442,11 +444,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 10
 text = "aagasdsdasdas"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+script = ExtResource("13_06do3")
 
 [node name="Fade" type="Panel" parent="HUD"]
 modulate = Color(1, 1, 1, 0)

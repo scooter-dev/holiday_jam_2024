@@ -10,6 +10,8 @@ class_name Player
 @export var hud: PlayerHud
 @export var interactor: Area3D
 
+signal playerDied
+
 func _ready() -> void:
 	lastCheckpoint = Node3D.new()
 	get_parent().add_child.call_deferred(lastCheckpoint)
@@ -33,6 +35,7 @@ var dieLock : bool = false
 func die() -> void:
 	if dieLock:
 		return
+	playerDied.emit()
 	dieLock = true
 	suspend(true)
 	hud.fadeOut.connect(onFadeOut)

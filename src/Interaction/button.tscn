@@ -4,7 +4,7 @@
 [ext_resource type="Material" uid="uid://0ue5o2ybx63g" path="res://Materials/green.tres" id="2_lwjyl"]
 [ext_resource type="PackedScene" uid="uid://baceyyuakavy4" path="res://src/Interaction/Interactable.tscn" id="3_lwjyl"]
 [ext_resource type="Script" uid="uid://cao814sswpfnv" path="res://src/Interaction/button.gd" id="4_42epa"]
-[ext_resource type="Script" uid="uid://wxxi8dcv7u34" path="res://src/Interaction/puzzleButtonInteractable.gd" id="5_7fwh3"]
+[ext_resource type="Script" path="res://src/Interaction/puzzleButtonInteractable.gd" id="5_7fwh3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_42epa"]
 
@@ -36,11 +36,14 @@ skeleton = NodePath("../../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00103664, -0.00790608, 9.07108e-05)
 shape = SubResource("BoxShape3D_q75lq")
+debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Interactable" parent="." instance=ExtResource("3_lwjyl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.754414, 0)
 script = ExtResource("5_7fwh3")
 
 [node name="CollisionShape3D" parent="Interactable" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.765624, 0)
 shape = SubResource("BoxShape3D_en55m")
 
 [connection signal="focused" from="Interactable" to="Interactable" method="_on_focused"]

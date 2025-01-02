@@ -5,14 +5,14 @@ extends AnimationPlayer
 @export var jumpPad : JumpPad
 
 func _ready() -> void:
-	if !LevelManager.initialCutscene:
-		play("Intro")
-	else:
-		jumpPad.enabled = true
 	if LevelManager.glitches.has("FINAL"):
 		freezePlayer(false)
 		deleteAllSaves()
 		play("AllGlitches")
+	elif !LevelManager.initialCutscene:
+		play("Intro")
+	
+	jumpPad.enabled = LevelManager.initialCutscene
 
 @export var saves : Node3D
 func deleteAllSaves() -> void:

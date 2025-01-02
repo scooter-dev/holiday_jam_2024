@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnvi8q4vux245"]
+[gd_scene load_steps=5 format=3 uid="uid://cnvi8q4vux245"]
 
 [ext_resource type="Script" uid="uid://dpypp1l2qenge" path="res://src/UI/Menus/pause_menu.gd" id="1_e3c8n"]
+[ext_resource type="Theme" uid="uid://b1syhxinuwied" path="res://src/UI/UITheme.tres" id="1_tt60p"]
 [ext_resource type="PackedScene" uid="uid://cnp8n4vcoqcit" path="res://src/UI/Menus/options.tscn" id="2_t7gao"]
+[ext_resource type="Script" uid="uid://gosx87re60le" path="res://src/UI/Menus/TextScaler.gd" id="3_ra35q"]
 
 [node name="PauseMenu" type="Control" node_paths=PackedStringArray("resume_button", "options", "margin_container")]
 process_mode = 3
@@ -11,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_tt60p")
 script = ExtResource("1_e3c8n")
 resume_button = NodePath("MarginContainer/Panel/MarginContainer/VBoxContainer/Resume")
 options = NodePath("Options")
@@ -53,6 +56,7 @@ layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 3
 text = "Resume"
+script = ExtResource("3_ra35q")
 
 [node name="Options" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(160, 32)
@@ -60,6 +64,7 @@ layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 3
 text = "Options"
+script = ExtResource("3_ra35q")
 
 [node name="Reset" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(160, 32)
@@ -67,6 +72,7 @@ layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 3
 text = "Reset Checkpoint"
+script = ExtResource("3_ra35q")
 
 [node name="Return" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(160, 32)
@@ -74,6 +80,7 @@ layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 3
 text = "Return to Menu"
+script = ExtResource("3_ra35q")
 
 [node name="Options" parent="." instance=ExtResource("2_t7gao")]
 visible = false

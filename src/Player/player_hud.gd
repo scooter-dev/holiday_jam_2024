@@ -19,6 +19,8 @@ signal fadeIn
 func fade() -> void:
 	hud_anims.play("FadeOut", -1, 3)
 
+
+
 func _on_hud_anims_animation_finished(anim_name: StringName) -> void:
 	match anim_name:
 		"FadeOut":

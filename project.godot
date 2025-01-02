@@ -47,6 +47,10 @@ folder_colors={
 "res://src/": "green"
 }
 
+[gui]
+
+theme/custom_font="uid://be2g6d1bkbw53"
+
 [input]
 
 ui_left={

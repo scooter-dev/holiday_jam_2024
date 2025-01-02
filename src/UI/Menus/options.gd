@@ -10,6 +10,9 @@ class_name OptionsMenu
 @export var cb_crt: CheckBox
 @export var close_button: Button
 @export var hs_dither: HSlider
+@export var ob_res: OptionButton
+@export var ob_depth: OptionButton
+
 
 
 func open() -> void:
@@ -29,7 +32,8 @@ func _ready() -> void:
 	hs_bright.value = OptionsManager.bright
 	cb_crt.button_pressed = OptionsManager.crtOn
 	hs_dither.value = OptionsManager.dither
-	
+	ob_res.selected = OptionsManager.resolution
+	ob_depth.selected = OptionsManager.colorDepth
 	
 
 func _on_hs_sensitivity_value_changed(value: float) -> void:
@@ -70,3 +74,13 @@ func _on_hs_dither_value_changed(value: float) -> void:
 
 func _on_hs_sensitivity_focus_entered() -> void:
 	scroll_container.scroll_vertical = 0
+
+
+func _on_ob_res_item_selected(index: int) -> void:
+	OptionsManager.resolution = index
+	OptionsManager.update()
+
+
+func _on_ob_depth_item_selected(index: int) -> void:
+	OptionsManager.colorDepth = index
+	OptionsManager.update()
