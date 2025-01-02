@@ -9,6 +9,8 @@ func _ready() -> void:
 
 func pausePressed() -> void:
 	if get_tree().paused:
+		if !margin_container.visible:
+			options.close()
 		unpause()
 	else:
 		pause()
@@ -36,3 +38,16 @@ func _on_return_pressed() -> void:
 func _on_reset_pressed() -> void:
 	unpause()
 	reset.emit()
+
+@export var options: OptionsMenu
+@export var margin_container: MarginContainer
+
+func _on_options_pressed() -> void:
+	if !options.visible:
+		options.open()
+		margin_container.visible = false
+
+
+func _on_options_closed() -> void:
+	margin_container.visible = true
+	resume_button.grab_focus()

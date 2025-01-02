@@ -1,17 +1,27 @@
-[gd_scene load_steps=72 format=4 uid="uid://bcf0411aq8xos"]
+[gd_scene load_steps=138 format=4 uid="uid://bcf0411aq8xos"]
 
 [ext_resource type="PackedScene" uid="uid://b71m35e4nhw7h" path="res://Assets/Meshes/MenuLevel/MenuLevel.blend" id="1_ueebt"]
+[ext_resource type="PackedScene" uid="uid://baceyyuakavy4" path="res://src/Interaction/Interactable.tscn" id="2_4pm6c"]
 [ext_resource type="PackedScene" uid="uid://bat7t5uw5he4l" path="res://src/LevelActors/Glitch/level_save.tscn" id="2_o1j72"]
 [ext_resource type="PackedScene" uid="uid://cal7qhkesu02s" path="res://src/Player/player.tscn" id="2_s7esc"]
+[ext_resource type="PackedScene" uid="uid://bdhw72ph7fxt5" path="res://Scenes/Props/jump_leaf.tscn" id="3_8j861"]
 [ext_resource type="Texture2D" uid="uid://daqkyupnba5ww" path="res://Assets/Meshes/MenuLevel/background.png" id="3_bumdm"]
 [ext_resource type="PackedScene" uid="uid://dfa3j83d5ujpo" path="res://src/LevelActors/Vector/vector_cube.tscn" id="3_q6dfh"]
 [ext_resource type="Script" uid="uid://cii7vrif2njyw" path="res://src/LevelActors/Lighting/evnAdjust.gd" id="3_s7esc"]
 [ext_resource type="Shader" uid="uid://38i7c40ma7np" path="res://src/Shaders/noiseGlitch.gdshader" id="4_q6dfh"]
+[ext_resource type="PackedScene" uid="uid://de248a8pb63x" path="res://Scenes/Props/wood_platform.tscn" id="5_kboto"]
 [ext_resource type="PackedScene" uid="uid://btjcstm65hjaa" path="res://Assets/Meshes/Props/OS.glb" id="5_mxiu3"]
 [ext_resource type="PackedScene" uid="uid://balk0fu5d233v" path="res://Scenes/Props/tree_01.tscn" id="5_unave"]
 [ext_resource type="Script" uid="uid://cykbx1jatlf53" path="res://Scenes/MenuLevels/cutscene_player.gd" id="6_jpii8"]
+[ext_resource type="Shader" uid="uid://css7vswfp42e3" path="res://src/Shaders/shaded_ambient.gdshader" id="6_ohfb6"]
+[ext_resource type="Texture2D" uid="uid://d2br3m46cfssy" path="res://Assets/Textures/woodBoardsCracked.png" id="7_isfor"]
 [ext_resource type="PackedScene" uid="uid://deh6ojfecagpx" path="res://Scenes/Props/jump_pad.tscn" id="7_ub1iy"]
+[ext_resource type="Shader" uid="uid://coxv02bx2xfpl" path="res://src/Shaders/shaded_ambient_y_bilboard.gdshader" id="8_isfor"]
+[ext_resource type="Texture2D" uid="uid://bg7f5qpit2m8w" path="res://Assets/Textures/chains.png" id="9_o0emj"]
+[ext_resource type="PackedScene" uid="uid://ca2c5nxi2ktrn" path="res://src/LevelActors/water_area.tscn" id="10_rleeb"]
+[ext_resource type="Shader" uid="uid://ct8skqad1sgsq" path="res://src/Shaders/water.gdshader" id="11_oa8tn"]
 [ext_resource type="PackedScene" uid="uid://cxq2yko4u2kt5" path="res://src/LevelActors/checkpoint.tscn" id="12_57if5"]
+[ext_resource type="Texture2D" uid="uid://c7glm5caj11yn" path="res://Assets/Textures/waterSolo.png" id="12_mbuq8"]
 [ext_resource type="PackedScene" uid="uid://dcg7514vbu8f1" path="res://src/LevelActors/Glitch/glitch.tscn" id="13_ldvjd"]
 [ext_resource type="PackedScene" uid="uid://d1ovsgwn64xet" path="res://src/LevelActors/height_kill_volume.tscn" id="14_rex1h"]
 
@@ -93,6 +103,253 @@ size = Vector3(0.4, 12, 6)
 [sub_resource type="BoxShape3D" id="BoxShape3D_unave"]
 size = Vector3(0.4, 8, 6)
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4pm6c"]
+data = PackedVector3Array(7.6377, -1, 3.3622, 9.9998, 1, -1.0001, 9.9998, 1, 1, 7.6377, -1, 3.3622, 7.6377, -1, -3.3622, 9.9998, 1, -1.0001, 7.6377, -1, -3.3622, 11.9998, 1, -1.0001, 9.9998, 1, -1.0001, 7.6377, -1, -3.3622, 14.3622, -1, -3.3622, 11.9998, 1, -1.0001, 14.3622, -1, -3.3622, 11.9998, 1, 1, 11.9998, 1, -1.0001, 14.3622, -1, -3.3622, 14.3622, -1, 3.3622, 11.9998, 1, 1, 14.3622, -1, 3.3622, 9.9998, 1, 1, 11.9998, 1, 1, 14.3622, -1, 3.3622, 7.6377, -1, 3.3622, 9.9998, 1, 1, 7.6377, -1, -3.3622, 14.3622, -1, 3.3622, 14.3622, -1, -3.3622, 7.6377, -1, -3.3622, 7.6377, -1, 3.3622, 14.3622, -1, 3.3622, 11.9998, 1, -1.0001, 8.1194, 11.5253, -1.0001, 9.9998, 1, -1.0001, 11.9998, 1, -1.0001, 9.8801, 12.4744, -1.0001, 8.1194, 11.5253, -1.0001, 9.8801, 12.4744, 1, 2.8106, 17.1282, -0.2215, 9.8801, 12.4744, -1.0001, 9.8801, 12.4744, 1, 2.8106, 17.1282, 0.2214, 2.8106, 17.1282, -0.2215, 11.9998, 1, 1, 9.8801, 12.4744, -1.0001, 11.9998, 1, -1.0001, 11.9998, 1, 1, 9.8801, 12.4744, 1, 9.8801, 12.4744, -1.0001, 9.9998, 1, -1.0001, 8.1194, 11.5253, 1, 9.9998, 1, 1, 9.9998, 1, -1.0001, 8.1194, 11.5253, -1.0001, 8.1194, 11.5253, 1, 9.9998, 1, 1, 9.8801, 12.4744, 1, 11.9998, 1, 1, 9.9998, 1, 1, 8.1194, 11.5253, 1, 9.8801, 12.4744, 1, 2.8106, 17.1282, -0.2215, 2.648, 16.7161, 0.2214, 2.648, 16.7161, -0.2215, 2.8106, 17.1282, -0.2215, 2.8106, 17.1282, 0.2214, 2.648, 16.7161, 0.2214, 8.1194, 11.5253, -1.0001, 2.648, 16.7161, 0.2214, 8.1194, 11.5253, 1, 8.1194, 11.5253, -1.0001, 2.648, 16.7161, -0.2215, 2.648, 16.7161, 0.2214, 8.1194, 11.5253, 1, 2.8106, 17.1282, 0.2214, 9.8801, 12.4744, 1, 8.1194, 11.5253, 1, 2.648, 16.7161, 0.2214, 2.8106, 17.1282, 0.2214, 9.8801, 12.4744, -1.0001, 2.648, 16.7161, -0.2215, 8.1194, 11.5253, -1.0001, 9.8801, 12.4744, -1.0001, 2.8106, 17.1282, -0.2215, 2.648, 16.7161, -0.2215, -7.6382, -1, 3.3622, -10.0002, 1, -1.0001, -7.6382, -1, -3.3622, -7.6382, -1, 3.3622, -10.0002, 1, 1, -10.0002, 1, -1.0001, -7.6382, -1, -3.3622, -12.0002, 1, -1.0001, -14.3622, -1, -3.3622, -7.6382, -1, -3.3622, -10.0002, 1, -1.0001, -12.0002, 1, -1.0001, -14.3622, -1, -3.3622, -12.0002, 1, 1, -14.3622, -1, 3.3622, -14.3622, -1, -3.3622, -12.0002, 1, -1.0001, -12.0002, 1, 1, -14.3622, -1, 3.3622, -10.0002, 1, 1, -7.6382, -1, 3.3622, -14.3622, -1, 3.3622, -12.0002, 1, 1, -10.0002, 1, 1, -7.6382, -1, -3.3622, -14.3622, -1, 3.3622, -7.6382, -1, 3.3622, -7.6382, -1, -3.3622, -14.3622, -1, -3.3622, -14.3622, -1, 3.3622, -12.0002, 1, -1.0001, -8.1199, 11.5253, -1.0001, -9.8805, 12.4744, -1.0001, -12.0002, 1, -1.0001, -10.0002, 1, -1.0001, -8.1199, 11.5253, -1.0001, -9.8805, 12.4744, 1, -2.8111, 17.1282, -0.2215, -2.8111, 17.1282, 0.2214, -9.8805, 12.4744, 1, -9.8805, 12.4744, -1.0001, -2.8111, 17.1282, -0.2215, -12.0002, 1, 1, -9.8805, 12.4744, -1.0001, -9.8805, 12.4744, 1, -12.0002, 1, 1, -12.0002, 1, -1.0001, -9.8805, 12.4744, -1.0001, -10.0002, 1, -1.0001, -8.1199, 11.5253, 1, -8.1199, 11.5253, -1.0001, -10.0002, 1, -1.0001, -10.0002, 1, 1, -8.1199, 11.5253, 1, -10.0002, 1, 1, -9.8805, 12.4744, 1, -8.1199, 11.5253, 1, -10.0002, 1, 1, -12.0002, 1, 1, -9.8805, 12.4744, 1, -2.8111, 17.1282, -0.2215, -2.6485, 16.7161, 0.2214, -2.8111, 17.1282, 0.2214, -2.8111, 17.1282, -0.2215, -2.6485, 16.7161, -0.2215, -2.6485, 16.7161, 0.2214, -8.1199, 11.5253, -1.0001, -2.6485, 16.7161, 0.2214, -2.6485, 16.7161, -0.2215, -8.1199, 11.5253, -1.0001, -8.1199, 11.5253, 1, -2.6485, 16.7161, 0.2214, -8.1199, 11.5253, 1, -2.8111, 17.1282, 0.2214, -2.6485, 16.7161, 0.2214, -8.1199, 11.5253, 1, -9.8805, 12.4744, 1, -2.8111, 17.1282, 0.2214, -9.8805, 12.4744, -1.0001, -2.6485, 16.7161, -0.2215, -2.8111, 17.1282, -0.2215, -9.8805, 12.4744, -1.0001, -8.1199, 11.5253, -1.0001, -2.6485, 16.7161, -0.2215)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8j861"]
+points = PackedVector3Array(63, -1.49012e-08, 1, 62.7995, 0.19998, 0.797569, -1, -1.49012e-08, 1, 63, -1.49012e-08, -93, -0.805795, 0.19998, 0.797569, 62.7995, 0.19998, -92.8068, -1, -1.49012e-08, -93, -0.805795, 0.19998, -92.8068)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tufeg"]
+points = PackedVector3Array(63, -1.49012e-08, 1, 62.7995, 0.19998, 0.797569, -1, -1.49012e-08, 1, 63, -1.49012e-08, -93, -0.805795, 0.19998, 0.797569, 62.7995, 0.19998, -92.8068, -1, -1.49012e-08, -93, -0.805795, 0.19998, -92.8068)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8qb70"]
+points = PackedVector3Array(63, -1.49012e-08, 1, 62.7995, 0.19998, 0.797569, -1, -1.49012e-08, 1, 63, -1.49012e-08, -93, -0.805795, 0.19998, 0.797569, 62.7995, 0.19998, -92.8068, -1, -1.49012e-08, -93, -0.805795, 0.19998, -92.8068)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kboto"]
+points = PackedVector3Array(-1, -1.49012e-08, -63, -1, -1.49012e-08, 1, -0.805795, 0.19998, -62.8058, 63, -1.49012e-08, -63, -0.805795, 0.19998, 0.79953, 63, -1.49012e-08, 1, 62.7995, 0.19998, -62.8058, 62.7995, 0.19998, 0.79953)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ohfb6"]
+points = PackedVector3Array(-1, -1.49012e-08, -9, -1, -1.49012e-08, 1, -0.805795, 0.19998, -8.80031, 63, -1.49012e-08, -9, -0.805795, 0.19998, 0.799335, 63, -1.49012e-08, 1, 62.7995, 0.19998, -8.80031, 62.7995, 0.19998, 0.799335)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_oa8tn"]
+points = PackedVector3Array(-1, -1.49012e-08, -49, -1, -1.49012e-08, 1, -0.805795, 0.19998, -48.8042, 63, -1.49012e-08, -49, -0.805795, 0.19998, 0.799335, 63, -1.49012e-08, 1, 62.7995, 0.19998, -48.8042, 62.7995, 0.19998, 0.799335)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mbuq8"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.80325, 0.19998, -2.80031, 29, -1.49012e-08, -3, -0.80325, 0.19998, 0.799922, 29, -1.49012e-08, 1, 28.7974, 0.19998, -2.80031, 28.7974, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rlq2f"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.80325, 0.19998, -2.80031, 29, -1.49012e-08, -3, -0.80325, 0.19998, 0.799922, 29, -1.49012e-08, 1, 28.7974, 0.19998, -2.80031, 28.7974, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_arrg5"]
+points = PackedVector3Array(3, -1.49012e-08, 1, 2.79992, 0.19998, 0.799921, -1, -1.49012e-08, 1, 3, -1.49012e-08, -27, -0.800313, 0.19998, 0.799921, 2.79992, 0.19998, -26.8027, -1, -1.49012e-08, -27, -0.800313, 0.19998, -26.8027)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_i0fwx"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 3, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 3, -1.49012e-08, 1, 2.79992, 0.19998, -2.80031, 2.79992, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_npug5"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 3, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 3, -1.49012e-08, 1, 2.79992, 0.19998, -2.80031, 2.79992, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2nrmm"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 3, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 3, -1.49012e-08, 1, 2.79992, 0.19998, -2.80031, 2.79992, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_htq6j"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 3, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 3, -1.49012e-08, 1, 2.79992, 0.19998, -2.80031, 2.79992, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_736gl"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 3, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 3, -1.49012e-08, 1, 2.79992, 0.19998, -2.80031, 2.79992, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5dwbx"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 3, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 3, -1.49012e-08, 1, 2.79992, 0.19998, -2.80031, 2.79992, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8ytyv"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 3, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 3, -1.49012e-08, 1, 2.79992, 0.19998, -2.80031, 2.79992, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4ja7n"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 3, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 3, -1.49012e-08, 1, 2.79992, 0.19998, -2.80031, 2.79992, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pt7jq"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 3, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 3, -1.49012e-08, 1, 2.79992, 0.19998, -2.80031, 2.79992, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0fpvr"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 3, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 3, -1.49012e-08, 1, 2.79992, 0.19998, -2.80031, 2.79992, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1bc1w"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 3, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 3, -1.49012e-08, 1, 2.79992, 0.19998, -2.80031, 2.79992, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2vpk3"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 3, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 3, -1.49012e-08, 1, 2.79992, 0.19998, -2.80031, 2.79992, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0dgtj"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 3, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 3, -1.49012e-08, 1, 2.79992, 0.19998, -2.80031, 2.79992, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xli6e"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 3, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 3, -1.49012e-08, 1, 2.79992, 0.19998, -2.80031, 2.79992, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_04mnb"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 3, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 3, -1.49012e-08, 1, 2.79992, 0.19998, -2.80031, 2.79992, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_e4o37"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 3, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 3, -1.49012e-08, 1, 2.79992, 0.19998, -2.80031, 2.79992, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ynfpk"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 3, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 3, -1.49012e-08, 1, 2.79992, 0.19998, -2.80031, 2.79992, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_njvjw"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 3, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 3, -1.49012e-08, 1, 2.79992, 0.19998, -2.80031, 2.79992, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2wab1"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 3, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 3, -1.49012e-08, 1, 2.79992, 0.19998, -2.80031, 2.79992, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fvfnq"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 3, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 3, -1.49012e-08, 1, 2.79992, 0.19998, -2.80031, 2.79992, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_d8pq5"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 3, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 3, -1.49012e-08, 1, 2.79992, 0.19998, -2.80031, 2.79992, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_f3c0a"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 3, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 3, -1.49012e-08, 1, 2.79992, 0.19998, -2.80031, 2.79992, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pjd72"]
+points = PackedVector3Array(3, -1.49012e-08, 1, 2.79992, 0.19998, 0.799921, -1, -1.49012e-08, 1, 3, -1.49012e-08, -27, -0.800313, 0.19998, 0.799921, 2.79992, 0.19998, -26.8027, -1, -1.49012e-08, -27, -0.800313, 0.19998, -26.8027)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_18ka5"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 3, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 3, -1.49012e-08, 1, 2.79992, 0.19998, -2.80031, 2.79992, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_iek6q"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 3, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 3, -1.49012e-08, 1, 2.79992, 0.19998, -2.80031, 2.79992, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_n7dg0"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 3, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 3, -1.49012e-08, 1, 2.79992, 0.19998, -2.80031, 2.79992, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rbwgg"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 11, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 11, -1.49012e-08, 1, 10.7991, 0.19998, -2.80031, 10.7991, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cxyrs"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 11, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 11, -1.49012e-08, 1, 10.7991, 0.19998, -2.80031, 10.7991, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_uggme"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 3, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 3, -1.49012e-08, 1, 2.79992, 0.19998, -2.80031, 2.79992, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7jlhr"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 11, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 11, -1.49012e-08, 1, 10.7991, 0.19998, -2.80031, 10.7991, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_upih1"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 3, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 3, -1.49012e-08, 1, 2.79992, 0.19998, -2.80031, 2.79992, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ykm44"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 3, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 3, -1.49012e-08, 1, 2.79992, 0.19998, -2.80031, 2.79992, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_g6i68"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 11, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 11, -1.49012e-08, 1, 10.7991, 0.19998, -2.80031, 10.7991, 0.19998, 0.799922)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wybyn"]
+points = PackedVector3Array(-1, -1.49012e-08, -3, -1, -1.49012e-08, 1, -0.800313, 0.19998, -2.80031, 3, -1.49012e-08, -3, -0.800313, 0.19998, 0.799922, 3, -1.49012e-08, 1, 2.79992, 0.19998, -2.80031, 2.79992, 0.19998, 0.799922)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aekd5"]
+resource_name = "Mat01"
+cull_mode = 2
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+roughness = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uc202"]
+resource_name = "Mat02"
+cull_mode = 2
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_njfhg"]
+_surfaces = [{
+"aabb": AABB(-1, -0.486953, -1, 2, 0.973907, 2),
+"format": 34896613377,
+"index_count": 165,
+"index_data": PackedByteArray("AAABAAIAAwABAAAABAADAAAABAAAAAUADQAEAAUADQAFAAkAAgANAAkADQACAAEAAwAGAAEABwAGAAMACgAHAAQABgAHAAoACgAEAA0AAQAGABYAFgAGAA4AFwAOAAYADwAWAA4AFwAPAA4ADwASABYAFwASAA8AAQAWABAAGAAQABYAAQAQABgAGAAWABIAEgARABgAAQAYABEAFwARABIAGQABABEADQABABkAGQARABMAGgAZABMAEQAaABMAGgANABkAEQAbABoAEQAXABsAGgAIAA0AGgALAAgAGgAbAAsAHAANAAgACwAcAAgACwAbABwACgANABwAHAAbAB0AHAAdABUACgAcABUACgAVAB0AGwAMAB0ACgAdAAwAGwAXAAwAHgAKAAwABgAKAB4AFwAGAB4AHgAMABQADAAXABQAFwAeABQA"),
+"lods": [0.10984, PackedByteArray("AAABAAIAAwABAAAABAADAAAABAAAAAUADQAEAAUADQAFAAkAAgANAAkADQACAAEACgAEAA0ACgAHAAQABwAGAAMABgAHAAoAAwAGAAEAAQAGAA4ADwAOAAYADwAGAAoAAQAOABAAEQAQAA4AAQAQABEADwASAA4AEQAOABIADwARABIAAQARABMACwABABMAEQALABMACwANAAEAEQAPAAwAEQAMAAsACwAIAA0ACwAMAAgACgANAAgADAAPABQADwAKABQACgAMABQACgAVAAwACAAMABUACgAIABUA"), 1.12927, PackedByteArray("AAABAAIAAwABAAAABAADAAAABAAAAAUAAwAGAAEABwAGAAMACAACAAEACAAEAAUAAgAIAAkACAAFAAkACgAHAAQACgAEAAgABgAHAAoACwAIAAEADAABAAYADAALAAEADAAGAAoACwAMAAgACAAMAAoA")],
+"name": "Mat01",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 31,
+"vertex_data": PackedByteArray("v8pYZv//AABY98QR//8AAL/KBB7//wAAv8oXfP//AAA/NRd8//8AAD81WGb//wAAdOL/////AAD/f+nf//8AAKYIxBH//wAAPzUEHv//AACmCDru//8AAKYIxBEAAAAApgg67gAAAACKHQAA//8AAFj3Ou7//wAAWPc67gAAAAD//6k8//8AAFj3xBEAAAAA//9VwwAAAAB04gAAAAAAAIod//8AAAAAAABVw///AAD//1XD//8AAHTi//8AAAAA//+pPAAAAAB04gAA//8AAIodAAAAAAAAAACpPAAAAAAAAKk8//8AAAAAVcMAAAAAih3/////AAA=")
+}, {
+"aabb": AABB(-0.583978, -0.372754, 0.925142, 1.16796, 0.737642, 0.0748584),
+"format": 34896613377,
+"index_count": 135,
+"index_data": PackedByteArray("AAABAAIAAAADAAEACwACAAEABAAAAAIACwAEAAIABAAFAAAAAwAAAAUABgABAAMABgALAAEAAwAFAAYAFQAEAAsAFgAFAAQAFQAWAAQABgAFABcAFgAXAAUAFQAIABYACAAXABYACAAHABcAFQAKAAgAFwAHAAkAGAAKABUAGAAJAAoAFwAJABgAGAAVAAsABgAXABgAGAALAAYADAAZABoADAAPABkAGQAPABAAGwAQAAwAGQAQABsAGwAMABoAGgAZAA0AFAAZABsAFAANABkAGwAaAA4AGwAOABQAGgANAA4AEgANABQADgANABEAEgARAA0AFAAOABMAFAATABIADgARABMAEQASABMA"),
+"lods": [0.0103442, PackedByteArray("AAABAAIAAAADAAEABAAAAAIAAwAAAAUABAAFAAAAAwAFAAYABgABAAMABgAFAAcABAAHAAUACAAHAAQABgAHAAkACgAIAAQABgALAAEACQALAAYACQAKAAsACgAEAAsACwACAAEACwAEAAIADAANAA4ADAAPAA0AEAAMAA4ADQAPABAADgANABEAEgARAA0ADgARABMAEQASABMAEAAOABQAFAANABAAFAAOABMAEgANABQAFAATABIA")],
+"name": "Mat02",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 28,
+"vertex_data": PackedByteArray("GAjSDAAAAADm96xSAAAAAOb30gwAAAAAGAisUgAAAACf/cEDACUAAF8CwQMAJQAAXwK9WwAlAAAAAAAA//8AAP//AAD//wAAAAB+X///AAD//35f//8AAJ/9vVsAJQAA//80fP//AAD/B/V/ACUAAP/39X8AJQAAAAA0fP//AAD/f/////8AAE4bBokAAAAA/3+z8AAAAACw5AaJAAAAAP9/hPsAJQAA//9+X1Z+AAD//wAAVn4AAAAAAABWfgAAAAB+X1Z+AAAAADR8Vn4AAP//NHxWfgAA/3///1Z+AAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_0yh2s"]
+resource_name = "EjectButton_Cube_001"
+_surfaces = [{
+"aabb": AABB(-1, -0.486953, -1, 2, 0.973907, 2),
+"attribute_data": PackedByteArray("lXmvMnBk1j2AZ68yBX+vMnBkKQKAZ1AN/5+dOJV5Tw35l/8fjpspAgV/UA3/3/9/Yaf/P//f/z//X/8//x//f/8f/z//X////5//v/+f////X/+/jpvWPSpv/z//X2IH1JAAAP9f/3//n/8/1JD/f/+f/38qb/8/nNj/f51Y/39iJ/8/1JD//3BkKYJwZNW9/19ih46b1b2OmymC/5+cuNSQ/3/UkP8//59iB/9fnTgqbwAAKm//f9SQ/z/UkP9/Km//P2Gn/3+c2P8/Km///9SQ/7/UkP//Km//v/+fYocqb/9/Km//v9SQ/7//X5y4Yif/f2In/z8qb///Km//v5zY/z+c2P9/1JD/v51Y/z+dWP9//1//Pypv/3//X/9/Yaf/f2Gn/z//n/9/1JD/P/+f/z9iJ/9/nVj/Pw=="),
+"format": 34896613399,
+"index_count": 165,
+"index_data": PackedByteArray("AAABAAIAAwABAAAACgADAAAACgAAAAcAAwAGAAEACAAGAAMAAQAGACkAKQAGABUAAQApABYABgAIAAkACQAIAAoABgAJACoAFwAKAAcACQAKABcAFwACAAEAFwABACsAAgAXAAUAFwAHAAUACQAXACwALAAXAAQACQAsABgALQAuAC8ALQAwAC4AMQAyAB4AMQAMADIAMwA0ADUAMwA2ADQANwAoACYANwAiACgAKAAiADgAJQA3ACcAOQA3ACUAIgA3ADkAOQAlADoAIgA5ADsAOwA5ACMAIgA7ACQAPAAQAD0APAAPABAAFAA+ABEAFAA/AD4AQAALAEEAQAANAAsAEwBCABIAEwAhAEIAQwAZAEQAQwAOABkARQBGAEcARQAdAEYASAAaAEkASAAcABoASgBLAEwASgAbAEsATQBOAB8ATQAgAE4A"),
+"lods": [0.10984, PackedByteArray("AAABAAIAAQAVABYAAQAGABUAAwABAAAAAwAGAAEACAAGAAMAFwACAAEABgAIAAkAAgAXAAUACgADAAAACQAIAAoACQAKABcACgAAAAcAFwAHAAUAFwAKAAcACQAXAAQACQAEABgAGQAaABsAHAAbABoAGQAdABoAHAAaAAwADgAdABkAHAAMAA0AHAANAB4ADQALAB4ADgAZAB8ADwAOAB8ADwAgAA4ADwAQACAAEQASACEAEwAhABIAFAASABEAIgAjACQAIgAlACMAIgAmACUAJQAmACcAJgAiACgA"), 1.12927, PackedByteArray("AAABAAIAAwABAAAABAACAAEAAgAEAAUAAwAGAAEABAAHAAUACAAGAAMABgAIAAkACgADAAAACgAAAAcABAAKAAcACQAIAAoACQAKAAQACwAMAA0ACwAOAAwACwAPAA4ADwAQAA4AEQASABMAFAASABEA")],
+"material": SubResource("StandardMaterial3D_aekd5"),
+"name": "Mat01",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 79,
+"vertex_data": PackedByteArray("v8pYZv///79Y98QR////v7/KBB7///+/v8oXfP///7+mCMQR////vz81BB7///+/dOL//////78/NVhm////v/9/6d////+/pgg67v///78/NRd8////v6YIOu4AALj0dOL///////+mCDru//+49Fj3xBH//4zBpgjEEQAAjMGmCMQR//+MwaYIxBH//xnfpgg67gAAyMymCDru///IzKYIxBEAABnfWPc67v///7///6k8////v4odAAD///+/AABVw////79Y98QRAACMwVj3Ou7//7j0//9VwwAAGd9Y9zruAAC49P//qTz//8jMih3//wAA//904gAAAAD/v4odAAD///+/AABVw///yMxY98QRAAD//6YIxBEAAP//dOIAAAAA//+mCDruAAD//1j3Ou4AAP//ih3//wAA/////1XDAAD/////VcP///+/ih3//////7904gAA////vwAAqTz///+///+pPAAAVNX//1XD//9U1f//VcMAAFTV//+pPP//VNV04v//AAD//4od////////AACpPP//VNUAAFXDAABU1QAAVcP//1TVAACpPAAAVNV04v//AAD/////qTwAAP//AACpPAAA//8AAFXDAAD//4odAAAAAP//ih0AAAAAjMGKHQAA//+MwQAAqTz//xnfAACpPAAAGd+KHf////+49Iod//8AALj0AABVwwAAyMx04gAA//+MwXTiAAAAAIzBWPfEEf//yMz//6k8AADIzFj3xBEAAMjMdOL//wAAuPR04v////+49Fj3Ou4AABnf//9Vw///Gd9Y9zru//8Z34odAAAAAP+/dOIAAP///7///////////////////////////////////////////////////////////2t0Nbr/f/+/a3Q1ujYSkVttJDaSbSQ2kgbQ8d9j2zXJY9s1yQbQ8d//////////////////////NhKRWzU6lAv4Lw0gNTqUC5skyTb/f/+/AAD/fwAA/39j2zXJ/7//v/+//7//v/+//7//v/+//7//v/+//7//v/////////////////////+qKqoqqiqqKqoqqiqqKqoq/3//v/9//79U1VTVVNVU1VTVVNVU1VTV/7//v/+//7//v/+//7//v/+//79tJDaSbSQ2kgbQ8d8G0PHfa3Q1umt0Nbpj2zXJNhKRWzYSkVubJMk2myTJNpskyTY1OpQLNTqUC/gvDSD4Lw0g+C8NIAAA/38AAP9/")
+}, {
+"aabb": AABB(-0.583978, -0.372754, 0.925142, 1.16796, 0.737642, 0.0748584),
+"attribute_data": PackedByteArray("l2j5vWeXBYKXaAWC/1+XgP9fZ797nf9/g2L/f/+fmn3/X5p9Z5f5vYNi/7//n2e//5+XgHud/7//X2TC/59kwv9fmn3/If9//13/f/8fmn05Zg62kpi2gzlmtoNZY6W8WZ+kgP9f/4H/X/+9WZ//f1lj/3//n5p9/1+afVlj/7//X2TC/59kwlmf/79nX/9//x+afZcg/3//X5p9/9+afZeg/39n3/9//5+aff/f0H7/n9B+/x/Qfv9f0H7/Xy3B/58twf+f0H7/X9B+/5/Qfv9f0H7/Xy3B/58twWeX+b2XaPm9e53/v/9fLcH/ny3Bg2L/v/9f0H7/H9B+l2j5vZdoBYL/39B+/5/QfmeXBYJnl/m9/5/QfoNi/397nf9//1/QfpdoBYJnlwWCkpi2gzlmDrb/Xy3B/58twf9f0H7/H9B+OWYOtjlmtoP/n9B+WWP/f1mf/3//X9B+OWa2g5KYtoP/H9B+/1/Qfg=="),
+"format": 34896613399,
+"index_count": 135,
+"index_data": PackedByteArray("AAABAAIAAAAJAAEAKwAqACwAKwAnACoAEAAtAC4AEAATAC0ALwAPADAALwAOAA8AMQAIADIAMQAHAAgAFAAVABYAMwAeADQAMwAdAB4ANQAhADYANQAgACEANwAKAA0ANwA4AAoAOQA6ADsAOQA8ADoAPQAlACMAPQA+ACUAAwA/AEAAAwAEAD8AQQAoACkAQQBCACgACwBDAEQACwAMAEMARQBGAEcARQBIAEYABQBJAEoABQAGAEkASwAXABgASwBMABcAIgBNAE4AIgAfAE0ATwARABIATwBQABEAGQBRAFIAGQAaAFEAUwBUAFUAUwBWAFQAGwBXAFgAGwAcAFcAJgBZAFoAJgAkAFkA"),
+"lods": [0.0103442, PackedByteArray("AAABAAIAAwAAAAIAAwAEAAAABQACAAEABQAGAAIABwAGAAUABwAIAAYAAAAJAAEACQAAAAoACwABAAkACwAMAAEACQAKAA0ADQAKAA4ADQAOAA8AEAARABIAEAATABEAFAAVABYAFQAUABcAFQAXABgAGQAUABYAGQAaABQAGwAWABUAGwAcABYAHQAcABsAHQAeABwAHwAgACEAIgAfACEAIwAkACUAJgAkACMAJwAoACkAJwAqACgA")],
+"material": SubResource("StandardMaterial3D_uc202"),
+"name": "Mat02",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 91,
+"vertex_data": PackedByteArray("GAjSDAAA/z/m96xSAAD/P+b30gwAAP8/n/3BAwAlcj5fAsEDACVyPp/9vVsAJXI+n/3BAwAlcj7//35f//+qKv//AAD//6oqGAisUgAA/z9fAsEDACVyPl8CvVsAJXI+n/29WwAlcj5fAr1bACVyPgAAAAD//6oqAAB+X///qir//zR8////P/8H9X8AJf9P//f1fwAl/08AADR8////P04bBokAAH0X/3+z8AAAfRew5AaJAAB9F/8H9X8AJbkS/3+E+wAluRL/9/V/ACVyEv8H9X8AJXIS/3+E+wAlBxf/9/V/ACUHF/9//////34Q//80fP//fhD/B/V/ACUtSwAANHz//7M8/3//////szz/f4T7ACUtS5/9wQMAJf9PAAAAAP///z9fAsEDACX/T///AAD///8/AAB+X///AACf/b1bACUAAF8CvVsAJQAA//9+X///AAAAAH5fVn4AAP//fl9WfgAAAAA0fFZ+/z///zR8Vn7/PwAAAABWfqoqAAB+X1Z+qir//35fVn6qKv//AABWfqoq/3///1Z+fhD//zR8Vn5+EAAANHxWfrM8/3///1Z+szwYCKxSAAByPhgI0gwAAHI+XwK9WwAlNjMAAAAAVn42MwAAfl9WfjYzXwLBAwAlNjP//wAAVn7/TwAAAABWfv9PGAjSDAAAcj7m99IMAAByPgAAfl9WfgAA//9+X1Z+AADm96xSAAByPhgIrFIAAHI+//9+X1Z+NjOf/cEDACU2M5/9vVsAJTYz//8AAFZ+NjPm99IMAAByPub3rFIAAHI+/3+z8AAAuRJOGwaJAAC6EgAANHxWfi1L/3///1Z+LUv//zR8Vn7/TwAANHxWfv9PThsGiQAAchKw5AaJAAByEv9///9WfnIT//f1fwAlchP/f4T7ACVyE///NHxWfnITsOQGiQAABxf/f7PwAAAHFwAAAABWfv8///8AAFZ+/z/////////////////I7TYSyO02EsjtyO3I7cjtVNVU1VTVVNX/////NhI2EjYSyO02EsjtNhI2EqoqqiqqKqoq////f////3////9//v//f/////////////////wNRvH8DUbxjuvOBI7rzgTB6/75wev++UPId+9DyHfvzxWLSdMXV1DTF1dQzxWLSf///3////9/////f////3//f/8//3+6TP9/ukz/f/8//3//P/9//z/+//9/////f6oqqiqqKqoqVNVU1VTVVNVDyHfvQ8h379MXV1DTF1dQNhI2EjYSNhKbJJskmySbJJskmySbJJsk////f////3/I7TYSyO02Ev9/ukz/f7pMNhLI7TYSyO1j22PbY9tj22PbY9tj22PbyO3I7cjtyO38DUbx/A1G8c8Vi0nPFYtJ////f////3+O684EjuvOBCvSZ/Ir0mfyK9Jn8ivSZ/LB6/75wev++f///3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_njfhg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rex1h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4pm6c"]
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o0emj"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("6_ohfb6")
+shader_parameter/albedo_texture = ExtResource("7_isfor")
+shader_parameter/albedo_color = Color(0.488281, 0.42586, 0.375748, 1)
+shader_parameter/UVScaling = Vector2(1, 1)
+shader_parameter/distance_fade_min = null
+shader_parameter/distance_fade_max = null
+shader_parameter/viewDistanceOverride = 0.0
+shader_parameter/AOMix = 0.0
+shader_parameter/ambientMix = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uc0s5"]
+render_priority = 0
+shader = ExtResource("8_isfor")
+shader_parameter/albedo_texture = ExtResource("9_o0emj")
+shader_parameter/albedo_color = Color(0.378906, 0.378906, 0.378906, 1)
+shader_parameter/UVScaling = Vector2(1, 1)
+shader_parameter/distance_fade_min = null
+shader_parameter/distance_fade_max = null
+shader_parameter/viewDistanceOverride = 0.0
+shader_parameter/AOMix = 0.0
+shader_parameter/ambientMix = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rlq2f"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_arrg5"]
+render_priority = 0
+shader = ExtResource("11_oa8tn")
+shader_parameter/tex = ExtResource("12_mbuq8")
+shader_parameter/color = Color(0.326752, 0.503906, 0.387649, 0.337255)
+shader_parameter/textureScaling = Vector2(1, 1)
+shader_parameter/waves = 1.0
+shader_parameter/distortion = 0.02
+shader_parameter/distance_fade_min = 50.0
+shader_parameter/distance_fade_max = 15.0
+
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_uc0s5"]
 data = PackedVector3Array(-1, 0, 1, -1, 0.2, -19, -1, 0.2, 1, -1, 0, 1, -1, 0, -19, -1, 0.2, -19, -1, 0, -19, 15, 0.2, -19, -1, 0.2, -19, -1, 0, -19, 15, 0, -19, 15, 0.2, -19, 15, 0, -19, 15, 0.2, 1, 15, 0.2, -19, 15, 0, -19, 15, 0, 1, 15, 0.2, 1, 15, 0, 1, -1, 0.2, 1, 15, 0.2, 1, 15, 0, 1, -1, 0, 1, -1, 0.2, 1, -1, 0, -19, 15, 0, 1, 15, 0, -19, -1, 0, -19, -1, 0, 1, 15, 0, 1, 15, 0.2, -19, -1, 0.2, 1, -1, 0.2, -19, 15, 0.2, -19, 15, 0.2, 1, -1, 0.2, 1)
 
@@ -107,6 +364,9 @@ data = PackedVector3Array(-2, -3.2147, -1.174, -2, -6.0011, -3.9376, -2, -3.1023
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_uc0s5"]
 points = PackedVector3Array(-2, 2.23517e-08, -7, -2, 0.19998, -7, 18, 2.23517e-08, -7, -2, 2.23517e-08, 1, -2, 0.19998, 1, 18, 0.19998, -7, 18, 2.23517e-08, 1, 18, 0.19998, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rex1h"]
+data = PackedVector3Array(-25, 0, 1, -25, 0.2, -93, -25, 0.2, 1, -25, 0, 1, -25, 0, -93, -25, 0.2, -93, -25, 0, -93, 39, 0.2, -93, -25, 0.2, -93, -25, 0, -93, 39, 0, -93, 39, 0.2, -93, 39, 0, -93, 39, 0.2, 1, 39, 0.2, -93, 39, 0, -93, 39, 0, 1, 39, 0.2, 1, 39, 0, 1, -25, 0.2, 1, 39, 0.2, 1, 39, 0, 1, -25, 0, 1, -25, 0.2, 1, -25, 0, -93, 39, 0, 1, 39, 0, -93, -25, 0, -93, -25, 0, 1, 39, 0, 1, 39, 0.2, -93, -25, 0.2, 1, -25, 0.2, -93, 39, 0.2, -93, 39, 0.2, 1, -25, 0.2, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_unave"]
 resource_local_to_scene = true
@@ -206,6 +466,16 @@ billboard_mode = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_ldvjd"]
 size = Vector2(2, 2)
+
+[sub_resource type="GDScript" id="GDScript_4pm6c"]
+script/source = "extends Node3D
+
+@export var player : Player
+var activated : bool = false
+
+func _physics_process(delta: float) -> void:
+	activated
+"
 
 [sub_resource type="Animation" id="Animation_mxiu3"]
 resource_name = "Intro"
@@ -1160,7 +1430,1450 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 8, -6.00001)
 shape = SubResource("BoxShape3D_unave")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="Collision" parent="MenuLevel" index="38"]
+[node name="IO" parent="MenuLevel" index="38"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/Gate" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Gate/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4pm6c")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_001" parent="MenuLevel/IO" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_001" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_001/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_8j861")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_002" parent="MenuLevel/IO" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_002" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_002/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_tufeg")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_003" parent="MenuLevel/IO" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_003" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_003/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_8qb70")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_004" parent="MenuLevel/IO" index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_004" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_004/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_kboto")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_005" parent="MenuLevel/IO" index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_005" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_005/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_ohfb6")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_006" parent="MenuLevel/IO" index="6"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_006" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_006/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_oa8tn")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_007" parent="MenuLevel/IO" index="7"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_007" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_007/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_mbuq8")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_008" parent="MenuLevel/IO" index="8"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_008" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_008/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_rlq2f")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_009" parent="MenuLevel/IO" index="9"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_009" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_009/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_arrg5")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_010" parent="MenuLevel/IO" index="10"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_010" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_010/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_i0fwx")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_011" parent="MenuLevel/IO" index="11"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_011" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_011/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_npug5")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_012" parent="MenuLevel/IO" index="12"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_012" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_012/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_2nrmm")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_013" parent="MenuLevel/IO" index="13"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_013" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_013/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_htq6j")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_014" parent="MenuLevel/IO" index="14"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_014" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_014/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_736gl")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_015" parent="MenuLevel/IO" index="15"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_015" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_015/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_5dwbx")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_016" parent="MenuLevel/IO" index="16"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_016" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_016/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_8ytyv")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_017" parent="MenuLevel/IO" index="17"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_017" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_017/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_4ja7n")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_018" parent="MenuLevel/IO" index="18"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_018" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_018/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_pt7jq")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_019" parent="MenuLevel/IO" index="19"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_019" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_019/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_0fpvr")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_020" parent="MenuLevel/IO" index="20"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_020" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_020/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_1bc1w")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_021" parent="MenuLevel/IO" index="21"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_021" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_021/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_2vpk3")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_022" parent="MenuLevel/IO" index="22"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_022" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_022/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_0dgtj")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_023" parent="MenuLevel/IO" index="23"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_023" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_023/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_xli6e")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_024" parent="MenuLevel/IO" index="24"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_024" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_024/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_04mnb")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_025" parent="MenuLevel/IO" index="25"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_025" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_025/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_e4o37")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_026" parent="MenuLevel/IO" index="26"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_026" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_026/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_ynfpk")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_027" parent="MenuLevel/IO" index="27"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_027" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_027/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_njvjw")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_028" parent="MenuLevel/IO" index="28"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_028" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_028/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_2wab1")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_029" parent="MenuLevel/IO" index="29"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_029" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_029/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_fvfnq")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_030" parent="MenuLevel/IO" index="30"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_030" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_030/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_d8pq5")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_031" parent="MenuLevel/IO" index="31"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_031" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_031/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_f3c0a")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_032" parent="MenuLevel/IO" index="32"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_032" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_032/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_pjd72")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_033" parent="MenuLevel/IO" index="33"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_033" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_033/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_18ka5")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_034" parent="MenuLevel/IO" index="34"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_034" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_034/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_iek6q")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_035" parent="MenuLevel/IO" index="35"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_035" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_035/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_n7dg0")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_036" parent="MenuLevel/IO" index="36"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_036" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_036/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_rbwgg")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_037" parent="MenuLevel/IO" index="37"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_037" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_037/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_cxyrs")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_038" parent="MenuLevel/IO" index="38"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_038" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_038/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_uggme")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_039" parent="MenuLevel/IO" index="39"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_039" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_039/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_7jlhr")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_040" parent="MenuLevel/IO" index="40"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_040" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_040/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_upih1")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_041" parent="MenuLevel/IO" index="41"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_041" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_041/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_ykm44")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_042" parent="MenuLevel/IO" index="42"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_042" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_042/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_g6i68")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="IO_043" parent="MenuLevel/IO" index="43"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
+surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/IO/IO_043" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_043/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_wybyn")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="EjectButton" type="Node3D" parent="MenuLevel/IO/IO_043" index="1"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1.5, 0)
+
+[node name="Cube" type="MeshInstance3D" parent="MenuLevel/IO/IO_043/EjectButton"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+mesh = SubResource("ArrayMesh_0yh2s")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_rex1h")
+surface_material_override/1 = SubResource("StandardMaterial3D_4pm6c")
+
+[node name="Interactable" parent="MenuLevel/IO/IO_043/EjectButton" instance=ExtResource("2_4pm6c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="Platforming" type="Node3D" parent="MenuLevel/IO" index="44"]
+
+[node name="JumpLeaf" parent="MenuLevel/IO/Platforming" instance=ExtResource("3_8j861")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 60, 0.25, -7.75)
+verticalClamp = 20.0
+launchFWSpeed = 4.0
+
+[node name="JumpLeaf2" parent="MenuLevel/IO/Platforming" instance=ExtResource("3_8j861")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 60, 0.25, -16.5)
+verticalClamp = 20.0
+launchFWSpeed = 4.0
+
+[node name="JumpLeaf3" parent="MenuLevel/IO/Platforming" instance=ExtResource("3_8j861")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 60, 0.25, -80)
+verticalClamp = 22.2
+launchFWSpeed = 3.0
+
+[node name="JumpLeaf4" parent="MenuLevel/IO/Platforming" instance=ExtResource("3_8j861")]
+transform = Transform3D(2, 0, 6.308e-15, 0, 2, 0, -6.308e-15, 0, 2, 14, 0.25, -62)
+verticalClamp = 26.865
+launchFWSpeed = 7.0
+
+[node name="JumpPad" parent="MenuLevel/IO/Platforming" instance=ExtResource("7_ub1iy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61, 10.25, -37)
+enabled = true
+impulse = 15.0
+directionalImpulse = Vector2(0, -6)
+
+[node name="WoodPlatform" parent="MenuLevel/IO/Platforming" instance=ExtResource("5_kboto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.5, 16.75, -53)
+breaks = true
+breakTime = 0.5
+respawnTime = 2.0
+metadata/_edit_group_ = true
+
+[node name="Platform" parent="MenuLevel/IO/Platforming/WoodPlatform/PlatformBody" index="0"]
+material_override = SubResource("ShaderMaterial_o0emj")
+
+[node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatform/Chains" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatform/Chains" index="1"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatform/Chains" index="2"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatform/Chains" index="3"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatform/Chains" index="4"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatform/Chains" index="5"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatform/Chains" index="6"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatform/Chains" index="7"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatform/Chains" index="8"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatform/Chains" index="9"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatform/Chains" index="10"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatform/Chains" index="11"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatform/Chains" index="12"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatform/Chains" index="13"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatform/Chains" index="14"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatform/Chains" index="15"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="WoodPlatform2" parent="MenuLevel/IO/Platforming" instance=ExtResource("5_kboto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5, 17.75, -53)
+breaks = true
+breakTime = 0.5
+respawnTime = 2.0
+metadata/_edit_group_ = true
+
+[node name="Platform" parent="MenuLevel/IO/Platforming/WoodPlatform2/PlatformBody" index="0"]
+material_override = SubResource("ShaderMaterial_o0emj")
+
+[node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatform2/Chains" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatform2/Chains" index="1"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatform2/Chains" index="2"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatform2/Chains" index="3"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatform2/Chains" index="4"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatform2/Chains" index="5"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatform2/Chains" index="6"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatform2/Chains" index="7"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatform2/Chains" index="8"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatform2/Chains" index="9"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatform2/Chains" index="10"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatform2/Chains" index="11"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatform2/Chains" index="12"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatform2/Chains" index="13"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatform2/Chains" index="14"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatform2/Chains" index="15"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="WoodPlatform3" parent="MenuLevel/IO/Platforming" instance=ExtResource("5_kboto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.5, 17.75, -51)
+breaks = true
+breakTime = 0.5
+respawnTime = 2.0
+metadata/_edit_group_ = true
+
+[node name="Platform" parent="MenuLevel/IO/Platforming/WoodPlatform3/PlatformBody" index="0"]
+material_override = SubResource("ShaderMaterial_o0emj")
+
+[node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatform3/Chains" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatform3/Chains" index="1"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatform3/Chains" index="2"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatform3/Chains" index="3"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatform3/Chains" index="4"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatform3/Chains" index="5"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatform3/Chains" index="6"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatform3/Chains" index="7"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatform3/Chains" index="8"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatform3/Chains" index="9"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatform3/Chains" index="10"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatform3/Chains" index="11"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatform3/Chains" index="12"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatform3/Chains" index="13"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatform3/Chains" index="14"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatform3/Chains" index="15"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="WoodPlatform4" parent="MenuLevel/IO/Platforming" instance=ExtResource("5_kboto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.5, 17.75, -53)
+breaks = true
+breakTime = 0.5
+respawnTime = 2.0
+metadata/_edit_group_ = true
+
+[node name="Platform" parent="MenuLevel/IO/Platforming/WoodPlatform4/PlatformBody" index="0"]
+material_override = SubResource("ShaderMaterial_o0emj")
+
+[node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatform4/Chains" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatform4/Chains" index="1"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatform4/Chains" index="2"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatform4/Chains" index="3"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatform4/Chains" index="4"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatform4/Chains" index="5"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatform4/Chains" index="6"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatform4/Chains" index="7"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatform4/Chains" index="8"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatform4/Chains" index="9"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatform4/Chains" index="10"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatform4/Chains" index="11"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatform4/Chains" index="12"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatform4/Chains" index="13"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatform4/Chains" index="14"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatform4/Chains" index="15"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="WoodPlatform10" parent="MenuLevel/IO/Platforming" instance=ExtResource("5_kboto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 34.75, -67)
+breaks = true
+breakTime = 0.5
+respawnTime = 2.0
+metadata/_edit_group_ = true
+
+[node name="Platform" parent="MenuLevel/IO/Platforming/WoodPlatform10/PlatformBody" index="0"]
+material_override = SubResource("ShaderMaterial_o0emj")
+
+[node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatform10/Chains" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatform10/Chains" index="1"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatform10/Chains" index="2"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatform10/Chains" index="3"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatform10/Chains" index="4"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatform10/Chains" index="5"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatform10/Chains" index="6"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatform10/Chains" index="7"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatform10/Chains" index="8"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatform10/Chains" index="9"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatform10/Chains" index="10"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatform10/Chains" index="11"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatform10/Chains" index="12"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatform10/Chains" index="13"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatform10/Chains" index="14"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatform10/Chains" index="15"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="WoodPlatform11" parent="MenuLevel/IO/Platforming" instance=ExtResource("5_kboto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 36.75, -78)
+breaks = true
+breakTime = 0.5
+respawnTime = 2.0
+metadata/_edit_group_ = true
+
+[node name="Platform" parent="MenuLevel/IO/Platforming/WoodPlatform11/PlatformBody" index="0"]
+material_override = SubResource("ShaderMaterial_o0emj")
+
+[node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatform11/Chains" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatform11/Chains" index="1"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatform11/Chains" index="2"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatform11/Chains" index="3"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatform11/Chains" index="4"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatform11/Chains" index="5"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatform11/Chains" index="6"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatform11/Chains" index="7"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatform11/Chains" index="8"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatform11/Chains" index="9"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatform11/Chains" index="10"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatform11/Chains" index="11"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatform11/Chains" index="12"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatform11/Chains" index="13"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatform11/Chains" index="14"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatform11/Chains" index="15"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="WoodPlatform12" parent="MenuLevel/IO/Platforming" instance=ExtResource("5_kboto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 36.75, -79)
+breaks = true
+breakTime = 0.5
+respawnTime = 2.0
+metadata/_edit_group_ = true
+
+[node name="Platform" parent="MenuLevel/IO/Platforming/WoodPlatform12/PlatformBody" index="0"]
+material_override = SubResource("ShaderMaterial_o0emj")
+
+[node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatform12/Chains" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatform12/Chains" index="1"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatform12/Chains" index="2"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatform12/Chains" index="3"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatform12/Chains" index="4"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatform12/Chains" index="5"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatform12/Chains" index="6"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatform12/Chains" index="7"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatform12/Chains" index="8"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatform12/Chains" index="9"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatform12/Chains" index="10"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatform12/Chains" index="11"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatform12/Chains" index="12"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatform12/Chains" index="13"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatform12/Chains" index="14"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatform12/Chains" index="15"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="WoodPlatform13" parent="MenuLevel/IO/Platforming" instance=ExtResource("5_kboto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 35.75, -84.5)
+breaks = true
+breakTime = 0.5
+respawnTime = 2.0
+metadata/_edit_group_ = true
+
+[node name="Platform" parent="MenuLevel/IO/Platforming/WoodPlatform13/PlatformBody" index="0"]
+material_override = SubResource("ShaderMaterial_o0emj")
+
+[node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatform13/Chains" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatform13/Chains" index="1"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatform13/Chains" index="2"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatform13/Chains" index="3"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatform13/Chains" index="4"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatform13/Chains" index="5"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatform13/Chains" index="6"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatform13/Chains" index="7"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatform13/Chains" index="8"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatform13/Chains" index="9"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatform13/Chains" index="10"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatform13/Chains" index="11"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatform13/Chains" index="12"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatform13/Chains" index="13"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatform13/Chains" index="14"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatform13/Chains" index="15"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="WoodPlatform14" parent="MenuLevel/IO/Platforming" instance=ExtResource("5_kboto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 36.25, -86.5)
+breaks = true
+breakTime = 0.5
+respawnTime = 2.0
+metadata/_edit_group_ = true
+
+[node name="Platform" parent="MenuLevel/IO/Platforming/WoodPlatform14/PlatformBody" index="0"]
+material_override = SubResource("ShaderMaterial_o0emj")
+
+[node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatform14/Chains" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatform14/Chains" index="1"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatform14/Chains" index="2"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatform14/Chains" index="3"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatform14/Chains" index="4"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatform14/Chains" index="5"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatform14/Chains" index="6"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatform14/Chains" index="7"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatform14/Chains" index="8"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatform14/Chains" index="9"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatform14/Chains" index="10"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatform14/Chains" index="11"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatform14/Chains" index="12"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatform14/Chains" index="13"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatform14/Chains" index="14"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatform14/Chains" index="15"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="WoodPlatform5" parent="MenuLevel/IO/Platforming" instance=ExtResource("5_kboto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.5, 17.75, -55)
+breaks = true
+breakTime = 0.5
+respawnTime = 2.0
+metadata/_edit_group_ = true
+
+[node name="Platform" parent="MenuLevel/IO/Platforming/WoodPlatform5/PlatformBody" index="0"]
+material_override = SubResource("ShaderMaterial_o0emj")
+
+[node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatform5/Chains" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatform5/Chains" index="1"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatform5/Chains" index="2"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatform5/Chains" index="3"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatform5/Chains" index="4"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatform5/Chains" index="5"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatform5/Chains" index="6"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatform5/Chains" index="7"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatform5/Chains" index="8"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatform5/Chains" index="9"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatform5/Chains" index="10"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatform5/Chains" index="11"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatform5/Chains" index="12"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatform5/Chains" index="13"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatform5/Chains" index="14"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatform5/Chains" index="15"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="WoodPlatform6" parent="MenuLevel/IO/Platforming" instance=ExtResource("5_kboto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 17.75, -53)
+breaks = true
+breakTime = 0.5
+respawnTime = 2.0
+metadata/_edit_group_ = true
+
+[node name="Platform" parent="MenuLevel/IO/Platforming/WoodPlatform6/PlatformBody" index="0"]
+material_override = SubResource("ShaderMaterial_o0emj")
+
+[node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatform6/Chains" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatform6/Chains" index="1"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatform6/Chains" index="2"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatform6/Chains" index="3"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatform6/Chains" index="4"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatform6/Chains" index="5"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatform6/Chains" index="6"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatform6/Chains" index="7"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatform6/Chains" index="8"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatform6/Chains" index="9"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatform6/Chains" index="10"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatform6/Chains" index="11"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatform6/Chains" index="12"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatform6/Chains" index="13"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatform6/Chains" index="14"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatform6/Chains" index="15"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="WoodPlatform7" parent="MenuLevel/IO/Platforming" instance=ExtResource("5_kboto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.5, 17.75, -51)
+breaks = true
+breakTime = 0.5
+respawnTime = 2.0
+metadata/_edit_group_ = true
+
+[node name="Platform" parent="MenuLevel/IO/Platforming/WoodPlatform7/PlatformBody" index="0"]
+material_override = SubResource("ShaderMaterial_o0emj")
+
+[node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatform7/Chains" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatform7/Chains" index="1"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatform7/Chains" index="2"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatform7/Chains" index="3"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatform7/Chains" index="4"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatform7/Chains" index="5"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatform7/Chains" index="6"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatform7/Chains" index="7"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatform7/Chains" index="8"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatform7/Chains" index="9"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatform7/Chains" index="10"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatform7/Chains" index="11"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatform7/Chains" index="12"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatform7/Chains" index="13"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatform7/Chains" index="14"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatform7/Chains" index="15"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="WoodPlatform8" parent="MenuLevel/IO/Platforming" instance=ExtResource("5_kboto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 17.75, -53)
+breaks = true
+breakTime = 0.5
+respawnTime = 2.0
+metadata/_edit_group_ = true
+
+[node name="Platform" parent="MenuLevel/IO/Platforming/WoodPlatform8/PlatformBody" index="0"]
+material_override = SubResource("ShaderMaterial_o0emj")
+
+[node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatform8/Chains" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatform8/Chains" index="1"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatform8/Chains" index="2"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatform8/Chains" index="3"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatform8/Chains" index="4"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatform8/Chains" index="5"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatform8/Chains" index="6"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatform8/Chains" index="7"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatform8/Chains" index="8"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatform8/Chains" index="9"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatform8/Chains" index="10"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatform8/Chains" index="11"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatform8/Chains" index="12"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatform8/Chains" index="13"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatform8/Chains" index="14"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatform8/Chains" index="15"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="WoodPlatform9" parent="MenuLevel/IO/Platforming" instance=ExtResource("5_kboto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 17.75, -54)
+breaks = true
+breakTime = 0.5
+respawnTime = 2.0
+metadata/_edit_group_ = true
+
+[node name="Platform" parent="MenuLevel/IO/Platforming/WoodPlatform9/PlatformBody" index="0"]
+material_override = SubResource("ShaderMaterial_o0emj")
+
+[node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatform9/Chains" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatform9/Chains" index="1"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatform9/Chains" index="2"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatform9/Chains" index="3"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatform9/Chains" index="4"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatform9/Chains" index="5"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatform9/Chains" index="6"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatform9/Chains" index="7"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatform9/Chains" index="8"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatform9/Chains" index="9"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatform9/Chains" index="10"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatform9/Chains" index="11"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatform9/Chains" index="12"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatform9/Chains" index="13"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatform9/Chains" index="14"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatform9/Chains" index="15"]
+surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+
+[node name="WaterVolume" parent="MenuLevel/IO/Platforming" instance=ExtResource("10_rleeb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 19, -57)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Platforming/WaterVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_rlq2f")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="MenuLevel/IO/Platforming/WaterVolume/CollisionShape3D"]
+instance_shader_parameters/ambientInfluence = 0.0
+instance_shader_parameters/nonAmbient = 1.0
+size = Vector3(2, 2, 2)
+material = SubResource("ShaderMaterial_arrg5")
+
+[node name="WaterVolume2" parent="MenuLevel/IO/Platforming" instance=ExtResource("10_rleeb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 22, -59)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Platforming/WaterVolume2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_rlq2f")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="MenuLevel/IO/Platforming/WaterVolume2/CollisionShape3D"]
+instance_shader_parameters/ambientInfluence = 0.0
+instance_shader_parameters/nonAmbient = 1.0
+size = Vector3(2, 2, 2)
+material = SubResource("ShaderMaterial_arrg5")
+
+[node name="WaterVolume3" parent="MenuLevel/IO/Platforming" instance=ExtResource("10_rleeb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 25, -57)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Platforming/WaterVolume3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_rlq2f")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="MenuLevel/IO/Platforming/WaterVolume3/CollisionShape3D"]
+instance_shader_parameters/ambientInfluence = 0.0
+instance_shader_parameters/nonAmbient = 1.0
+size = Vector3(2, 2, 2)
+material = SubResource("ShaderMaterial_arrg5")
+
+[node name="WaterVolume4" parent="MenuLevel/IO/Platforming" instance=ExtResource("10_rleeb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 28, -59)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Platforming/WaterVolume4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_rlq2f")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="MenuLevel/IO/Platforming/WaterVolume4/CollisionShape3D"]
+instance_shader_parameters/ambientInfluence = 0.0
+instance_shader_parameters/nonAmbient = 1.0
+size = Vector3(2, 2, 2)
+material = SubResource("ShaderMaterial_arrg5")
+
+[node name="WaterVolume5" parent="MenuLevel/IO/Platforming" instance=ExtResource("10_rleeb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 31, -57)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Platforming/WaterVolume5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_rlq2f")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="MenuLevel/IO/Platforming/WaterVolume5/CollisionShape3D"]
+instance_shader_parameters/ambientInfluence = 0.0
+instance_shader_parameters/nonAmbient = 1.0
+size = Vector3(2, 2, 2)
+material = SubResource("ShaderMaterial_arrg5")
+
+[node name="WaterVolume6" parent="MenuLevel/IO/Platforming" instance=ExtResource("10_rleeb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 34, -59)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Platforming/WaterVolume6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_rlq2f")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="MenuLevel/IO/Platforming/WaterVolume6/CollisionShape3D"]
+instance_shader_parameters/ambientInfluence = 0.0
+instance_shader_parameters/nonAmbient = 1.0
+size = Vector3(2, 2, 2)
+material = SubResource("ShaderMaterial_arrg5")
+
+[node name="WaterVolume7" parent="MenuLevel/IO/Platforming" instance=ExtResource("10_rleeb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 37, -57)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Platforming/WaterVolume7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_rlq2f")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="MenuLevel/IO/Platforming/WaterVolume7/CollisionShape3D"]
+instance_shader_parameters/ambientInfluence = 0.0
+instance_shader_parameters/nonAmbient = 1.0
+size = Vector3(2, 2, 2)
+material = SubResource("ShaderMaterial_arrg5")
+
+[node name="WaterVolume8" parent="MenuLevel/IO/Platforming" instance=ExtResource("10_rleeb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 38, -60)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Platforming/WaterVolume8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_rlq2f")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="MenuLevel/IO/Platforming/WaterVolume8/CollisionShape3D"]
+instance_shader_parameters/ambientInfluence = 0.0
+instance_shader_parameters/nonAmbient = 1.0
+size = Vector3(2, 2, 2)
+material = SubResource("ShaderMaterial_arrg5")
+
+[node name="WaterVolume9" parent="MenuLevel/IO/Platforming" instance=ExtResource("10_rleeb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 37, -71)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Platforming/WaterVolume9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_rlq2f")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="MenuLevel/IO/Platforming/WaterVolume9/CollisionShape3D"]
+instance_shader_parameters/ambientInfluence = 0.0
+instance_shader_parameters/nonAmbient = 1.0
+size = Vector3(2, 2, 2)
+material = SubResource("ShaderMaterial_arrg5")
+
+[node name="WaterVolume10" parent="MenuLevel/IO/Platforming" instance=ExtResource("10_rleeb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 37, -75)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Platforming/WaterVolume10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_rlq2f")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="MenuLevel/IO/Platforming/WaterVolume10/CollisionShape3D"]
+instance_shader_parameters/ambientInfluence = 0.0
+instance_shader_parameters/nonAmbient = 1.0
+size = Vector3(2, 2, 2)
+material = SubResource("ShaderMaterial_arrg5")
+
+[node name="Collision" parent="MenuLevel" index="39"]
 layers = 0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/Collision" index="0"]
@@ -1169,7 +2882,7 @@ layers = 0
 shape = SubResource("ConcavePolygonShape3D_uc0s5")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="Collision_001" parent="MenuLevel" index="39"]
+[node name="Collision_001" parent="MenuLevel" index="40"]
 layers = 0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/Collision_001" index="0"]
@@ -1178,7 +2891,7 @@ layers = 0
 shape = SubResource("ConcavePolygonShape3D_rleeb")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="Collision_002" parent="MenuLevel" index="40"]
+[node name="Collision_002" parent="MenuLevel" index="41"]
 layers = 0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/Collision_002" index="0"]
@@ -1187,7 +2900,7 @@ layers = 0
 shape = SubResource("ConcavePolygonShape3D_jpii8")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="Collision_003" parent="MenuLevel" index="41"]
+[node name="Collision_003" parent="MenuLevel" index="42"]
 layers = 0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/Collision_003" index="0"]
@@ -1196,13 +2909,22 @@ layers = 0
 shape = SubResource("ConcavePolygonShape3D_ub1iy")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="Collision_004" parent="MenuLevel" index="42"]
+[node name="Collision_004" parent="MenuLevel" index="43"]
 layers = 0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/Collision_004" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Collision_004/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_uc0s5")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="Collision_005" parent="MenuLevel" index="44"]
+layers = 0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MenuLevel/Collision_005" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Collision_005/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_rex1h")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="LevelSave" parent="MenuLevel" node_paths=PackedStringArray("corruption") instance=ExtResource("2_o1j72")]
@@ -1275,9 +2997,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65, 0)
 transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 5.92957, 0.2286, -5.06201)
 metadata/_edit_group_ = true
 
-[node name="CollisionShape3D" parent="Player" index="2"]
-debug_color = Color(0, 0.6, 0.7, 0.42)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." node_paths=PackedStringArray("player")]
 environment = SubResource("Environment_mxiu3")
 script = ExtResource("3_s7esc")
@@ -1309,6 +3028,38 @@ shape = SubResource("ConvexPolygonShape3D_rleeb")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="OS"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0.5)
+material_override = SubResource("StandardMaterial3D_57if5")
+extra_cull_margin = 2.0
+mesh = SubResource("QuadMesh_ldvjd")
+
+[node name="OS2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_mxiu3")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 7, 17.892, 94.065)
+script = SubResource("GDScript_4pm6c")
+player = NodePath("../Player")
+metadata/_edit_group_ = true
+
+[node name="Cube" parent="OS2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_jpii8")
+surface_material_override/1 = SubResource("StandardMaterial3D_ub1iy")
+surface_material_override/2 = SubResource("StandardMaterial3D_lsrrj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="OS2/Cube" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OS2/Cube/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_mxiu3")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="Cube_001" parent="OS2" index="1"]
+material_override = SubResource("StandardMaterial3D_o1j72")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="OS2/Cube_001" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OS2/Cube_001/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_rleeb")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="OS2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0.5)
 material_override = SubResource("StandardMaterial3D_57if5")
 extra_cull_margin = 2.0
@@ -1385,6 +3136,20 @@ debug_color = Color(0, 0.6, 0.7, 0.42)
 [connection signal="body_entered" from="CutsceneTrigger" to="CutscenePlayer" method="_on_cutscene_trigger_body_entered"]
 
 [editable path="MenuLevel"]
+[editable path="MenuLevel/IO/Platforming/WoodPlatform"]
+[editable path="MenuLevel/IO/Platforming/WoodPlatform2"]
+[editable path="MenuLevel/IO/Platforming/WoodPlatform3"]
+[editable path="MenuLevel/IO/Platforming/WoodPlatform4"]
+[editable path="MenuLevel/IO/Platforming/WoodPlatform10"]
+[editable path="MenuLevel/IO/Platforming/WoodPlatform11"]
+[editable path="MenuLevel/IO/Platforming/WoodPlatform12"]
+[editable path="MenuLevel/IO/Platforming/WoodPlatform13"]
+[editable path="MenuLevel/IO/Platforming/WoodPlatform14"]
+[editable path="MenuLevel/IO/Platforming/WoodPlatform5"]
+[editable path="MenuLevel/IO/Platforming/WoodPlatform6"]
+[editable path="MenuLevel/IO/Platforming/WoodPlatform7"]
+[editable path="MenuLevel/IO/Platforming/WoodPlatform8"]
+[editable path="MenuLevel/IO/Platforming/WoodPlatform9"]
 [editable path="MenuLevel/LevelSave"]
 [editable path="MenuLevel/LevelSave/Interactable"]
 [editable path="MenuLevel/LevelSave2"]
@@ -1395,3 +3160,4 @@ debug_color = Color(0, 0.6, 0.7, 0.42)
 [editable path="Player"]
 [editable path="Player/CamY/VSpring/CamX/Interactor"]
 [editable path="OS"]
+[editable path="OS2"]

@@ -1,12 +1,25 @@
-[gd_scene format=3 uid="uid://cnp8n4vcoqcit"]
+[gd_scene load_steps=2 format=3 uid="uid://cnp8n4vcoqcit"]
 
-[node name="Options" type="Control"]
+[ext_resource type="Script" uid="uid://ca1s2m0md57bj" path="res://src/UI/Menus/options.gd" id="1_22fm6"]
+
+[node name="Options" type="Control" node_paths=PackedStringArray("hs_sensitivity", "hs_blur", "hs_grille", "hs_sat", "hs_bright", "cb_crt", "close_button", "hs_dither", "scroll_container")]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_22fm6")
+hs_sensitivity = NodePath("MarginContainer/Panel/ScrollContainer/VBoxContainer/Controls/Panel/VBoxContainer/HS_Sensitivity")
+hs_blur = NodePath("MarginContainer/Panel/ScrollContainer/VBoxContainer/CRT/Panel/VBoxContainer/HS_Blur")
+hs_grille = NodePath("MarginContainer/Panel/ScrollContainer/VBoxContainer/CRT/Panel/VBoxContainer/HS_Grille")
+hs_sat = NodePath("MarginContainer/Panel/ScrollContainer/VBoxContainer/Colors/Panel/VBoxContainer/HS_Sat")
+hs_bright = NodePath("MarginContainer/Panel/ScrollContainer/VBoxContainer/Colors/Panel/VBoxContainer/HS_Bright")
+cb_crt = NodePath("MarginContainer/Panel/ScrollContainer/VBoxContainer/CRT/Panel/VBoxContainer/HBoxContainer/CB_CRT")
+close_button = NodePath("MarginContainer/Panel/ScrollContainer/VBoxContainer/Close")
+hs_dither = NodePath("MarginContainer/Panel/ScrollContainer/VBoxContainer/CRT/Panel/VBoxContainer/HS_Dither")
+scroll_container = NodePath("MarginContainer/Panel/ScrollContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -23,15 +36,22 @@ theme_override_constants/margin_bottom = 32
 [node name="Panel" type="Panel" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+follow_focus = true
+draw_focus_border = true
+horizontal_scroll_mode = 0
 
-[node name="Controls" type="MarginContainer" parent="MarginContainer/Panel/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Controls" type="MarginContainer" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 140)
 layout_mode = 2
 theme_override_constants/margin_left = 16
@@ -39,86 +59,103 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="Panel" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Controls"]
+[node name="Panel" type="Panel" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/Controls"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Controls/Panel"]
-layout_mode = 2
-offset_right = 1184.0
-offset_bottom = 108.0
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/Controls/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer/Panel/VBoxContainer/Controls/Panel/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/Controls/Panel/VBoxContainer"]
 layout_mode = 2
 text = "Look sensitivity"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="MarginContainer/Panel/VBoxContainer/Controls/Panel/VBoxContainer"]
+[node name="HS_Sensitivity" type="HSlider" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/Controls/Panel/VBoxContainer"]
 layout_mode = 2
-min_value = 0.002
-max_value = 0.05
+min_value = 0.001
+max_value = 0.02
 step = 0.001
 value = 0.005
 
-[node name="CRT" type="MarginContainer" parent="MarginContainer/Panel/VBoxContainer"]
-custom_minimum_size = Vector2(0, 200)
+[node name="CRT" type="MarginContainer" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 250)
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="Panel" type="Panel" parent="MarginContainer/Panel/VBoxContainer/CRT"]
+[node name="Panel" type="Panel" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/CRT"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/CRT/Panel"]
-layout_mode = 2
-offset_right = 1184.0
-offset_bottom = 108.0
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/CRT/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer/Panel/VBoxContainer/CRT/Panel/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/CRT/Panel/VBoxContainer"]
 layout_mode = 2
 text = "CRT Effect"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/CRT/Panel/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/CRT/Panel/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="CheckBox" type="CheckBox" parent="MarginContainer/Panel/VBoxContainer/CRT/Panel/VBoxContainer/HBoxContainer"]
+[node name="CB_CRT" type="CheckBox" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/CRT/Panel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 button_pressed = true
 
-[node name="Label" type="Label" parent="MarginContainer/Panel/VBoxContainer/CRT/Panel/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/CRT/Panel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Enabled"
 
-[node name="Label2" type="Label" parent="MarginContainer/Panel/VBoxContainer/CRT/Panel/VBoxContainer"]
+[node name="Label2" type="Label" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/CRT/Panel/VBoxContainer"]
 layout_mode = 2
 text = "Blur"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="MarginContainer/Panel/VBoxContainer/CRT/Panel/VBoxContainer"]
+[node name="HS_Blur" type="HSlider" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/CRT/Panel/VBoxContainer"]
 layout_mode = 2
 max_value = 1.0
 step = 0.05
 
-[node name="Label3" type="Label" parent="MarginContainer/Panel/VBoxContainer/CRT/Panel/VBoxContainer"]
+[node name="Label3" type="Label" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/CRT/Panel/VBoxContainer"]
 layout_mode = 2
 text = "Aperture Grille"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSlider2" type="HSlider" parent="MarginContainer/Panel/VBoxContainer/CRT/Panel/VBoxContainer"]
+[node name="HS_Grille" type="HSlider" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/CRT/Panel/VBoxContainer"]
 layout_mode = 2
 max_value = 1.0
 step = 0.05
 
-[node name="Colors" type="MarginContainer" parent="MarginContainer/Panel/VBoxContainer"]
+[node name="Label4" type="Label" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/CRT/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Dithering"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HS_Dither" type="HSlider" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/CRT/Panel/VBoxContainer"]
+layout_mode = 2
+max_value = 0.5
+step = 0.025
+
+[node name="Colors" type="MarginContainer" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 theme_override_constants/margin_left = 16
@@ -126,39 +163,58 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="Panel" type="Panel" parent="MarginContainer/Panel/VBoxContainer/Colors"]
+[node name="Panel" type="Panel" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/Colors"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Colors/Panel"]
-layout_mode = 2
-offset_right = 1184.0
-offset_bottom = 108.0
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/Colors/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer/Panel/VBoxContainer/Colors/Panel/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/Colors/Panel/VBoxContainer"]
 layout_mode = 2
 text = "Colors"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="MarginContainer/Panel/VBoxContainer/Colors/Panel/VBoxContainer"]
+[node name="Label2" type="Label" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/Colors/Panel/VBoxContainer"]
 layout_mode = 2
 text = "Saturation"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="MarginContainer/Panel/VBoxContainer/Colors/Panel/VBoxContainer"]
+[node name="HS_Sat" type="HSlider" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/Colors/Panel/VBoxContainer"]
 layout_mode = 2
-max_value = 1.0
+max_value = 2.0
 step = 0.05
 
-[node name="Label3" type="Label" parent="MarginContainer/Panel/VBoxContainer/Colors/Panel/VBoxContainer"]
+[node name="Label3" type="Label" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/Colors/Panel/VBoxContainer"]
 layout_mode = 2
 text = "Brightness"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSlider2" type="HSlider" parent="MarginContainer/Panel/VBoxContainer/Colors/Panel/VBoxContainer"]
+[node name="HS_Bright" type="HSlider" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/Colors/Panel/VBoxContainer"]
 layout_mode = 2
-max_value = 1.0
-step = 0.05
+max_value = 4.0
+step = 0.1
+
+[node name="Close" type="Button" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Close"
+
+[connection signal="focus_entered" from="MarginContainer/Panel/ScrollContainer/VBoxContainer/Controls/Panel/VBoxContainer/HS_Sensitivity" to="." method="_on_hs_sensitivity_focus_entered"]
+[connection signal="value_changed" from="MarginContainer/Panel/ScrollContainer/VBoxContainer/Controls/Panel/VBoxContainer/HS_Sensitivity" to="." method="_on_hs_sensitivity_value_changed"]
+[connection signal="toggled" from="MarginContainer/Panel/ScrollContainer/VBoxContainer/CRT/Panel/VBoxContainer/HBoxContainer/CB_CRT" to="." method="_on_cb_crt_toggled"]
+[connection signal="value_changed" from="MarginContainer/Panel/ScrollContainer/VBoxContainer/CRT/Panel/VBoxContainer/HS_Blur" to="." method="_on_hs_blur_value_changed"]
+[connection signal="value_changed" from="MarginContainer/Panel/ScrollContainer/VBoxContainer/CRT/Panel/VBoxContainer/HS_Grille" to="." method="_on_hs_grille_value_changed"]
+[connection signal="value_changed" from="MarginContainer/Panel/ScrollContainer/VBoxContainer/CRT/Panel/VBoxContainer/HS_Dither" to="." method="_on_hs_dither_value_changed"]
+[connection signal="value_changed" from="MarginContainer/Panel/ScrollContainer/VBoxContainer/Colors/Panel/VBoxContainer/HS_Sat" to="." method="_on_hs_sat_value_changed"]
+[connection signal="value_changed" from="MarginContainer/Panel/ScrollContainer/VBoxContainer/Colors/Panel/VBoxContainer/HS_Bright" to="." method="_on_hs_bright_value_changed"]
+[connection signal="pressed" from="MarginContainer/Panel/ScrollContainer/VBoxContainer/Close" to="." method="_on_close_pressed"]

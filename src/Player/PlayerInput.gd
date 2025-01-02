@@ -13,7 +13,7 @@ func _ready():
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		ludrl = -event.relative * 0.0025
+		ludrl = -event.relative * OptionsManager.lookSensitivity
 
 func _physics_process(delta):
 	fbrl = Input.get_vector("left", "right", "up", "down")

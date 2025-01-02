@@ -24,6 +24,7 @@ config/icon="res://icon.svg"
 
 PlayerInput="*res://src/Player/PlayerInput.gd"
 LevelManager="*res://src/GlobalScripts/LevelManager.gd"
+OptionsManager="*res://src/GlobalScripts/OptionsManager.gd"
 
 [display]
 
