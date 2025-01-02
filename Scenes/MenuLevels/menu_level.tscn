@@ -1100,7 +1100,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_001/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_ueebt")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_002" parent="MenuLevel" index="2"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1110,7 +1109,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_002/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_s7esc")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_003" parent="MenuLevel" index="3"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1120,7 +1118,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_003/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_bumdm")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_004" parent="MenuLevel" index="4"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1130,7 +1127,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_004/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_mxiu3")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_005" parent="MenuLevel" index="5"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1140,7 +1136,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_005/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_jpii8")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_006" parent="MenuLevel" index="6"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1150,7 +1145,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_006/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_ub1iy")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_007" parent="MenuLevel" index="7"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1160,7 +1154,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_007/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_lsrrj")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_008" parent="MenuLevel" index="8"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1178,7 +1171,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_010/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_o1j72")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_011" parent="MenuLevel" index="11"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1188,7 +1180,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_011/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_q6dfh")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_012" parent="MenuLevel" index="12"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1198,7 +1189,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_012/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_unave")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_013" parent="MenuLevel" index="13"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1216,7 +1206,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_019/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_lsrrj")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_020" parent="MenuLevel" index="16"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1226,7 +1215,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_020/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_o1j72")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_021" parent="MenuLevel" index="17"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1236,7 +1224,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_021/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_q6dfh")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_022" parent="MenuLevel" index="18"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1250,7 +1237,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_023/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_unave")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_024" parent="MenuLevel" index="20"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1260,7 +1246,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_024/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_57if5")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_025" parent="MenuLevel" index="21"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1270,7 +1255,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_025/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_ldvjd")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_026" parent="MenuLevel" index="22"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1292,7 +1276,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_034/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_isfor")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_035" parent="MenuLevel" index="26"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1302,7 +1285,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_035/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_o0emj")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_014" parent="MenuLevel" index="27"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1393,42 +1375,34 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/SaveRoom/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.1, -6)
 shape = SubResource("BoxShape3D_jpii8")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="MenuLevel/SaveRoom/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 11.9, -6)
 shape = SubResource("BoxShape3D_ub1iy")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="MenuLevel/SaveRoom/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 6, 0.849998)
 shape = SubResource("BoxShape3D_lsrrj")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="MenuLevel/SaveRoom/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 6, -12.85)
 shape = SubResource("BoxShape3D_lsrrj")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="MenuLevel/SaveRoom/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9, 6, -6.00001)
 shape = SubResource("BoxShape3D_o1j72")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="MenuLevel/SaveRoom/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9, 6, -2.00001)
 shape = SubResource("BoxShape3D_q6dfh")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="MenuLevel/SaveRoom/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 6, -10)
 shape = SubResource("BoxShape3D_q6dfh")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="MenuLevel/SaveRoom/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 8, -6.00001)
 shape = SubResource("BoxShape3D_unave")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO" parent="MenuLevel" index="38"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1438,7 +1412,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Gate/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_4pm6c")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_001" parent="MenuLevel/IO" index="1"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1448,7 +1421,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_001/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_8j861")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_002" parent="MenuLevel/IO" index="2"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1458,7 +1430,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_002/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_tufeg")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_003" parent="MenuLevel/IO" index="3"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1468,7 +1439,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_003/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_8qb70")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_004" parent="MenuLevel/IO" index="4"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1478,7 +1448,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_004/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_kboto")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_005" parent="MenuLevel/IO" index="5"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1488,7 +1457,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_005/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_ohfb6")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_006" parent="MenuLevel/IO" index="6"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1498,7 +1466,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_006/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_oa8tn")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_007" parent="MenuLevel/IO" index="7"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1508,7 +1475,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_007/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_mbuq8")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_008" parent="MenuLevel/IO" index="8"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1518,7 +1484,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_008/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_rlq2f")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_009" parent="MenuLevel/IO" index="9"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1528,7 +1493,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_009/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_arrg5")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_010" parent="MenuLevel/IO" index="10"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1538,7 +1502,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_010/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_i0fwx")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_011" parent="MenuLevel/IO" index="11"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1548,7 +1511,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_011/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_npug5")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_012" parent="MenuLevel/IO" index="12"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1558,7 +1520,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_012/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_2nrmm")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_013" parent="MenuLevel/IO" index="13"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1568,7 +1529,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_013/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_htq6j")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_014" parent="MenuLevel/IO" index="14"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1578,7 +1538,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_014/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_736gl")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_015" parent="MenuLevel/IO" index="15"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1588,7 +1547,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_015/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_5dwbx")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_016" parent="MenuLevel/IO" index="16"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1598,7 +1556,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_016/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_8ytyv")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_017" parent="MenuLevel/IO" index="17"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1608,7 +1565,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_017/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_4ja7n")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_018" parent="MenuLevel/IO" index="18"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1618,7 +1574,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_018/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_pt7jq")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_019" parent="MenuLevel/IO" index="19"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1628,7 +1583,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_019/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_0fpvr")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_020" parent="MenuLevel/IO" index="20"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1638,7 +1592,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_020/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_1bc1w")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_021" parent="MenuLevel/IO" index="21"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1648,7 +1601,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_021/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_2vpk3")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_022" parent="MenuLevel/IO" index="22"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1658,7 +1610,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_022/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_0dgtj")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_023" parent="MenuLevel/IO" index="23"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1668,7 +1619,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_023/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_xli6e")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_024" parent="MenuLevel/IO" index="24"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1678,7 +1628,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_024/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_04mnb")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_025" parent="MenuLevel/IO" index="25"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1688,7 +1637,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_025/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_e4o37")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_026" parent="MenuLevel/IO" index="26"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1698,7 +1646,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_026/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_ynfpk")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_027" parent="MenuLevel/IO" index="27"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1708,7 +1655,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_027/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_njvjw")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_028" parent="MenuLevel/IO" index="28"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1718,7 +1664,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_028/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_2wab1")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_029" parent="MenuLevel/IO" index="29"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1728,7 +1673,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_029/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_fvfnq")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_030" parent="MenuLevel/IO" index="30"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1738,7 +1682,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_030/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_d8pq5")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_031" parent="MenuLevel/IO" index="31"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1748,7 +1691,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_031/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_f3c0a")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_032" parent="MenuLevel/IO" index="32"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1758,7 +1700,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_032/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_pjd72")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_033" parent="MenuLevel/IO" index="33"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1768,7 +1709,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_033/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_18ka5")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_034" parent="MenuLevel/IO" index="34"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1778,7 +1718,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_034/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_iek6q")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_035" parent="MenuLevel/IO" index="35"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1788,7 +1727,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_035/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_n7dg0")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_036" parent="MenuLevel/IO" index="36"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1798,7 +1736,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_036/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_rbwgg")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_037" parent="MenuLevel/IO" index="37"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1808,7 +1745,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_037/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_cxyrs")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_038" parent="MenuLevel/IO" index="38"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1818,7 +1754,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_038/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_uggme")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_039" parent="MenuLevel/IO" index="39"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1828,7 +1763,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_039/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_7jlhr")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_040" parent="MenuLevel/IO" index="40"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1838,7 +1772,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_040/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_upih1")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_041" parent="MenuLevel/IO" index="41"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1848,7 +1781,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_041/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_ykm44")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_042" parent="MenuLevel/IO" index="42"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1858,7 +1790,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_042/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_g6i68")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_043" parent="MenuLevel/IO" index="43"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -1868,7 +1799,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_043/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_wybyn")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="EjectButton" type="Node3D" parent="MenuLevel/IO/IO_043" index="1"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1.5, 0)
@@ -2730,7 +2660,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Platforming/WaterVolume"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_rlq2f")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="MenuLevel/IO/Platforming/WaterVolume/CollisionShape3D"]
 instance_shader_parameters/ambientInfluence = 0.0
@@ -2745,7 +2674,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Platforming/WaterVolume2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_rlq2f")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="MenuLevel/IO/Platforming/WaterVolume2/CollisionShape3D"]
 instance_shader_parameters/ambientInfluence = 0.0
@@ -2760,7 +2688,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Platforming/WaterVolume3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_rlq2f")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="MenuLevel/IO/Platforming/WaterVolume3/CollisionShape3D"]
 instance_shader_parameters/ambientInfluence = 0.0
@@ -2775,7 +2702,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Platforming/WaterVolume4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_rlq2f")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="MenuLevel/IO/Platforming/WaterVolume4/CollisionShape3D"]
 instance_shader_parameters/ambientInfluence = 0.0
@@ -2790,7 +2716,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Platforming/WaterVolume5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_rlq2f")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="MenuLevel/IO/Platforming/WaterVolume5/CollisionShape3D"]
 instance_shader_parameters/ambientInfluence = 0.0
@@ -2805,7 +2730,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Platforming/WaterVolume6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_rlq2f")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="MenuLevel/IO/Platforming/WaterVolume6/CollisionShape3D"]
 instance_shader_parameters/ambientInfluence = 0.0
@@ -2820,7 +2744,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Platforming/WaterVolume7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_rlq2f")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="MenuLevel/IO/Platforming/WaterVolume7/CollisionShape3D"]
 instance_shader_parameters/ambientInfluence = 0.0
@@ -2835,7 +2758,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Platforming/WaterVolume8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_rlq2f")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="MenuLevel/IO/Platforming/WaterVolume8/CollisionShape3D"]
 instance_shader_parameters/ambientInfluence = 0.0
@@ -2850,7 +2772,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Platforming/WaterVolume9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_rlq2f")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="MenuLevel/IO/Platforming/WaterVolume9/CollisionShape3D"]
 instance_shader_parameters/ambientInfluence = 0.0
@@ -2865,7 +2786,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Platforming/WaterVolume10"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_rlq2f")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="MenuLevel/IO/Platforming/WaterVolume10/CollisionShape3D"]
 instance_shader_parameters/ambientInfluence = 0.0
@@ -2880,7 +2800,6 @@ layers = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Collision/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_uc0s5")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Collision_001" parent="MenuLevel" index="40"]
 layers = 0
@@ -2889,7 +2808,6 @@ layers = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Collision_001/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_rleeb")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Collision_002" parent="MenuLevel" index="41"]
 layers = 0
@@ -2898,7 +2816,6 @@ layers = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Collision_002/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_jpii8")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Collision_003" parent="MenuLevel" index="42"]
 layers = 0
@@ -2907,7 +2824,6 @@ layers = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Collision_003/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_ub1iy")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Collision_004" parent="MenuLevel" index="43"]
 layers = 0
@@ -2916,7 +2832,6 @@ layers = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Collision_004/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_uc0s5")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Collision_005" parent="MenuLevel" index="44"]
 layers = 0
@@ -2925,7 +2840,6 @@ layers = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Collision_005/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_rex1h")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="LevelSave" parent="MenuLevel" node_paths=PackedStringArray("corruption") instance=ExtResource("2_o1j72")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43, 20.2, -106.9)
@@ -3016,7 +2930,6 @@ surface_material_override/2 = SubResource("StandardMaterial3D_lsrrj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OS/Cube/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_mxiu3")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Cube_001" parent="OS" index="1"]
 material_override = SubResource("StandardMaterial3D_o1j72")
@@ -3025,7 +2938,6 @@ material_override = SubResource("StandardMaterial3D_o1j72")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OS/Cube_001/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_rleeb")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="OS"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0.5)
@@ -3048,7 +2960,6 @@ surface_material_override/2 = SubResource("StandardMaterial3D_lsrrj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OS2/Cube/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_mxiu3")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Cube_001" parent="OS2" index="1"]
 material_override = SubResource("StandardMaterial3D_o1j72")
@@ -3057,7 +2968,6 @@ material_override = SubResource("StandardMaterial3D_o1j72")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OS2/Cube_001/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_rleeb")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="OS2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0.5)
@@ -3090,7 +3000,6 @@ monitorable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CutsceneTrigger"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.200001, 3.7, 3.75)
 shape = SubResource("BoxShape3D_57if5")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="JumpPad" parent="." instance=ExtResource("7_ub1iy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -10.5, -104)
@@ -3108,7 +3017,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.19998, -32.2)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.875, -0.875)
 shape = SubResource("BoxShape3D_ldvjd")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Checkpoint2" parent="." instance=ExtResource("12_57if5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -10.55, -104.95)
@@ -3116,7 +3024,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -10.55, -104.95)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.875, 0.125)
 shape = SubResource("BoxShape3D_ldvjd")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Glitch" parent="." instance=ExtResource("13_ldvjd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.25, 20.5, -103)
@@ -3131,7 +3038,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -54, -73)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HeightKillVolume"]
 shape = SubResource("BoxShape3D_4pm6c")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [connection signal="body_entered" from="CutsceneTrigger" to="CutscenePlayer" method="_on_cutscene_trigger_body_entered"]
 

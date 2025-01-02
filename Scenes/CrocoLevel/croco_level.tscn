@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://d0ch1kt1cx1wh"]
+[gd_scene load_steps=24 format=3 uid="uid://d0ch1kt1cx1wh"]
 
 [ext_resource type="Texture2D" uid="uid://cd35j4mmwnu4" path="res://addons/kenney_prototype_textures/dark/texture_01.png" id="1_1kaw0"]
 [ext_resource type="Shader" uid="uid://c0aa5ibqmt4v1" path="res://src/Shaders/skyShader.gdshader" id="1_sdgis"]
@@ -10,9 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://b1lrq8q6mqu8j" path="res://Scenes/Props/lilpad.tscn" id="7_3aibv"]
 [ext_resource type="Texture2D" uid="uid://c7glm5caj11yn" path="res://Assets/Textures/waterSolo.png" id="7_ltf2x"]
 [ext_resource type="PackedScene" uid="uid://dtq4u7dl5ckca" path="res://src/Interaction/button.tscn" id="7_rdkqk"]
-[ext_resource type="Script" path="res://Scenes/CrocoLevel/glitched_lilypads.gd" id="10_tq13i"]
+[ext_resource type="Script" uid="uid://b7ep1lhsc7kos" path="res://Scenes/CrocoLevel/glitched_lilypads.gd" id="10_tq13i"]
 [ext_resource type="Script" uid="uid://v2srlwtcqjp6" path="res://Scenes/CrocoLevel/StepMotion.gd" id="11_3uthi"]
 [ext_resource type="Script" uid="uid://4yj2w1odd74u" path="res://Scenes/CrocoLevel/MushroomPuzzle.gd" id="11_ltf2x"]
+[ext_resource type="PackedScene" uid="uid://dcg7514vbu8f1" path="res://src/LevelActors/Glitch/glitch.tscn" id="14_3uthi"]
 
 [sub_resource type="Gradient" id="Gradient_cvgdm"]
 interpolation_mode = 2
@@ -131,6 +132,11 @@ operation = 2
 use_collision = true
 size = Vector3(3, 2.06702, 1.95371)
 
+[node name="CSGBox3D" type="CSGBox3D" parent="CSG/FirstChamber/CSGBox3D8"]
+transform = Transform3D(1, 0, -5.33631e-20, 0, 1, 0, 0, 0, 1, 3.81316, -3.08928, -3.72892)
+operation = 2
+size = Vector3(1.52979, 1.86475, 1)
+
 [node name="WaterVolume" parent="CSG/FirstChamber" instance=ExtResource("5_2yg82")]
 transform = Transform3D(0.355, 0, 0, 0, 0.355, 0, 0, 0, 0.355, -0.448887, -0.0138626, 13.2592)
 
@@ -182,35 +188,20 @@ transform = Transform3D(1.49, 0, -1.33216e-07, 0, 0.019, 0, 1.33216e-07, 0, 1.49
 [node name="SecondChamber" type="Node3D" parent="CSG"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.0842, 0.206106, 12.8406)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="CSG/SecondChamber"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0648891, 0.621774, -0.595234)
-use_collision = true
-size = Vector3(4.00476, 2.48193, 3.55023)
-
-[node name="CSGBox3D9" type="CSGBox3D" parent="CSG/SecondChamber/CSGBox3D"]
-transform = Transform3D(-0.999941, 1.33605e-19, 8.74157e-08, -1.49713e-19, 1, -2.13163e-14, -8.74157e-08, -3.49942e-12, -0.999941, 0.0847332, 0.222161, -0.392988)
-material_override = SubResource("StandardMaterial3D_7swwj")
-operation = 2
-use_collision = true
-size = Vector3(3, 2.06702, 3.2412)
-
-[node name="SecondChamber" type="Node3D" parent="CSG/SecondChamber"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 31.636, 4.82918, -6.90273)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="CSG/SecondChamber/SecondChamber"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0648891, 0.621774, -0.595234)
-use_collision = true
-size = Vector3(4.00476, 2.48193, 3.55023)
-
-[node name="CSGBox3D9" type="CSGBox3D" parent="CSG/SecondChamber/SecondChamber/CSGBox3D"]
-transform = Transform3D(-0.999941, 1.33605e-19, 8.74157e-08, -1.49713e-19, 1, -2.13163e-14, -8.74157e-08, -3.49942e-12, -0.999941, 0.0847332, 0.222161, -0.392988)
-material_override = SubResource("StandardMaterial3D_7swwj")
-operation = 2
-use_collision = true
-size = Vector3(3, 2.06702, 3.2412)
-
 [node name="LilypadButton" parent="CSG/SecondChamber" instance=ExtResource("7_rdkqk")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.134074, -0.35551)
+
+[node name="SecondThirdChamber" type="CSGBox3D" parent="CSG/SecondChamber"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.064889, 0.621774, -0.595234)
+use_collision = true
+size = Vector3(4.00476, 2.48193, 3.55023)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="CSG/SecondChamber/SecondThirdChamber"]
+transform = Transform3D(-0.999941, 1.33605e-19, 8.74157e-08, -1.49713e-19, 1, -2.13163e-14, -8.74157e-08, -3.49942e-12, -0.999941, 0.0847332, 0.222161, -0.392988)
+material_override = SubResource("StandardMaterial3D_7swwj")
+operation = 2
+use_collision = true
+size = Vector3(3, 2.06702, 3.2412)
 
 [node name="ThirdChamber" type="Node3D" parent="CSG"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24.362)
@@ -261,5 +252,42 @@ script = ExtResource("11_ltf2x")
 
 [node name="StairsButton" parent="CSG/ThirdChamber/Puzzle" instance=ExtResource("7_rdkqk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99359, 0.625312, 0.686928)
+
+[node name="SecondThirdChamber2" type="Node3D" parent="CSG"]
+
+[node name="Glitch" parent="CSG/SecondThirdChamber2" instance=ExtResource("14_3uthi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.69063, 1.0798, 21.8975)
+glitchName = "vector1-1"
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSG/SecondThirdChamber2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.06663, 1.44965, 21.9892)
+use_collision = true
+size = Vector3(4.00476, 2.48193, 3.55023)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="CSG/SecondThirdChamber2/CSGBox3D"]
+transform = Transform3D(-0.999941, 1.33605e-19, 8.74157e-08, -1.49713e-19, 1, -2.13163e-14, -8.74157e-08, -3.49942e-12, -0.999941, 0.0847332, 0.222161, -0.392988)
+material_override = SubResource("StandardMaterial3D_7swwj")
+operation = 2
+use_collision = true
+size = Vector3(3, 2.06702, 3.2412)
+
+[node name="LastChamber" type="Node3D" parent="CSG"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.818529, 5.03529, 44.4766)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSG/LastChamber"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0648891, 0.621774, -0.595234)
+use_collision = true
+size = Vector3(4.00476, 2.48193, 3.55023)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="CSG/LastChamber/CSGBox3D"]
+transform = Transform3D(-0.999941, 1.33605e-19, 8.74157e-08, -1.49713e-19, 1, -2.13163e-14, -8.74157e-08, -3.49942e-12, -0.999941, 0.0847332, 0.222161, -0.392988)
+material_override = SubResource("StandardMaterial3D_7swwj")
+operation = 2
+use_collision = true
+size = Vector3(3, 2.06702, 3.2412)
+
+[node name="Glitch" parent="CSG/LastChamber" instance=ExtResource("14_3uthi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.287516, -0.452808)
+glitchName = "vector1-1"
 
 [connection signal="activateStepsMotion" from="CSG/ThirdChamber/Puzzle/StairsButton" to="CSG/FirstChamber/Lilypads" method="_on_stairs_button_activate_steps_motion"]
