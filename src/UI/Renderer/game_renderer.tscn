@@ -33,7 +33,7 @@ script/source = "extends Control
 
 func _input(event: InputEvent) -> void:
 	if is_inside_tree() and sub_viewport.is_inside_tree():
-		sub_viewport.push_input(event)
+		sub_viewport.push_input(event, false)
 	#print(event)
 "
 

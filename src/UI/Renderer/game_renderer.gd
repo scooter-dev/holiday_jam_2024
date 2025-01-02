@@ -9,6 +9,8 @@ func _enter_tree() -> void:
 	OptionsManager.optionsUpdated.connect(onOptionsUpdated)
 	get_tree().root.size_changed.connect(onViewportSizeChanged)
 
+func _ready() -> void:
+	onOptionsUpdated()
 
 
 func onViewportSizeChanged() -> void:

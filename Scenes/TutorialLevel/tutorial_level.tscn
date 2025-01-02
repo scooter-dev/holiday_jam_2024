@@ -805,8 +805,7 @@ func startCutscene() -> void:
 	play(\"ExitCutscene\")
 
 func loadNextLevel() -> void:
-	LevelManager.levelToLoad = \"res://Scenes/MenuLevels/menu_level.tscn\"
-	get_tree().change_scene_to_file(\"res://src/UI/Renderer/game_renderer.tscn\")
+	LevelManager.changeLevel(\"res://Scenes/MenuLevels/menu_level.tscn\")
 
 
 func _on_interactable_interacted(interactor: Interactor) -> void:

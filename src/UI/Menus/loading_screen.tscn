@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://be7kjovrxelr7"]
+
+[ext_resource type="Texture2D" uid="uid://by8qvubcffjkj" path="res://Assets/Textures/CD01.png" id="1_jaytm"]
+[ext_resource type="Script" uid="uid://cwhee3hktlctp" path="res://src/UI/Menus/loading_screen.gd" id="1_xgq6v"]
+[ext_resource type="Texture2D" uid="uid://vpxtykne4g76" path="res://Assets/Textures/CD02.png" id="2_xgq6v"]
+[ext_resource type="Texture2D" uid="uid://byoiex0gw5u7f" path="res://Assets/Textures/CD03.png" id="3_bv640"]
+[ext_resource type="Script" uid="uid://gosx87re60le" path="res://src/UI/Menus/TextScaler.gd" id="5_bv640"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cx8rp"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ev50p"]
+frames = 3
+speed_scale = 5.0
+frame_0/texture = ExtResource("1_jaytm")
+frame_1/texture = ExtResource("2_xgq6v")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_bv640")
+frame_2/duration = 1.0
+
+[node name="LoadingScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xgq6v")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cx8rp")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -62.0
+offset_right = 148.0
+offset_bottom = -22.0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+texture = SubResource("AnimatedTexture_ev50p")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Loading..."
+script = ExtResource("5_bv640")
