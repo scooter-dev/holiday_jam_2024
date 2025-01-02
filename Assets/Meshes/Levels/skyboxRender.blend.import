@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cmx7p434ccyt2"
-path="res://.godot/imported/skyboxRender.blend-dadf5de88609552317e41e57c608b8e0.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Meshes/Levels/skyboxRender.blend"
-dest_files=["res://.godot/imported/skyboxRender.blend-dadf5de88609552317e41e57c608b8e0.scn"]
 
 [params]
 

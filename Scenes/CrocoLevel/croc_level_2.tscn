@@ -2233,7 +2233,8 @@ shape = SubResource("BoxShape3D_7g8pd")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Glitch" parent="." instance=ExtResource("27_3ebui")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 608.266, -117.99, -404.551)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 600.744, -117.99, -419.184)
+visible = false
 glitchName = "croc1-1"
 
 [node name="Glitch2" parent="." instance=ExtResource("27_3ebui")]

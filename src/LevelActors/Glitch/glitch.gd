@@ -1,5 +1,7 @@
 extends Node3D
 
+class_name GlitchCard
+
 @export var glitchName : String
 @export var textBox : String
 @export_category("Components")
@@ -16,10 +18,14 @@ func _on_interactable_interacted(interactor: Interactor) -> void:
 	player = interactor.controller if interactor.controller is Player else null
 	if player:
 		interactable.disable()
+		pickedUp.emit(self)
 		LevelManager.glitches[glitchName] = 1
 		animation_player.play("PickUp")
-		player.hud.display_info_box(textBox)
+		if textBox != "":
+			player.hud.display_info_box(textBox)
 
 func hideInfoBox() -> void:
 	player.hud.close_info_box()
 	queue_free()
+
+signal pickedUp(card : GlitchCard)

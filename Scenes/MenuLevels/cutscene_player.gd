@@ -9,13 +9,23 @@ func _ready() -> void:
 		play("Intro")
 	else:
 		jumpPad.enabled = true
+	if LevelManager.glitches.has("FINAL"):
+		freezePlayer(false)
+		deleteAllSaves()
+		play("AllGlitches")
 
-func freezePlayer() -> void:
+@export var saves : Node3D
+func deleteAllSaves() -> void:
+	saves.queue_free()
+	pass
+
+func freezePlayer(reparent : bool = true) -> void:
 	player.suspend(true)
-	player.reparent(player_pos,true)
-	print(player.get_parent().name)
-	player.position = Vector3()
-	player.rotation.y = 0
+	if reparent:
+		player.reparent(player_pos,true)
+		print(player.get_parent().name)
+		player.position = Vector3()
+		player.rotation.y = 0
 
 func unfreezePlayer() -> void:
 	player.unsuspend()
@@ -30,3 +40,11 @@ func _on_cutscene_trigger_body_entered(body: Node3D) -> void:
 	if !LevelManager.initialCutscene:
 		LevelManager.initialCutscene = true
 		play("Story01")
+
+
+func _on_interactable_interacted(interactor: Interactor) -> void:
+	play("FinalCutscene")
+
+
+func _on_boss_cutscene_area_body_entered(body: Node3D) -> void:
+	play("BigReveal")
