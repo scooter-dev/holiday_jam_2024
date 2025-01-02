@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d0ch1kt1cx1wh"]
+[gd_scene load_steps=22 format=3 uid="uid://d0ch1kt1cx1wh"]
 
 [ext_resource type="Texture2D" uid="uid://cd35j4mmwnu4" path="res://addons/kenney_prototype_textures/dark/texture_01.png" id="1_1kaw0"]
 [ext_resource type="Shader" uid="uid://c0aa5ibqmt4v1" path="res://src/Shaders/skyShader.gdshader" id="1_sdgis"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://b1lrq8q6mqu8j" path="res://Scenes/Props/lilpad.tscn" id="7_3aibv"]
 [ext_resource type="Texture2D" uid="uid://c7glm5caj11yn" path="res://Assets/Textures/waterSolo.png" id="7_ltf2x"]
 [ext_resource type="PackedScene" uid="uid://dtq4u7dl5ckca" path="res://src/Interaction/button.tscn" id="7_rdkqk"]
+[ext_resource type="Script" uid="uid://v2srlwtcqjp6" path="res://Scenes/CrocoLevel/StepMotion.gd" id="11_3uthi"]
+[ext_resource type="Script" uid="uid://4yj2w1odd74u" path="res://Scenes/CrocoLevel/MushroomPuzzle.gd" id="11_ltf2x"]
 
 [sub_resource type="Gradient" id="Gradient_cvgdm"]
 interpolation_mode = 2
@@ -231,23 +233,31 @@ operation = 2
 use_collision = true
 size = Vector3(1, 4, 4)
 
-[node name="Steps" type="Node3D" parent="CSG/ThirdChamber"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.62849)
+[node name="Steps" type="Node3D" parent="CSG/ThirdChamber" node_paths=PackedStringArray("stepOne", "stepTwo", "stepThree")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.33731, 9.5)
+script = ExtResource("11_3uthi")
+stepOne = NodePath("StepA")
+stepTwo = NodePath("StepB")
+stepThree = NodePath("StepC")
 
 [node name="StepA" type="CSGBox3D" parent="CSG/ThirdChamber/Steps"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.004, 0.8861, -3.67)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.004, 0.8861, -2.47087)
 use_collision = true
 size = Vector3(1.97906, 1, 2.54834)
 
 [node name="StepB" type="CSGBox3D" parent="CSG/ThirdChamber/Steps"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.004, 1.61472, 1.25255)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.004, 1.61472, 1.60675)
 use_collision = true
-size = Vector3(1.97906, 2.46204, 2.54834)
+size = Vector3(1.979, 2.5, 2.548)
 
 [node name="StepC" type="CSGBox3D" parent="CSG/ThirdChamber/Steps"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.004, 2.16929, 5.643)
 use_collision = true
-size = Vector3(1.97906, 3.57117, 2.54834)
+size = Vector3(1.979, 3.5, 2.548)
 
-[node name="Puzzle" type="Node3D" parent="CSG/ThirdChamber"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00111302, 0, 7.36675)
+[node name="Puzzle" type="Node3D" parent="CSG/ThirdChamber" node_paths=PackedStringArray("stepOne", "stepTwo", "stepThree")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.421941, 0, 4)
+script = ExtResource("11_ltf2x")
+stepOne = NodePath("../Steps/StepA")
+stepTwo = NodePath("../Steps/StepB")
+stepThree = NodePath("../Steps/StepC")

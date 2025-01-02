@@ -8,6 +8,7 @@
 render_priority = 0
 shader = ExtResource("1_cvqsu")
 shader_parameter/albedo_texture = ExtResource("2_ybgii")
+shader_parameter/ambientMix = 1.0
 shader_parameter/UVScaling = Vector2(1, 1)
 shader_parameter/distance_fade_min = 50.0
 shader_parameter/distance_fade_max = 35.0
