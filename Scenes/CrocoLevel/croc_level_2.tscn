@@ -1433,7 +1433,7 @@ instance_shader_parameters/albedo_color = Color(0, 0.901961, 0.309804, 1)
 instance_shader_parameters/ambientAffect = 0.5
 
 [node name="Plant01 #84" parent="CrocLevel2/BigTreeDeco" instance=ExtResource("12_gybja")]
-transform = Transform3D(0.824917, 0, 0.565254, 0, 1, 0, -0.565254, 0, 0.824917, 521.838, -171.774, -352.215)
+transform = Transform3D(0.824917, 0, 0.565254, 0, 1, 0, -0.565254, 0, 0.824917, 522.871, -171.774, -353.516)
 material_override = SubResource("ShaderMaterial_icbvi")
 instance_shader_parameters/albedo_color = Color(0, 0.901961, 0.309804, 1)
 instance_shader_parameters/ambientAffect = 0.5
@@ -2244,6 +2244,16 @@ glitchName = "FINAL"
 [node name="Glitch3" parent="." instance=ExtResource("27_3ebui")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 612.75, -117.9, -398.466)
 glitchName = "croc1-1"
+
+[node name="Sign" parent="." instance=ExtResource("24_phrbr")]
+transform = Transform3D(0.627474, 0, -0.778638, 0, 1, 0, 0.778638, 0, 0.627474, 608.267, -118.438, -404.952)
+text = "Warning!
+Dangerous area!
+The platforms may fall at any time."
+
+[node name="Sign2" parent="." instance=ExtResource("24_phrbr")]
+transform = Transform3D(-0.692005, 0, -0.721893, 0, 1, 0, 0.721893, 0, -0.692005, 522.091, -171.774, -351.994)
+text = "If you're here for my watermelon stall, I'm sorry. I had too much fun jumping on the huge leaves and ended up breaking my butt. The doctor says it's not serious, but I'll be out of commision for a few days."
 
 [editable path="CrocLevel2"]
 [editable path="CrocLevel2/Cave/Platforms/WoodPlatform15/Sign"]

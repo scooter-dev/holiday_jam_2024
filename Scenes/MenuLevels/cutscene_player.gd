@@ -11,7 +11,7 @@ func _ready() -> void:
 		play("AllGlitches")
 	elif !LevelManager.initialCutscene:
 		play("Intro")
-	
+	await get_tree().physics_frame
 	jumpPad.enabled = LevelManager.initialCutscene
 
 @export var saves : Node3D

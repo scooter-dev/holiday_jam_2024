@@ -79,7 +79,7 @@ custom_minimum_size = Vector2(160, 32)
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 3
-text = "Return to Menu"
+text = "Return"
 script = ExtResource("3_ra35q")
 
 [node name="Options" parent="." instance=ExtResource("2_t7gao")]

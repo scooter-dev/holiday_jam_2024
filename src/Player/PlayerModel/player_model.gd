@@ -122,4 +122,5 @@ func unregisterLightProbe(probe : LightProbe) -> void:
 
 
 func _on_interactor_interacted(obj: Interactable) -> void:
-	global_rotation.y = -Vector2(obj.global_position.x - global_position.x, obj.global_position.z - global_position.z).angle() + PI/2
+	if is_inside_tree():
+		global_rotation.y = -Vector2(obj.global_position.x - global_position.x, obj.global_position.z - global_position.z).angle() + PI/2

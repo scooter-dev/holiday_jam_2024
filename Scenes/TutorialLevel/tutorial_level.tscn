@@ -37,14 +37,14 @@
 panorama = ExtResource("1_fhfly")
 filter = false
 
-[sub_resource type="Sky" id="Sky_u4vw4"]
+[sub_resource type="Sky" id="Sky_hby8t"]
 sky_material = SubResource("PanoramaSkyMaterial_c14f2")
 radiance_size = 0
 
 [sub_resource type="Environment" id="Environment_lv6rn"]
 background_mode = 2
 background_color = Color(0.333333, 0.890196, 0.603922, 1)
-sky = SubResource("Sky_u4vw4")
+sky = SubResource("Sky_hby8t")
 fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0.0572205, 0.0976563, 0.0578523, 1)

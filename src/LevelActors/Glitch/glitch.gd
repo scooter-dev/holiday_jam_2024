@@ -9,6 +9,10 @@ class_name GlitchCard
 @export var animation_player: AnimationPlayer
 @export var interactable: Interactable
 
+func _ready() -> void:
+	if LevelManager.glitches.has(glitchName):
+		queue_free()
+
 func _process(delta: float) -> void:
 	rotator.rotate_y(delta * 2.0)
 
