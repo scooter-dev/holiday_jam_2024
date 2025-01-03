@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://cli1nwksjedpg"]
+
+[node name="MainMenu" type="Node3D"]

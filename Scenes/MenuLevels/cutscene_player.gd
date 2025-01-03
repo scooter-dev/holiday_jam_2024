@@ -48,3 +48,6 @@ func _on_interactable_interacted(interactor: Interactor) -> void:
 
 func _on_boss_cutscene_area_body_entered(body: Node3D) -> void:
 	play("BigReveal")
+
+func loadCredits() -> void:
+	get_tree().change_scene_to_file("res://Scenes/Ending/ending_renderer.tscn")

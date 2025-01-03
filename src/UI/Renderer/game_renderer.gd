@@ -3,9 +3,11 @@ extends Control
 @export var sub_viewport: SubViewport
 @export var screen_tex: TextureRect
 @export var crt_effect: Panel
+@export var loadLevel : bool = true
 
 func _enter_tree() -> void:
-	sub_viewport.add_child(load(LevelManager.levelToLoad).instantiate())
+	if loadLevel:
+		sub_viewport.add_child(load(LevelManager.levelToLoad).instantiate())
 	OptionsManager.optionsUpdated.connect(onOptionsUpdated)
 	get_tree().root.size_changed.connect(onViewportSizeChanged)
 

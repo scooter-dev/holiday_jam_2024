@@ -1,9 +1,9 @@
 [gd_scene load_steps=24 format=4 uid="uid://de248a8pb63x"]
 
-[ext_resource type="Texture2D" uid="uid://c2tj7qnynb1f" path="res://Assets/Meshes/Props/Platforms_woodBoards.png" id="1_i8l14"]
+[ext_resource type="Texture2D" uid="uid://qn3at2a0i6n5" path="res://Assets/Textures/woodBoards.png" id="1_i8l14"]
 [ext_resource type="Script" uid="uid://cptolwfcijn4o" path="res://Scenes/Props/wood_platform.gd" id="1_miv47"]
 [ext_resource type="Shader" uid="uid://css7vswfp42e3" path="res://src/Shaders/shaded_ambient.gdshader" id="1_x4gyd"]
-[ext_resource type="Texture2D" uid="uid://d268jy0il8qc4" path="res://Assets/Meshes/Props/Platforms_chains.png" id="2_x4gyd"]
+[ext_resource type="Texture2D" uid="uid://bg7f5qpit2m8w" path="res://Assets/Textures/chains.png" id="2_x4gyd"]
 [ext_resource type="Texture2D" uid="uid://qn3at2a0i6n5" path="res://Assets/Textures/woodBoards.png" id="2_y2orn"]
 [ext_resource type="Shader" uid="uid://coxv02bx2xfpl" path="res://src/Shaders/shaded_ambient_y_bilboard.gdshader" id="3_y2orn"]
 [ext_resource type="Texture2D" uid="uid://bg7f5qpit2m8w" path="res://Assets/Textures/chains.png" id="4_miv47"]

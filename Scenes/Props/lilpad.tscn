@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b1lrq8q6mqu8j"]
 
-[ext_resource type="Texture2D" uid="uid://b2kh6b8vcytbs" path="res://Assets/Meshes/Props/BigLeaf_bigLeaf.png" id="1_867lk"]
+[ext_resource type="Texture2D" uid="uid://bojugpu86eu5q" path="res://Assets/Textures/bigLeaf.png" id="1_867lk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7hou1"]
 albedo_color = Color(2.18995e-06, 0.268078, 0.0399893, 1)

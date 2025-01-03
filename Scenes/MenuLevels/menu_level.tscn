@@ -1,4 +1,4 @@
-[gd_scene load_steps=172 format=4 uid="uid://bcf0411aq8xos"]
+[gd_scene load_steps=195 format=4 uid="uid://bcf0411aq8xos"]
 
 [ext_resource type="PackedScene" uid="uid://b71m35e4nhw7h" path="res://Assets/Meshes/MenuLevel/MenuLevel.blend" id="1_ueebt"]
 [ext_resource type="PackedScene" uid="uid://baceyyuakavy4" path="res://src/Interaction/Interactable.tscn" id="2_4pm6c"]
@@ -16,21 +16,23 @@
 [ext_resource type="Shader" uid="uid://css7vswfp42e3" path="res://src/Shaders/shaded_ambient.gdshader" id="6_ohfb6"]
 [ext_resource type="Texture2D" uid="uid://d2br3m46cfssy" path="res://Assets/Textures/woodBoardsCracked.png" id="7_isfor"]
 [ext_resource type="PackedScene" uid="uid://deh6ojfecagpx" path="res://Scenes/Props/jump_pad.tscn" id="7_ub1iy"]
-[ext_resource type="Shader" uid="uid://coxv02bx2xfpl" path="res://src/Shaders/shaded_ambient_y_bilboard.gdshader" id="8_isfor"]
-[ext_resource type="Texture2D" uid="uid://bg7f5qpit2m8w" path="res://Assets/Textures/chains.png" id="9_o0emj"]
 [ext_resource type="PackedScene" uid="uid://ca2c5nxi2ktrn" path="res://src/LevelActors/water_area.tscn" id="10_rleeb"]
+[ext_resource type="Shader" uid="uid://coxv02bx2xfpl" path="res://src/Shaders/shaded_ambient_y_bilboard.gdshader" id="11_htq6j"]
 [ext_resource type="Shader" uid="uid://ct8skqad1sgsq" path="res://src/Shaders/water.gdshader" id="11_oa8tn"]
 [ext_resource type="PackedScene" uid="uid://cxq2yko4u2kt5" path="res://src/LevelActors/checkpoint.tscn" id="12_57if5"]
+[ext_resource type="Texture2D" uid="uid://bg7f5qpit2m8w" path="res://Assets/Textures/chains.png" id="12_736gl"]
 [ext_resource type="Texture2D" uid="uid://c7glm5caj11yn" path="res://Assets/Textures/waterSolo.png" id="12_mbuq8"]
 [ext_resource type="PackedScene" uid="uid://dcg7514vbu8f1" path="res://src/LevelActors/Glitch/glitch.tscn" id="13_ldvjd"]
 [ext_resource type="Shader" uid="uid://c26rqcn47f37l" path="res://src/Shaders/3dGlitch.gdshader" id="13_oa8tn"]
 [ext_resource type="PackedScene" uid="uid://d1ovsgwn64xet" path="res://src/LevelActors/height_kill_volume.tscn" id="14_rex1h"]
 [ext_resource type="Texture2D" uid="uid://0as68b1ryfpo" path="res://Assets/Meshes/Props/BakedTex.png" id="15_mbuq8"]
+[ext_resource type="PackedScene" uid="uid://bw3t2abo7w7yo" path="res://Scenes/Props/info_box_area.tscn" id="20_npug5"]
 [ext_resource type="Texture2D" uid="uid://ydqnj0x1hm2g" path="res://Assets/Textures/lightning01.png" id="27_2nrmm"]
 [ext_resource type="Texture2D" uid="uid://dowqonkngrp5o" path="res://Assets/Textures/lightning02.png" id="28_htq6j"]
 [ext_resource type="Texture2D" uid="uid://c7csobriujc5f" path="res://Assets/Textures/lightning03.png" id="29_736gl"]
 [ext_resource type="Texture2D" uid="uid://dq5p2n5ym1tnl" path="res://Assets/Textures/lightning04.png" id="30_5dwbx"]
 [ext_resource type="Texture2D" uid="uid://dil3gc0ac4u8o" path="res://Assets/Textures/lightning05.png" id="31_8ytyv"]
+[ext_resource type="Script" path="res://Scenes/MenuLevels/menu_level_music.gd" id="33_736gl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mxiu3"]
 albedo_color = Color(0.761719, 0.761719, 0.761719, 1)
@@ -476,11 +478,251 @@ shader_parameter/viewDistanceOverride = 0.0
 shader_parameter/AOMix = 0.0
 shader_parameter/ambientMix = 1.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uc0s5"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5dwbx"]
 render_priority = 0
-shader = ExtResource("8_isfor")
-shader_parameter/albedo_texture = ExtResource("9_o0emj")
-shader_parameter/albedo_color = Color(0.378906, 0.378906, 0.378906, 1)
+shader = ExtResource("11_htq6j")
+shader_parameter/albedo_texture = ExtResource("12_736gl")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/UVScaling = Vector2(1, 1)
+shader_parameter/distance_fade_min = null
+shader_parameter/distance_fade_max = null
+shader_parameter/viewDistanceOverride = 0.0
+shader_parameter/AOMix = 0.0
+shader_parameter/ambientMix = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ytyv"]
+render_priority = 0
+shader = ExtResource("11_htq6j")
+shader_parameter/albedo_texture = ExtResource("12_736gl")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/UVScaling = Vector2(1, 1)
+shader_parameter/distance_fade_min = null
+shader_parameter/distance_fade_max = null
+shader_parameter/viewDistanceOverride = 0.0
+shader_parameter/AOMix = 0.0
+shader_parameter/ambientMix = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ja7n"]
+render_priority = 0
+shader = ExtResource("11_htq6j")
+shader_parameter/albedo_texture = ExtResource("12_736gl")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/UVScaling = Vector2(1, 1)
+shader_parameter/distance_fade_min = null
+shader_parameter/distance_fade_max = null
+shader_parameter/viewDistanceOverride = 0.0
+shader_parameter/AOMix = 0.0
+shader_parameter/ambientMix = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pt7jq"]
+render_priority = 0
+shader = ExtResource("11_htq6j")
+shader_parameter/albedo_texture = ExtResource("12_736gl")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/UVScaling = Vector2(1, 1)
+shader_parameter/distance_fade_min = null
+shader_parameter/distance_fade_max = null
+shader_parameter/viewDistanceOverride = 0.0
+shader_parameter/AOMix = 0.0
+shader_parameter/ambientMix = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0fpvr"]
+render_priority = 0
+shader = ExtResource("11_htq6j")
+shader_parameter/albedo_texture = ExtResource("12_736gl")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/UVScaling = Vector2(1, 1)
+shader_parameter/distance_fade_min = null
+shader_parameter/distance_fade_max = null
+shader_parameter/viewDistanceOverride = 0.0
+shader_parameter/AOMix = 0.0
+shader_parameter/ambientMix = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1bc1w"]
+render_priority = 0
+shader = ExtResource("11_htq6j")
+shader_parameter/albedo_texture = ExtResource("12_736gl")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/UVScaling = Vector2(1, 1)
+shader_parameter/distance_fade_min = null
+shader_parameter/distance_fade_max = null
+shader_parameter/viewDistanceOverride = 0.0
+shader_parameter/AOMix = 0.0
+shader_parameter/ambientMix = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2vpk3"]
+render_priority = 0
+shader = ExtResource("11_htq6j")
+shader_parameter/albedo_texture = ExtResource("12_736gl")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/UVScaling = Vector2(1, 1)
+shader_parameter/distance_fade_min = null
+shader_parameter/distance_fade_max = null
+shader_parameter/viewDistanceOverride = 0.0
+shader_parameter/AOMix = 0.0
+shader_parameter/ambientMix = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0dgtj"]
+render_priority = 0
+shader = ExtResource("11_htq6j")
+shader_parameter/albedo_texture = ExtResource("12_736gl")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/UVScaling = Vector2(1, 1)
+shader_parameter/distance_fade_min = null
+shader_parameter/distance_fade_max = null
+shader_parameter/viewDistanceOverride = 0.0
+shader_parameter/AOMix = 0.0
+shader_parameter/ambientMix = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xli6e"]
+render_priority = 0
+shader = ExtResource("11_htq6j")
+shader_parameter/albedo_texture = ExtResource("12_736gl")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/UVScaling = Vector2(1, 1)
+shader_parameter/distance_fade_min = null
+shader_parameter/distance_fade_max = null
+shader_parameter/viewDistanceOverride = 0.0
+shader_parameter/AOMix = 0.0
+shader_parameter/ambientMix = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_04mnb"]
+render_priority = 0
+shader = ExtResource("11_htq6j")
+shader_parameter/albedo_texture = ExtResource("12_736gl")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/UVScaling = Vector2(1, 1)
+shader_parameter/distance_fade_min = null
+shader_parameter/distance_fade_max = null
+shader_parameter/viewDistanceOverride = 0.0
+shader_parameter/AOMix = 0.0
+shader_parameter/ambientMix = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e4o37"]
+render_priority = 0
+shader = ExtResource("11_htq6j")
+shader_parameter/albedo_texture = ExtResource("12_736gl")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/UVScaling = Vector2(1, 1)
+shader_parameter/distance_fade_min = null
+shader_parameter/distance_fade_max = null
+shader_parameter/viewDistanceOverride = 0.0
+shader_parameter/AOMix = 0.0
+shader_parameter/ambientMix = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ynfpk"]
+render_priority = 0
+shader = ExtResource("11_htq6j")
+shader_parameter/albedo_texture = ExtResource("12_736gl")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/UVScaling = Vector2(1, 1)
+shader_parameter/distance_fade_min = null
+shader_parameter/distance_fade_max = null
+shader_parameter/viewDistanceOverride = 0.0
+shader_parameter/AOMix = 0.0
+shader_parameter/ambientMix = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_njvjw"]
+render_priority = 0
+shader = ExtResource("11_htq6j")
+shader_parameter/albedo_texture = ExtResource("12_736gl")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/UVScaling = Vector2(1, 1)
+shader_parameter/distance_fade_min = null
+shader_parameter/distance_fade_max = null
+shader_parameter/viewDistanceOverride = 0.0
+shader_parameter/AOMix = 0.0
+shader_parameter/ambientMix = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2wab1"]
+render_priority = 0
+shader = ExtResource("11_htq6j")
+shader_parameter/albedo_texture = ExtResource("12_736gl")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/UVScaling = Vector2(1, 1)
+shader_parameter/distance_fade_min = null
+shader_parameter/distance_fade_max = null
+shader_parameter/viewDistanceOverride = 0.0
+shader_parameter/AOMix = 0.0
+shader_parameter/ambientMix = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fvfnq"]
+render_priority = 0
+shader = ExtResource("11_htq6j")
+shader_parameter/albedo_texture = ExtResource("12_736gl")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/UVScaling = Vector2(1, 1)
+shader_parameter/distance_fade_min = null
+shader_parameter/distance_fade_max = null
+shader_parameter/viewDistanceOverride = 0.0
+shader_parameter/AOMix = 0.0
+shader_parameter/ambientMix = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d8pq5"]
+render_priority = 0
+shader = ExtResource("11_htq6j")
+shader_parameter/albedo_texture = ExtResource("12_736gl")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/UVScaling = Vector2(1, 1)
+shader_parameter/distance_fade_min = null
+shader_parameter/distance_fade_max = null
+shader_parameter/viewDistanceOverride = 0.0
+shader_parameter/AOMix = 0.0
+shader_parameter/ambientMix = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f3c0a"]
+render_priority = 0
+shader = ExtResource("11_htq6j")
+shader_parameter/albedo_texture = ExtResource("12_736gl")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/UVScaling = Vector2(1, 1)
+shader_parameter/distance_fade_min = null
+shader_parameter/distance_fade_max = null
+shader_parameter/viewDistanceOverride = 0.0
+shader_parameter/AOMix = 0.0
+shader_parameter/ambientMix = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pjd72"]
+render_priority = 0
+shader = ExtResource("11_htq6j")
+shader_parameter/albedo_texture = ExtResource("12_736gl")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/UVScaling = Vector2(1, 1)
+shader_parameter/distance_fade_min = null
+shader_parameter/distance_fade_max = null
+shader_parameter/viewDistanceOverride = 0.0
+shader_parameter/AOMix = 0.0
+shader_parameter/ambientMix = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_18ka5"]
+render_priority = 0
+shader = ExtResource("11_htq6j")
+shader_parameter/albedo_texture = ExtResource("12_736gl")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/UVScaling = Vector2(1, 1)
+shader_parameter/distance_fade_min = null
+shader_parameter/distance_fade_max = null
+shader_parameter/viewDistanceOverride = 0.0
+shader_parameter/AOMix = 0.0
+shader_parameter/ambientMix = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iek6q"]
+render_priority = 0
+shader = ExtResource("11_htq6j")
+shader_parameter/albedo_texture = ExtResource("12_736gl")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/UVScaling = Vector2(1, 1)
+shader_parameter/distance_fade_min = null
+shader_parameter/distance_fade_max = null
+shader_parameter/viewDistanceOverride = 0.0
+shader_parameter/AOMix = 0.0
+shader_parameter/ambientMix = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n7dg0"]
+render_priority = 0
+shader = ExtResource("11_htq6j")
+shader_parameter/albedo_texture = ExtResource("12_736gl")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
 shader_parameter/UVScaling = Vector2(1, 1)
 shader_parameter/distance_fade_min = null
 shader_parameter/distance_fade_max = null
@@ -631,6 +873,9 @@ _surfaces = [{
 "vertex_count": 117,
 "vertex_data": PackedByteArray("wXMHwNGwa0B46iE/OYHLvwntHEEkD6g/XuqYQA93FEGojaA/fJiFQPQ0RECDoQs/8weXQCG8HkG79KDAOYHLvwntHEEkD6g/PECFQGSvdUDgqrXAwXMHwNGwa0B46iE/OYHLvwntHEEkD6g/wXMHwNGwa0B46iE/MbAev8kKgUDg5mDAL+4bvyFGWUCxZbU/cGnyvVEmBUFx3f4/QmyzwJCQeUDgB78/QmyzwJCQeUDgB78/cjCmwPDPC0FUbgJAAoI1vqRADUEnHUDAcjCmwPDPC0FUbgJAQmyzwJCQeUDgB78/cjCmwPDPC0FUbgJAA/mav5K9F0BQL7o/RRZnwCTVykCKHLFA/gsFQH2YEkFw7MRAAGuOQESho0A9n/4/14kaP0LVUEEQsrQ/RRZnwCTVykCKHLFAMK49QGpJEUE9yCfAA/mav5K9F0BQL7o/RRZnwCTVykCKHLFAA/mav5K9F0BQL7o/MxHAQPF+zEBLHhLAyvyAP1Cma0A34cPAyvyAP1Cma0A34cPAB0G2P9FAyUAxISFAEwj+v7FTKkGQIuK/PdgRwLE38kAiCrTAEwj+v7FTKkGQIuK/M8lHwBGWeUCEV3fAM8lHwBGWeUCEV3fA4oq3wIqv30C8Al3A2oR5QBrfHEF8JOw/iMyGPn9C9UBVEWPAiMyGPn9C9UBVEWPAmqtiP6frmUCUkp9AMM2cwP2bBkFXy1xA5f2KwDvCBUElTLq/MM2cwP2bBkFXy1xAqDtVwGNq6kCYCQjAfWygP+Qk7EBjk9nApuebQKcN20CcDbnA5FCoQC1nIEHF3+i/gBiUQKymP0DwwyfAqGB8P/l5C0A/wi3A0ILnPzk/N0Eldsm/ggCeQNjdwkDUra0/SivSwBm92UAmtzC/MDCwwOeRFkHD/s++JjA8wM/r2kBQxYzAIMJZPyElwUDXkVS/sZ2HPuuxDkEhE+S+9P8dwPz/IEEoUWu+MDCwwOeRFkHD/s++4UUxwMtyvkCyWkBARvNHwL5oLEA05ZW/2CiQwBd1t0Ae+oo/vFu4v6EOKkHmPv2/YuMFQLXnN0EwSmi/iLfKP5+tOUFO9oRAIvaJQAiQ4UDEqAy/V93JP4RKmECwZ9G/WPcAwNl5K0HDVZRAwOdxQJLM4UAO445AnLnJv6m4J0FNu5zAJUQSwK0v2kCpELU/WWYmwOklaEAZEB3AOF/PP/hIK0FeuKzAWkkIwOvQjEDyJrHAWkkIwOvQjEDyJrHAWWYmwOklaEAZEB3AT1d2Pzu1NkAcgn8/KtnbP7g1H0GWVuo/KtnbP7g1H0GWVuo/T1d2Pzu1NkAcgn8/JUQSwK0v2kCpELU/OF/PP/hIK0FeuKzAnLnJv6m4J0FNu5zAir6lwNBwFEFvazjA1sC3wK2XzEBfcAdAicK/wMPsdkDNn3C/l9UowGdRF0GI3FLADtezwExrj0AooFjAtP1vvY2ezECiLWbAcvdzvp6fVkB2/4u/DtezwExrj0AooFjAicK/wMPsdkDNn3C/xLFKwEuFTkDuQ+Q/wITjO+VeuUAEmwRAn5giwDq2DUEAlh1An5giwDq2DUEAlh1AxLFKwEuFTkDuQ+Q/1sC3wK2XzEBfcAdAl9UowGdRF0GI3FLAir6lwNBwFEFvazjAhtmgwG/tI0HytWE/NTEvwEV2fEDPB3VA7jgJwBHUc0CAdZO/fHEfwJH9Q0ECAIs/Lm8qwHOiyEBbNUnALm8qwHOiyEBbNUnA7jgJwBHUc0CAdZO/KozxP7mpSEAiIOA/G9RCv5Ps+EDEJdFAG9RCv5Ps+EDEJdFAKozxP7mpSEAiIOA/NTEvwEV2fEDPB3VAfHEfwJH9Q0ECAIs/htmgwG/tI0HytWE/plHXVKJrJt8TWaip2L5Z8KSucKKoSdToJqcdTZO0stvX1KXRllU24BNZqKkeHiOiVtbsJj/BuOOmUddUnLzmqBNZqKkXwM7pplHXVNNfuN9W1uwmP8G44yanHU2TtLLbpK5woqhJ1OimUddUnLzmqKZR11SiaybfE1moqdi+WfDX1KXRllU24BNZqKkeHiSiplHXVNNfuN8TWaipF8DO6ftt3BHNU4jDc0/dbPxynu/BogaWdDeCznDM7VV8lbrZ25H67ZY8b8VzT91svyLHltzsc89hkFvl+23cEa7tFbdzT91sKoS67ftt3BEPR5TE2PXHdGuJqPXDNl8F2PVjusM2XwVfvE/9/3/Zc2uJqPWQSK3BlDdKoT4LTcVriaj1kEitwZXCydvDNl8F2PVjusM2XwVfvE/9PgtNxWuJqPUR0GunnWJ62Az+9wwR0LXTDP73DDJSFewukh9OnWJ62P0v8YxeO8qN7Qo1vZ1ietj9L/GMlZuv3TcLJopriaj12PP//2uJqPXd/szAa4mo9ZXClLeQSNbgUL5tN5XCydtSa2wJ2PVjumuJUOs3CxLFsLq/dGuJqPU3CyaKa4mo9ZBIrcGVwsnb2PP//2uJqPXY9cd0a4mo9ZXClLeQSNbga4lQ6zcLEsWQSK3BlDdKof9/2XNriaj1UmtsCdj1Y7prJxFQnWJ62N8xz+2dYnrY5sY23J1ietiVm1+7/S94xg3zAVCVm6/dCc9iHRHQtdOdYvWwaycIqMjCEnWdYnrY4jLY2A6klNvNQN5+a4mo9ZQ3lUKQSNbgX7yf+l+FYdtwIqQutkkM8nAipC5b2HKdlDeVQlC+tpugel482PVjul+Fw7ZfvE/9X4XDtjcLEsWgel48X4Vh281A3n5riaj1X7yf+jcLEsXiMtjY9Dr+reIy2NgOpJTbzUDefmuJqPWUN5VCkEjW4F+8n/pfhWHbcCKkLrZJDPLd/szAa4mo9VC+bTeVwsnbcCKkLlvYcp2UN5VCUL62m6B6XjzY9WO6sLq/dGuJqPVfhcO2X7xP/V+Fw7Y3CxLFoHpePF+FYdvNQN5+a4mo9V+8n/o3CxLF4jLY2PQ6/q0RKo6zLoyw0zdc5kadYnrYXjuUG/0veMYyUivYB3P4wAYWwiLRQJnYBhbCItbr291eO5QbDfMAqNKnzS0R0LXTB3PxgTJSFewHc/GBaycIqNKnzS0Hc/jAN1zmRp1ietgyUivYaycIqBEqjrNHS+mT")
 }]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2nrmm"]
+size = Vector3(2, 1, 1)
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_mxiu3"]
 panorama = ExtResource("3_bumdm")
@@ -1164,7 +1409,7 @@ tracks/18/keys = {
 
 [sub_resource type="Animation" id="Animation_rlq2f"]
 resource_name = "FinalCutscene"
-length = 8.0
+length = 24.0
 step = 0.025
 tracks/0/type = "method"
 tracks/0/imported = false
@@ -1173,8 +1418,8 @@ tracks/0/path = NodePath("CutscenePlayer")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.025, 4, 8),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.025, 4, 8.025, 12, 18.075, 23.8, 23.975),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [true],
 "method": &"freezePlayer"
@@ -1182,11 +1427,23 @@ tracks/0/keys = {
 "args": ["NOOOOOOOOOOO!"],
 "method": &"displayDialog"
 }, {
+"args": ["You ejected the bit_rot?"],
+"method": &"displayDialog"
+}, {
 "args": ["Thank you for saving me!"],
+"method": &"displayDialog"
+}, {
+"args": ["You've restored my systems to operational levels."],
+"method": &"displayDialog"
+}, {
+"args": ["Brave hero, what will you do now that your perilous quest has come to an end?"],
 "method": &"displayDialog"
 }, {
 "args": [],
 "method": &"closeDialog"
+}, {
+"args": [],
+"method": &"loadCredits"
 }]
 }
 tracks/1/type = "bezier"
@@ -1322,6 +1579,20 @@ tracks/12/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/13/type = "method"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Player/HUD")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(22.35),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fadeOutOnly"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_mxiu3"]
@@ -2137,7 +2408,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_001/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_ueebt")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_002" parent="MenuLevel" index="2"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2147,7 +2417,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_002/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_s7esc")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_003" parent="MenuLevel" index="3"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2157,7 +2426,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_003/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_bumdm")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_004" parent="MenuLevel" index="4"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2167,7 +2435,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_004/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_mxiu3")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_005" parent="MenuLevel" index="5"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2177,7 +2444,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_005/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_jpii8")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_006" parent="MenuLevel" index="6"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2187,7 +2453,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_006/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_ub1iy")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_007" parent="MenuLevel" index="7"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2197,7 +2462,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_007/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_lsrrj")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_008" parent="MenuLevel" index="8"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2215,7 +2479,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_010/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_o1j72")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_011" parent="MenuLevel" index="11"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2225,7 +2488,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_011/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_q6dfh")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_012" parent="MenuLevel" index="12"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2235,7 +2497,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_012/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_unave")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_013" parent="MenuLevel" index="13"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2253,7 +2514,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_019/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_lsrrj")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_020" parent="MenuLevel" index="16"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2263,7 +2523,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_020/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_o1j72")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_021" parent="MenuLevel" index="17"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2273,7 +2532,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_021/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_q6dfh")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_022" parent="MenuLevel" index="18"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2287,7 +2545,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_023/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_unave")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_024" parent="MenuLevel" index="20"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2297,7 +2554,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_024/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_57if5")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_025" parent="MenuLevel" index="21"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2307,7 +2563,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_025/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_ldvjd")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_026" parent="MenuLevel" index="22"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2329,7 +2584,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_034/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_isfor")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_035" parent="MenuLevel" index="26"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2339,7 +2593,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Tile_035/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_o0emj")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Tile_014" parent="MenuLevel" index="27"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2430,42 +2683,34 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/SaveRoom/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.1, -6)
 shape = SubResource("BoxShape3D_jpii8")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="MenuLevel/SaveRoom/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 11.9, -6)
 shape = SubResource("BoxShape3D_ub1iy")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="MenuLevel/SaveRoom/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 6, 0.849998)
 shape = SubResource("BoxShape3D_lsrrj")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="MenuLevel/SaveRoom/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 6, -12.85)
 shape = SubResource("BoxShape3D_lsrrj")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="MenuLevel/SaveRoom/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9, 6, -6.00001)
 shape = SubResource("BoxShape3D_o1j72")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="MenuLevel/SaveRoom/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9, 6, -2.00001)
 shape = SubResource("BoxShape3D_q6dfh")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="MenuLevel/SaveRoom/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 6, -10)
 shape = SubResource("BoxShape3D_q6dfh")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="MenuLevel/SaveRoom/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 8, -6.00001)
 shape = SubResource("BoxShape3D_unave")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO" parent="MenuLevel" index="38"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2475,7 +2720,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Gate/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_4pm6c")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_001" parent="MenuLevel/IO" index="1"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2485,7 +2729,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_001/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_8j861")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_002" parent="MenuLevel/IO" index="2"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2495,7 +2738,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_002/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_tufeg")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_003" parent="MenuLevel/IO" index="3"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2505,7 +2747,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_003/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_8qb70")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_004" parent="MenuLevel/IO" index="4"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2515,7 +2756,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_004/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_kboto")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_005" parent="MenuLevel/IO" index="5"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2525,7 +2765,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_005/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_ohfb6")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_006" parent="MenuLevel/IO" index="6"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2535,7 +2774,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_006/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_oa8tn")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_007" parent="MenuLevel/IO" index="7"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2545,7 +2783,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_007/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_mbuq8")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_008" parent="MenuLevel/IO" index="8"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2555,7 +2792,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_008/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_rlq2f")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_009" parent="MenuLevel/IO" index="9"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2565,7 +2801,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_009/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_arrg5")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_010" parent="MenuLevel/IO" index="10"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2575,7 +2810,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_010/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_i0fwx")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Occluder" type="MeshInstance3D" parent="MenuLevel/IO" index="11"]
 transform = Transform3D(2, 9.3168e-14, 9.3168e-14, -9.3168e-14, -8.74228e-08, 2, 9.3168e-14, -2, -8.74228e-08, 31, 11.5028, -2.52416)
@@ -2629,7 +2863,6 @@ monitorable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/BossCutsceneArea"]
 transform = Transform3D(1, 0, -8.90074e-29, 0, 1, 0, 0, 0, 1, -0.0622287, -0.693059, -0.273377)
 shape = SubResource("BoxShape3D_i0fwx")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Door" type="Node3D" parent="MenuLevel/IO" index="13"]
 transform = Transform3D(1, 4.6584e-14, 1.68634e-19, 0, -3.61999e-06, 1, 4.6584e-14, -1, -3.61999e-06, 31, 14, 1)
@@ -2645,7 +2878,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Door/IO_044/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_i0fwx")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Label3D" type="Label3D" parent="MenuLevel/IO/Door"]
 transform = Transform3D(1, -4.6584e-14, 4.6584e-14, 4.6584e-14, -4.37114e-08, -1, 4.6584e-14, 1, -4.37114e-08, 0, -0.0133303, -2)
@@ -2661,7 +2893,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_011/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_npug5")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_012" parent="MenuLevel/IO" index="15"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2671,7 +2902,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_012/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_2nrmm")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_013" parent="MenuLevel/IO" index="16"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2681,7 +2911,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_013/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_htq6j")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_014" parent="MenuLevel/IO" index="17"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2691,7 +2920,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_014/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_736gl")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_015" parent="MenuLevel/IO" index="18"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2701,7 +2929,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_015/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_5dwbx")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_016" parent="MenuLevel/IO" index="19"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2711,7 +2938,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_016/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_8ytyv")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_017" parent="MenuLevel/IO" index="20"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2721,7 +2947,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_017/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_4ja7n")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_018" parent="MenuLevel/IO" index="21"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2731,7 +2956,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_018/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_pt7jq")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_019" parent="MenuLevel/IO" index="22"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2741,7 +2965,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_019/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_0fpvr")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_020" parent="MenuLevel/IO" index="23"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2751,7 +2974,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_020/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_1bc1w")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_021" parent="MenuLevel/IO" index="24"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2761,7 +2983,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_021/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_2vpk3")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_022" parent="MenuLevel/IO" index="25"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2771,7 +2992,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_022/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_0dgtj")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_023" parent="MenuLevel/IO" index="26"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2781,7 +3001,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_023/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_xli6e")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_024" parent="MenuLevel/IO" index="27"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2791,7 +3010,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_024/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_04mnb")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_025" parent="MenuLevel/IO" index="28"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2801,7 +3019,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_025/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_e4o37")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_026" parent="MenuLevel/IO" index="29"]
 transform = Transform3D(-1, 0, -2.38418e-07, 0, 1, 0, 2.38418e-07, 0, -1, 53, 18, -26)
@@ -2812,7 +3029,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_026/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_ynfpk")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_027" parent="MenuLevel/IO" index="30"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2822,7 +3038,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_027/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_njvjw")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_028" parent="MenuLevel/IO" index="31"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2832,7 +3047,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_028/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_2wab1")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_029" parent="MenuLevel/IO" index="32"]
 transform = Transform3D(-1, 0, -2.38418e-07, 0, 1, 0, 2.38418e-07, 0, -1, 37, 21, -26)
@@ -2843,7 +3057,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_029/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_fvfnq")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_030" parent="MenuLevel/IO" index="33"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2853,7 +3066,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_030/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_d8pq5")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_031" parent="MenuLevel/IO" index="34"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2863,7 +3075,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_031/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_f3c0a")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_032" parent="MenuLevel/IO" index="35"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2873,7 +3084,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_032/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_pjd72")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_033" parent="MenuLevel/IO" index="36"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2883,7 +3093,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_033/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_18ka5")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_034" parent="MenuLevel/IO" index="37"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2893,7 +3102,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_034/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_iek6q")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_035" parent="MenuLevel/IO" index="38"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2903,7 +3111,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_035/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_n7dg0")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_036" parent="MenuLevel/IO" index="39"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2913,7 +3120,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_036/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_rbwgg")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_037" parent="MenuLevel/IO" index="40"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2923,7 +3129,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_037/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_cxyrs")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_038" parent="MenuLevel/IO" index="41"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2933,7 +3138,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_038/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_uggme")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_039" parent="MenuLevel/IO" index="42"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2943,7 +3147,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_039/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_7jlhr")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_040" parent="MenuLevel/IO" index="43"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2953,7 +3156,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_040/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_upih1")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_041" parent="MenuLevel/IO" index="44"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2963,7 +3165,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_041/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_ykm44")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_042" parent="MenuLevel/IO" index="45"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2973,7 +3174,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_042/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_g6i68")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="IO_043" parent="MenuLevel/IO" index="46"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mxiu3")
@@ -2983,7 +3183,6 @@ surface_material_override/1 = SubResource("StandardMaterial3D_q6dfh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/IO_043/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_wybyn")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="EjectButton" type="Node3D" parent="MenuLevel/IO/IO_043" index="1"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1.5, 0)
@@ -3045,7 +3244,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Platforming/Water/WaterVolume"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_rlq2f")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="MenuLevel/IO/Platforming/Water/WaterVolume/CollisionShape3D"]
 instance_shader_parameters/ambientInfluence = 0.0
@@ -3060,7 +3258,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Platforming/Water/WaterVolume2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_rlq2f")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="MenuLevel/IO/Platforming/Water/WaterVolume2/CollisionShape3D"]
 instance_shader_parameters/ambientInfluence = 0.0
@@ -3075,7 +3272,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Platforming/Water/WaterVolume3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_rlq2f")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="MenuLevel/IO/Platforming/Water/WaterVolume3/CollisionShape3D"]
 instance_shader_parameters/ambientInfluence = 0.0
@@ -3090,7 +3286,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Platforming/Water/WaterVolume4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_rlq2f")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="MenuLevel/IO/Platforming/Water/WaterVolume4/CollisionShape3D"]
 instance_shader_parameters/ambientInfluence = 0.0
@@ -3105,7 +3300,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Platforming/Water/WaterVolume5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_rlq2f")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="MenuLevel/IO/Platforming/Water/WaterVolume5/CollisionShape3D"]
 instance_shader_parameters/ambientInfluence = 0.0
@@ -3120,7 +3314,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Platforming/Water/WaterVolume6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_rlq2f")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="MenuLevel/IO/Platforming/Water/WaterVolume6/CollisionShape3D"]
 instance_shader_parameters/ambientInfluence = 0.0
@@ -3135,7 +3328,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Platforming/Water/WaterVolume7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_rlq2f")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="MenuLevel/IO/Platforming/Water/WaterVolume7/CollisionShape3D"]
 instance_shader_parameters/ambientInfluence = 0.0
@@ -3150,7 +3342,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Platforming/Water/WaterVolume8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_rlq2f")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="MenuLevel/IO/Platforming/Water/WaterVolume8/CollisionShape3D"]
 instance_shader_parameters/ambientInfluence = 0.0
@@ -3165,7 +3356,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Platforming/Water/WaterVolume9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_rlq2f")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="MenuLevel/IO/Platforming/Water/WaterVolume9/CollisionShape3D"]
 instance_shader_parameters/ambientInfluence = 0.0
@@ -3180,7 +3370,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Platforming/Water/WaterVolume10"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_rlq2f")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="MenuLevel/IO/Platforming/Water/WaterVolume10/CollisionShape3D"]
 instance_shader_parameters/ambientInfluence = 0.0
@@ -3201,52 +3390,68 @@ metadata/_edit_group_ = true
 material_override = SubResource("ShaderMaterial_o0emj")
 
 [node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform/Chains" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_5dwbx")
+surface_material_override/0 = null
 
 [node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform/Chains" index="1"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_5dwbx")
+surface_material_override/0 = null
 
 [node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform/Chains" index="2"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_5dwbx")
+surface_material_override/0 = null
 
 [node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform/Chains" index="3"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_5dwbx")
+surface_material_override/0 = null
 
 [node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform/Chains" index="4"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_5dwbx")
+surface_material_override/0 = null
 
 [node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform/Chains" index="5"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_5dwbx")
+surface_material_override/0 = null
 
 [node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform/Chains" index="6"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_5dwbx")
+surface_material_override/0 = null
 
 [node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform/Chains" index="7"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_5dwbx")
+surface_material_override/0 = null
 
 [node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform/Chains" index="8"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_5dwbx")
+surface_material_override/0 = null
 
 [node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform/Chains" index="9"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_5dwbx")
+surface_material_override/0 = null
 
 [node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform/Chains" index="10"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_5dwbx")
+surface_material_override/0 = null
 
 [node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform/Chains" index="11"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_5dwbx")
+surface_material_override/0 = null
 
 [node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform/Chains" index="12"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_5dwbx")
+surface_material_override/0 = null
 
 [node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform/Chains" index="13"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_5dwbx")
+surface_material_override/0 = null
 
 [node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform/Chains" index="14"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_5dwbx")
+surface_material_override/0 = null
 
 [node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform/Chains" index="15"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_5dwbx")
+surface_material_override/0 = null
 
 [node name="WoodPlatform18" parent="MenuLevel/IO/Platforming/WoodPlatforms" instance=ExtResource("5_kboto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56, 21.75, -88)
@@ -3259,52 +3464,68 @@ metadata/_edit_group_ = true
 material_override = SubResource("ShaderMaterial_o0emj")
 
 [node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform18/Chains" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_8ytyv")
+surface_material_override/0 = null
 
 [node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform18/Chains" index="1"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_8ytyv")
+surface_material_override/0 = null
 
 [node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform18/Chains" index="2"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_8ytyv")
+surface_material_override/0 = null
 
 [node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform18/Chains" index="3"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_8ytyv")
+surface_material_override/0 = null
 
 [node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform18/Chains" index="4"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_8ytyv")
+surface_material_override/0 = null
 
 [node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform18/Chains" index="5"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_8ytyv")
+surface_material_override/0 = null
 
 [node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform18/Chains" index="6"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_8ytyv")
+surface_material_override/0 = null
 
 [node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform18/Chains" index="7"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_8ytyv")
+surface_material_override/0 = null
 
 [node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform18/Chains" index="8"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_8ytyv")
+surface_material_override/0 = null
 
 [node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform18/Chains" index="9"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_8ytyv")
+surface_material_override/0 = null
 
 [node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform18/Chains" index="10"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_8ytyv")
+surface_material_override/0 = null
 
 [node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform18/Chains" index="11"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_8ytyv")
+surface_material_override/0 = null
 
 [node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform18/Chains" index="12"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_8ytyv")
+surface_material_override/0 = null
 
 [node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform18/Chains" index="13"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_8ytyv")
+surface_material_override/0 = null
 
 [node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform18/Chains" index="14"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_8ytyv")
+surface_material_override/0 = null
 
 [node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform18/Chains" index="15"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_8ytyv")
+surface_material_override/0 = null
 
 [node name="WoodPlatform19" parent="MenuLevel/IO/Platforming/WoodPlatforms" instance=ExtResource("5_kboto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.5, 21.75, -83.5)
@@ -3317,52 +3538,68 @@ metadata/_edit_group_ = true
 material_override = SubResource("ShaderMaterial_o0emj")
 
 [node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform19/Chains" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_4ja7n")
+surface_material_override/0 = null
 
 [node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform19/Chains" index="1"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_4ja7n")
+surface_material_override/0 = null
 
 [node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform19/Chains" index="2"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_4ja7n")
+surface_material_override/0 = null
 
 [node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform19/Chains" index="3"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_4ja7n")
+surface_material_override/0 = null
 
 [node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform19/Chains" index="4"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_4ja7n")
+surface_material_override/0 = null
 
 [node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform19/Chains" index="5"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_4ja7n")
+surface_material_override/0 = null
 
 [node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform19/Chains" index="6"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_4ja7n")
+surface_material_override/0 = null
 
 [node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform19/Chains" index="7"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_4ja7n")
+surface_material_override/0 = null
 
 [node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform19/Chains" index="8"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_4ja7n")
+surface_material_override/0 = null
 
 [node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform19/Chains" index="9"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_4ja7n")
+surface_material_override/0 = null
 
 [node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform19/Chains" index="10"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_4ja7n")
+surface_material_override/0 = null
 
 [node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform19/Chains" index="11"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_4ja7n")
+surface_material_override/0 = null
 
 [node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform19/Chains" index="12"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_4ja7n")
+surface_material_override/0 = null
 
 [node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform19/Chains" index="13"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_4ja7n")
+surface_material_override/0 = null
 
 [node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform19/Chains" index="14"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_4ja7n")
+surface_material_override/0 = null
 
 [node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform19/Chains" index="15"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_4ja7n")
+surface_material_override/0 = null
 
 [node name="WoodPlatform20" parent="MenuLevel/IO/Platforming/WoodPlatforms" instance=ExtResource("5_kboto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.5, 20.75, -79)
@@ -3375,52 +3612,68 @@ metadata/_edit_group_ = true
 material_override = SubResource("ShaderMaterial_o0emj")
 
 [node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform20/Chains" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_pt7jq")
+surface_material_override/0 = null
 
 [node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform20/Chains" index="1"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_pt7jq")
+surface_material_override/0 = null
 
 [node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform20/Chains" index="2"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_pt7jq")
+surface_material_override/0 = null
 
 [node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform20/Chains" index="3"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_pt7jq")
+surface_material_override/0 = null
 
 [node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform20/Chains" index="4"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_pt7jq")
+surface_material_override/0 = null
 
 [node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform20/Chains" index="5"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_pt7jq")
+surface_material_override/0 = null
 
 [node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform20/Chains" index="6"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_pt7jq")
+surface_material_override/0 = null
 
 [node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform20/Chains" index="7"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_pt7jq")
+surface_material_override/0 = null
 
 [node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform20/Chains" index="8"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_pt7jq")
+surface_material_override/0 = null
 
 [node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform20/Chains" index="9"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_pt7jq")
+surface_material_override/0 = null
 
 [node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform20/Chains" index="10"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_pt7jq")
+surface_material_override/0 = null
 
 [node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform20/Chains" index="11"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_pt7jq")
+surface_material_override/0 = null
 
 [node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform20/Chains" index="12"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_pt7jq")
+surface_material_override/0 = null
 
 [node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform20/Chains" index="13"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_pt7jq")
+surface_material_override/0 = null
 
 [node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform20/Chains" index="14"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_pt7jq")
+surface_material_override/0 = null
 
 [node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform20/Chains" index="15"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_pt7jq")
+surface_material_override/0 = null
 
 [node name="WoodPlatform21" parent="MenuLevel/IO/Platforming/WoodPlatforms" instance=ExtResource("5_kboto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.5, 19.25, -74.5)
@@ -3433,52 +3686,68 @@ metadata/_edit_group_ = true
 material_override = SubResource("ShaderMaterial_o0emj")
 
 [node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform21/Chains" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_0fpvr")
+surface_material_override/0 = null
 
 [node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform21/Chains" index="1"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_0fpvr")
+surface_material_override/0 = null
 
 [node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform21/Chains" index="2"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_0fpvr")
+surface_material_override/0 = null
 
 [node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform21/Chains" index="3"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_0fpvr")
+surface_material_override/0 = null
 
 [node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform21/Chains" index="4"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_0fpvr")
+surface_material_override/0 = null
 
 [node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform21/Chains" index="5"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_0fpvr")
+surface_material_override/0 = null
 
 [node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform21/Chains" index="6"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_0fpvr")
+surface_material_override/0 = null
 
 [node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform21/Chains" index="7"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_0fpvr")
+surface_material_override/0 = null
 
 [node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform21/Chains" index="8"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_0fpvr")
+surface_material_override/0 = null
 
 [node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform21/Chains" index="9"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_0fpvr")
+surface_material_override/0 = null
 
 [node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform21/Chains" index="10"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_0fpvr")
+surface_material_override/0 = null
 
 [node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform21/Chains" index="11"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_0fpvr")
+surface_material_override/0 = null
 
 [node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform21/Chains" index="12"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_0fpvr")
+surface_material_override/0 = null
 
 [node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform21/Chains" index="13"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_0fpvr")
+surface_material_override/0 = null
 
 [node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform21/Chains" index="14"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_0fpvr")
+surface_material_override/0 = null
 
 [node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform21/Chains" index="15"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_0fpvr")
+surface_material_override/0 = null
 
 [node name="WoodPlatform2" parent="MenuLevel/IO/Platforming/WoodPlatforms" instance=ExtResource("5_kboto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5, 17.75, -53)
@@ -3491,52 +3760,68 @@ metadata/_edit_group_ = true
 material_override = SubResource("ShaderMaterial_o0emj")
 
 [node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform2/Chains" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_1bc1w")
+surface_material_override/0 = null
 
 [node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform2/Chains" index="1"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_1bc1w")
+surface_material_override/0 = null
 
 [node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform2/Chains" index="2"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_1bc1w")
+surface_material_override/0 = null
 
 [node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform2/Chains" index="3"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_1bc1w")
+surface_material_override/0 = null
 
 [node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform2/Chains" index="4"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_1bc1w")
+surface_material_override/0 = null
 
 [node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform2/Chains" index="5"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_1bc1w")
+surface_material_override/0 = null
 
 [node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform2/Chains" index="6"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_1bc1w")
+surface_material_override/0 = null
 
 [node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform2/Chains" index="7"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_1bc1w")
+surface_material_override/0 = null
 
 [node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform2/Chains" index="8"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_1bc1w")
+surface_material_override/0 = null
 
 [node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform2/Chains" index="9"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_1bc1w")
+surface_material_override/0 = null
 
 [node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform2/Chains" index="10"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_1bc1w")
+surface_material_override/0 = null
 
 [node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform2/Chains" index="11"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_1bc1w")
+surface_material_override/0 = null
 
 [node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform2/Chains" index="12"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_1bc1w")
+surface_material_override/0 = null
 
 [node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform2/Chains" index="13"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_1bc1w")
+surface_material_override/0 = null
 
 [node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform2/Chains" index="14"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_1bc1w")
+surface_material_override/0 = null
 
 [node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform2/Chains" index="15"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_1bc1w")
+surface_material_override/0 = null
 
 [node name="WoodPlatform3" parent="MenuLevel/IO/Platforming/WoodPlatforms" instance=ExtResource("5_kboto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.5, 17.75, -51)
@@ -3549,52 +3834,68 @@ metadata/_edit_group_ = true
 material_override = SubResource("ShaderMaterial_o0emj")
 
 [node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform3/Chains" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_2vpk3")
+surface_material_override/0 = null
 
 [node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform3/Chains" index="1"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_2vpk3")
+surface_material_override/0 = null
 
 [node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform3/Chains" index="2"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_2vpk3")
+surface_material_override/0 = null
 
 [node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform3/Chains" index="3"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_2vpk3")
+surface_material_override/0 = null
 
 [node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform3/Chains" index="4"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_2vpk3")
+surface_material_override/0 = null
 
 [node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform3/Chains" index="5"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_2vpk3")
+surface_material_override/0 = null
 
 [node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform3/Chains" index="6"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_2vpk3")
+surface_material_override/0 = null
 
 [node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform3/Chains" index="7"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_2vpk3")
+surface_material_override/0 = null
 
 [node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform3/Chains" index="8"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_2vpk3")
+surface_material_override/0 = null
 
 [node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform3/Chains" index="9"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_2vpk3")
+surface_material_override/0 = null
 
 [node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform3/Chains" index="10"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_2vpk3")
+surface_material_override/0 = null
 
 [node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform3/Chains" index="11"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_2vpk3")
+surface_material_override/0 = null
 
 [node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform3/Chains" index="12"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_2vpk3")
+surface_material_override/0 = null
 
 [node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform3/Chains" index="13"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_2vpk3")
+surface_material_override/0 = null
 
 [node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform3/Chains" index="14"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_2vpk3")
+surface_material_override/0 = null
 
 [node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform3/Chains" index="15"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_2vpk3")
+surface_material_override/0 = null
 
 [node name="WoodPlatform4" parent="MenuLevel/IO/Platforming/WoodPlatforms" instance=ExtResource("5_kboto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.5, 17.75, -53)
@@ -3607,52 +3908,68 @@ metadata/_edit_group_ = true
 material_override = SubResource("ShaderMaterial_o0emj")
 
 [node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform4/Chains" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_0dgtj")
+surface_material_override/0 = null
 
 [node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform4/Chains" index="1"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_0dgtj")
+surface_material_override/0 = null
 
 [node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform4/Chains" index="2"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_0dgtj")
+surface_material_override/0 = null
 
 [node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform4/Chains" index="3"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_0dgtj")
+surface_material_override/0 = null
 
 [node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform4/Chains" index="4"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_0dgtj")
+surface_material_override/0 = null
 
 [node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform4/Chains" index="5"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_0dgtj")
+surface_material_override/0 = null
 
 [node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform4/Chains" index="6"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_0dgtj")
+surface_material_override/0 = null
 
 [node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform4/Chains" index="7"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_0dgtj")
+surface_material_override/0 = null
 
 [node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform4/Chains" index="8"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_0dgtj")
+surface_material_override/0 = null
 
 [node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform4/Chains" index="9"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_0dgtj")
+surface_material_override/0 = null
 
 [node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform4/Chains" index="10"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_0dgtj")
+surface_material_override/0 = null
 
 [node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform4/Chains" index="11"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_0dgtj")
+surface_material_override/0 = null
 
 [node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform4/Chains" index="12"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_0dgtj")
+surface_material_override/0 = null
 
 [node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform4/Chains" index="13"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_0dgtj")
+surface_material_override/0 = null
 
 [node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform4/Chains" index="14"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_0dgtj")
+surface_material_override/0 = null
 
 [node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform4/Chains" index="15"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_0dgtj")
+surface_material_override/0 = null
 
 [node name="WoodPlatform10" parent="MenuLevel/IO/Platforming/WoodPlatforms" instance=ExtResource("5_kboto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 34.75, -67)
@@ -3665,52 +3982,68 @@ metadata/_edit_group_ = true
 material_override = SubResource("ShaderMaterial_o0emj")
 
 [node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform10/Chains" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_xli6e")
+surface_material_override/0 = null
 
 [node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform10/Chains" index="1"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_xli6e")
+surface_material_override/0 = null
 
 [node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform10/Chains" index="2"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_xli6e")
+surface_material_override/0 = null
 
 [node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform10/Chains" index="3"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_xli6e")
+surface_material_override/0 = null
 
 [node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform10/Chains" index="4"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_xli6e")
+surface_material_override/0 = null
 
 [node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform10/Chains" index="5"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_xli6e")
+surface_material_override/0 = null
 
 [node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform10/Chains" index="6"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_xli6e")
+surface_material_override/0 = null
 
 [node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform10/Chains" index="7"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_xli6e")
+surface_material_override/0 = null
 
 [node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform10/Chains" index="8"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_xli6e")
+surface_material_override/0 = null
 
 [node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform10/Chains" index="9"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_xli6e")
+surface_material_override/0 = null
 
 [node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform10/Chains" index="10"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_xli6e")
+surface_material_override/0 = null
 
 [node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform10/Chains" index="11"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_xli6e")
+surface_material_override/0 = null
 
 [node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform10/Chains" index="12"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_xli6e")
+surface_material_override/0 = null
 
 [node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform10/Chains" index="13"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_xli6e")
+surface_material_override/0 = null
 
 [node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform10/Chains" index="14"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_xli6e")
+surface_material_override/0 = null
 
 [node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform10/Chains" index="15"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_xli6e")
+surface_material_override/0 = null
 
 [node name="WoodPlatform11" parent="MenuLevel/IO/Platforming/WoodPlatforms" instance=ExtResource("5_kboto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 36.75, -78)
@@ -3723,52 +4056,68 @@ metadata/_edit_group_ = true
 material_override = SubResource("ShaderMaterial_o0emj")
 
 [node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform11/Chains" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_04mnb")
+surface_material_override/0 = null
 
 [node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform11/Chains" index="1"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_04mnb")
+surface_material_override/0 = null
 
 [node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform11/Chains" index="2"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_04mnb")
+surface_material_override/0 = null
 
 [node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform11/Chains" index="3"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_04mnb")
+surface_material_override/0 = null
 
 [node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform11/Chains" index="4"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_04mnb")
+surface_material_override/0 = null
 
 [node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform11/Chains" index="5"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_04mnb")
+surface_material_override/0 = null
 
 [node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform11/Chains" index="6"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_04mnb")
+surface_material_override/0 = null
 
 [node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform11/Chains" index="7"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_04mnb")
+surface_material_override/0 = null
 
 [node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform11/Chains" index="8"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_04mnb")
+surface_material_override/0 = null
 
 [node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform11/Chains" index="9"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_04mnb")
+surface_material_override/0 = null
 
 [node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform11/Chains" index="10"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_04mnb")
+surface_material_override/0 = null
 
 [node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform11/Chains" index="11"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_04mnb")
+surface_material_override/0 = null
 
 [node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform11/Chains" index="12"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_04mnb")
+surface_material_override/0 = null
 
 [node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform11/Chains" index="13"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_04mnb")
+surface_material_override/0 = null
 
 [node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform11/Chains" index="14"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_04mnb")
+surface_material_override/0 = null
 
 [node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform11/Chains" index="15"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_04mnb")
+surface_material_override/0 = null
 
 [node name="WoodPlatform12" parent="MenuLevel/IO/Platforming/WoodPlatforms" instance=ExtResource("5_kboto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 36.75, -79)
@@ -3781,52 +4130,68 @@ metadata/_edit_group_ = true
 material_override = SubResource("ShaderMaterial_o0emj")
 
 [node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform12/Chains" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_e4o37")
+surface_material_override/0 = null
 
 [node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform12/Chains" index="1"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_e4o37")
+surface_material_override/0 = null
 
 [node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform12/Chains" index="2"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_e4o37")
+surface_material_override/0 = null
 
 [node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform12/Chains" index="3"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_e4o37")
+surface_material_override/0 = null
 
 [node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform12/Chains" index="4"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_e4o37")
+surface_material_override/0 = null
 
 [node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform12/Chains" index="5"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_e4o37")
+surface_material_override/0 = null
 
 [node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform12/Chains" index="6"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_e4o37")
+surface_material_override/0 = null
 
 [node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform12/Chains" index="7"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_e4o37")
+surface_material_override/0 = null
 
 [node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform12/Chains" index="8"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_e4o37")
+surface_material_override/0 = null
 
 [node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform12/Chains" index="9"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_e4o37")
+surface_material_override/0 = null
 
 [node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform12/Chains" index="10"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_e4o37")
+surface_material_override/0 = null
 
 [node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform12/Chains" index="11"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_e4o37")
+surface_material_override/0 = null
 
 [node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform12/Chains" index="12"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_e4o37")
+surface_material_override/0 = null
 
 [node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform12/Chains" index="13"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_e4o37")
+surface_material_override/0 = null
 
 [node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform12/Chains" index="14"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_e4o37")
+surface_material_override/0 = null
 
 [node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform12/Chains" index="15"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_e4o37")
+surface_material_override/0 = null
 
 [node name="WoodPlatform13" parent="MenuLevel/IO/Platforming/WoodPlatforms" instance=ExtResource("5_kboto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 35.75, -84.5)
@@ -3839,52 +4204,68 @@ metadata/_edit_group_ = true
 material_override = SubResource("ShaderMaterial_o0emj")
 
 [node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform13/Chains" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_ynfpk")
+surface_material_override/0 = null
 
 [node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform13/Chains" index="1"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_ynfpk")
+surface_material_override/0 = null
 
 [node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform13/Chains" index="2"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_ynfpk")
+surface_material_override/0 = null
 
 [node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform13/Chains" index="3"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_ynfpk")
+surface_material_override/0 = null
 
 [node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform13/Chains" index="4"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_ynfpk")
+surface_material_override/0 = null
 
 [node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform13/Chains" index="5"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_ynfpk")
+surface_material_override/0 = null
 
 [node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform13/Chains" index="6"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_ynfpk")
+surface_material_override/0 = null
 
 [node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform13/Chains" index="7"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_ynfpk")
+surface_material_override/0 = null
 
 [node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform13/Chains" index="8"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_ynfpk")
+surface_material_override/0 = null
 
 [node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform13/Chains" index="9"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_ynfpk")
+surface_material_override/0 = null
 
 [node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform13/Chains" index="10"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_ynfpk")
+surface_material_override/0 = null
 
 [node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform13/Chains" index="11"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_ynfpk")
+surface_material_override/0 = null
 
 [node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform13/Chains" index="12"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_ynfpk")
+surface_material_override/0 = null
 
 [node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform13/Chains" index="13"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_ynfpk")
+surface_material_override/0 = null
 
 [node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform13/Chains" index="14"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_ynfpk")
+surface_material_override/0 = null
 
 [node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform13/Chains" index="15"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_ynfpk")
+surface_material_override/0 = null
 
 [node name="WoodPlatform14" parent="MenuLevel/IO/Platforming/WoodPlatforms" instance=ExtResource("5_kboto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 36.25, -86.5)
@@ -3897,52 +4278,68 @@ metadata/_edit_group_ = true
 material_override = SubResource("ShaderMaterial_o0emj")
 
 [node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform14/Chains" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_njvjw")
+surface_material_override/0 = null
 
 [node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform14/Chains" index="1"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_njvjw")
+surface_material_override/0 = null
 
 [node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform14/Chains" index="2"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_njvjw")
+surface_material_override/0 = null
 
 [node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform14/Chains" index="3"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_njvjw")
+surface_material_override/0 = null
 
 [node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform14/Chains" index="4"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_njvjw")
+surface_material_override/0 = null
 
 [node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform14/Chains" index="5"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_njvjw")
+surface_material_override/0 = null
 
 [node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform14/Chains" index="6"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_njvjw")
+surface_material_override/0 = null
 
 [node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform14/Chains" index="7"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_njvjw")
+surface_material_override/0 = null
 
 [node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform14/Chains" index="8"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_njvjw")
+surface_material_override/0 = null
 
 [node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform14/Chains" index="9"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_njvjw")
+surface_material_override/0 = null
 
 [node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform14/Chains" index="10"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_njvjw")
+surface_material_override/0 = null
 
 [node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform14/Chains" index="11"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_njvjw")
+surface_material_override/0 = null
 
 [node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform14/Chains" index="12"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_njvjw")
+surface_material_override/0 = null
 
 [node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform14/Chains" index="13"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_njvjw")
+surface_material_override/0 = null
 
 [node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform14/Chains" index="14"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_njvjw")
+surface_material_override/0 = null
 
 [node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform14/Chains" index="15"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_njvjw")
+surface_material_override/0 = null
 
 [node name="WoodPlatform5" parent="MenuLevel/IO/Platforming/WoodPlatforms" instance=ExtResource("5_kboto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.5, 17.75, -55)
@@ -3955,52 +4352,68 @@ metadata/_edit_group_ = true
 material_override = SubResource("ShaderMaterial_o0emj")
 
 [node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform5/Chains" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_2wab1")
+surface_material_override/0 = null
 
 [node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform5/Chains" index="1"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_2wab1")
+surface_material_override/0 = null
 
 [node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform5/Chains" index="2"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_2wab1")
+surface_material_override/0 = null
 
 [node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform5/Chains" index="3"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_2wab1")
+surface_material_override/0 = null
 
 [node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform5/Chains" index="4"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_2wab1")
+surface_material_override/0 = null
 
 [node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform5/Chains" index="5"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_2wab1")
+surface_material_override/0 = null
 
 [node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform5/Chains" index="6"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_2wab1")
+surface_material_override/0 = null
 
 [node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform5/Chains" index="7"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_2wab1")
+surface_material_override/0 = null
 
 [node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform5/Chains" index="8"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_2wab1")
+surface_material_override/0 = null
 
 [node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform5/Chains" index="9"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_2wab1")
+surface_material_override/0 = null
 
 [node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform5/Chains" index="10"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_2wab1")
+surface_material_override/0 = null
 
 [node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform5/Chains" index="11"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_2wab1")
+surface_material_override/0 = null
 
 [node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform5/Chains" index="12"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_2wab1")
+surface_material_override/0 = null
 
 [node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform5/Chains" index="13"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_2wab1")
+surface_material_override/0 = null
 
 [node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform5/Chains" index="14"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_2wab1")
+surface_material_override/0 = null
 
 [node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform5/Chains" index="15"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_2wab1")
+surface_material_override/0 = null
 
 [node name="WoodPlatform6" parent="MenuLevel/IO/Platforming/WoodPlatforms" instance=ExtResource("5_kboto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 17.75, -53)
@@ -4013,52 +4426,68 @@ metadata/_edit_group_ = true
 material_override = SubResource("ShaderMaterial_o0emj")
 
 [node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform6/Chains" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_fvfnq")
+surface_material_override/0 = null
 
 [node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform6/Chains" index="1"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_fvfnq")
+surface_material_override/0 = null
 
 [node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform6/Chains" index="2"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_fvfnq")
+surface_material_override/0 = null
 
 [node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform6/Chains" index="3"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_fvfnq")
+surface_material_override/0 = null
 
 [node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform6/Chains" index="4"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_fvfnq")
+surface_material_override/0 = null
 
 [node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform6/Chains" index="5"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_fvfnq")
+surface_material_override/0 = null
 
 [node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform6/Chains" index="6"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_fvfnq")
+surface_material_override/0 = null
 
 [node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform6/Chains" index="7"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_fvfnq")
+surface_material_override/0 = null
 
 [node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform6/Chains" index="8"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_fvfnq")
+surface_material_override/0 = null
 
 [node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform6/Chains" index="9"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_fvfnq")
+surface_material_override/0 = null
 
 [node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform6/Chains" index="10"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_fvfnq")
+surface_material_override/0 = null
 
 [node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform6/Chains" index="11"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_fvfnq")
+surface_material_override/0 = null
 
 [node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform6/Chains" index="12"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_fvfnq")
+surface_material_override/0 = null
 
 [node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform6/Chains" index="13"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_fvfnq")
+surface_material_override/0 = null
 
 [node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform6/Chains" index="14"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_fvfnq")
+surface_material_override/0 = null
 
 [node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform6/Chains" index="15"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_fvfnq")
+surface_material_override/0 = null
 
 [node name="WoodPlatform7" parent="MenuLevel/IO/Platforming/WoodPlatforms" instance=ExtResource("5_kboto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.5, 17.75, -51)
@@ -4071,52 +4500,68 @@ metadata/_edit_group_ = true
 material_override = SubResource("ShaderMaterial_o0emj")
 
 [node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform7/Chains" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_d8pq5")
+surface_material_override/0 = null
 
 [node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform7/Chains" index="1"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_d8pq5")
+surface_material_override/0 = null
 
 [node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform7/Chains" index="2"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_d8pq5")
+surface_material_override/0 = null
 
 [node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform7/Chains" index="3"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_d8pq5")
+surface_material_override/0 = null
 
 [node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform7/Chains" index="4"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_d8pq5")
+surface_material_override/0 = null
 
 [node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform7/Chains" index="5"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_d8pq5")
+surface_material_override/0 = null
 
 [node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform7/Chains" index="6"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_d8pq5")
+surface_material_override/0 = null
 
 [node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform7/Chains" index="7"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_d8pq5")
+surface_material_override/0 = null
 
 [node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform7/Chains" index="8"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_d8pq5")
+surface_material_override/0 = null
 
 [node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform7/Chains" index="9"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_d8pq5")
+surface_material_override/0 = null
 
 [node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform7/Chains" index="10"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_d8pq5")
+surface_material_override/0 = null
 
 [node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform7/Chains" index="11"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_d8pq5")
+surface_material_override/0 = null
 
 [node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform7/Chains" index="12"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_d8pq5")
+surface_material_override/0 = null
 
 [node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform7/Chains" index="13"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_d8pq5")
+surface_material_override/0 = null
 
 [node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform7/Chains" index="14"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_d8pq5")
+surface_material_override/0 = null
 
 [node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform7/Chains" index="15"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_d8pq5")
+surface_material_override/0 = null
 
 [node name="WoodPlatform8" parent="MenuLevel/IO/Platforming/WoodPlatforms" instance=ExtResource("5_kboto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 17.75, -53)
@@ -4129,52 +4574,68 @@ metadata/_edit_group_ = true
 material_override = SubResource("ShaderMaterial_o0emj")
 
 [node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform8/Chains" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_f3c0a")
+surface_material_override/0 = null
 
 [node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform8/Chains" index="1"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_f3c0a")
+surface_material_override/0 = null
 
 [node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform8/Chains" index="2"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_f3c0a")
+surface_material_override/0 = null
 
 [node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform8/Chains" index="3"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_f3c0a")
+surface_material_override/0 = null
 
 [node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform8/Chains" index="4"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_f3c0a")
+surface_material_override/0 = null
 
 [node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform8/Chains" index="5"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_f3c0a")
+surface_material_override/0 = null
 
 [node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform8/Chains" index="6"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_f3c0a")
+surface_material_override/0 = null
 
 [node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform8/Chains" index="7"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_f3c0a")
+surface_material_override/0 = null
 
 [node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform8/Chains" index="8"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_f3c0a")
+surface_material_override/0 = null
 
 [node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform8/Chains" index="9"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_f3c0a")
+surface_material_override/0 = null
 
 [node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform8/Chains" index="10"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_f3c0a")
+surface_material_override/0 = null
 
 [node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform8/Chains" index="11"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_f3c0a")
+surface_material_override/0 = null
 
 [node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform8/Chains" index="12"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_f3c0a")
+surface_material_override/0 = null
 
 [node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform8/Chains" index="13"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_f3c0a")
+surface_material_override/0 = null
 
 [node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform8/Chains" index="14"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_f3c0a")
+surface_material_override/0 = null
 
 [node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform8/Chains" index="15"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_f3c0a")
+surface_material_override/0 = null
 
 [node name="WoodPlatform15" parent="MenuLevel/IO/Platforming/WoodPlatforms" instance=ExtResource("5_kboto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 16.75, -49)
@@ -4187,52 +4648,68 @@ metadata/_edit_group_ = true
 material_override = SubResource("ShaderMaterial_o0emj")
 
 [node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform15/Chains" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_pjd72")
+surface_material_override/0 = null
 
 [node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform15/Chains" index="1"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_pjd72")
+surface_material_override/0 = null
 
 [node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform15/Chains" index="2"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_pjd72")
+surface_material_override/0 = null
 
 [node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform15/Chains" index="3"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_pjd72")
+surface_material_override/0 = null
 
 [node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform15/Chains" index="4"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_pjd72")
+surface_material_override/0 = null
 
 [node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform15/Chains" index="5"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_pjd72")
+surface_material_override/0 = null
 
 [node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform15/Chains" index="6"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_pjd72")
+surface_material_override/0 = null
 
 [node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform15/Chains" index="7"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_pjd72")
+surface_material_override/0 = null
 
 [node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform15/Chains" index="8"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_pjd72")
+surface_material_override/0 = null
 
 [node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform15/Chains" index="9"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_pjd72")
+surface_material_override/0 = null
 
 [node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform15/Chains" index="10"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_pjd72")
+surface_material_override/0 = null
 
 [node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform15/Chains" index="11"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_pjd72")
+surface_material_override/0 = null
 
 [node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform15/Chains" index="12"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_pjd72")
+surface_material_override/0 = null
 
 [node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform15/Chains" index="13"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_pjd72")
+surface_material_override/0 = null
 
 [node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform15/Chains" index="14"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_pjd72")
+surface_material_override/0 = null
 
 [node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform15/Chains" index="15"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_pjd72")
+surface_material_override/0 = null
 
 [node name="WoodPlatform16" parent="MenuLevel/IO/Platforming/WoodPlatforms" instance=ExtResource("5_kboto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 17.25, -45)
@@ -4245,52 +4722,68 @@ metadata/_edit_group_ = true
 material_override = SubResource("ShaderMaterial_o0emj")
 
 [node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform16/Chains" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_18ka5")
+surface_material_override/0 = null
 
 [node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform16/Chains" index="1"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_18ka5")
+surface_material_override/0 = null
 
 [node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform16/Chains" index="2"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_18ka5")
+surface_material_override/0 = null
 
 [node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform16/Chains" index="3"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_18ka5")
+surface_material_override/0 = null
 
 [node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform16/Chains" index="4"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_18ka5")
+surface_material_override/0 = null
 
 [node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform16/Chains" index="5"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_18ka5")
+surface_material_override/0 = null
 
 [node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform16/Chains" index="6"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_18ka5")
+surface_material_override/0 = null
 
 [node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform16/Chains" index="7"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_18ka5")
+surface_material_override/0 = null
 
 [node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform16/Chains" index="8"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_18ka5")
+surface_material_override/0 = null
 
 [node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform16/Chains" index="9"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_18ka5")
+surface_material_override/0 = null
 
 [node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform16/Chains" index="10"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_18ka5")
+surface_material_override/0 = null
 
 [node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform16/Chains" index="11"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_18ka5")
+surface_material_override/0 = null
 
 [node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform16/Chains" index="12"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_18ka5")
+surface_material_override/0 = null
 
 [node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform16/Chains" index="13"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_18ka5")
+surface_material_override/0 = null
 
 [node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform16/Chains" index="14"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_18ka5")
+surface_material_override/0 = null
 
 [node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform16/Chains" index="15"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_18ka5")
+surface_material_override/0 = null
 
 [node name="WoodPlatform17" parent="MenuLevel/IO/Platforming/WoodPlatforms" instance=ExtResource("5_kboto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 16.75, -41)
@@ -4303,52 +4796,68 @@ metadata/_edit_group_ = true
 material_override = SubResource("ShaderMaterial_o0emj")
 
 [node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform17/Chains" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_iek6q")
+surface_material_override/0 = null
 
 [node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform17/Chains" index="1"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_iek6q")
+surface_material_override/0 = null
 
 [node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform17/Chains" index="2"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_iek6q")
+surface_material_override/0 = null
 
 [node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform17/Chains" index="3"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_iek6q")
+surface_material_override/0 = null
 
 [node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform17/Chains" index="4"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_iek6q")
+surface_material_override/0 = null
 
 [node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform17/Chains" index="5"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_iek6q")
+surface_material_override/0 = null
 
 [node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform17/Chains" index="6"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_iek6q")
+surface_material_override/0 = null
 
 [node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform17/Chains" index="7"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_iek6q")
+surface_material_override/0 = null
 
 [node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform17/Chains" index="8"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_iek6q")
+surface_material_override/0 = null
 
 [node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform17/Chains" index="9"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_iek6q")
+surface_material_override/0 = null
 
 [node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform17/Chains" index="10"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_iek6q")
+surface_material_override/0 = null
 
 [node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform17/Chains" index="11"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_iek6q")
+surface_material_override/0 = null
 
 [node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform17/Chains" index="12"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_iek6q")
+surface_material_override/0 = null
 
 [node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform17/Chains" index="13"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_iek6q")
+surface_material_override/0 = null
 
 [node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform17/Chains" index="14"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_iek6q")
+surface_material_override/0 = null
 
 [node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform17/Chains" index="15"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_iek6q")
+surface_material_override/0 = null
 
 [node name="WoodPlatform9" parent="MenuLevel/IO/Platforming/WoodPlatforms" instance=ExtResource("5_kboto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 17.75, -54)
@@ -4361,55 +4870,72 @@ metadata/_edit_group_ = true
 material_override = SubResource("ShaderMaterial_o0emj")
 
 [node name="Chain" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform9/Chains" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_n7dg0")
+surface_material_override/0 = null
 
 [node name="Chain2" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform9/Chains" index="1"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_n7dg0")
+surface_material_override/0 = null
 
 [node name="Chain3" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform9/Chains" index="2"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_n7dg0")
+surface_material_override/0 = null
 
 [node name="Chain4" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform9/Chains" index="3"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_n7dg0")
+surface_material_override/0 = null
 
 [node name="Chain5" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform9/Chains" index="4"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_n7dg0")
+surface_material_override/0 = null
 
 [node name="Chain6" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform9/Chains" index="5"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_n7dg0")
+surface_material_override/0 = null
 
 [node name="Chain7" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform9/Chains" index="6"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_n7dg0")
+surface_material_override/0 = null
 
 [node name="Chain8" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform9/Chains" index="7"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_n7dg0")
+surface_material_override/0 = null
 
 [node name="Chain9" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform9/Chains" index="8"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_n7dg0")
+surface_material_override/0 = null
 
 [node name="Chain10" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform9/Chains" index="9"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_n7dg0")
+surface_material_override/0 = null
 
 [node name="Chain11" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform9/Chains" index="10"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_n7dg0")
+surface_material_override/0 = null
 
 [node name="Chain12" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform9/Chains" index="11"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_n7dg0")
+surface_material_override/0 = null
 
 [node name="Chain13" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform9/Chains" index="12"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_n7dg0")
+surface_material_override/0 = null
 
 [node name="Chain14" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform9/Chains" index="13"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_n7dg0")
+surface_material_override/0 = null
 
 [node name="Chain15" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform9/Chains" index="14"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_n7dg0")
+surface_material_override/0 = null
 
 [node name="Chain16" parent="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform9/Chains" index="15"]
-surface_material_override/0 = SubResource("ShaderMaterial_uc0s5")
+material_override = SubResource("ShaderMaterial_n7dg0")
+surface_material_override/0 = null
 
 [node name="LeafCard" parent="MenuLevel/IO/Platforming" instance=ExtResource("13_ldvjd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 17, -1)
+textBox = "Leaves Restored"
 metadata/_edit_group_ = true
 
 [node name="BakedCard" parent="MenuLevel/IO/Platforming/LeafCard/Rotator" index="0"]
@@ -4423,6 +4949,7 @@ omni_attenuation = 0.1
 
 [node name="PlatCard" parent="MenuLevel/IO/Platforming" instance=ExtResource("13_ldvjd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61, 23, -91)
+textBox = "Platforms Restored"
 metadata/_edit_group_ = true
 
 [node name="BakedCard" parent="MenuLevel/IO/Platforming/PlatCard/Rotator" index="0"]
@@ -4436,6 +4963,7 @@ omni_attenuation = 0.1
 
 [node name="WaterCard" parent="MenuLevel/IO/Platforming" instance=ExtResource("13_ldvjd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 16.5, -37)
+textBox = "Water Restored"
 metadata/_edit_group_ = true
 
 [node name="BakedCard" parent="MenuLevel/IO/Platforming/WaterCard/Rotator" index="0"]
@@ -4449,6 +4977,7 @@ omni_attenuation = 0.1
 
 [node name="PadCard" parent="MenuLevel/IO/Platforming" instance=ExtResource("13_ldvjd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 23, -1)
+textBox = "Platform Activated"
 metadata/_edit_group_ = true
 
 [node name="BakedCard" parent="MenuLevel/IO/Platforming/PadCard/Rotator" index="0"]
@@ -4568,7 +5097,6 @@ skeleton = NodePath("../../Leaves")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/HeightKillVolume"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.75, 0.75, -47)
 shape = SubResource("BoxShape3D_mbuq8")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Checkpoint" parent="MenuLevel/IO" index="50" instance=ExtResource("12_57if5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 10.2, -1)
@@ -4576,7 +5104,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 10.2, -1)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/IO/Checkpoint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, -12.5)
 shape = SubResource("BoxShape3D_arrg5")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Collision" parent="MenuLevel" index="39"]
 layers = 0
@@ -4585,7 +5112,6 @@ layers = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Collision/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_uc0s5")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Collision_001" parent="MenuLevel" index="40"]
 layers = 0
@@ -4594,7 +5120,6 @@ layers = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Collision_001/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_rleeb")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Collision_002" parent="MenuLevel" index="41"]
 layers = 0
@@ -4603,7 +5128,6 @@ layers = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Collision_002/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_jpii8")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Collision_003" parent="MenuLevel" index="42"]
 layers = 0
@@ -4612,7 +5136,6 @@ layers = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Collision_003/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_ub1iy")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Collision_004" parent="MenuLevel" index="43"]
 layers = 0
@@ -4621,7 +5144,6 @@ layers = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Collision_004/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_uc0s5")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Collision_005" parent="MenuLevel" index="44"]
 layers = 0
@@ -4630,7 +5152,6 @@ layers = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Collision_005/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_rex1h")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Saves" type="Node3D" parent="MenuLevel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43, 20.2, -108.9)
@@ -4677,7 +5198,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65, 0)
 
 [node name="LevelSave3" parent="MenuLevel/Saves" node_paths=PackedStringArray("corruption") instance=ExtResource("2_o1j72")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
 level = "res://Scenes/CrocoLevel/croc_level_2.tscn"
 levelVars = Array[String](["FINAL"])
 corruption = NodePath("Rotate/Tree01/MeshInstance3D")
@@ -4701,7 +5222,7 @@ skeleton = NodePath("../../Leaves01")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65, 0)
 
 [node name="LevelSave4" parent="MenuLevel/Saves" node_paths=PackedStringArray("corruption") instance=ExtResource("2_o1j72")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 level = "res://Scenes/CrocoLevel/croco_level.tscn"
 levelVars = Array[String](["vector1-1", "vector2-1"])
 corruption = NodePath("Rotate/Tree01/MeshInstance3D")
@@ -4723,6 +5244,38 @@ skeleton = NodePath("../../Leaves01")
 
 [node name="Interactable" parent="MenuLevel/Saves/LevelSave4" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65, 0)
+
+[node name="InfoBoxArea" parent="MenuLevel/Saves" instance=ExtResource("20_npug5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.705193, 0.324301, 0)
+text = "Vector Zone: World 1"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Saves/InfoBoxArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.293049, 0)
+shape = SubResource("BoxShape3D_2nrmm")
+
+[node name="InfoBoxArea2" parent="MenuLevel/Saves" instance=ExtResource("20_npug5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.705193, 0.324301, 2)
+text = "Vector Zone: World 2"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Saves/InfoBoxArea2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.293049, 0)
+shape = SubResource("BoxShape3D_2nrmm")
+
+[node name="InfoBoxArea3" parent="MenuLevel/Saves" instance=ExtResource("20_npug5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.705193, 0.324301, 4)
+text = "Uncroaked: Perilous Piranha Pond"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Saves/InfoBoxArea3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.293049, 0)
+shape = SubResource("BoxShape3D_2nrmm")
+
+[node name="InfoBoxArea4" parent="MenuLevel/Saves" instance=ExtResource("20_npug5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.705193, 0.324301, 6)
+text = "Uncroaked: Super Slippery Slide"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuLevel/Saves/InfoBoxArea4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.293049, 0)
+shape = SubResource("BoxShape3D_2nrmm")
 
 [node name="Player" parent="." instance=ExtResource("2_s7esc")]
 transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 5.92957, 0.2286, -5.06201)
@@ -4750,7 +5303,6 @@ surface_material_override/2 = SubResource("StandardMaterial3D_lsrrj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OS/Cube/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_mxiu3")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Cube_001" parent="OS" index="1"]
 material_override = SubResource("StandardMaterial3D_o1j72")
@@ -4759,7 +5311,6 @@ material_override = SubResource("StandardMaterial3D_o1j72")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OS/Cube_001/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_rleeb")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="OS"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0.5)
@@ -4783,7 +5334,6 @@ surface_material_override/2 = SubResource("StandardMaterial3D_lsrrj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OS2/Cube/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_mxiu3")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Cube_001" parent="OS2" index="1"]
 material_override = SubResource("StandardMaterial3D_o1j72")
@@ -4792,7 +5342,6 @@ material_override = SubResource("StandardMaterial3D_o1j72")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OS2/Cube_001/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_rleeb")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="OS2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0.5)
@@ -4829,7 +5378,6 @@ monitorable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CutsceneTrigger"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.200001, 3.7, 3.75)
 shape = SubResource("BoxShape3D_57if5")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="JumpPad" parent="." instance=ExtResource("7_ub1iy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -10.5, -104)
@@ -4847,7 +5395,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.19998, -32.2)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.875, -0.875)
 shape = SubResource("BoxShape3D_ldvjd")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Checkpoint2" parent="." instance=ExtResource("12_57if5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -10.55, -104.95)
@@ -4855,14 +5402,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -10.55, -104.95)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.875, 0.125)
 shape = SubResource("BoxShape3D_ldvjd")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="HeightKillVolume" parent="." instance=ExtResource("14_rex1h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -54, -73)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HeightKillVolume"]
 shape = SubResource("BoxShape3D_4pm6c")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Glitch" parent="." instance=ExtResource("13_ldvjd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 55.2493, 38.583)
@@ -4876,6 +5421,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.41302, 0, -1.0411)
 extra_cull_margin = 12.0
 mesh = SubResource("QuadMesh_4ja7n")
 surface_material_override/0 = SubResource("ShaderMaterial_824qp")
+
+[node name="MenuLevelMusic" type="AudioStreamPlayer" parent="."]
+script = ExtResource("33_736gl")
 
 [connection signal="body_entered" from="MenuLevel/IO/BossCutsceneArea" to="CutscenePlayer" method="_on_boss_cutscene_area_body_entered"]
 [connection signal="interacted" from="MenuLevel/IO/IO_043/EjectButton/Interactable" to="CutscenePlayer" method="_on_interactable_interacted"]

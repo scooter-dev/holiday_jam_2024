@@ -1,15 +1,14 @@
-[gd_scene load_steps=12 format=4 uid="uid://2anm63go2fgn"]
+[gd_scene load_steps=11 format=4 uid="uid://2anm63go2fgn"]
 
 [ext_resource type="Script" uid="uid://b07nyakf6aoh5" path="res://Scenes/Props/sign.gd" id="1_n32vy"]
 [ext_resource type="Shader" uid="uid://css7vswfp42e3" path="res://src/Shaders/shaded_ambient.gdshader" id="1_wwe5i"]
-[ext_resource type="Texture2D" uid="uid://caxfll36e1i5w" path="res://Assets/Textures/wood02.png" id="2_43g4r"]
-[ext_resource type="Texture2D" uid="uid://d2ipskmwd0xwm" path="res://Assets/Meshes/Props/Signs_wood02.png" id="3_n32vy"]
+[ext_resource type="Texture2D" uid="uid://caxfll36e1i5w" path="res://Assets/Textures/wood02.png" id="3_n32vy"]
 [ext_resource type="PackedScene" uid="uid://bw3t2abo7w7yo" path="res://Scenes/Props/info_box_area.tscn" id="4_43g4r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tbwxh"]
 render_priority = 0
 shader = ExtResource("1_wwe5i")
-shader_parameter/albedo_texture = ExtResource("2_43g4r")
+shader_parameter/albedo_texture = ExtResource("3_n32vy")
 shader_parameter/albedo_color = Color(1, 0.748077, 0.503906, 1)
 shader_parameter/UVScaling = Vector2(1, 1)
 shader_parameter/distance_fade_min = null
@@ -77,11 +76,9 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_wwe5i")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="InfoBoxArea" parent="." instance=ExtResource("4_43g4r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.556869, 0.550486)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InfoBoxArea"]
 shape = SubResource("BoxShape3D_n32vy")
-debug_color = Color(0, 0.6, 0.7, 0.42)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=4 uid="uid://dcg7514vbu8f1"]
 
 [ext_resource type="Shader" uid="uid://c26rqcn47f37l" path="res://src/Shaders/3dGlitch.gdshader" id="1_0uujb"]
-[ext_resource type="Texture2D" uid="uid://2ckpvo7jreow" path="res://Assets/Meshes/Props/MemCard_BakedTex.png" id="1_h62co"]
+[ext_resource type="Texture2D" uid="uid://0as68b1ryfpo" path="res://Assets/Meshes/Props/BakedTex.png" id="1_h62co"]
 [ext_resource type="Script" uid="uid://b365f3fimqcj1" path="res://src/LevelActors/Glitch/glitch.gd" id="1_j73kk"]
 [ext_resource type="Texture2D" uid="uid://0as68b1ryfpo" path="res://Assets/Meshes/Props/BakedTex.png" id="2_keu87"]
 [ext_resource type="PackedScene" uid="uid://baceyyuakavy4" path="res://src/Interaction/Interactable.tscn" id="5_trmm0"]

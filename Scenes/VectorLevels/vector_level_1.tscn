@@ -329,7 +329,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/VectorCube10/WaterVolume"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
 shape = SubResource("BoxShape3D_njtug")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Mountains" type="Node3D" parent="Platforms"]
 
@@ -443,7 +442,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/StaticBody3D"]
 shape = SubResource("BoxShape3D_ylqbj")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48, 0)
@@ -466,7 +464,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.5, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LevelExit/LevelChanger"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
 shape = SubResource("BoxShape3D_usrlf")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." node_paths=PackedStringArray("player")]
 environment = SubResource("Environment_q2pdi")
@@ -479,8 +476,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -86, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HeightKillVolume"]
 shape = SubResource("BoxShape3D_1foa0")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Glitch" parent="." instance=ExtResource("9_1foa0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 14.5, -9.5)
 glitchName = "croc2-1"
+textBox = "Super Slippery Slide Restored"

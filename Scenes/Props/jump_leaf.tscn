@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://brvfdaqthsjxt" path="res://Scenes/Props/jump_leaf.gd" id="1_h3dor"]
 [ext_resource type="Texture2D" uid="uid://bojugpu86eu5q" path="res://Assets/Textures/bigLeaf.png" id="2_h3dor"]
 [ext_resource type="Shader" uid="uid://css7vswfp42e3" path="res://src/Shaders/shaded_ambient.gdshader" id="3_62wph"]
-[ext_resource type="Texture2D" uid="uid://v20y38jcdlh0" path="res://Assets/Meshes/Props/Stones_rock.png" id="4_bnvj5"]
+[ext_resource type="Texture2D" uid="uid://sxe7slbto1fx" path="res://Assets/Textures/rock.png" id="4_bnvj5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q4d6h"]
 

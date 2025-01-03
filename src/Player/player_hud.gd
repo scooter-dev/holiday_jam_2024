@@ -17,13 +17,20 @@ signal fadeOut
 signal fadeIn
 
 func fade() -> void:
+	fOutOnly = false
 	hud_anims.play("FadeOut", -1, 3)
 
+var fOutOnly : bool = false
+func fadeOutOnly() -> void:
+	fOutOnly = true
+	hud_anims.play("FadeOut", -1, 3)
 
 
 func _on_hud_anims_animation_finished(anim_name: StringName) -> void:
 	match anim_name:
 		"FadeOut":
+			if fOutOnly:
+				return
 			fadeOut.emit()
 			hud_anims.play("FadeIn")
 		"FadeIn":

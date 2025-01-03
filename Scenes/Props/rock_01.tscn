@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://css7vswfp42e3" path="res://src/Shaders/shaded_ambient.gdshader" id="1_svaoj"]
 [ext_resource type="Texture2D" uid="uid://sxe7slbto1fx" path="res://Assets/Textures/rock.png" id="2_86qo2"]
-[ext_resource type="Texture2D" uid="uid://v20y38jcdlh0" path="res://Assets/Meshes/Props/Stones_rock.png" id="3_owwht"]
+[ext_resource type="Texture2D" uid="uid://sxe7slbto1fx" path="res://Assets/Textures/rock.png" id="3_owwht"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_evyql"]
 render_priority = 0

@@ -15,9 +15,12 @@ config_version=5
 [application]
 
 config/name="gameJam2024"
-run/main_scene="uid://njayenympnk4"
+run/main_scene="res://src/UI/Renderer/game_renderer.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps=120
+boot_splash/show_image=false
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 config/icon="res://icon.svg"
 
 [autoload]
@@ -31,6 +34,10 @@ OptionsManager="*res://src/GlobalScripts/OptionsManager.gd"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/vsync/vsync_mode=0
+
+[editor]
+
+export/convert_text_resources_to_binary=false
 
 [editor_plugins]
 
@@ -50,6 +57,21 @@ folder_colors={
 [gui]
 
 theme/custom_font="uid://be2g6d1bkbw53"
+
+[importer_defaults]
+
+scene={
+&"blender/materials/export_materials": 0,
+&"blender/materials/unpack_enabled": false,
+&"fbx/embedded_image_handling": 0,
+&"gltf/embedded_image_handling": 0
+}
+animation_library={
+&"blender/materials/export_materials": 0,
+&"blender/materials/unpack_enabled": false,
+&"fbx/embedded_image_handling": 0,
+&"gltf/embedded_image_handling": 0
+}
 
 [input]
 

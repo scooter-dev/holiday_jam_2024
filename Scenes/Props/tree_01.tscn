@@ -1,20 +1,20 @@
-[gd_scene load_steps=16 format=4 uid="uid://balk0fu5d233v"]
+[gd_scene load_steps=14 format=4 uid="uid://balk0fu5d233v"]
 
 [ext_resource type="Shader" uid="uid://css7vswfp42e3" path="res://src/Shaders/shaded_ambient.gdshader" id="1_5y78i"]
-[ext_resource type="Texture2D" uid="uid://cx6agtol68j23" path="res://Assets/Meshes/Props/Trees_wood01.png" id="1_n3mw7"]
-[ext_resource type="Texture2D" uid="uid://vsbtm77iplor" path="res://Assets/Textures/wood01.png" id="2_0ulrt"]
-[ext_resource type="Texture2D" uid="uid://ctbu58omtju7m" path="res://Assets/Meshes/Props/Trees_leaves.png" id="2_5y78i"]
-[ext_resource type="Texture2D" uid="uid://cyrme00i541g2" path="res://Assets/Textures/leavesFull.png" id="5_advwd"]
+[ext_resource type="Texture2D" uid="uid://vsbtm77iplor" path="res://Assets/Textures/wood01.png" id="1_n3mw7"]
+[ext_resource type="Texture2D" uid="uid://cyrme00i541g2" path="res://Assets/Textures/leavesFull.png" id="2_5y78i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0ulrt"]
 render_priority = 0
 shader = ExtResource("1_5y78i")
-shader_parameter/albedo_texture = ExtResource("2_0ulrt")
+shader_parameter/albedo_texture = ExtResource("1_n3mw7")
 shader_parameter/albedo_color = Color(1, 1, 1, 1)
 shader_parameter/UVScaling = Vector2(1, 1)
 shader_parameter/distance_fade_min = 50.0
 shader_parameter/distance_fade_max = 35.0
 shader_parameter/viewDistanceOverride = 0.0
+shader_parameter/AOMix = 0.0
+shader_parameter/ambientMix = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_by1ax"]
 resource_name = "wood"
@@ -60,12 +60,14 @@ shadow_mesh = SubResource("ArrayMesh_ey76m")
 resource_name = "Leaves"
 render_priority = 0
 shader = ExtResource("1_5y78i")
-shader_parameter/albedo_texture = ExtResource("5_advwd")
+shader_parameter/albedo_texture = ExtResource("2_5y78i")
 shader_parameter/albedo_color = Color(0.170135, 0.871094, 0, 1)
 shader_parameter/UVScaling = Vector2(8, 8)
 shader_parameter/distance_fade_min = 50.0
 shader_parameter/distance_fade_max = 35.0
 shader_parameter/viewDistanceOverride = 0.0
+shader_parameter/AOMix = 0.0
+shader_parameter/ambientMix = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sjkwb"]
 resource_name = "Leaves"
