@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=3 uid="uid://cgj71p8cjvgda"]
+[gd_scene load_steps=108 format=3 uid="uid://cgj71p8cjvgda"]
 
 [ext_resource type="Texture2D" uid="uid://b0ay0uj00aj86" path="res://Assets/Textures/panoramaDayProcessed.png" id="1_fhfly"]
 [ext_resource type="Script" uid="uid://cii7vrif2njyw" path="res://src/LevelActors/Lighting/evnAdjust.gd" id="2_mjt3c"]
@@ -32,6 +32,9 @@
 [ext_resource type="PackedScene" uid="uid://baceyyuakavy4" path="res://src/Interaction/Interactable.tscn" id="20_xu06p"]
 [ext_resource type="Shader" uid="uid://b6xu1qfy83ebc" path="res://src/Shaders/noiseGlitchMix.gdshader" id="31_g34n4"]
 [ext_resource type="PackedScene" uid="uid://cxq2yko4u2kt5" path="res://src/LevelActors/checkpoint.tscn" id="32_hby8t"]
+[ext_resource type="AudioStream" uid="uid://bv3tjfd85qqir" path="res://Assets/Sound/birdsAmbiance.ogg" id="33_gowy4"]
+[ext_resource type="Script" uid="uid://dqrl2e1rf11py" path="res://src/LevelActors/Sound/ambiance.gd" id="34_lbvui"]
+[ext_resource type="AudioStream" uid="uid://dnwoy6l2sxh5b" path="res://Assets/Music/Level.wav" id="35_lbvui"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_c14f2"]
 panorama = ExtResource("1_fhfly")
@@ -1614,6 +1617,20 @@ checkpointSeqNumber = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.11742, 1.61925, 0.569832)
 shape = SubResource("BoxShape3D_qcu58")
+
+[node name="Ambiance" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("33_gowy4")
+volume_db = -48.0
+autoplay = true
+bus = &"Ambiance"
+parameters/looping = true
+script = ExtResource("34_lbvui")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("35_lbvui")
+volume_db = -8.0
+autoplay = true
+bus = &"Music"
 
 [connection signal="interacted" from="TutorialLevelNew/Boat/Interactable" to="CutscenePlayer" method="_on_interactable_interacted"]
 [connection signal="interacted" from="TutorialLevelNew/RopePole/Interactable" to="TutorialLevelNew/RopePole" method="_on_interactable_interacted"]

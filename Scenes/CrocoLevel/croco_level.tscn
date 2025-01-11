@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://d0ch1kt1cx1wh"]
+[gd_scene load_steps=48 format=4 uid="uid://d0ch1kt1cx1wh"]
 
 [ext_resource type="Texture2D" uid="uid://cd35j4mmwnu4" path="res://addons/kenney_prototype_textures/dark/texture_01.png" id="1_1kaw0"]
 [ext_resource type="PackedScene" uid="uid://cal7qhkesu02s" path="res://src/Player/player.tscn" id="2_7swwj"]
@@ -28,7 +28,10 @@
 [ext_resource type="Texture2D" uid="uid://cjwvlqfl2ln6m" path="res://Assets/Textures/plant02.png" id="28_l4fa4"]
 [ext_resource type="PackedScene" uid="uid://balk0fu5d233v" path="res://Scenes/Props/tree_01.tscn" id="29_238vw"]
 [ext_resource type="Texture2D" uid="uid://b0ay0uj00aj86" path="res://Assets/Textures/panoramaDayProcessed.png" id="29_l4fa4"]
+[ext_resource type="AudioStream" uid="uid://bv3tjfd85qqir" path="res://Assets/Sound/birdsAmbiance.ogg" id="30_l4fa4"]
 [ext_resource type="Script" uid="uid://cii7vrif2njyw" path="res://src/LevelActors/Lighting/evnAdjust.gd" id="30_qsf1c"]
+[ext_resource type="Script" uid="uid://dqrl2e1rf11py" path="res://src/LevelActors/Sound/ambiance.gd" id="31_qsf1c"]
+[ext_resource type="AudioStream" uid="uid://dnwoy6l2sxh5b" path="res://Assets/Music/Level.wav" id="32_jsqmf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7swwj"]
 albedo_texture = ExtResource("1_1kaw0")
@@ -1069,6 +1072,20 @@ transform = Transform3D(-0.707356, 0.225623, -0.669882, 0, 0.94769, 0.319191, 0.
 environment = SubResource("Environment_0l3rr")
 script = ExtResource("30_qsf1c")
 player = NodePath("../Player")
+
+[node name="Ambiance" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("30_l4fa4")
+volume_db = -48.0
+autoplay = true
+bus = &"Ambiance"
+parameters/looping = true
+script = ExtResource("31_qsf1c")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("32_jsqmf")
+volume_db = -8.0
+autoplay = true
+bus = &"Music"
 
 [connection signal="activateStepsMotion" from="CSG/ThirdChamber/Puzzle/StairsButton" to="CSG/FirstChamber/Lilypads" method="_on_stairs_button_activate_steps_motion"]
 

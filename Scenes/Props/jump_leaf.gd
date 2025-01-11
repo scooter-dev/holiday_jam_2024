@@ -19,6 +19,7 @@ var launchSpeed : float = 0.0
 @export var animation_player: AnimationPlayer
 @export var height_marker: MeshInstance3D
 @export var leafCollision : CollisionShape3D
+@export var audio_stream_player_3d: AudioStreamPlayer3D
 
 func _ready() -> void:
 	set_physics_process(false)
@@ -36,6 +37,9 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		launchSpeed = abs(player.movement.velocity.y)
 		activePlayer = player
 		activePlayer.suspend()
+		if audio_stream_player_3d.playing:
+			audio_stream_player_3d.stop()
+		audio_stream_player_3d.play()
 		set_physics_process(true)
 		animation_player.stop()
 		animation_player.play("JumpStart", -1, launchSpeed * 0.25)

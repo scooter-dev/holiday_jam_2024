@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ca1s2m0md57bj" path="res://src/UI/Menus/options.gd" id="1_22fm6"]
 [ext_resource type="Script" uid="uid://gosx87re60le" path="res://src/UI/Menus/TextScaler.gd" id="2_6fgkx"]
 
-[node name="Options" type="Control" node_paths=PackedStringArray("hs_sensitivity", "hs_blur", "hs_grille", "hs_sat", "hs_bright", "cb_crt", "close_button", "hs_dither", "ob_res", "ob_depth", "scroll_container")]
+[node name="Options" type="Control" node_paths=PackedStringArray("hs_sensitivity", "hs_blur", "hs_grille", "hs_sat", "hs_bright", "cb_crt", "close_button", "hs_dither", "ob_res", "ob_depth", "hs_master", "hs_sfx", "hs_music", "hs_ambiance", "scroll_container")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -22,6 +22,10 @@ close_button = NodePath("MarginContainer/Panel/ScrollContainer/VBoxContainer/Clo
 hs_dither = NodePath("MarginContainer/Panel/ScrollContainer/VBoxContainer/CRT/Panel/VBoxContainer/HS_Dither")
 ob_res = NodePath("MarginContainer/Panel/ScrollContainer/VBoxContainer/CRT/Panel/VBoxContainer/OB_Res")
 ob_depth = NodePath("MarginContainer/Panel/ScrollContainer/VBoxContainer/CRT/Panel/VBoxContainer/OB_Depth")
+hs_master = NodePath("MarginContainer/Panel/ScrollContainer/VBoxContainer/Audio/Panel/VBoxContainer/HS_Master")
+hs_sfx = NodePath("MarginContainer/Panel/ScrollContainer/VBoxContainer/Audio/Panel/VBoxContainer/HS_SFX")
+hs_music = NodePath("MarginContainer/Panel/ScrollContainer/VBoxContainer/Audio/Panel/VBoxContainer/HS_Music")
+hs_ambiance = NodePath("MarginContainer/Panel/ScrollContainer/VBoxContainer/Audio/Panel/VBoxContainer/HS_Ambiance")
 scroll_container = NodePath("MarginContainer/Panel/ScrollContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -48,6 +52,7 @@ grow_horizontal = 2
 grow_vertical = 2
 follow_focus = true
 draw_focus_border = true
+scroll_vertical = 272
 horizontal_scroll_mode = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/ScrollContainer"]
@@ -261,6 +266,82 @@ layout_mode = 2
 max_value = 4.0
 step = 0.1
 
+[node name="Audio" type="MarginContainer" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 240)
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 0
+
+[node name="Panel" type="Panel" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/Audio"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/Audio/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/Audio/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Audio
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_6fgkx")
+
+[node name="Label2" type="Label" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/Audio/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Master Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_6fgkx")
+
+[node name="HS_Master" type="HSlider" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/Audio/Panel/VBoxContainer"]
+layout_mode = 2
+min_value = -48.0
+max_value = 16.0
+
+[node name="Label3" type="Label" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/Audio/Panel/VBoxContainer"]
+layout_mode = 2
+text = "SFX Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_6fgkx")
+
+[node name="HS_SFX" type="HSlider" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/Audio/Panel/VBoxContainer"]
+layout_mode = 2
+min_value = -48.0
+max_value = 16.0
+
+[node name="Label4" type="Label" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/Audio/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Music Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_6fgkx")
+
+[node name="HS_Music" type="HSlider" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/Audio/Panel/VBoxContainer"]
+layout_mode = 2
+min_value = -48.0
+max_value = 16.0
+
+[node name="Label5" type="Label" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/Audio/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Ambiance"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_6fgkx")
+
+[node name="HS_Ambiance" type="HSlider" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer/Audio/Panel/VBoxContainer"]
+layout_mode = 2
+min_value = -48.0
+max_value = 16.0
+
 [node name="Close" type="Button" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
@@ -278,4 +359,8 @@ script = ExtResource("2_6fgkx")
 [connection signal="item_selected" from="MarginContainer/Panel/ScrollContainer/VBoxContainer/CRT/Panel/VBoxContainer/OB_Depth" to="." method="_on_ob_depth_item_selected"]
 [connection signal="value_changed" from="MarginContainer/Panel/ScrollContainer/VBoxContainer/Colors/Panel/VBoxContainer/HS_Sat" to="." method="_on_hs_sat_value_changed"]
 [connection signal="value_changed" from="MarginContainer/Panel/ScrollContainer/VBoxContainer/Colors/Panel/VBoxContainer/HS_Bright" to="." method="_on_hs_bright_value_changed"]
+[connection signal="value_changed" from="MarginContainer/Panel/ScrollContainer/VBoxContainer/Audio/Panel/VBoxContainer/HS_Master" to="." method="_on_hs_master_value_changed"]
+[connection signal="value_changed" from="MarginContainer/Panel/ScrollContainer/VBoxContainer/Audio/Panel/VBoxContainer/HS_SFX" to="." method="_on_hs_sfx_value_changed"]
+[connection signal="value_changed" from="MarginContainer/Panel/ScrollContainer/VBoxContainer/Audio/Panel/VBoxContainer/HS_Music" to="." method="_on_hs_music_value_changed"]
+[connection signal="value_changed" from="MarginContainer/Panel/ScrollContainer/VBoxContainer/Audio/Panel/VBoxContainer/HS_Ambiance" to="." method="_on_hs_ambiance_value_changed"]
 [connection signal="pressed" from="MarginContainer/Panel/ScrollContainer/VBoxContainer/Close" to="." method="_on_close_pressed"]

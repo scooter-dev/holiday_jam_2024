@@ -1,4 +1,4 @@
-[gd_scene load_steps=195 format=4 uid="uid://bcf0411aq8xos"]
+[gd_scene load_steps=197 format=4 uid="uid://bcf0411aq8xos"]
 
 [ext_resource type="PackedScene" uid="uid://b71m35e4nhw7h" path="res://Assets/Meshes/MenuLevel/MenuLevel.blend" id="1_ueebt"]
 [ext_resource type="PackedScene" uid="uid://baceyyuakavy4" path="res://src/Interaction/Interactable.tscn" id="2_4pm6c"]
@@ -28,11 +28,13 @@
 [ext_resource type="Texture2D" uid="uid://0as68b1ryfpo" path="res://Assets/Meshes/Props/BakedTex.png" id="15_mbuq8"]
 [ext_resource type="PackedScene" uid="uid://bw3t2abo7w7yo" path="res://Scenes/Props/info_box_area.tscn" id="20_npug5"]
 [ext_resource type="Texture2D" uid="uid://ydqnj0x1hm2g" path="res://Assets/Textures/lightning01.png" id="27_2nrmm"]
+[ext_resource type="AudioStream" uid="uid://crpaakg0gsx7k" path="res://Assets/Sound/whiteloop.wav" id="27_5dwbx"]
 [ext_resource type="Texture2D" uid="uid://dowqonkngrp5o" path="res://Assets/Textures/lightning02.png" id="28_htq6j"]
 [ext_resource type="Texture2D" uid="uid://c7csobriujc5f" path="res://Assets/Textures/lightning03.png" id="29_736gl"]
 [ext_resource type="Texture2D" uid="uid://dq5p2n5ym1tnl" path="res://Assets/Textures/lightning04.png" id="30_5dwbx"]
 [ext_resource type="Texture2D" uid="uid://dil3gc0ac4u8o" path="res://Assets/Textures/lightning05.png" id="31_8ytyv"]
-[ext_resource type="Script" path="res://Scenes/MenuLevels/menu_level_music.gd" id="33_736gl"]
+[ext_resource type="Script" uid="uid://dbo4wi7y1cjci" path="res://Scenes/MenuLevels/menu_level_music.gd" id="33_736gl"]
+[ext_resource type="AudioStream" uid="uid://dlxn7u8d6iv13" path="res://Assets/Music/ambianceloop.wav" id="34_8ytyv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mxiu3"]
 albedo_color = Color(0.761719, 0.761719, 0.761719, 1)
@@ -1406,6 +1408,20 @@ tracks/18/keys = {
 "method": &"queue_free"
 }]
 }
+tracks/19/type = "method"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("MenuLevelMusic")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"playBossMusic"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_rlq2f"]
 resource_name = "FinalCutscene"
@@ -1592,6 +1608,34 @@ tracks/13/keys = {
 "values": [{
 "args": [],
 "method": &"fadeOutOnly"
+}]
+}
+tracks/14/type = "method"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("MenuLevelMusic")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fadeBossOut"
+}]
+}
+tracks/15/type = "method"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("OS2/BossDeath")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
 }]
 }
 
@@ -5352,6 +5396,10 @@ mesh = SubResource("QuadMesh_ldvjd")
 [node name="Node3D" type="Node3D" parent="OS2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.38419e-07, 3, 0.5)
 
+[node name="BossDeath" type="AudioStreamPlayer3D" parent="OS2"]
+stream = ExtResource("27_5dwbx")
+volume_db = 3.0
+
 [node name="CutscenePlayer" type="AnimationPlayer" parent="." node_paths=PackedStringArray("player", "player_pos", "jumpPad", "saves")]
 callback_mode_process = 0
 libraries = {
@@ -5423,6 +5471,9 @@ mesh = SubResource("QuadMesh_4ja7n")
 surface_material_override/0 = SubResource("ShaderMaterial_824qp")
 
 [node name="MenuLevelMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("34_8ytyv")
+volume_db = 12.0
+bus = &"Music"
 script = ExtResource("33_736gl")
 
 [connection signal="body_entered" from="MenuLevel/IO/BossCutsceneArea" to="CutscenePlayer" method="_on_boss_cutscene_area_body_entered"]
@@ -5433,6 +5484,7 @@ script = ExtResource("33_736gl")
 [connection signal="pickedUp" from="MenuLevel/IO/Platforming/PadCard" to="MenuLevel/IO/Platforming" method="_on_pad_card_picked_up"]
 [connection signal="playerDied" from="Player" to="OS2" method="_on_player_player_died"]
 [connection signal="body_entered" from="CutsceneTrigger" to="CutscenePlayer" method="_on_cutscene_trigger_body_entered"]
+[connection signal="finished" from="MenuLevelMusic" to="MenuLevelMusic" method="_on_finished"]
 
 [editable path="MenuLevel"]
 [editable path="MenuLevel/IO/Platforming/WoodPlatforms/WoodPlatform"]

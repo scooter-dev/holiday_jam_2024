@@ -44,6 +44,7 @@ func getWaterLevel() -> void:
 @export var airControl: float = 0.14
 
 signal jumped
+signal mModeChanged(old, new)
 
 const slideHover : float = -0.1
 
@@ -76,6 +77,7 @@ func resetRotation(delta : float) -> void:
 		player.global_rotation.z = 0
 
 var prevVelocity : Vector3 = Vector3()
+var slidingOnGround : bool = false
 func _physics_process(delta):
 	prevVelocity = velocity
 	set_deferred("mLock",maxi(mLock - 1,0))
@@ -93,6 +95,8 @@ func _physics_process(delta):
 	match movementMode:
 		M_FALLING:
 			# velocity -= velocity * damping * delta
+			if jump_state and OS.is_debug_build():
+				velocity.y += 12 * delta
 			var sliding = groundRays.gDistR < slideHover #if the ground is more than 15cm inside the raycasts, player can slide
 			var slideNormal: Vector3 = groundRays.gNormR
 			var gdt: float = slideNormal.dot(Vector3.UP) #cos of angle between ground and up vector
@@ -146,6 +150,7 @@ func _physics_process(delta):
 			var slideNormal: Vector3 = groundRays.gNormR
 			var gdt: float = slideNormal.dot(Vector3.UP)
 			sliding = sliding # and gdt > 0.0
+			slidingOnGround = sliding
 			if sliding:
 				var prevSPD: float = velocity.length()
 				
@@ -223,6 +228,7 @@ var mLock : int = 0
 func set_m_mode(n_mode: int, lock : int = 0):
 	if mLock > 0:
 		return
+	mModeChanged.emit(movementMode,n_mode)
 	mLock += lock
 	print(lock)
 	match n_mode:

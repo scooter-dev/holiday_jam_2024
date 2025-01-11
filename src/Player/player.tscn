@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://cal7qhkesu02s"]
+[gd_scene load_steps=38 format=4 uid="uid://cal7qhkesu02s"]
 
 [ext_resource type="Script" uid="uid://c7vig5riw7kk6" path="res://src/Player/GroundRays.gd" id="1_v6gec"]
 [ext_resource type="Script" uid="uid://bbac2cpms0612" path="res://src/Player/player.gd" id="1_vtbm7"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://dufduq84o1wio" path="res://src/Player/player_hud.gd" id="12_cql7s"]
 [ext_resource type="Script" uid="uid://gosx87re60le" path="res://src/UI/Menus/TextScaler.gd" id="13_06do3"]
 [ext_resource type="PackedScene" uid="uid://cnvi8q4vux245" path="res://src/UI/Menus/pause_menu.tscn" id="13_ph3q4"]
+[ext_resource type="Script" uid="uid://dtgfbj7fei15n" path="res://src/Player/player_sounds.gd" id="15_pvhe8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cql7s"]
 shading_mode = 0
@@ -323,7 +324,6 @@ target_position = Vector3(0, -1.5, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.455833, 0)
 shape = SubResource("CapsuleShape3D_ckfjp")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Movement" type="Node" parent="." node_paths=PackedStringArray("groundRays", "camY", "player")]
 script = ExtResource("2_n4f6x")
@@ -469,6 +469,16 @@ libraries = {
 [node name="PauseMenu" parent="." instance=ExtResource("13_ph3q4")]
 visible = false
 
+[node name="PlayerSounds" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("movement", "one_off")]
+bus = &"SFX"
+script = ExtResource("15_pvhe8")
+movement = NodePath("../Movement")
+one_off = NodePath("OneOff")
+
+[node name="OneOff" type="AudioStreamPlayer" parent="PlayerSounds"]
+bus = &"SFX"
+
+[connection signal="mModeChanged" from="Movement" to="PlayerSounds" method="_on_movement_m_mode_changed"]
 [connection signal="interacted" from="CamY/VSpring/CamX/Interactor" to="PlayerModel" method="_on_interactor_interacted"]
 [connection signal="animation_finished" from="HUD/HUDAnims" to="HUD" method="_on_hud_anims_animation_finished"]
 [connection signal="reset" from="PauseMenu" to="." method="_on_pause_menu_reset"]

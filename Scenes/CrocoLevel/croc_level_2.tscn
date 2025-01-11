@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=4 uid="uid://stler5swh4qj"]
+[gd_scene load_steps=93 format=4 uid="uid://stler5swh4qj"]
 
 [ext_resource type="PackedScene" uid="uid://bcprhd5itxa12" path="res://Assets/Meshes/Levels/CrocLevels/CrocLevel2.glb" id="1_bum2b"]
 [ext_resource type="Shader" uid="uid://b1i8h3r1t4giq" path="res://src/Shaders/terrain.gdshader" id="2_8uiwt"]
@@ -33,13 +33,16 @@
 [ext_resource type="PackedScene" uid="uid://2anm63go2fgn" path="res://Scenes/Props/sign.tscn" id="24_phrbr"]
 [ext_resource type="PackedScene" uid="uid://cobuvk0i3sos" path="res://src/LevelActors/Glitch/crack_in_the_foundation.tscn" id="24_t4y5u"]
 [ext_resource type="Texture2D" uid="uid://caxfll36e1i5w" path="res://Assets/Textures/wood02.png" id="25_gvycu"]
-[ext_resource type="Texture2D" uid="uid://bojugpu86eu5q" path="res://Assets/Textures/bigLeaf.png" id="26_vym4b"]
 [ext_resource type="PackedScene" uid="uid://dcg7514vbu8f1" path="res://src/LevelActors/Glitch/glitch.tscn" id="27_3ebui"]
 [ext_resource type="Texture2D" uid="uid://sxe7slbto1fx" path="res://Assets/Textures/rock.png" id="28_4kxj7"]
 [ext_resource type="PackedScene" uid="uid://d2y41258vqa11" path="res://src/LevelActors/Items/firefly.tscn" id="30_8dhsp"]
 [ext_resource type="PackedScene" uid="uid://d1ovsgwn64xet" path="res://src/LevelActors/height_kill_volume.tscn" id="37_tsqk6"]
 [ext_resource type="PackedScene" uid="uid://cxq2yko4u2kt5" path="res://src/LevelActors/checkpoint.tscn" id="38_b3jwq"]
 [ext_resource type="PackedScene" uid="uid://by34s3fbwj2yh" path="res://src/LevelActors/level_changer.tscn" id="39_vtqk8"]
+[ext_resource type="AudioStream" uid="uid://bv3tjfd85qqir" path="res://Assets/Sound/birdsAmbiance.ogg" id="41_3ebui"]
+[ext_resource type="Script" uid="uid://dqrl2e1rf11py" path="res://src/LevelActors/Sound/ambiance.gd" id="42_mjmmq"]
+[ext_resource type="PackedScene" uid="uid://ds0cwiipooel6" path="res://src/LevelActors/Sound/AmbianceSwitcher.tscn" id="43_q87qe"]
+[ext_resource type="AudioStream" uid="uid://dnwoy6l2sxh5b" path="res://Assets/Music/Level.wav" id="44_q2pt5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4kxj7"]
 render_priority = 3
@@ -278,28 +281,6 @@ shadow_mesh = SubResource("ArrayMesh_nme42")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_svaoj"]
 data = PackedVector3Array(-1.6605, 0.2158, -1.8211, -1.1873, 2.152, -1.3569, -1.4729, 2.2521, 0.0022, -1.6605, 0.2158, -1.8211, -1.4729, 2.2521, 0.0022, -2.5562, 0.0872, -0.0234, -1.6605, 0.2158, -1.8211, 0.0019, 2.2266, -1.7874, -1.1873, 2.152, -1.3569, -1.6605, 0.2158, -1.8211, 0.1205, -0.0416, -2.5547, 0.0019, 2.2266, -1.7874, 0.0635, 3.3373, 0.1085, -1.4729, 2.2521, 0.0022, -1.1873, 2.152, -1.3569, 0.0635, 3.3373, 0.1085, -1.1873, 2.152, -1.3569, 0.0019, 2.2266, -1.7874, 0.1205, -0.0416, -2.5547, 1.4001, 1.4959, -1.7149, 0.0019, 2.2266, -1.7874, 0.1205, -0.0416, -2.5547, 1.9018, -0.0718, -1.6837, 1.4001, 1.4959, -1.7149, 1.8289, 1.9578, -0.211, 0.0019, 2.2266, -1.7874, 1.4001, 1.4959, -1.7149, 1.9018, -0.0718, -1.6837, 1.8289, 1.9578, -0.211, 1.4001, 1.4959, -1.7149, 1.8289, 1.9578, -0.211, 0.0635, 3.3373, 0.1085, 0.0019, 2.2266, -1.7874, 1.9018, -0.0718, -1.6837, 2.9438, -0.1252, 0.0296, 1.8289, 1.9578, -0.211, 0.2468, 1.5343, 1.7753, -1.4729, 2.2521, 0.0022, 0.0635, 3.3373, 0.1085, 0.2468, 1.5343, 1.7753, 0.0635, 3.3373, 0.1085, 1.8289, 1.9578, -0.211, 2.9438, -0.1252, 0.0296, 1.9653, 1.4508, 1.5198, 1.8289, 1.9578, -0.211, 0.2468, 1.5343, 1.7753, 1.8289, 1.9578, -0.211, 1.9653, 1.4508, 1.5198, 2.9438, -0.1252, 0.0296, 1.6225, 0.0292, 2.2064, 1.9653, 1.4508, 1.5198, 1.6225, 0.0292, 2.2064, 0.2468, 1.5343, 1.7753, 1.9653, 1.4508, 1.5198, 1.6225, 0.0292, 2.2064, -0.3158, -0.1985, 2.6137, 0.2468, 1.5343, 1.7753, 0.2468, 1.5343, 1.7753, -1.5327, 1.1534, 1.3685, -1.4729, 2.2521, 0.0022, -1.5327, 1.1534, 1.3685, 0.2468, 1.5343, 1.7753, -0.3158, -0.1985, 2.6137, -2.5562, 0.0872, -0.0234, -1.4729, 2.2521, 0.0022, -1.5327, 1.1534, 1.3685, -1.5327, 1.1534, 1.3685, -0.3158, -0.1985, 2.6137, -1.8593, -0.0548, 1.6355, -2.5562, 0.0872, -0.0234, -1.5327, 1.1534, 1.3685, -1.8593, -0.0548, 1.6355, 1.4402, -1.2045, -1.04, 0.0787, -1.4368, -1.4672, 0.086, -2.2188, 0.3977, 1.9018, -0.0718, -1.6837, 0.0787, -1.4368, -1.4672, 1.4402, -1.2045, -1.04, 1.4402, -1.2045, -1.04, 2.9438, -0.1252, 0.0296, 1.9018, -0.0718, -1.6837, 1.9018, -0.0718, -1.6837, 0.1205, -0.0416, -2.5547, 0.0787, -1.4368, -1.4672, 1.4402, -1.2045, -1.04, 1.5567, -1.4467, 0.5863, 2.9438, -0.1252, 0.0296, 1.4402, -1.2045, -1.04, 0.086, -2.2188, 0.3977, 1.5567, -1.4467, 0.5863, 1.6225, 0.0292, 2.2064, 2.9438, -0.1252, 0.0296, 1.5567, -1.4467, 0.5863, 1.6225, 0.0292, 2.2064, 1.5567, -1.4467, 0.5863, 1.0743, -1.3865, 2.348, 1.0743, -1.3865, 2.348, 1.5567, -1.4467, 0.5863, 0.086, -2.2188, 0.3977, 1.0743, -1.3865, 2.348, -0.3158, -0.1985, 2.6137, 1.6225, 0.0292, 2.2064, 1.0743, -1.3865, 2.348, 0.086, -2.2188, 0.3977, -0.2897, -1.9347, 2.4842, 1.0743, -1.3865, 2.348, -0.2897, -1.9347, 2.4842, -0.3158, -0.1985, 2.6137, -1.5258, -1.3619, 1.5019, -0.3158, -0.1985, 2.6137, -0.2897, -1.9347, 2.4842, 0.086, -2.2188, 0.3977, -1.5258, -1.3619, 1.5019, -0.2897, -1.9347, 2.4842, -1.5258, -1.3619, 1.5019, -1.8593, -0.0548, 1.6355, -0.3158, -0.1985, 2.6137, 0.086, -2.2188, 0.3977, -1.6212, -1.4261, -0.0131, -1.5258, -1.3619, 1.5019, -1.6212, -1.4261, -0.0131, -1.8593, -0.0548, 1.6355, -1.5258, -1.3619, 1.5019, -1.6212, -1.4261, -0.0131, 0.086, -2.2188, 0.3977, 0.0787, -1.4368, -1.4672, -1.6212, -1.4261, -0.0131, -2.5562, 0.0872, -0.0234, -1.8593, -0.0548, 1.6355, -1.6212, -1.4261, -0.0131, 0.0787, -1.4368, -1.4672, -1.3449, -1.1752, -1.4418, -1.3449, -1.1752, -1.4418, -2.5562, 0.0872, -0.0234, -1.6212, -1.4261, -0.0131, -1.3449, -1.1752, -1.4418, 0.0787, -1.4368, -1.4672, 0.1205, -0.0416, -2.5547, -1.3449, -1.1752, -1.4418, -1.6605, 0.2158, -1.8211, -2.5562, 0.0872, -0.0234, -1.3449, -1.1752, -1.4418, 0.1205, -0.0416, -2.5547, -1.6605, 0.2158, -1.8211)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_t4y5u"]
-render_priority = 0
-shader = ExtResource("13_ys0f4")
-shader_parameter/albedo_texture = ExtResource("26_vym4b")
-shader_parameter/ambientMix = 0.0
-shader_parameter/UVScaling = Vector2(1, 1)
-shader_parameter/distance_fade_min = null
-shader_parameter/distance_fade_max = null
-shader_parameter/viewDistanceOverride = 0.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ebui"]
-render_priority = 0
-shader = ExtResource("3_4i27j")
-shader_parameter/albedo_texture = ExtResource("28_4kxj7")
-shader_parameter/albedo_color = Color(1, 0.803922, 0.141176, 1)
-shader_parameter/UVScaling = Vector2(2, 2)
-shader_parameter/distance_fade_min = null
-shader_parameter/distance_fade_max = null
-shader_parameter/viewDistanceOverride = 0.0
-shader_parameter/AOMix = 0.0
-shader_parameter/ambientMix = 0.0
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gvycu"]
 render_priority = 0
 shader = ExtResource("3_4i27j")
@@ -389,6 +370,9 @@ subdivide_depth = 20
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7g8pd"]
 size = Vector3(2.01611, 7.21088, 5.36139)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ovccr"]
+size = Vector3(5.79639, 14.088, 21.1631)
 
 [node name="CrocLevel2" type="Node3D"]
 
@@ -916,9 +900,8 @@ bones/6/rotation = Quaternion(-3.18575e-10, -6.14734e-08, -0.0288642, 0.999583)
 bones/7/rotation = Quaternion(-4.35841e-10, 6.87659e-08, -0.142311, 0.989822)
 
 [node name="Cube" parent="CrocLevel2/Cave/JumpLeaf/BigLeaf/Armature/Skeleton3D" index="0"]
-instance_shader_parameters/ambientAffect = 1.0
-surface_material_override/0 = SubResource("ShaderMaterial_t4y5u")
-surface_material_override/1 = SubResource("ShaderMaterial_3ebui")
+surface_material_override/0 = null
+surface_material_override/1 = null
 
 [node name="LeafPos" parent="CrocLevel2/Cave/JumpLeaf/BigLeaf/Armature/Skeleton3D" index="1"]
 transform = Transform3D(-0.281873, 0.959452, 2.67802e-08, -0.959452, -0.281873, -9.91613e-08, -8.75918e-08, -5.36452e-08, 1, 0.836873, 1.34708, 2.57365e-07)
@@ -2229,6 +2212,29 @@ The platforms may fall at any time."
 [node name="Sign2" parent="." instance=ExtResource("24_phrbr")]
 transform = Transform3D(-0.692005, 0, -0.721893, 0, 1, 0, 0.721893, 0, -0.692005, 522.091, -171.774, -351.994)
 text = "If you're here for my watermelon stall, I'm sorry. I had too much fun bouncing on the huge leaves and ended up breaking my butt. The doctor says it's not serious, but I'll be out of commision for a few days."
+
+[node name="Ambiance" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("41_3ebui")
+volume_db = -48.0
+autoplay = true
+bus = &"Ambiance"
+parameters/looping = true
+script = ExtResource("42_mjmmq")
+
+[node name="Area3D" parent="." node_paths=PackedStringArray("ambiance") instance=ExtResource("43_q87qe")]
+transform = Transform3D(0.873365, 0, 0.487067, 0, 1, 0, -0.487067, 0, 0.873365, 564.93, -114.919, -383.193)
+fwAmbiance = 1
+ambiance = NodePath("../Ambiance")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.997792, 0, 0.0664131, 0, 1, 0, -0.0664131, 0, 0.997792, -0.319092, 3.68369, 1.72491)
+shape = SubResource("BoxShape3D_ovccr")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("44_q2pt5")
+volume_db = -8.0
+autoplay = true
+bus = &"Music"
 
 [editable path="CrocLevel2"]
 [editable path="CrocLevel2/Cave/Platforms/WoodPlatform15/Sign"]

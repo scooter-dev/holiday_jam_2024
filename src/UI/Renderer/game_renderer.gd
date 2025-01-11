@@ -8,6 +8,7 @@ extends Control
 func _enter_tree() -> void:
 	if loadLevel:
 		sub_viewport.add_child(load(LevelManager.levelToLoad).instantiate())
+	screen_tex.texture = sub_viewport.get_texture()
 	OptionsManager.optionsUpdated.connect(onOptionsUpdated)
 	get_tree().root.size_changed.connect(onViewportSizeChanged)
 

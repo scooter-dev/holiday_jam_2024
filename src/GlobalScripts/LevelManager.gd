@@ -15,9 +15,9 @@ func loadAL() -> void:
 	levelToLoad = afterLoad
 	get_tree().change_scene_to_file("res://src/UI/Renderer/game_renderer.tscn")
 
-#func _ready() -> void:
-	#if OS.is_debug_build():
-		#addAllArtifacts()
+func _ready() -> void:
+	if OS.is_debug_build():
+		addAllArtifacts()
 
 func addAllArtifacts() -> void:
 	glitches["croc1-1"] = 1

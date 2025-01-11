@@ -3,17 +3,17 @@
 [ext_resource type="Texture2D" uid="uid://qn3at2a0i6n5" path="res://Assets/Textures/woodBoards.png" id="1_i8l14"]
 [ext_resource type="Script" uid="uid://cptolwfcijn4o" path="res://Scenes/Props/wood_platform.gd" id="1_miv47"]
 [ext_resource type="Shader" uid="uid://css7vswfp42e3" path="res://src/Shaders/shaded_ambient.gdshader" id="1_x4gyd"]
-[ext_resource type="Texture2D" uid="uid://bg7f5qpit2m8w" path="res://Assets/Textures/chains.png" id="2_x4gyd"]
-[ext_resource type="Texture2D" uid="uid://qn3at2a0i6n5" path="res://Assets/Textures/woodBoards.png" id="2_y2orn"]
 [ext_resource type="Shader" uid="uid://coxv02bx2xfpl" path="res://src/Shaders/shaded_ambient_y_bilboard.gdshader" id="3_y2orn"]
 [ext_resource type="Texture2D" uid="uid://bg7f5qpit2m8w" path="res://Assets/Textures/chains.png" id="4_miv47"]
+[ext_resource type="AudioStream" uid="uid://ckv6vkbh68cc8" path="res://Assets/Sound/creaking.ogg" id="7_miv47"]
 [ext_resource type="Texture2D" uid="uid://be5durja6dngy" path="res://Assets/Textures/splinters.png" id="8_nkrfa"]
+[ext_resource type="AudioStream" uid="uid://bo4hvyaielelx" path="res://Assets/Sound/break.ogg" id="8_pqddn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y2orn"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_x4gyd")
-shader_parameter/albedo_texture = ExtResource("2_y2orn")
+shader_parameter/albedo_texture = ExtResource("1_i8l14")
 shader_parameter/albedo_color = Color(0.488281, 0.42586, 0.375748, 1)
 shader_parameter/UVScaling = Vector2(1, 1)
 shader_parameter/distance_fade_min = null
@@ -68,7 +68,7 @@ size = Vector3(2, 0.2, 2)
 resource_name = "Chains"
 transparency = 4
 cull_mode = 2
-albedo_texture = ExtResource("2_x4gyd")
+albedo_texture = ExtResource("4_miv47")
 texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_mktxl"]
@@ -216,12 +216,14 @@ _data = {
 &"RESET": SubResource("Animation_pqddn")
 }
 
-[node name="WoodPlatform" type="Node3D" node_paths=PackedStringArray("platform_body", "particles", "platformMesh", "animation_player")]
+[node name="WoodPlatform" type="Node3D" node_paths=PackedStringArray("platform_body", "particles", "platformMesh", "animation_player", "audio_stream_player_3d", "audio_stream_player_3d_2")]
 script = ExtResource("1_miv47")
 platform_body = NodePath("PlatformBody")
 particles = NodePath("CPUParticles3D")
 platformMesh = NodePath("PlatformBody/Platform")
 animation_player = NodePath("AnimationPlayer")
+audio_stream_player_3d = NodePath("AudioStreamPlayer3D")
+audio_stream_player_3d_2 = NodePath("AudioStreamPlayer3D2")
 
 [node name="PlatformBody" type="CharacterBody3D" parent="."]
 collision_mask = 0
@@ -233,7 +235,6 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformBody"]
 shape = SubResource("BoxShape3D_miv47")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Chains" type="Node3D" parent="."]
 
@@ -354,5 +355,15 @@ color = Color(0.8125, 0.610813, 0.501465, 1)
 libraries = {
 &"": SubResource("AnimationLibrary_mrvbr")
 }
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_miv47")
+panning_strength = 0.7
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_pqddn")
+panning_strength = 0.7
+bus = &"SFX"
 
 [connection signal="child_entered_tree" from="PlatformBody" to="." method="_on_platform_body_child_entered_tree"]

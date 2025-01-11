@@ -29,10 +29,15 @@ var breaking : bool = false
 func _ready() -> void:
 	platformMesh.material_override.set_shader_parameter("albedo_texture", WOOD_BOARDS_CRACKED if breaks else WOOD_BOARDS)
 	set_physics_process(false)
+@export var audio_stream_player_3d: AudioStreamPlayer3D
+@export var audio_stream_player_3d_2: AudioStreamPlayer3D
 
 func _on_platform_body_child_entered_tree(node: Node) -> void:
 	if breaks and node is Player:
 		set_physics_process(true)
+		if audio_stream_player_3d.playing:
+			audio_stream_player_3d.stop()
+		audio_stream_player_3d.play()
 		breaking = true
 		breakTimer = breakTime
 		respawnTimer = respawnTime
@@ -48,6 +53,9 @@ func _physics_process(delta: float) -> void:
 			breaking = false
 			platform_body.collision_layer = 0
 			particles.emitting = true
+			if audio_stream_player_3d_2.playing:
+				audio_stream_player_3d_2.stop()
+			audio_stream_player_3d_2.play()
 			platformMesh.position = Vector3()
 			await get_tree().physics_frame
 			platform_body.set_deferred("visible", false)

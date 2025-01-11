@@ -56,6 +56,5 @@ func setCheckpoint(chk : Checkpoint) -> void:
 		lastCheckpoint = chk
 		lastCheckpointSeq = chk.checkpointSeqNumber
 
-
 func _on_pause_menu_reset() -> void:
 	die()

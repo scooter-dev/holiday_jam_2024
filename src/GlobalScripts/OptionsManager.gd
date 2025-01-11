@@ -15,7 +15,16 @@ var colorDepth : e_col = e_col.B15
 var bright : float = 2.0
 var saturation : float = 1.0
 
+var masterVolume : float = 0
+var musicVolume : float = 0
+var ambianceVolume : float = 0
+var sfxVolume : float = 0
+
 func update() -> void:
 	optionsUpdated.emit()
+	AudioServer.set_bus_volume_db(0, masterVolume)
+	AudioServer.set_bus_volume_db(1, sfxVolume)
+	AudioServer.set_bus_volume_db(2, musicVolume)
+	AudioServer.set_bus_volume_db(3, ambianceVolume)
 
 signal optionsUpdated

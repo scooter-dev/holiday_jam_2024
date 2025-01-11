@@ -13,6 +13,10 @@ class_name OptionsMenu
 @export var ob_res: OptionButton
 @export var ob_depth: OptionButton
 
+@export var hs_master: HSlider
+@export var hs_sfx: HSlider
+@export var hs_music: HSlider
+@export var hs_ambiance: HSlider
 
 
 func open() -> void:
@@ -34,7 +38,10 @@ func _ready() -> void:
 	hs_dither.value = OptionsManager.dither
 	ob_res.selected = OptionsManager.resolution
 	ob_depth.selected = OptionsManager.colorDepth
-	
+	hs_master.value = OptionsManager.masterVolume
+	hs_sfx.value = OptionsManager.sfxVolume
+	hs_music.value = OptionsManager.musicVolume
+	hs_ambiance.value = OptionsManager.ambianceVolume
 
 func _on_hs_sensitivity_value_changed(value: float) -> void:
 	OptionsManager.lookSensitivity = value
@@ -83,4 +90,24 @@ func _on_ob_res_item_selected(index: int) -> void:
 
 func _on_ob_depth_item_selected(index: int) -> void:
 	OptionsManager.colorDepth = index
+	OptionsManager.update()
+
+
+func _on_hs_master_value_changed(value: float) -> void:
+	OptionsManager.masterVolume = value
+	OptionsManager.update()
+
+
+func _on_hs_sfx_value_changed(value: float) -> void:
+	OptionsManager.sfxVolume = value
+	OptionsManager.update()
+
+
+func _on_hs_music_value_changed(value: float) -> void:
+	OptionsManager.musicVolume = value
+	OptionsManager.update()
+
+
+func _on_hs_ambiance_value_changed(value: float) -> void:
+	OptionsManager.ambianceVolume = value
 	OptionsManager.update()

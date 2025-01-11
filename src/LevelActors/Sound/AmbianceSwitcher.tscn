@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ds0cwiipooel6"]
+
+[ext_resource type="Script" uid="uid://cr66gpf7evcbu" path="res://src/LevelActors/Sound/ambianceSwitcher.gd" id="1_kmrp5"]
+
+[node name="AmbianceSwitcher" type="Area3D"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_kmrp5")
+
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

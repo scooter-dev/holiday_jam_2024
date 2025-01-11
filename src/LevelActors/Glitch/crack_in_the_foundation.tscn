@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cobuvk0i3sos"]
+[gd_scene load_steps=12 format=3 uid="uid://cobuvk0i3sos"]
 
 [ext_resource type="Script" uid="uid://bkjibnqlxv8b4" path="res://src/LevelActors/Glitch/crack_in_the_foundation.gd" id="1_3o4dj"]
 [ext_resource type="Texture2D" uid="uid://ydqnj0x1hm2g" path="res://Assets/Textures/lightning01.png" id="1_ynmhh"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c7csobriujc5f" path="res://Assets/Textures/lightning03.png" id="3_gi6qp"]
 [ext_resource type="Texture2D" uid="uid://dq5p2n5ym1tnl" path="res://Assets/Textures/lightning04.png" id="4_dfl4o"]
 [ext_resource type="Texture2D" uid="uid://dil3gc0ac4u8o" path="res://Assets/Textures/lightning05.png" id="5_t5dxt"]
+[ext_resource type="AudioStream" uid="uid://b14vmeabw4j22" path="res://Assets/Sound/glitchbiance.ogg" id="7_gi6qp"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_p46lh"]
 resource_local_to_scene = true
@@ -70,3 +71,9 @@ mesh = NodePath("MeshInstance3D")
 extra_cull_margin = 12.0
 mesh = SubResource("QuadMesh_p46lh")
 surface_material_override/0 = SubResource("ShaderMaterial_824qp")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_gi6qp")
+autoplay = true
+panning_strength = 0.6
+bus = &"SFX"

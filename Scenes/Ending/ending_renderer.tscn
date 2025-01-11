@@ -1,10 +1,43 @@
-[gd_scene load_steps=9 format=3 uid="uid://irk5myjc8pry"]
+[gd_scene load_steps=16 format=3 uid="uid://irk5myjc8pry"]
 
-[ext_resource type="PackedScene" uid="uid://njayenympnk4" path="res://src/UI/Renderer/game_renderer.tscn" id="1_22g1x"]
+[ext_resource type="Script" uid="uid://gru3fl27ooeq" path="res://src/UI/Renderer/game_renderer.gd" id="1_tci8g"]
+[ext_resource type="Shader" uid="uid://dbjnrv32j8sod" path="res://src/Shaders/ditherShader.gdshader" id="2_4n2cj"]
 [ext_resource type="PackedScene" uid="uid://cjcujt70u1drp" path="res://Scenes/Ending/ending_cutscene.tscn" id="2_28hti"]
+[ext_resource type="Shader" uid="uid://cyeoh06wwr71u" path="res://src/Shaders/CRTShader.gdshader" id="3_1xprn"]
+[ext_resource type="AudioStream" uid="uid://c6k2xmcpjxr6" path="res://Assets/Music/finale.wav" id="5_4n2cj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rk37s"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rk37s"]
+shader = ExtResource("2_4n2cj")
+shader_parameter/colors = 16.0
+shader_parameter/dither = 0.25
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_22g1x"]
 viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fcua6"]
+shader = ExtResource("3_1xprn")
+shader_parameter/crt_curve = 0.0
+shader_parameter/crt_scan_line_color = 0.0
+shader_parameter/aperture_grille_rate = 0.25
+shader_parameter/rf_switch_esque_blur = 0.7
+shader_parameter/white_noise_rate = 0.0
+shader_parameter/h = 1.0
+shader_parameter/s = 1.0
+shader_parameter/v = 2.0
+
+[sub_resource type="GDScript" id="GDScript_rk37s"]
+script/source = "extends Control
+
+@export var sub_viewport: SubViewport
+
+func _input(event: InputEvent) -> void:
+	if is_inside_tree() and sub_viewport.is_inside_tree():
+		sub_viewport.push_input(event, false)
+	#print(event)
+"
 
 [sub_resource type="GDScript" id="GDScript_22g1x"]
 script/source = "extends RichTextLabel
@@ -137,13 +170,69 @@ _data = {
 
 [node name="EndingRenderer" type="Node"]
 
-[node name="Renderer" parent="." instance=ExtResource("1_22g1x")]
+[node name="Renderer" type="Control" parent="." node_paths=PackedStringArray("sub_viewport", "screen_tex", "crt_effect")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tci8g")
+sub_viewport = NodePath("SubViewport")
+screen_tex = NodePath("ScreenTex")
+crt_effect = NodePath("CRTEffect")
 loadLevel = false
 
-[node name="ScreenTex" parent="Renderer" index="1"]
-texture = SubResource("ViewportTexture_22g1x")
+[node name="Background" type="Panel" parent="Renderer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rk37s")
 
-[node name="EndingCutscene" parent="Renderer/SubViewport" index="0" instance=ExtResource("2_28hti")]
+[node name="ScreenTex" type="TextureRect" parent="Renderer"]
+texture_filter = 1
+texture_repeat = 1
+material = SubResource("ShaderMaterial_rk37s")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_22g1x")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="CRTEffect" type="Panel" parent="Renderer"]
+material = SubResource("ShaderMaterial_fcua6")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="Renderer"]
+process_mode = 1
+handle_input_locally = false
+size = Vector2i(256, 224)
+render_target_update_mode = 4
+
+[node name="EndingCutscene" parent="Renderer/SubViewport" instance=ExtResource("2_28hti")]
+
+[node name="InputPusher" type="Control" parent="Renderer" node_paths=PackedStringArray("sub_viewport")]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_rk37s")
+sub_viewport = NodePath("../SubViewport")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -186,6 +275,8 @@ HSV adjustment shader by al1-ce - [url=https://godotshaders.com/shader/hsv-adjus
 
 Font: PC senior - [url=https://www.1001fonts.com/pc-senior-font.html][color=lightblue]https://www.1001fonts.com/pc-senior-font.html[/color][/url]
 
+CC0 sounds from [url=https://freesound.org/][color=lightblue]https://freesound.org/[/color][/url]
+
 [center]"
 script = SubResource("GDScript_22g1x")
 
@@ -196,11 +287,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_22g1x")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_4n2cj")
 }
+autoplay = "FadeIn"
 
-[editable path="Renderer"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_4n2cj")
+autoplay = true
